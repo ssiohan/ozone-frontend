@@ -5,7 +5,6 @@ import React from 'react';
 import './homepage.scss';
 
 // == import Composants
-import Container from '@material-ui/core/Container';
 import Banner from 'src/components/Banner';
 import Description from './Description';
 import Card from './Card';
@@ -14,15 +13,15 @@ import Card from './Card';
 const Homepage = () => (
   <div id="homepage">
     <Banner />
-    <Container className="container-homepage">
+    <div className="container-homepage">
       <Description />
-      <Container className="card">
+      <div className="card">
         <Card />
         <Card />
         <Card />
         <Card />
-      </Container>
-    </Container>
+      </div>
+    </div>
   </div>
 );
 

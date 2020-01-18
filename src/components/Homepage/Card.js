@@ -30,8 +30,7 @@ const useStyles = makeStyles({
     width: '100%',
     height: 380,
   },
-  test: {
-    
+  leftSide: {
     padding: '0px',
     width: '400px',
     height: '100%',
@@ -47,17 +46,18 @@ export default function MediaCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardContent className={classes.test}>
+    <Card className="card-custom">
+
+      <div className="leftSide">
         <CardMedia
           component="img"
           className={classes.media}
           image="src/assets/img/IMG_1155.JPG"
-          title="Contemplative Reptile"
+          title="image test"
         />
-      </CardContent>
+      </div>
       <CardContent centerRipple="false">
-        <Typography className={classes.title} gutterBottom="true" align="left" variant="h3">
+        <Typography className={classes.title} gutterBottom="true" align="left" variant="h4">
           Titre de l'évenement
         </Typography>
         <Container className="right-side">
@@ -68,7 +68,7 @@ export default function MediaCard() {
             <Typography>16/22/2020</Typography>
             <Button variant="contained">Voir Plus</Button>
           </CardContent>
-          <CardContent className="right-content">
+          <CardContent className="middle-content">
             <Typography>infos sur l'evenement</Typography>
             <Typography>
               <p className="right-content-text">
@@ -85,6 +85,8 @@ export default function MediaCard() {
                 <AccessTimeIcon /> Durée
               </p>
             </Typography>
+          </CardContent>
+          <CardContent className="right-content">
             <Typography>
               <p className="right-content-text">
                 <FaPeopleCarry /> Impact societé
