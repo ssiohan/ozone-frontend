@@ -6,6 +6,8 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
+import Card from './Card';
+
 
 // == Composant
 const Homepage = () => (
@@ -31,6 +33,9 @@ const Homepage = () => (
       <button type="button" className="description-button">
       S'inscrire
       </button>
+    </div>
+    <div>
+     <Card />
     </div>
   </div>
 );
