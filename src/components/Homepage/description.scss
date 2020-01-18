@@ -1,0 +1,35 @@
+@import 'src/styles/vars';
+
+.description {
+  width: 20%;
+  text-align: left;
+  border: 1.5px solid #DFE6ED;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin-left: 1em;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 1em;
+
+  &-logo {
+    width: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em; 
+   } 
+   &-text {
+     margin: .2em;
+     margin-right: 0;
+    }
+  &-button {
+    color: #ffffff;
+    font-size: 1em;
+    background: $blue-gradient;
+    margin: 1em;
+    padding: .7em 1em;
+    border-radius: 7px;
+    border: 1px solid $button;
+  }
+   
+}
