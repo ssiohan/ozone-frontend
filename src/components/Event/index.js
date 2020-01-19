@@ -14,7 +14,7 @@ const Event = () => (
       <div className="event_header_left">
         <h1>Ramassage de déchets sur la plage d'Armanville</h1>
         <div className="event_header_info">
-          <span className="event_label">Acte citoyen</span>
+          <span className="event_label_span">Acte citoyen</span>
           <div id="progress_participants">
             <p>30/50 participants</p>
             <ProgressBar />

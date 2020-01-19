@@ -20,14 +20,18 @@
 .event_header_info{
   display: flex;
   justify-content: space-around;
+  align-content: space-around;
   margin-bottom: 1em;
 }
-
+#progress_participants {
+  display: flex;
+  flex-direction: column;
+}
 #progress_participants p {
  font-size: medium;
 }
 
-.event_label {
+.event_label_span {
   width: 10em;
   height: 2em;
   background-color: $button;
@@ -35,6 +39,9 @@
   color: $bg-color;
   font-weight: 700;
   border-radius: 5%;
+  font-size: medium;
+  box-sizing: unset;
+  align-self: flex-end;
 }
 .event_author_name {
   text-decoration: underline;
