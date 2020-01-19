@@ -2,34 +2,35 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import CreateIcon from '@material-ui/icons/Create';
+import ShareIcon from '@material-ui/icons/Share';
 
 // Source: https://material-ui.com/components/buttons/
-// Marge du bouton custom
+
+// == Marge du bouton custom
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+  button: {
+    margin: theme.spacing(1),
   },
 }));
 
 // == Composant
-const ModifyButton = () => {
+const ShareButton = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <Button
-        href="#page-modifier-event"
-        color="primary"
+        variant="contained"
+        color="default"
+        size="large"
+        className={classes.button}
+        startIcon={<ShareIcon />}
       >
-        <CreateIcon />
-         Modifier
+        Partager
       </Button>
     </div>
   );
 };
 
 // == Export
-export default ModifyButton;
+export default ShareButton;

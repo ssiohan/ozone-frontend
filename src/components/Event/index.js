@@ -7,6 +7,7 @@ import './event.scss';
 // == Import : sous-composants
 import ProgressBar from './ProgressBar';
 import ModifyButton from './ModifyButton';
+import ShareButton from './ShareButton';
 
 // == Composant
 const Event = () => (
@@ -25,7 +26,7 @@ const Event = () => (
       </div>
       <div className="event_header_right">
         <ModifyButton />
-        <button type="submit">Partager</button>
+        <ShareButton />
       </div>
     </div>
     <div id="event_description">
