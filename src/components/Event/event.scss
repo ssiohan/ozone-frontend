@@ -1,0 +1,47 @@
+@import 'src/styles/vars.scss';
+
+#event_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5em;
+  padding: 2em 1em;
+}
+
+.event_header_left {
+  width: 40%;
+}
+
+.event_header_left h1 {
+  width: 100%;
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 1em;
+}
+.event_header_info{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+
+#progress_participants p {
+ font-size: medium;
+}
+
+.event_label {
+  width: 10em;
+  height: 2em;
+  background-color: $button;
+  padding-top: .5em;
+  color: $bg-color;
+  font-weight: 700;
+  border-radius: 5%;
+}
+.event_author_name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.event_header_right {
+  display: flex;
+  flex-direction: column;
+}
