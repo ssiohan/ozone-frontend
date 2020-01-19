@@ -8,6 +8,7 @@ import './event.scss';
 import ProgressBar from './ProgressBar';
 import ModifyButton from './ModifyButton';
 import ShareButton from './ShareButton';
+import ParticipateButton from './ParticipateButton';
 
 // == Composant
 const Event = () => (
@@ -30,7 +31,38 @@ const Event = () => (
       </div>
     </div>
     <div id="event_description">
-      Image, description, bouton participer
+      <div className="event_description_left">
+        <img src="https://docplayer.fr/docs-images/81/84162906/images/5-0.jpg" alt="" />
+      </div>
+      <div className="event_description__right">
+        <p className="event_description_paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem saepe repellendus atque
+          perspiciatis quos architecto ipsa at ut illo obcaecati, ad cupiditate,
+          eligendi maiores facere, molestias voluptate.Veniam, qui repudiandae?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa inventore ullam,
+          asperiores eaque dicta tenetur.Culpa, fugit! Expedita ad natus non
+          necessitatibus neque delectus assumenda adipisci qui corrupti sed.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Quia aspernatur, earum at dolor fugit molestiae necessitatibus
+          minus cum deleniti impedit soluta animi facilis consequuntur recusandae
+          sed omnis iure asperiores nihil! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Rem saepe repellendus atque
+          perspiciatis quos architecto ipsa at ut illo obcaecati, ad cupiditate,
+          eligendi maiores facere, molestias voluptate.
+          Veniam, qui repudiandae?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Esse culpa inventore ullam, asperiores eaque dicta tenetur.
+          Culpa, fugit! Expedita ad natus non necessitatibus neque
+          delectus assumenda adipisci qui corrupti sed.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Quia aspernatur, earum at dolor fugit molestiae necessitatibus
+          minus cum deleniti impedit soluta animi facilis consequuntur
+          recusandae sed omnis iure asperiores nihil!
+        </p>
+        <div className="participate_button">
+          <ParticipateButton />
+        </div>
+      </div>
     </div>
     <div id="event_footer">
       Carte, lien Google maps et adresse
