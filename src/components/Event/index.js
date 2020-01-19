@@ -6,6 +6,7 @@ import './event.scss';
 
 // == Import : sous-composants
 import ProgressBar from './ProgressBar';
+import ModifyButton from './ModifyButton';
 
 // == Composant
 const Event = () => (
@@ -23,7 +24,7 @@ const Event = () => (
         <p>Proposé par: <span className="event_author_name">Jean Marc de la compta</span></p>
       </div>
       <div className="event_header_right">
-        <button type="submit">Modifier</button>
+        <ModifyButton />
         <button type="submit">Partager</button>
       </div>
     </div>
