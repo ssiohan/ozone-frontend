@@ -13,6 +13,7 @@ import Banner from 'src/components/Banner';
 import Description from './Description';
 import Cardweb from './Cardweb';
 import Cardmob from './Cardmob';
+import SearchBar from './SearchBar';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,6 +38,7 @@ export default function FullWidthGrid() {
             <Description />
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
+            <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBar /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
