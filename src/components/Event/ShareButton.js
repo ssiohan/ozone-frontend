@@ -22,7 +22,7 @@ const ShareButton = () => {
       <Button
         variant="contained"
         color="default"
-        size="large"
+        size="medium"
         className={classes.button}
         startIcon={<ShareIcon />}
       >

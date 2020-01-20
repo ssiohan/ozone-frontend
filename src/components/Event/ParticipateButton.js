@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 // Source: https://material-ui.com/components/buttons/
 
-// == Marge du bouton custom
+// == Style du bouton custom
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
