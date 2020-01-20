@@ -11,6 +11,7 @@ import ProgressBar from './ProgressBar';
 import ModifyButton from './ModifyButton';
 import ShareButton from './ShareButton';
 import EventLabel from './EventLabel';
+import EventDescription from './EventDescription';
 import ParticipateButton from './ParticipateButton';
 import MapLink from './MapLink';
 import EventAddress from './EventAddress';
@@ -59,14 +60,7 @@ const Event = () => (
       </Grid>
     </div>
     {/** Partie centrale de la page avec photo, description et bouton participer */}
-    <Grid container>
-      <Grid item>
-        Partie gauche avec l'image
-      </Grid>
-      <Grid item>
-        Partie droite avec description et bouton participer
-      </Grid>
-    </Grid>
+    <EventDescription />
   </div>
 );
 
