@@ -1,5 +1,6 @@
 @import 'src/styles/vars.scss';
 
+
 // Style de la partie haute de la page
 
 #event_title {
@@ -11,4 +12,13 @@
   font-size: medium;
   color: grey;
   font-style: italic;
+}
+
+#event_author_name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#event_header {
+  margin-bottom: 3em;
 }
