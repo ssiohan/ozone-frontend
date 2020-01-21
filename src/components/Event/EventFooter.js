@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   address: {
     maxWidth: 300,
-    borderRight: 'dashed #078171',
+    borderRight: 'solid 1px #E0E0E0',
   },
   tableRow: {
     minHeight: 100,
