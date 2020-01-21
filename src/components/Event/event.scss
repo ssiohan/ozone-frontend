@@ -1,0 +1,32 @@
+@import 'src/styles/vars.scss';
+
+
+// Style de la partie haute de la page
+
+#event_title {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+#event_participants_progress {
+  font-size: medium;
+  color: grey;
+  font-style: italic;
+}
+
+#event_author_name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#event_header {
+  margin-bottom: 5em;
+}
+
+#event_footer {
+  margin-top: 8em;
+}
+.event_characteristics {
+  font-weight: bold;
+  text-decoration: underline;
+}
