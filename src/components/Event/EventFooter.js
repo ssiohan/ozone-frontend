@@ -10,6 +10,7 @@ import './event.scss';
 // == Import : sous-composants
 import MapLink from './MapLink';
 import EventAddress from './EventAddress';
+import EventCharacteristics from './EventCharacteristics';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +73,7 @@ const EventFooter = () => {
       </Grid>
       {/* Partie du milieu avec infos sur l'event: participants, pénibilité, durée etc.. */}
       <Grid item xs={12} md={4}>
-          Milieu
+        <EventCharacteristics />
       </Grid>
       {/* Partie de droite avec infos de contact de l'organisateur, date, score */}
       <Grid item xs={12} md={4}>

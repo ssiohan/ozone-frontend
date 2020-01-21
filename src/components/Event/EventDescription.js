@@ -81,9 +81,7 @@ const EventDescription = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="body2">
-                  <ParticipateButton />
-                </Typography>
+                <ParticipateButton />
               </Grid>
             </Grid>
           </Grid>
