@@ -1,8 +1,5 @@
 @import 'src/styles/vars.scss';
 
-
-// Style de la partie haute de la page
-
 #event_title {
   font-weight: bolder;
   font-size: x-large;
@@ -29,4 +26,11 @@
 .event_characteristics {
   font-weight: bold;
   text-decoration: underline;
+}
+#event_footer_address {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+.event_score {
+  font-weight: bolder;
 }

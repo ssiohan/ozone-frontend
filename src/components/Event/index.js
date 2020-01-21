@@ -21,7 +21,8 @@ const Event = () => (
     {/** Partie centrale de la page avec photo, description et bouton participer
          Inclue le sous-composant: ParticipateButton. */}
     <EventDescription />
-    {/* Footer page avec map & adresse, caractérisques de l'event, contact de l'organisateur */}
+    {/* Footer page avec map & adresse, caractérisques de l'event, contact de l'organisateur
+        Inclue les sous-composants: MapLink, EventAddress et EventCharacteristics */}
     <div id="event_footer">
       <EventFooter />
     </div>
