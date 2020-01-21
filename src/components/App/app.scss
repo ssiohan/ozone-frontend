@@ -1,5 +1,11 @@
+@import 'src/styles/vars';
+
 #app {
   font-size: 1.2em;
   text-align: center;
-  margin: 1em;
+  // margin: 1em;
 }
+body {
+  font-family: system-ui;
+  background-color: $bg-color;
+ }
