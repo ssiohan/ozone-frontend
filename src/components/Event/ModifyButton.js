@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
 
 // Source: https://material-ui.com/components/buttons/
-// Marge du bouton custom
+// Marge du bouton
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
