@@ -1,1 +1,53 @@
+@import 'src/styles/vars';
 
+// -- Description & LeftBar components
+
+.description {
+  
+  border: 1.5px solid #DFE6ED;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: #fff;
+
+  &-logo {
+    text-align: center;
+    width: 5em;
+    margin-bottom: 1em; 
+   } 
+   &-text {
+    text-align: left;
+    margin: .2em;
+    }
+  &-button {
+    color: #ffffff;
+    font-size: 1em;
+    background: #078171;
+    padding: .7em 1em;
+    border-radius: 7px;
+    border: 1px solid $button;
+  }
+}
+// -- Cardweb component
+
+.title {
+  border: 1px solid black;
+  width: 100%;
+}
+.date {
+  padding: 1em;
+}
+.card-button 
+{
+  background-color: #078171;
+}
+
+// -- Cardmob component
+
+.date 
+{
+  text-align: left;
+}
+
+.MuiCheckbox-colorSecondary {
+  color: #078171;
+}

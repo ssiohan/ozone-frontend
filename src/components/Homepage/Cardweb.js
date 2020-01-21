@@ -12,7 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 
 // == Import : local
-import './cardweb.scss';
+import './homepage.scss';
 
 // == Import components
 

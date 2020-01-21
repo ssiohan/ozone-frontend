@@ -11,6 +11,7 @@ import './homepage.scss';
 // == import Composants
 import Banner from 'src/components/Banner';
 import Description from './Description';
+import LeftBar from './LeftBar';
 import Cardweb from './Cardweb';
 import Cardmob from './Cardmob';
 import SearchBar from './SearchBar';
@@ -35,7 +36,7 @@ export default function FullWidthGrid() {
         <Banner />
         <Grid className={classes.homepageContent} container spacing={3}>
           <Grid item md={3}>
-            <Description />
+            <LeftBar />
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBar /></Hidden>

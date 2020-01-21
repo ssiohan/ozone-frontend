@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 
 // == Import : local
-import './description.scss';
+import './homepage.scss';
 
 // == Composant
 
