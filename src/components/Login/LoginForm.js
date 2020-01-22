@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -26,8 +27,24 @@ const useStyles = makeStyles((theme) => ({
 // == Composant
 const LoginForm = () => {
   const classes = useStyles();
+  // Fonction qui permet de récupérer les données saisies par le user
+  const handleLoginInputChange = (evt) => {
+    const fieldName = evt.target.name;
+    const fieldValue = evt.target.value;
+    console.log(fieldName, fieldValue);
+  };
+  // Fonction qui permet de gérer la soumission du formulaire
+  const handleLoginFormSubmit = (evt) => {
+    evt.preventDefault();
+    console.log('login form submitted');
+  };
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleLoginFormSubmit}
+    >
       <Grid
         container
         direction="column"
@@ -39,6 +56,8 @@ const LoginForm = () => {
             label="Email"
             variant="outlined"
             type="email"
+            name="email"
+            onChange={handleLoginInputChange}
           />
         </Grid>
         <Grid item>
@@ -47,6 +66,8 @@ const LoginForm = () => {
             label="Mot de passe"
             variant="outlined"
             type="password"
+            name="password"
+            onChange={handleLoginInputChange}
           />
         </Grid>
         <Grid item xs={12}>
