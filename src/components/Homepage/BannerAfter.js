@@ -19,14 +19,27 @@ const useStyles = makeStyles(theme => ({
   banner: {
     'margin-bottom': '1em',
     'margin-top': '1em',
+    height: '230px',
   },
   map: {
-    width: '8em',
+    width: '100%',
     'background-color': '#fff',
-    'margin-right': '1em',
+    'border-radius': '5px',
+    height: '230px',
   },
   typo: {
     'margin-bottom': '.6em',
+    'border-radius': '5px',
+
+  },
+  title: {
+    'background-color': '#fff',
+    'border-radius': '5px',
+    padding: '16px',
+    marginLeft: '5px',
+  },
+  mapcontainer: {
+    'padding-right': '18px',
   },
   searchBar: {
     bottom: 0,
@@ -38,10 +51,10 @@ export default function BannerAfter() {
 
   return (
     <Grid className={classes.banner} container spacing={0} direction="row" wrap="nowrap">
-      <Grid>
+      <Grid className={classes.mapcontainer} container sm={3}>
         <img className={classes.map} src="src/assets/img/map.png" alt="" />
       </Grid>
-      <Grid container direction="column" alignContent="left">
+      <Grid className={classes.title} container direction="column" sm={9} alignContent="left" justify="space-between">
         <Grid>
           <Typography className={classes.typo} variant="h4" align="left">Les Evénements près de: </Typography>
           <Typography className={classes.typo} variant="h4" align="left">VILLE </Typography>

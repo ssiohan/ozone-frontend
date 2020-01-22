@@ -3,21 +3,19 @@
 
 // --- initial state
 const initialState = {
-  username: '',
-  avatar: '',
+  search: false,
 };
 
 // --- action types
-const LOG_USER = 'LOG_USER';
+const AFTER_SEARCH = 'AFTER_SEARCH';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case LOG_USER:
+    case AFTER_SEARCH:
       return {
         ...state,
-        username: action.username,
-        avatar: action.avatar,
+        search: true,
       };
 
     default: return state;
@@ -25,10 +23,12 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // --- action creators
-export const logUser = (username, avatar) => ({
-  type: LOG_USER,
-  username,
-  avatar,
+export const logUser = (description, banner, bannerAfter, leftbar) => ({
+  type: AFTER_SEARCH,
+  description,
+  banner,
+  bannerAfter,
+  leftbar,
 });
 
 // --- export

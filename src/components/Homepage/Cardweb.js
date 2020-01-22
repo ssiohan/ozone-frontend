@@ -7,14 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
-// import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
-
-// == Import : local
-import './homepage.scss';
-
-// == Import components
 
 //  == Import Icons
 import { GiRecycle } from 'react-icons/gi';
@@ -22,10 +16,14 @@ import { GoGraph } from 'react-icons/go';
 import { FaPeopleCarry, FaCoins } from 'react-icons/fa';
 import { MdPeople, MdAccessTime } from 'react-icons/md';
 
-const useStyles = makeStyles(theme => ({
+// == Import : local
+import './homepage.scss';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'margin-bottom': '1em',
+    height: '250px',
   },
   right: {
     'padding-left': '1em',
@@ -39,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   title: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.black,
     'font-size': '1.5em',
@@ -77,6 +75,7 @@ const useStyles = makeStyles(theme => ({
   cardButton: {
     'background-color': '#078171',
     color: '#fff',
+    'white-space': 'nowrap',
     '&:hover': {
       backgroundColor: '#196A75',
       color: '#fff',
