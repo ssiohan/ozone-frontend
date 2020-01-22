@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
       width: 500,
+      minWidth: 300,
       border: 'solid 1px #E0E0E0',
     },
   },
@@ -27,7 +28,11 @@ const LoginForm = () => {
   const classes = useStyles();
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <Grid container direction="column">
+      <Grid
+        container
+        direction="column"
+        justify="center"
+      >
         <Grid item>
           <TextField
             id="login-email"
@@ -44,7 +49,7 @@ const LoginForm = () => {
             type="password"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12}>
           <Button
             variant="contained"
             type="submit"

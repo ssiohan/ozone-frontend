@@ -17,6 +17,7 @@ import LoginForm from './LoginForm';
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
+    flexGrow: 1,
   },
 }));
 
@@ -25,17 +26,24 @@ const Login = () => {
   const classes = useStyles();
   return (
     <div id="login">
-      <Grid container direction="column" className={classes.root}>
-        <Banner />
-        <Grid item>
-          <Typography variant="h1" gutterBottom>
+      <Grid
+        container
+        direction="column"
+        className={classes.root}
+        justify="center"
+      >
+        <Grid item xs={12}>
+          <Banner />
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h1" gutterBottom xs={12}>
              Connexion
           </Typography>
         </Grid>
-        <Grid item>
-          <FaRegUserCircle size={70} />
+        <Grid item xs={12}>
+          <FaRegUserCircle size={70} xs={12} />
         </Grid>
-        <Grid item>
+        <Grid item xs={12}>
           <LoginForm />
         </Grid>
       </Grid>
