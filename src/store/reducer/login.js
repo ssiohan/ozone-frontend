@@ -3,7 +3,7 @@
 import {
   CHANGE_INPUT_VALUE,
   DO_LOGIN,
-} from './actions';
+} from '../actions';
 
 // == initialState
 const initialState = {
