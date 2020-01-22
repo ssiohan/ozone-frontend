@@ -2,6 +2,8 @@
 // == action types
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const DO_LOGIN = 'DO_LOGIN';
+export const AFTER_SEARCH = 'AFTER_SEARCH';
+
 
 // == action creators
 // Seule utilité : simplifier la création d'action

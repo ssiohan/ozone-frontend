@@ -7,7 +7,7 @@ import './profile.scss';
 // == Composant
 const Profile = () => (
   <div id="profile">
-    Page de profil utilisateur 
+    Page de profil utilisateur
   </div>
 );
 

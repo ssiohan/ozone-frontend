@@ -48,7 +48,7 @@ export default function CheckboxesGroup() {
           />
           <FormControlLabel
             control={<Checkbox color="primary" checked={reunion} onChange={handleChange('reunion')} value="reunion" />}
-            label="Réunion information"
+            label="Réunion"
           />
         </FormGroup>
       </FormControl>
