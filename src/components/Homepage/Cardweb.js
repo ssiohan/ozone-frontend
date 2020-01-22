@@ -19,7 +19,7 @@ import { MdPeople, MdAccessTime } from 'react-icons/md';
 // == Import : local
 import './homepage.scss';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'margin-bottom': '1em',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   title: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.black,
     'font-size': '1.5em',
@@ -75,6 +75,7 @@ const useStyles = makeStyles(theme => ({
   cardButton: {
     'background-color': '#078171',
     color: '#fff',
+    'white-space': 'nowrap',
     '&:hover': {
       backgroundColor: '#196A75',
       color: '#fff',
