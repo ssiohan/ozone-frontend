@@ -10,11 +10,12 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
+import BannerAfter from 'src/components/Homepage/BannerAfter';
 import Description from './Description';
 import LeftBar from './LeftBar';
 import Cardweb from './Cardweb';
 import Cardmob from './Cardmob';
-import SearchBar from './SearchBar';
+import SearchBarMaps from './SearchBarMaps';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,12 +35,13 @@ export default function FullWidthGrid() {
     <Container className={classes.root} maxWidth="lg" id="app">
       <Grid className={classes.homepage}>
         <Banner />
+        <Hidden only={['xs']}><BannerAfter /></Hidden>
         <Grid className={classes.homepageContent} container spacing={3}>
           <Grid item md={3}>
             <LeftBar />
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
-            <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBar /></Hidden>
+            <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
             <Hidden only={['xs']}><Cardweb /></Hidden>
