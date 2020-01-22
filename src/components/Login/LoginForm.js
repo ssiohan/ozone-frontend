@@ -3,6 +3,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -26,26 +27,35 @@ const LoginForm = () => {
   const classes = useStyles();
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField
-        id="login-email"
-        label="Email"
-        variant="outlined"
-        type="email"
-      />
-      <TextField
-        id="login-password"
-        label="Mot de passe"
-        variant="outlined"
-        type="password"
-      />
-      <Button
-        variant="contained"
-        color="default"
-        size="large"
-        className={classes.button}
-      >
+      <Grid container direction="column">
+        <Grid item>
+          <TextField
+            id="login-email"
+            label="Email"
+            variant="outlined"
+            type="email"
+          />
+        </Grid>
+        <Grid item>
+          <TextField
+            id="login-password"
+            label="Mot de passe"
+            variant="outlined"
+            type="password"
+          />
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            type="submit"
+            color="default"
+            size="large"
+            className={classes.button}
+          >
         Me connecter
-      </Button>
+          </Button>
+        </Grid>
+      </Grid>
     </form>
   );
 };
