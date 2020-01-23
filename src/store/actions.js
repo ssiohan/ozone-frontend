@@ -11,3 +11,7 @@ export const changeInput = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value,
 });
+export const afterSearch = (search) => ({
+  type: AFTER_SEARCH,
+  search,
+});

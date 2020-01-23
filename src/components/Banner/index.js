@@ -2,13 +2,14 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
+
 // == Import : local
 import './banner.scss';
-import Dialog from './Dialog';
+import Dialog from 'src/containers/Homepage/Dialog';
+// import InputSearch from './InputSearch';
 // == Composant
 const Banner = () => (
   <Grid container alignContent="center" justify="center" id="banner">
-    {/* <img className="bannerImg" src="src/assets/img/earth.jpeg" alt="" /> */}
     <Dialog className="dialog" />
   </Grid>
 );

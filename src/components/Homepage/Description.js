@@ -4,6 +4,7 @@ import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 // == Import : local
@@ -11,7 +12,7 @@ import './homepage.scss';
 
 // == Composant
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -41,21 +42,21 @@ export default function FullWidthGrid() {
             <img className="description-logo" src="src/assets/img/logo_sans_fond.png" alt="" />
           </Grid>
           <Grid item xs={12} sm={12}>
-            <p className="description-text">
+            <Typography className="description-text">
               Débloquez le meilleur d'oZone.
-            </p>
-            <p className="description-text">
+            </Typography>
+            <Typography className="description-text">
               Proposez vos Events sur l'écologie.
-            </p>
-            <p className="description-text">
+            </Typography>
+            <Typography className="description-text">
               Inscrivez vous aux events.
-            </p>
-            <p className="description-text">
+            </Typography>
+            <Typography className="description-text">
               Recevez des alertes de prix et des events pour agir sur la planete.
-            </p>
-            <p className="description-text">
+            </Typography>
+            <Typography className="description-text">
               Gagner des points blablabla lorem
-            </p>
+            </Typography>
           </Grid>
           <Grid item xs={12} sm={12}>
             <Button className={classes.cardButton} variant="contained">s'inscrire</Button>
