@@ -25,10 +25,10 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action creators
-export const changeFieldValue = (value, name) => ({
+export const changeFieldValue = (name, value) => ({
   type: CHANGE_FIELD_VALUE,
-  value,
   name,
+  value,
 });
 
 // == Export

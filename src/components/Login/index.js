@@ -49,8 +49,8 @@ const Login = ({
   const handleInputChange = (evt) => {
     const fieldValue = evt.target.value;
     const fieldName = evt.target.name;
-    console.log(fieldValue, fieldName);
-    onFieldChange(fieldValue, fieldName);
+    // console.log(fieldValue, fieldName);
+    onFieldChange(fieldName, fieldValue);
   };
   // Fonction qui permet de gérer la soumission du formulaire
   const handleLoginFormSubmit = (evt) => {
@@ -96,7 +96,8 @@ const Login = ({
                   type="email"
                   name="email"
                   variant="outlined"
-                  InputProps={{
+                  value={emailValue}
+                  inputProps={{
                     value: emailValue,
                   }}
 
@@ -110,7 +111,8 @@ const Login = ({
                   type="password"
                   name="password"
                   variant="outlined"
-                  InputProps={{
+                  value={passwordValue}
+                  inputProps={{
                     value: passwordValue,
                   }}
                   onChange={handleInputChange}
