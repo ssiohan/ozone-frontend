@@ -1,13 +1,20 @@
 #banner 
 {
-  border: 1px solid black;
+  
   margin-bottom: 1em;
   height: 200px;
-  // background: url("../../assets/img/earth.jpeg");
+  background-color: #fff;
 }
 .bannerImg
 {  
   width: 100%;
   max-height: 100%;
 }
-
+.dialog{
+  background-color: #078171;
+  border-radius: 5px;
+}
+.dialogButton
+{
+  color: #fff;
+}

@@ -18,26 +18,14 @@ import Cardweb from './Cardweb';
 import Cardmob from './Cardmob';
 import SearchBarMaps from './SearchBarMaps';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 const Homepage = ({ search }) => {
-  const classes = useStyles();
-
   return (
     <div>
       {!search && <Banner />}
-      <Container className={classes.root} id="app">
-        <Grid className={classes.homepage}>
+      <Container id="app">
+        <Grid>
           {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
-          <Grid className={classes.homepageContent} container spacing={3}>
+          <Grid container spacing={3}>
             <Grid item md={3}>
               {!search && <Description />}
               {search && <LeftBar />}

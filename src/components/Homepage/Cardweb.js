@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rightContentScore: {
     'text-align': 'left',
-    'font-size': '1.5em',
+    'font-size': '1em',
   },
   avatar: {
     'text-align': 'center',
@@ -104,8 +104,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
-              <Avatar aria-label="recipe" className={classes.avatar}>
-                oZ
+              <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}>
               </Avatar>
               <Typography className="date">16/22/2020</Typography>
               <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
@@ -114,40 +113,40 @@ export default function FullWidthGrid() {
           <Grid container wrap="nowrap" item xs={12} sm={9}>
             <div className={classes.rightContent}>
               <CardContent>
-                <Typography>
-                  <p className={classes.rightContentText}>
+                <Grid>
+                  <Typography className={classes.rightContentText}>
                     <MdPeople /> 14/20 participants
-                  </p>
-                </Typography>
-                <Typography>
-                  <p className={classes.rightContentText}>
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography className={classes.rightContentText}>
                     <GoGraph /> Penibilité
                     <Rating name="read-only" value={4} size="small" />
-                  </p>
-                </Typography>
-                <Typography>
-                  <p className={classes.rightContentText}>
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography className={classes.rightContentText}>
                     <MdAccessTime /> Durée
                     <Rating name="read-only" value={4} size="small" />
-                  </p>
-                </Typography>
-                <Typography>
-                  <p className={classes.rightContentText}>
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography className={classes.rightContentText}>
                     <FaPeopleCarry /> Impact societé
                     <Rating name="read-only" value={4} size="small" />
-                  </p>
-                </Typography>
-                <Typography>
-                  <p className={classes.rightContentText}>
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography className={classes.rightContentText}>
                     <GiRecycle /> Impact environnement
                     <Rating name="read-only" value={4} size="small" />
-                  </p>
-                </Typography>
-                <Typography>
-                  <p className={classes.rightContentScore}>
+                  </Typography>
+                </Grid>
+                <Grid>
+                  <Typography className={classes.rightContentScore}>
                     <FaCoins /> Score 16/20
-                  </p>
-                </Typography>
+                  </Typography>
+                </Grid>
               </CardContent>
             </div>
           </Grid>
