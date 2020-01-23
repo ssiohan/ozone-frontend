@@ -95,7 +95,11 @@ const Login = ({
                   label="Email"
                   type="email"
                   name="email"
-                  value={emailValue}
+                  variant="outlined"
+                  InputProps={{
+                    value: emailValue,
+                  }}
+
                   onChange={handleInputChange}
                 />
               </Grid>
@@ -105,7 +109,10 @@ const Login = ({
                   label="Mot de passe"
                   type="password"
                   name="password"
-                  value={passwordValue}
+                  variant="outlined"
+                  InputProps={{
+                    value: passwordValue,
+                  }}
                   onChange={handleInputChange}
                 />
               </Grid>
