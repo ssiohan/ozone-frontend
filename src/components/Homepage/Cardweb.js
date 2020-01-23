@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'margin-bottom': '1em',
-    height: '250px',
+    height: '230px',
   },
   right: {
     'padding-left': '1em',
@@ -45,16 +45,17 @@ const useStyles = makeStyles((theme) => ({
   leftContent: {
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    // 'border-right': '1px dashed black',
   },
   rightContent: {
     padding: '0 1em',
     textAlign: 'center',
     color: theme.palette.text.secondary,
     width: '100%',
+    'margin-left': '1em',
   },
   rightContentText: {
     'text-align': 'left',
+    'white-space': 'nowrap',
   },
   rightContentScore: {
     'text-align': 'left',
