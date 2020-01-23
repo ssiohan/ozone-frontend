@@ -32,27 +32,29 @@ const Homepage = ({ search }) => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root} maxWidth="lg" id="app">
-      <Grid className={classes.homepage}>
-        {!search && <Banner />}
-        {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
-        <Grid className={classes.homepageContent} container spacing={3}>
-          <Grid item md={3}>
-            {!search && <Description />}
-            {search && <LeftBar />}
-          </Grid>
-          <Grid item xs={12} sm={12} md={9}>
-            <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
-            <Hidden only={['xs']}><Cardweb /></Hidden>
-            <Hidden only={['xs']}><Cardweb /></Hidden>
-            <Hidden only={['xs']}><Cardweb /></Hidden>
-            <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-            <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-            <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+    <div>
+      {!search && <Banner />}
+      <Container className={classes.root} id="app">
+        <Grid className={classes.homepage}>
+          {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
+          <Grid className={classes.homepageContent} container spacing={3}>
+            <Grid item md={3}>
+              {!search && <Description />}
+              {search && <LeftBar />}
+            </Grid>
+            <Grid item xs={12} sm={12} md={9}>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
+              <Hidden only={['xs']}><Cardweb /></Hidden>
+              <Hidden only={['xs']}><Cardweb /></Hidden>
+              <Hidden only={['xs']}><Cardweb /></Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

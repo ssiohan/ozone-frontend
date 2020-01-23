@@ -91,6 +91,7 @@ export default function GoogleMaps() {
       id="google-map-demo"
       style={{ width: '100%',
         maxWidth: 345,
+        margin: 'auto',
       }}
       getOptionLabel={option => (typeof option === 'string' ? option : option.description)}
       filterOptions={x => x}

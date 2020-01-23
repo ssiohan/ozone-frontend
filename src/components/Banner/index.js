@@ -7,7 +7,7 @@ import './banner.scss';
 // == Composant
 const Banner = () => (
   <div id="banner">
-    Banner
+    <img src="src/assets/img/earth.jpeg" alt="" />
   </div>
 );
 

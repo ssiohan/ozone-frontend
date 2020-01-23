@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     'margin-top': '1em',
+    margin: 'auto',
   },
   user: {
     'margin-top': '.5em',
