@@ -7,10 +7,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
-import InputSearch from 'src/containers/Homepage/InputSearch';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
-export default function FormDialog({ value, searchOk, changeInputValue  }) {
+export default function FormDialog({ searchOk, changeInputValue }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,7 +20,7 @@ export default function FormDialog({ value, searchOk, changeInputValue  }) {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setOpen(false);
@@ -62,7 +62,6 @@ export default function FormDialog({ value, searchOk, changeInputValue  }) {
               Chercher un évenement près de chez vous.
             </DialogContentText>
             <TextField
-              value={value}
               onChange={handleChange}
               autoFocus
               margin="dense"
@@ -85,3 +84,8 @@ export default function FormDialog({ value, searchOk, changeInputValue  }) {
     </div>
   );
 }
+FormDialog.propTypes = {
+
+  changeInputValue: PropTypes.func.isRequired,
+  searchOk: PropTypes.func.isRequired,
+};
