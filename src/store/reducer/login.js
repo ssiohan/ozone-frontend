@@ -1,9 +1,6 @@
 /* eslint-disable linebreak-style */
-// == Import des actions
-import {
-  CHANGE_INPUT_VALUE,
-  DO_LOGIN,
-} from '../actions';
+// == Action types
+const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
 
 // == initialState
 const initialState = {
@@ -17,19 +14,22 @@ const initialState = {
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_FIELD_VALUE:
       return {
         ...state,
-        email: action.value,
-      };
-    case DO_LOGIN:
-      return {
-        ...state,
+        [action.name]: action.value,
       };
     default:
       return state;
   }
 };
+
+// == Action creators
+export const changeFieldValue = (value, name) => ({
+  type: CHANGE_FIELD_VALUE,
+  name,
+  value,
+});
 
 // == Export
 export default reducer;
