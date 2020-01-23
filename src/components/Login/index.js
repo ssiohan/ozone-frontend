@@ -6,6 +6,7 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 
 
@@ -14,7 +15,6 @@ import './login.scss';
 
 // == Import : sous-composants
 import Banner from 'src/components/Banner';
-import Field from './Field';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,12 @@ const Login = ({
 }) => {
   const classes = useStyles();
   // Fonction qui permet de récupérer les données saisies par le user
-
+  const handleInputChange = (evt) => {
+    const fieldValue = evt.target.value;
+    const fieldName = evt.target.name;
+    console.log(fieldValue, fieldName);
+    onFieldChange(fieldValue, fieldName);
+  };
   // Fonction qui permet de gérer la soumission du formulaire
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
@@ -85,21 +90,23 @@ const Login = ({
               justify="center"
             >
               <Grid item>
-                <Field
+                <TextField
+                  id="field-email"
                   label="Email"
                   type="email"
                   name="email"
                   value={emailValue}
-                  onInputChange={onFieldChange}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item>
-                <Field
+                <TextField
+                  id="field-password"
                   label="Mot de passe"
                   type="password"
                   name="password"
                   value={passwordValue}
-                  onInputChange={onFieldChange}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -121,10 +128,16 @@ const Login = ({
   );
 };
 
+// == Props par défaut
+// Login.defaultProps = {
+//   emailValue: '',
+//   passwordValue: '',
+// };
+
 // == Validation des props
 Login.propTypes = {
-  emailValue: PropTypes.string.isRequired,
-  passwordValue: PropTypes.string.isRequired,
+  emailValue: PropTypes.string,
+  passwordValue: PropTypes.string,
   onFieldChange: PropTypes.func.isRequired,
 };
 
