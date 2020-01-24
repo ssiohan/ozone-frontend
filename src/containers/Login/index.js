@@ -16,8 +16,7 @@ const mapStateToProps = (state) => ({
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   onFieldChange: (name, value) => {
-    const test = changeFieldValue(name, value);
-    console.log('hello depuis mDTP', name, value, test);
+    // console.log('hello depuis mDTP', name, value);
     dispatch(changeFieldValue(name, value));
   },
 });
