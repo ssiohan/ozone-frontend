@@ -15,6 +15,7 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD_VALUE:
+      console.log(action.name, action.value);
       return {
         ...state,
         [action.name]: action.value,
