@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   right: {
     'padding-left': '1em',
+    // 'background-image': 'url("src/assets/img/white.png")',
   },
   img: {
     padding: theme.spacing(2),
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     width: '100%',
     'margin-left': '1em',
+    opacity: '.7',
   },
   rightContentText: {
     'text-align': 'left',
@@ -74,13 +76,16 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   cardButton: {
-    'background-color': '#078171',
+    'background-color': '#196A75',
     color: '#fff',
     'white-space': 'nowrap',
     '&:hover': {
-      backgroundColor: '#196A75',
+      backgroundColor: '#196A85',
       color: '#fff',
     },
+  },
+  card: {
+    'background-color': 'rgba(255, 255, 255, 0.892)',
   },
 }));
 

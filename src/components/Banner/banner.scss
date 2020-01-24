@@ -4,14 +4,16 @@
   margin-bottom: 1em;
   height: 200px;
   background-color: #fff;
+  background: no-repeat url("../../assets/img/banner.png");
 }
 .bannerImg
 {  
   width: 100%;
   max-height: 100%;
+  
 }
 .dialog{
-  background-color: #078171;
+  background-color: #196A75;
   border-radius: 5px;
 }
 .dialogButton

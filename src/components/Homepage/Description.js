@@ -15,6 +15,7 @@ import './homepage.scss';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    'background-image': 'url("src/assets/img/sidebar.jpg")',
   },
   paper: {
     padding: theme.spacing(2),
@@ -22,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   cardButton: {
-    'background-color': '#078171',
+    'background-color': '#196A75',
     color: '#fff',
     '&:hover': {
-      backgroundColor: '#196A75',
+      backgroundColor: '#196A85',
       color: '#fff',
     },
   },

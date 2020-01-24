@@ -38,11 +38,11 @@ export default function FormDialog({ searchOk, changeInputValue }) {
 
   const useStyles = makeStyles(() => ({
     dialogButton: {
-      'background-color': '#078171',
+      'background-color': '#196A75',
       color: '#fff',
       'white-space': 'nowrap',
       '&:hover': {
-        backgroundColor: '#196A75',
+        backgroundColor: '#196A85',
         color: '#fff',
       },
 
@@ -52,14 +52,14 @@ export default function FormDialog({ searchOk, changeInputValue }) {
   return (
     <div className="dialog">
       <Button className={classes.dialogButton} variant="outlined" onClick={handleClickOpen}>
-        Choisir une Ville <KeyboardArrowDown />
+        Les événements près de chez moi <KeyboardArrowDown />
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form action="">
           <DialogTitle id="form-dialog-title">Recherche</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Chercher un évenement près de chez vous.
+              Les événements près de chez moi
             </DialogContentText>
             <TextField
               onChange={handleChange}
