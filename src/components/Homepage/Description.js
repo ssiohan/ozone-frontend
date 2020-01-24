@@ -59,7 +59,7 @@ export default function FullWidthGrid() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <Button className={classes.cardButton} variant="contained">s'inscrire</Button>
+            <Button href="/signin" className={classes.cardButton} variant="contained">s'inscrire</Button>
           </Grid>
         </Grid>
       </div>

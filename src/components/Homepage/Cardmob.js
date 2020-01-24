@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 import { MdPeople } from 'react-icons/md';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
     'margin-top': '1em',
@@ -86,7 +86,7 @@ export default function RecipeReviewCard() {
         <Grid container spacing={0} item xs={12} sm={12}>
           <Typography className={classes.text} align="left" variant="h4">Titre de l'évenement</Typography>
         </Grid>
-        <Typography className={classes.text} align="left">16/22/2020</Typography>
+        <Typography className={classes.text} align="left">16/02/2020</Typography>
         <Typography className={classes.text} variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.

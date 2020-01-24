@@ -1,5 +1,5 @@
-/* eslint-disable linebreak-style */
-// reducer pour gérer les données relatives à l'utilisateur
+
+// reducer pour gérer les données relatives à l'affichage avant et après recherche
 
 // --- initial state
 const initialState = {

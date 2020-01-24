@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     height: '80%',
-    // 'margin-left': '1em',
   },
   media: {
     width: '100%',
@@ -106,8 +105,8 @@ export default function FullWidthGrid() {
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
               <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}>
               </Avatar>
-              <Typography className="date">16/22/2020</Typography>
-              <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+              <Typography className="date">16/02/2020</Typography>
+              <Button href="/event" className={classes.cardButton} variant="contained">En Savoir Plus</Button>
             </Grid>
           </Grid>
           <Grid container wrap="nowrap" item xs={12} sm={9}>

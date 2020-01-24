@@ -1,10 +1,10 @@
 // == Import : npm
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import PropTypes from 'prop-types';
+import homepage from 'src/store/reducer/homepage';
 
 // == Import : local
 import './homepage.scss';
