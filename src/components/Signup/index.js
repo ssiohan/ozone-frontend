@@ -31,6 +31,8 @@ const Signup = (
     signupUsernameValue,
     signupPasswordValue,
     signupConfirmPasswordValue,
+    passwordNotConfirmed,
+    onCheckPasswordConfirmation,
   },
 ) => {
   const classes = useStyles();
@@ -57,9 +59,11 @@ const Signup = (
           <SignupForm
             onSignupFieldChange={onSignupFieldChange}
             signupEmailValue={signupEmailValue}
-            signupUsername={signupUsernameValue}
+            signupUsernameValue={signupUsernameValue}
             signupPasswordValue={signupPasswordValue}
-            signupConfirmPassword={signupConfirmPasswordValue}
+            signupConfirmPasswordValue={signupConfirmPasswordValue}
+            onCheckPasswordConfirmation={onCheckPasswordConfirmation}
+            passwordNotConfirmed={passwordNotConfirmed}
           />
         </Grid>
       </Grid>
@@ -74,6 +78,8 @@ Signup.propTypes = {
   signupUsernameValue: PropTypes.string,
   signupPasswordValue: PropTypes.string,
   signupConfirmPasswordValue: PropTypes.string,
+  onCheckPasswordConfirmation: PropTypes.func.isRequired,
+  passwordNotConfirmed: PropTypes.bool,
 };
 
 // == Export

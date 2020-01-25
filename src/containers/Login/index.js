@@ -9,8 +9,8 @@ import { changeFieldValue } from 'src/store/reducer/login';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
-  emailValue: state.email,
-  passwordValue: state.password,
+  emailValue: state.login.email,
+  passwordValue: state.login.password,
 });
 
 // == Préparation - actions

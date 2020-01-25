@@ -1,5 +1,6 @@
 // == Action types
 const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
+const CHECK_PASSWORD_CONFIRMATION = 'CHECK_PASSWORD_CONFIRMATION';
 
 // == initialState
 const initialState = {
@@ -8,6 +9,8 @@ const initialState = {
   signupUsername: '',
   signupPassword: '',
   signupConfirmPassword: '',
+  // Par défaut, pas d'erreur de confirmation du mot de passe
+  passwordNotConfirmed: false,
   // Par défaut le user n'est pas inscrit
   registered: false,
 };
@@ -21,6 +24,37 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+    case CHECK_PASSWORD_CONFIRMATION:
+      // Si aucun mot de passe n'a été saisi
+      if (state.signupPassword.length === 0) {
+        return {
+          ...state,
+          passwordNotConfirmed: false,
+        };
+      }
+      // Si aucune confirmation de mot de passe n'a été saisie
+      if (state.signupConfirmPassword.length === 0) {
+        return {
+          ...state,
+          passwordNotConfirmed: false,
+        };
+      }
+      // Si un mot de passe a été saisi
+      if (state.signupPassword.length > 0) {
+        // Si le mot de passe et la confirmation sont identiques
+        if (state.signupPassword === state.signupConfirmPassword) {
+          // Le state reste inchangé
+          return {
+            ...state,
+            passwordNotConfirmed: false,
+          };
+        }
+      }
+      // Sinon, passwordNotConfirmed devient vrai
+      return {
+        ...state,
+        passwordNotConfirmed: true,
+      };
     default:
       return state;
   }
@@ -32,6 +66,11 @@ export const changeFieldValue = (name, value) => ({
   name,
   value,
 });
+
+export const checkPasswordConfirmation = () => ({
+  type: CHECK_PASSWORD_CONFIRMATION,
+});
+
 
 // == Export
 export default reducer;
