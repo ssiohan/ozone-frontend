@@ -24,7 +24,15 @@ const useStyles = makeStyles((theme) => ({
 
 
 // == Composant
-const Signup = () => {
+const Signup = (
+  {
+    onSignupFieldChange,
+    signupEmailValue,
+    signupUsernameValue,
+    signupPasswordValue,
+    signupConfirmPasswordValue,
+  },
+) => {
   const classes = useStyles();
   return (
     <div id="signup">
@@ -46,11 +54,26 @@ const Signup = () => {
           <FaRegUserCircle size={70} xs={12} />
         </Grid>
         <Grid item>
-          <SignupForm />
+          <SignupForm
+            onSignupFieldChange={onSignupFieldChange}
+            signupEmailValue={signupEmailValue}
+            signupUsername={signupUsernameValue}
+            signupPasswordValue={signupPasswordValue}
+            signupConfirmPassword={signupConfirmPasswordValue}
+          />
         </Grid>
       </Grid>
     </div>
   );
+};
+
+//= = Validation des props
+Signup.propTypes = {
+  onSignupFieldChange: PropTypes.func.isRequired,
+  signupEmailValue: PropTypes.string,
+  signupUsernameValue: PropTypes.string,
+  signupPasswordValue: PropTypes.string,
+  signupConfirmPasswordValue: PropTypes.string,
 };
 
 // == Export

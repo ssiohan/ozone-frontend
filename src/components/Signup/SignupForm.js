@@ -25,8 +25,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const SignupForm = () => {
+const SignupForm = (
+  {
+    onSignupFieldChange,
+    signupEmailValue,
+    signupUsernameValue,
+    signupPasswordValue,
+    signupConfirmPasswordValue,
+  },
+) => {
   const classes = useStyles();
+  // Fonction qui gère la saisie dans les champs du formulaire
+  const handleSignupInputChange = (evt) => {
+    const fieldValue = evt.target.value;
+    const fieldName = evt.target.name;
+    // console.log(fieldValue, fieldName);
+    onSignupFieldChange(fieldName, fieldValue);
+  };
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <Grid
@@ -40,6 +55,9 @@ const SignupForm = () => {
             label="Email"
             variant="outlined"
             type="email"
+            name="signupEmail"
+            value={signupEmailValue}
+            onChange={handleSignupInputChange}
           />
         </Grid>
         <Grid item>
@@ -48,6 +66,9 @@ const SignupForm = () => {
             label="Pseudo"
             variant="outlined"
             type="text"
+            name="signupUsername"
+            value={signupUsernameValue}
+            onChange={handleSignupInputChange}
           />
         </Grid>
         <Grid item>
@@ -56,6 +77,9 @@ const SignupForm = () => {
             label="Mot de passe"
             variant="outlined"
             type="password"
+            name="signupPassword"
+            value={signupPasswordValue}
+            onChange={handleSignupInputChange}
           />
         </Grid>
         <Grid item>
@@ -64,6 +88,9 @@ const SignupForm = () => {
             label="Confirmez votre mot de passe"
             variant="outlined"
             type="password"
+            name="signupConfirmPassword"
+            value={signupConfirmPasswordValue}
+            onChange={handleSignupInputChange}
           />
         </Grid>
         <Grid item xs={12}>
@@ -81,6 +108,15 @@ const SignupForm = () => {
     </form>
 
   );
+};
+
+//= = Validation des props
+SignupForm.propTypes = {
+  onSignupFieldChange: PropTypes.func.isRequired,
+  signupEmailValue: PropTypes.string,
+  signupUsernameValue: PropTypes.string,
+  signupPasswordValue: PropTypes.string,
+  signupConfirmPasswordValue: PropTypes.string,
 };
 
 // == Export
