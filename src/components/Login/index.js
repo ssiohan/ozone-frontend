@@ -86,10 +86,12 @@ const Login = ({
           >
             <Grid
               container
+              item
               direction="column"
               justify="center"
+              xs={12}
             >
-              <Grid item>
+              <Grid item xs={12}>
                 <TextField
                   id="field-email"
                   label="Email"
@@ -100,7 +102,7 @@ const Login = ({
                   onChange={handleInputChange}
                 />
               </Grid>
-              <Grid item>
+              <Grid item xs={12}> 
                 <TextField
                   id="field-password"
                   label="Mot de passe"
