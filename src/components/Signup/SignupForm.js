@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#F2F2F2',
     fontWeight: 'bold',
   },
+  emptyFieldsMessage: {
+    color: '#EA282A',
+    fontSize: 'x-small',
+  },
 }));
 
 // == Composant
@@ -34,6 +39,8 @@ const SignupForm = (
     signupConfirmPasswordValue,
     passwordNotConfirmed,
     onCheckPasswordConfirmation,
+    emptyFieldsCounter,
+    onCheckForEmptyFields,
   },
 ) => {
   const classes = useStyles();
@@ -45,16 +52,17 @@ const SignupForm = (
     onSignupFieldChange(fieldName, fieldValue);
   };
   // Fonction qui gère la confirmation du mot de passe
-  const handlePasswordConfirmation = (evt) => {
+  const handlePasswordConfirmation = () => {
     // console.log('focus out', evt.target.name);
-    console.log(passwordNotConfirmed);
+    // console.log(passwordNotConfirmed);
     onCheckPasswordConfirmation();
   };
 
   // Fonction qui gère la soumission du formulaire
   const handleSignupFormSubmit = (evt) => {
     evt.preventDefault();
-    console.log('sign up form submitted');
+    // console.log('sign up form submitted');
+    onCheckForEmptyFields();
   };
   return (
     <form
@@ -68,6 +76,19 @@ const SignupForm = (
         direction="column"
         justify="center"
       >
+        {/* Message d'erreur en cas de champs non remplis à la soumission */}
+        {emptyFieldsCounter > 0 && (
+        <Grid item>
+          <Typography
+            variant="h5"
+            gutterBottom
+            xs={12}
+            className={classes.emptyFieldsMessage}
+          >
+             Tous les champs doivent être remplis.
+          </Typography>
+        </Grid>
+        )}
         <Grid item>
           <TextField
             id="signup-email"
@@ -112,6 +133,7 @@ const SignupForm = (
             value={signupConfirmPasswordValue}
             onChange={handleSignupInputChange}
             onBlur={handlePasswordConfirmation}
+            // Vérification de la confirmation du mot de passe
             error={passwordNotConfirmed && true}
             helperText={passwordNotConfirmed && 'Les mots de passe saisis ne sont pas identiques'}
           />
@@ -139,6 +161,7 @@ SignupForm.defaultProps = {
   signupPasswordValue: '',
   signupConfirmPasswordValue: '',
   passwordNotConfirmed: false,
+  emptyFieldsCounter: 0,
 };
 
 // == Validation des props
@@ -150,6 +173,8 @@ SignupForm.propTypes = {
   signupConfirmPasswordValue: PropTypes.string,
   onCheckPasswordConfirmation: PropTypes.func.isRequired,
   passwordNotConfirmed: PropTypes.bool,
+  emptyFieldsCounter: PropTypes.number,
+  onCheckForEmptyFields: PropTypes.func.isRequired,
 
 };
 

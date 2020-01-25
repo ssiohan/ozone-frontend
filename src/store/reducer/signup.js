@@ -1,6 +1,7 @@
 // == Action types
 const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
 const CHECK_PASSWORD_CONFIRMATION = 'CHECK_PASSWORD_CONFIRMATION';
+const CHECK_EMPTY_FIELDS = 'CHECK_EMPTY_FIELDS';
 
 // == initialState
 const initialState = {
@@ -11,6 +12,8 @@ const initialState = {
   signupConfirmPassword: '',
   // Par défaut, pas d'erreur de confirmation du mot de passe
   passwordNotConfirmed: false,
+  // Par défaut, le compteur de champs vides est à zéro
+  emptyFields: 0,
   // Par défaut le user n'est pas inscrit
   registered: false,
 };
@@ -55,6 +58,43 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordNotConfirmed: true,
       };
+    case CHECK_EMPTY_FIELDS:
+      // Si le champs email n'est pas rempli
+      if (state.signupEmail.length === 0) {
+        return {
+          ...state,
+          // On incrémente le compteur de champs non remplis
+          emptyFields: state.emptyFields + 1,
+        };
+      }
+      // Si le champs username n'est pas rempli
+      if (state.signupUsername.length === 0) {
+        return {
+          ...state,
+          // On incrémente le compteur de champs non remplis
+          emptyFields: state.emptyFields + 1,
+        };
+      }
+      // Si le champs password n'est pas rempli
+      if (state.signupPassword.length === 0) {
+        return {
+          ...state,
+          // On incrémente le compteur de champs non remplis
+          emptyFields: state.emptyFields + 1,
+        };
+      }
+      // Si le champs confirm password n'est pas rempli
+      if (state.signupConfirmPassword.length === 0) {
+        return {
+          ...state,
+          // On incrémente le compteur de champs non remplis
+          emptyFields: state.emptyFields + 1,
+        };
+      }
+      return {
+        ...state,
+        emptyFields: 0,
+      };
     default:
       return state;
   }
@@ -69,6 +109,10 @@ export const changeFieldValue = (name, value) => ({
 
 export const checkPasswordConfirmation = () => ({
   type: CHECK_PASSWORD_CONFIRMATION,
+});
+
+export const checkForEmptyFields = () => ({
+  type: CHECK_EMPTY_FIELDS,
 });
 
 

@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     flexGrow: 1,
   },
+  icon: {
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 
@@ -33,6 +36,8 @@ const Signup = (
     signupConfirmPasswordValue,
     passwordNotConfirmed,
     onCheckPasswordConfirmation,
+    emptyFieldsCounter,
+    onCheckForEmptyFields,
   },
 ) => {
   const classes = useStyles();
@@ -52,7 +57,7 @@ const Signup = (
              Inscription
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item className={classes.icon}>
           <FaRegUserCircle size={70} xs={12} />
         </Grid>
         <Grid item>
@@ -64,13 +69,23 @@ const Signup = (
             signupConfirmPasswordValue={signupConfirmPasswordValue}
             onCheckPasswordConfirmation={onCheckPasswordConfirmation}
             passwordNotConfirmed={passwordNotConfirmed}
+            emptyFieldsCounter={emptyFieldsCounter}
+            onCheckForEmptyFields={onCheckForEmptyFields}
           />
         </Grid>
       </Grid>
     </div>
   );
 };
-
+// == Props par défault
+Signup.defaultProps = {
+  signupEmailValue: '',
+  signupUsernameValue: '',
+  signupPasswordValue: '',
+  signupConfirmPasswordValue: '',
+  passwordNotConfirmed: false,
+  emptyFieldsCounter: 0,
+};
 //= = Validation des props
 Signup.propTypes = {
   onSignupFieldChange: PropTypes.func.isRequired,
@@ -80,6 +95,8 @@ Signup.propTypes = {
   signupConfirmPasswordValue: PropTypes.string,
   onCheckPasswordConfirmation: PropTypes.func.isRequired,
   passwordNotConfirmed: PropTypes.bool,
+  emptyFieldsCounter: PropTypes.number,
+  onCheckForEmptyFields: PropTypes.func.isRequired,
 };
 
 // == Export
