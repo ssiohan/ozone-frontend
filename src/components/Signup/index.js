@@ -7,7 +7,14 @@ import './signup.scss';
 // == Composant
 const Signup = () => (
   <div id="signup">
-    Page d'inscription 
+    Banner
+    Inscription:
+      - email
+      - username
+      - password
+      - confirm password
+    Icone
+    Formulaire 
   </div>
 );
 
