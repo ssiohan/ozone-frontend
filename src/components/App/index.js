@@ -10,7 +10,7 @@ import Navbar from 'src/components/Navbar';
 // import Banner from 'src/components/Banner';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 import Signin from 'src/components/Signin';
 import CreateEvent from 'src/components/CreateEvent';
 import Profile from 'src/components/Profile';
