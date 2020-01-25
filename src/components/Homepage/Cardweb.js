@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   right: {
     'padding-left': '.5em',
-    background: 'no-repeat url("src/assets/img/banner.png")',
-    opacity: '.8',
-    // 'background-image': 'url("src/assets/img/white.png")',
+    background: 'no-repeat url("src/assets/img/banner2.png")',
+    opacity: '.7',
+    'background-color': 'rgba(900,955, 955, 0.94)',
   },
   img: {
     padding: theme.spacing(2),

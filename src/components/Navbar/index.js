@@ -29,7 +29,7 @@ const styles = (theme) => ({
   //   // opacity: '.9',
   // },
   appBar: {
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(125,55,228,0.8)),to(rgba(0,196,204,0.8)))',
+    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
     padding: '.5em',
   },
   menuButton: {
@@ -82,7 +82,7 @@ function Header(props) {
 
   return (
     <React.Fragment className={classes.colornav}>
-      <AppBar className={classes.appBar} position="" elevation={0}>
+      <AppBar className={classes.appBar} position="sticky" elevation={0}>
         <Toolbar>
           <Grid container spacing={1}>
             <Hidden mdUp>
