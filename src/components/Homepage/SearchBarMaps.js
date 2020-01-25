@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   icon: {
     color: theme.palette.text.secondary,
     marginRight: theme.spacing(2),
+
   },
 }));
 
@@ -90,6 +91,7 @@ export default function GoogleMaps() {
       id="google-map-demo"
       style={{ width: '100%',
         maxWidth: 345,
+        margin: 'auto',
       }}
       getOptionLabel={option => (typeof option === 'string' ? option : option.description)}
       filterOptions={x => x}

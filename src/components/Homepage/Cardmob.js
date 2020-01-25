@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     'margin-top': '1em',
+    margin: 'auto',
   },
   user: {
     'margin-top': '.5em',
@@ -95,9 +96,9 @@ export default function RecipeReviewCard() {
         <Grid container justify="space-between" spacing={2} item xs={12}>
           <Button variant="contained" size="small">atelier créatif</Button>
           <Typography>
-            <p className={classes.rightContentText}>
+            <Typography className={classes.rightContentText}>
               <MdPeople /> 14/20
-            </p>
+            </Typography>
           </Typography>
         </Grid>
       </CardActions>

@@ -3,21 +3,25 @@
 
 // --- initial state
 const initialState = {
-  username: '',
-  avatar: '',
+  search: false,
 };
 
 // --- action types
-const LOG_USER = 'LOG_USER';
+const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
+const AFTER_SEARCH = 'AFTER_SEARCH';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case LOG_USER:
+    case CHANGE_INPUT_VALUE:
       return {
         ...state,
-        username: action.username,
-        avatar: action.avatar,
+        inputValue: action.value,
+      };
+    case AFTER_SEARCH:
+      return {
+        ...state,
+        search: true,
       };
 
     default: return state;
@@ -25,10 +29,12 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // --- action creators
-export const logUser = (username, avatar) => ({
-  type: LOG_USER,
-  username,
-  avatar,
+export const changeInput = (value) => ({
+  type: CHANGE_INPUT_VALUE,
+  value,
+});
+export const afterSearch = () => ({
+  type: AFTER_SEARCH,
 });
 
 // --- export
