@@ -7,7 +7,7 @@
   border: 1.5px solid #DFE6ED;
   padding: 1em;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.892);
+  background-color: rgba(255, 255, 255, 0.803);
 
 
 
@@ -16,7 +16,8 @@
   &-logo {
     text-align: center;
     width: 5em;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
+    opacity: .9;
    } 
    &-text {
     text-align: left;

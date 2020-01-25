@@ -22,7 +22,7 @@ const Homepage = ({ search }) => {
   return (
     <div>
       {!search && <Banner />}
-      <Container id="app">
+      <Container maxWidth="md" id="app">
         <Grid>
           {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
           <Grid container spacing={3}>

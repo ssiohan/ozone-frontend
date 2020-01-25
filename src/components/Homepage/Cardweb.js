@@ -26,13 +26,15 @@ const useStyles = makeStyles((theme) => ({
     height: '230px',
   },
   right: {
-    'padding-left': '1em',
+    'padding-left': '.5em',
+    background: 'no-repeat url("src/assets/img/banner.png")',
+    opacity: '.8',
     // 'background-image': 'url("src/assets/img/white.png")',
   },
   img: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.black,
     border: '1px solid black',
     width: '100%',
     height: '100%',
@@ -40,28 +42,29 @@ const useStyles = makeStyles((theme) => ({
   title: {
     padding: theme.spacing(1),
     textAlign: 'left',
-    color: theme.palette.text.black,
-    'font-size': '1.5em',
+    color: 'black',
+    'font-size': '1.2em',
   },
   leftContent: {
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: 'black',
   },
   rightContent: {
     padding: '0 1em',
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-    width: '100%',
-    'margin-left': '1em',
+    color: 'black',
+    'margin-left': '.5em',
     opacity: '.7',
   },
   rightContentText: {
     'text-align': 'left',
     'white-space': 'nowrap',
+    color: 'black',
   },
   rightContentScore: {
     'text-align': 'left',
     'font-size': '1em',
+    color: 'black',
   },
   avatar: {
     'text-align': 'center',
@@ -76,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   cardButton: {
-    'background-color': '#196A75',
+    'background-color': '#526DDB',
     color: '#fff',
     'white-space': 'nowrap',
     '&:hover': {
@@ -99,7 +102,7 @@ export default function FullWidthGrid() {
           <CardMedia
             component="img"
             className={classes.media}
-            image="src/assets/img/IMG_1155.JPG"
+            image="src/assets/img/bio.jpg"
             title="image test"
           />
         </Grid>
@@ -109,8 +112,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
-              <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}>
-              </Avatar>
+              <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
               <Typography className="date">16/22/2020</Typography>
               <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
             </Grid>

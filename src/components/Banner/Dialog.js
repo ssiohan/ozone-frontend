@@ -38,12 +38,11 @@ export default function FormDialog({ searchOk, changeInputValue }) {
 
   const useStyles = makeStyles(() => ({
     dialogButton: {
-      'background-color': '#196A75',
-      color: '#fff',
+      'background-color': 'rgba(255, 255, 255, 0.8)',
+      color: 'black',
       'white-space': 'nowrap',
       '&:hover': {
-        backgroundColor: '#196A85',
-        color: '#fff',
+        backgroundColor: 'rgba(255, 255, 255, .7)',
       },
 
     },

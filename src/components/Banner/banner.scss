@@ -3,8 +3,13 @@
   
   margin-bottom: 1em;
   height: 200px;
-  background-color: #fff;
-  background: no-repeat url("../../assets/img/banner.png");
+  // background: no-repeat url("../../assets/img/banner.png");
+  //background: linear-gradient(90deg,#00c4cc 0,#7d37e4 100%);
+  background-image: -webkit-gradient(
+  linear, right top, left bottom, from(rgba(125,55,228,0.8)),
+  to(rgba(0,196,204,0.8))
+);
+   
 }
 .bannerImg
 {  

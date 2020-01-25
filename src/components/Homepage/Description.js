@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'background-image': 'url("src/assets/img/sidebar.jpg")',
+    borderRadius: '10px',
   },
   paper: {
     padding: theme.spacing(2),
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   cardButton: {
-    'background-color': '#196A75',
+    'background-color': '#8B6BE5',
     color: '#fff',
     '&:hover': {
       backgroundColor: '#196A85',

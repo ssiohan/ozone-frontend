@@ -4,45 +4,54 @@ import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import HelpIcon from '@material-ui/icons/Help';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import { withStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
+import { GiEarthAmerica } from 'react-icons/gi';
+
 // == Import : local
 import './navbar.scss';
 
-const lightColor = 'rgba(255, 255, 255, 0.7)';
+const lightColor = 'rgba(255, 255, 255, 0.8)';
 
 
 const styles = (theme) => ({
-  secondaryBar: {
-    zIndex: 0,
-    background: 'linear-gradient(90deg,#00c4cc 0,#7d37e4 100%);',
-    height: '250px',
-    // background: 'no-repeat url("src/assets/img/banner.png")',
-    // opacity: '.9',
-  },
+  // secondaryBar: {
+  //   zIndex: 0,
+  //   // background: 'linear-gradient(90deg,#00c4cc 0,#7d37e4 100%)'
+  //   // 'background-image': '-webkit-gradient(linear, right top, left bottom, from(rgba(125,55,228,0.5)),to(rgba(0,196,204,0.5)))',
+  //   height: '250px',
+  //   // background: 'no-repeat url("src/assets/img/banner.png")',
+  //   // opacity: '.9',
+  // },
   appBar: {
-    background: 'linear-gradient(90deg,#00c4cc 0,#7d37e4 100%);',
+    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(125,55,228,0.8)),to(rgba(0,196,204,0.8)))',
+    padding: '.5em',
   },
   menuButton: {
     marginLeft: -theme.spacing(1),
   },
   iconButtonAvatar: {
     padding: 4,
-    marginTop: '12px',
   },
   link: {
+    'font-size': '.8em',
     textDecoration: 'none',
-    margin: '1em',
+    margin: '.5em',
+    color: lightColor,
+    // margin: '1em',
+    '&:hover': {
+      color: theme.palette.common.white,
+    },
+
+  },
+  linkearth: {
+    'font-size': '.8em',
+    textDecoration: 'none',
     color: lightColor,
     // margin: '1em',
     '&:hover': {
@@ -52,18 +61,19 @@ const styles = (theme) => ({
   },
   button: {
     borderColor: lightColor,
-    margin: '8px',
-    marginTop: '20px',
+    'margin-top': '.5em',
+    // marginTop: '10px',
   },
   ozonelogo: {
-    'margin-top': '7px',
-    'margin-left': '-7px',
+    'margin-top': '9px',
+    'margin-left': '7px',
   },
   ozonetext: {
-    marginTop: '15px',
+    color: lightColor,
+    'margin-top': '9px',
   },
   ozoneimg: {
-    width: '70px',
+    'margin-top': '9px',
   },
 });
 
@@ -72,7 +82,7 @@ function Header(props) {
 
   return (
     <React.Fragment className={classes.colornav}>
-      <AppBar className={classes.appBar} position="sticky" elevation={0}>
+      <AppBar className={classes.appBar} position="" elevation={0}>
         <Toolbar>
           <Grid container spacing={1}>
             <Hidden mdUp>
@@ -94,65 +104,64 @@ function Header(props) {
             </Hidden>
             <Hidden only={['xs', 'sm']}>
               <Grid className={classes.ozonelogo} container xs>
-                <img className={classes.ozoneimg} src="src/assets/img/logo_sans_fond.png" alt="" />
-                <Typography className={classes.ozonetext} align="left" color="inherit" variant="h4" component="h1">
-                  Zone
+                {/* <img className={classes.ozoneimg} src="src/assets/img/logo_sans_fond.png" alt="" /> */}
+                <Typography align="left" color="inherit" variant="h4" component="h1">
+                  <Link underline="none" className={classes.linkearth} href="/">
+                    <GiEarthAmerica className={classes.ozoneimg} />
+                  </Link>
+                  <Link underline="none" className={classes.ozonetext} href="/">
+                    zone
+                  </Link>
                 </Typography>
               </Grid>
             </Hidden>
-            <Grid item>
-              <Button className={classes.button} variant="outlined" color="inherit" size="small">
-              S'inscrire
-              </Button>
-            </Grid>
-            <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-              </IconButton>
-            </Grid>
+            <Hidden only={['xs', 'sm']}>
+              <Toolbar>
+                <Grid wrap="nowrap" item>
+                  <Link underline="none" className={classes.link} href="/">
+                    Accueil
+                  </Link>
+                </Grid>
+                <Grid wrap="nowrap" item>
+                  <Link underline="none" className={classes.link} href="/event">
+                    Les events
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/create-event">
+                    Ajouter un event
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/about">
+                    À propos
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/sponsors">
+                    Partenaires
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Button className={classes.button} variant="" color="inherit" size="small">
+                  Se connecter
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button className={classes.button} variant="outlined" color="inherit" size="small">
+                  S'inscrire
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <IconButton color="inherit" className={classes.iconButtonAvatar}>
+                    <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                  </IconButton>
+                </Grid>
+              </Toolbar>
+            </Hidden>
           </Grid>
         </Toolbar>
       </AppBar>
-      <Hidden only={['xs', 'sm']}>
-        <AppBar
-          component="div"
-          justify="center"
-          className={classes.secondaryBar}
-          color="primary"
-          position="static"
-          elevation={0}
-        >
-          <Grid container justify="center">
-            <Toolbar>
-              <Grid item>
-                <Link className={classes.link} href="/">
-                  Acceuil
-                </Link>
-              </Grid>
-              <Grid wrap="nowrap" item>
-                <Link className={classes.link} href="/event">
-                  Les events
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link className={classes.link} href="/create-event">
-                  Ajouter un event
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link className={classes.link} href="/about">
-                  À propos
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link className={classes.link} href="/sponsors">
-                  Partenaires
-                </Link>
-              </Grid>
-            </Toolbar>
-          </Grid>
-        </AppBar>
-      </Hidden>
     </React.Fragment>
 
   );
