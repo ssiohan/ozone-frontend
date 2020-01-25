@@ -11,7 +11,7 @@ import Navbar from 'src/components/Navbar';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';
 import Login from 'src/containers/Login';
-import Signin from 'src/components/Signin';
+import Signup from 'src/components/Signup';
 import CreateEvent from 'src/components/CreateEvent';
 import Profile from 'src/components/Profile';
 import Sponsors from 'src/components/Sponsors';
@@ -32,8 +32,8 @@ const App = () => (
       <Route path="/login">
         <Login />
       </Route>
-      <Route path="/signin">
-        <Signin />
+      <Route path="/signup">
+        <Signup />
       </Route>
       <Route path="/create-event">
         <CreateEvent />

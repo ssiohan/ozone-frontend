@@ -2,14 +2,14 @@
 import React from 'react';
 
 // == Import : local
-import './signin.scss';
+import './signup.scss';
 
 // == Composant
-const Signin = () => (
-  <div id="signin">
+const Signup = () => (
+  <div id="signup">
     Page d'inscription 
   </div>
 );
 
 // == Export
-export default Signin;
+export default Signup;
