@@ -36,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#F2F2F2',
     fontWeight: 'bold',
   },
+  emptyFieldsMessage: {
+    color: '#EA282A',
+    fontSize: 'x-small',
+  },
 }));
 
 // == Composant
@@ -43,6 +47,8 @@ const Login = ({
   emailValue,
   passwordValue,
   onLoginFieldChange,
+  emptyLoginFieldsCounter,
+  onCheckForEmptyLoginFields,
 }) => {
   const classes = useStyles();
   // Fonction qui permet de récupérer les données saisies par le user
@@ -56,6 +62,7 @@ const Login = ({
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
     // console.log('login form submitted');
+    onCheckForEmptyLoginFields();
   };
   return (
     <div id="login">
@@ -91,6 +98,19 @@ const Login = ({
               justify="center"
               xs={12}
             >
+              {/* Message d'erreur en cas de champs non remplis à la soumission */}
+              {emptyLoginFieldsCounter > 0 && (
+              <Grid item>
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  xs={12}
+                  className={classes.emptyFieldsMessage}
+                >
+             Tous les champs doivent être remplis.
+                </Typography>
+              </Grid>
+              )}
               <Grid item xs={12}>
                 <TextField
                   id="field-email"
@@ -136,6 +156,7 @@ const Login = ({
 Login.defaultProps = {
   emailValue: '',
   passwordValue: '',
+  emptyLoginFieldsCounter: 0,
 };
 
 // == Validation des props
@@ -143,6 +164,8 @@ Login.propTypes = {
   emailValue: PropTypes.string,
   passwordValue: PropTypes.string,
   onLoginFieldChange: PropTypes.func.isRequired,
+  emptyLoginFieldsCounter: PropTypes.number,
+  onCheckForEmptyLoginFields: PropTypes.func.isRequired,
 };
 
 // == Export

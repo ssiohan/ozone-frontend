@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 // == Action types
 const CHANGE_LOGIN_FIELD_VALUE = 'CHANGE_LOGIN_FIELD_VALUE';
+const CHECK_EMPTY_LOGIN_FIELDS = 'CHECK_EMPTY_LOGIN_FIELDS';
 
 // == initialState
 const initialState = {
@@ -22,6 +23,23 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+    case CHECK_EMPTY_LOGIN_FIELDS:
+      if (state.email.length === 0) {
+        return {
+          ...state,
+          emptyLoginFields: state.emptyLoginFields + 1,
+        };
+      }
+      if (state.password.length === 0) {
+        return {
+          ...state,
+          emptyLoginFields: state.emptyLoginFields + 1,
+        };
+      }
+      return {
+        ...state,
+        emptyLoginFields: 0,
+      };
     default:
       return state;
   }
@@ -32,6 +50,10 @@ export const changeLoginFieldValue = (name, value) => ({
   type: CHANGE_LOGIN_FIELD_VALUE,
   name,
   value,
+});
+
+export const checkForEmptyLoginFields = () => ({
+  type: CHECK_EMPTY_LOGIN_FIELDS,
 });
 
 
