@@ -1,6 +1,5 @@
 // == Import : npm
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
@@ -22,7 +21,7 @@ const Homepage = ({ search }) => {
   return (
     <div>
       {!search && <Banner />}
-      <Container id="app">
+      <Container maxWidth="md" id="app">
         <Grid>
           {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
           <Grid container spacing={3}>

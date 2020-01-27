@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import './app.scss';
 
 // == import composants
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/Navbar';
 // import Banner from 'src/components/Banner';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';

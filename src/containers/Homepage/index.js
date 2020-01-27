@@ -8,9 +8,7 @@ import Homepage from 'src/components/Homepage';
 
 // == Préparation: data
 const mapStateToProps = (state) => {
-  console.log(state);
-
-
+  // console.log(state);
   return {
     search: state.homepage.search,
   };

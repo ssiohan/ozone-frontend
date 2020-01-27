@@ -1,7 +1,5 @@
 // == Import : npm
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +13,7 @@ import './homepage.scss';
 import SearchBarMaps from 'src/components/Homepage/SearchBarMaps';
 
 // == Add Css style with Material UI
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   banner: {
     'margin-bottom': '1em',
     'margin-top': '1em',
