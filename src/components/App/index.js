@@ -11,7 +11,7 @@ import Navbar from 'src/components/Navbar';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';
 import Login from 'src/containers/Login';
-import Signup from 'src/components/Signup';
+import Signup from 'src/containers/Signup';
 import CreateEvent from 'src/components/CreateEvent';
 import Profile from 'src/components/Profile';
 import Sponsors from 'src/components/Sponsors';

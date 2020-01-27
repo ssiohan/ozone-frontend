@@ -102,7 +102,7 @@ const Login = ({
                   onChange={handleInputChange}
                 />
               </Grid>
-              <Grid item xs={12}> 
+              <Grid item xs={12}>
                 <TextField
                   id="field-password"
                   label="Mot de passe"
@@ -133,10 +133,10 @@ const Login = ({
 };
 
 // == Props par défaut
-// Login.defaultProps = {
-//   emailValue: '',
-//   passwordValue: '',
-// };
+Login.defaultProps = {
+  emailValue: '',
+  passwordValue: '',
+};
 
 // == Validation des props
 Login.propTypes = {

@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 // j'importe mes reducers
 import login from './login';
 import homepage from './homepage';
+import signup from './signup';
 
 
 // l'intérêt d'avoir plusieurs reducers est de classer les informations par catégorie,
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   // user: user,
   login,
   homepage,
+  signup,
 });
 
 export default reducer;
