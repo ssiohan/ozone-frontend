@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 // == Action types
 const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
 const CHECK_PASSWORD_CONFIRMATION = 'CHECK_PASSWORD_CONFIRMATION';

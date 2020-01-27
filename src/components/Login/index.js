@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = ({
   emailValue,
   passwordValue,
-  onFieldChange,
+  onLoginFieldChange,
 }) => {
   const classes = useStyles();
   // Fonction qui permet de récupérer les données saisies par le user
@@ -50,12 +50,12 @@ const Login = ({
     const fieldValue = evt.target.value;
     const fieldName = evt.target.name;
     // console.log(fieldValue, fieldName);
-    onFieldChange(fieldName, fieldValue);
+    onLoginFieldChange(fieldName, fieldValue);
   };
   // Fonction qui permet de gérer la soumission du formulaire
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
-    console.log('login form submitted');
+    // console.log('login form submitted');
   };
   return (
     <div id="login">
@@ -142,7 +142,7 @@ Login.defaultProps = {
 Login.propTypes = {
   emailValue: PropTypes.string,
   passwordValue: PropTypes.string,
-  onFieldChange: PropTypes.func.isRequired,
+  onLoginFieldChange: PropTypes.func.isRequired,
 };
 
 // == Export

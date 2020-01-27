@@ -1,12 +1,14 @@
 /* eslint-disable linebreak-style */
 // == Action types
-const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
+const CHANGE_LOGIN_FIELD_VALUE = 'CHANGE_LOGIN_FIELD_VALUE';
 
 // == initialState
 const initialState = {
   // Valeur de départ
   email: '',
   password: '',
+  // Par défaut, le compteur de champs vides est à zéro
+  emptyLoginFields: 0,
   // Par défaut le user n'est pas connecté
   logged: false,
 };
@@ -14,7 +16,7 @@ const initialState = {
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_FIELD_VALUE:
+    case CHANGE_LOGIN_FIELD_VALUE:
       // console.log(action.name, action.value);
       return {
         ...state,
@@ -26,11 +28,12 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action creators
-export const changeFieldValue = (name, value) => ({
-  type: CHANGE_FIELD_VALUE,
+export const changeLoginFieldValue = (name, value) => ({
+  type: CHANGE_LOGIN_FIELD_VALUE,
   name,
   value,
 });
+
 
 // == Export
 export default reducer;

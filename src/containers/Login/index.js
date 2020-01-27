@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Login from 'src/components/Login';
 
 // == Import d'action creators
-import { changeFieldValue } from 'src/store/reducer/login';
+import { changeLoginFieldValue } from 'src/store/reducer/login';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
@@ -15,9 +15,13 @@ const mapStateToProps = (state) => ({
 
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
-  onFieldChange: (name, value) => {
+  onLoginFieldChange: (name, value) => {
     // console.log('hello depuis mDTP', name, value);
-    dispatch(changeFieldValue(name, value));
+    dispatch(changeLoginFieldValue(name, value));
+  },
+  onCheckForEmptyFields: () => {
+    console.log('hello depuis mDtP, je check les champs vides');
+    // dispatch(checkForEmptyFields());
   },
 });
 
