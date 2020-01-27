@@ -3,7 +3,7 @@ import React from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Slider from 'src/components/Homepage/Slider';
 import Divider from '@material-ui/core/Divider';
 import CheckboxEvent from 'src/components/Homepage/CheckboxEvent';
@@ -15,7 +15,7 @@ import { Typography } from '@material-ui/core';
 
 // == Composant
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
     'margin-top': '1em',
     'margin-bottom': '1em',
   },
+  slider: {
+    'max-width': '80%',
+  },
 }));
 
 export default function FullWidthGrid() {
@@ -55,7 +58,7 @@ export default function FullWidthGrid() {
               en km:
               </Typography>
             </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid className={classes.slider} item xs={12} sm={12}>
               <Slider />
               <Divider className={classes.divider} />
             </Grid>

@@ -6,12 +6,12 @@ import { Route, Switch } from 'react-router-dom';
 import './app.scss';
 
 // == import composants
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/Navbar';
 // import Banner from 'src/components/Banner';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';
-import Login from 'src/components/Login';
-import Signin from 'src/components/Signin';
+import Login from 'src/containers/Login';
+import Signup from 'src/containers/Signup';
 import CreateEvent from 'src/components/CreateEvent';
 import Profile from 'src/components/Profile';
 import Sponsors from 'src/components/Sponsors';
@@ -32,8 +32,8 @@ const App = () => (
       <Route path="/login">
         <Login />
       </Route>
-      <Route path="/signin">
-        <Signin />
+      <Route path="/signup">
+        <Signup />
       </Route>
       <Route path="/create-event">
         <CreateEvent />

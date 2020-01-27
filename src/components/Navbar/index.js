@@ -20,14 +20,7 @@ const lightColor = 'rgba(255, 255, 255, 0.8)';
 
 
 const styles = (theme) => ({
-  // secondaryBar: {
-  //   zIndex: 0,
-  //   // background: 'linear-gradient(90deg,#00c4cc 0,#7d37e4 100%)'
-  //   // 'background-image': '-webkit-gradient(linear, right top, left bottom, from(rgba(125,55,228,0.5)),to(rgba(0,196,204,0.5)))',
-  //   height: '250px',
-  //   // background: 'no-repeat url("src/assets/img/banner.png")',
-  //   // opacity: '.9',
-  // },
+
   appBar: {
     background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
     padding: '.5em',
@@ -40,6 +33,16 @@ const styles = (theme) => ({
   },
   link: {
     'font-size': '.8em',
+    textDecoration: 'none',
+    margin: '.5em',
+    color: lightColor,
+    // margin: '1em',
+    '&:hover': {
+      color: theme.palette.common.white,
+    },
+
+  },
+  linkButton: {
     textDecoration: 'none',
     margin: '.5em',
     color: lightColor,
@@ -77,8 +80,9 @@ const styles = (theme) => ({
   },
 });
 
-function Header(props) {
+function Header(props, logged) {
   const { classes, onDrawerToggle } = props;
+  console.log(logged);
 
   return (
     <React.Fragment className={classes.colornav}>
@@ -104,7 +108,11 @@ function Header(props) {
             </Hidden>
             <Hidden only={['xs', 'sm']}>
               <Grid className={classes.ozonelogo} container xs>
-                {/* <img className={classes.ozoneimg} src="src/assets/img/logo_sans_fond.png" alt="" /> */}
+                {/* <img
+                  className={classes.ozoneimg}
+                  src="src/assets/img/logo_sans_fond.png"
+                  alt=""
+                /> */}
                 <Typography align="left" color="inherit" variant="h4" component="h1">
                   <Link underline="none" className={classes.linkearth} href="/">
                     <GiEarthAmerica className={classes.ozoneimg} />
@@ -142,21 +150,35 @@ function Header(props) {
                     Partenaires
                   </Link>
                 </Grid>
+                {logged && (
+                // eslint-disable-next-line react/jsx-wrap-multilines
                 <Grid item>
                   <Button className={classes.button} variant="" color="inherit" size="small">
-                  Se connecter
+                    <Link underline="none" className={classes.linkButton} href="/login">
+                    Se connecter
+                    </Link>
                   </Button>
-                </Grid>
-                <Grid item>
-                  <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                  S'inscrire
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                    <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-                  </IconButton>
-                </Grid>
+                </Grid>)}
+                {logged && (
+                  // eslint-disable-next-line react/jsx-wrap-multilines
+                  <Grid item>
+                    <Button className={classes.button} variant="outlined" color="inherit" size="small">
+                      <Link
+                        underline="none"
+                        className={classes.linkButton}
+                        href="/signup"
+                      >
+                      S'inscrire
+                      </Link>
+                    </Button>
+                  </Grid>)}
+                {!logged && (
+                  // eslint-disable-next-line react/jsx-wrap-multilines
+                  <Grid item>
+                    <IconButton color="inherit" className={classes.iconButtonAvatar}>
+                      <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                    </IconButton>
+                  </Grid>)}
               </Toolbar>
             </Hidden>
           </Grid>

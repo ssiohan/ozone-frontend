@@ -15,3 +15,4 @@ export const afterSearch = (search) => ({
   type: AFTER_SEARCH,
   search,
 });
+

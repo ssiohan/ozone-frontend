@@ -24,7 +24,7 @@ export default function FormDialog({ searchOk, changeInputValue }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setOpen(false);
-    console.log('Je veux envoyer le message');
+    // console.log('Je veux envoyer le message');
     searchOk();
   };
   const handleChange = (evt) => {
@@ -32,7 +32,7 @@ export default function FormDialog({ searchOk, changeInputValue }) {
     // Equivalent à :
     const { value: fieldValue } = evt.target;
 
-    console.log('Je change la valeur du champ', fieldValue);
+    // console.log('Je change la valeur du champ', fieldValue);
     changeInputValue(fieldValue);
   };
 

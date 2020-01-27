@@ -5,13 +5,21 @@ import { connect } from 'react-redux';
 import Login from 'src/components/Login';
 
 // == Import d'action creators
-// à compléter
+import { changeFieldValue } from 'src/store/reducer/login';
 
 // == Préparation: data
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  emailValue: state.login.email,
+  passwordValue: state.login.password,
+});
 
 // == Préparation - actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  onFieldChange: (name, value) => {
+    // console.log('hello depuis mDTP', name, value);
+    dispatch(changeFieldValue(name, value));
+  },
+});
 
 // == Container
 const LoginContainer = connect(
