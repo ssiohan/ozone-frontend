@@ -2,6 +2,14 @@
 // == Action types
 const CHANGE_LOGIN_FIELD_VALUE = 'CHANGE_LOGIN_FIELD_VALUE';
 const CHECK_EMPTY_LOGIN_FIELDS = 'CHECK_EMPTY_LOGIN_FIELDS';
+// Action qui va lancer la requête axios
+export const DO_LOGIN = 'DO_LOGIN';
+/** Action qui va permettre de :
+ *  a) changer le statut logged: false en logged: true en cas de succès
+ *  b) récupérer le token
+ *  c) récupérer le refresh_token
+ */
+const CONNECT_USER = 'CONNECT_USER';
 
 // == initialState
 const initialState = {
@@ -12,6 +20,9 @@ const initialState = {
   emptyLoginFields: 0,
   // Par défaut le user n'est pas connecté
   logged: false,
+  // Infos à récupérer (par défault elles sont vides)
+  token: '',
+  refresh_token: '',
 };
 
 // == Reducer
@@ -40,6 +51,17 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         emptyLoginFields: 0,
       };
+    case DO_LOGIN:
+      return {
+        ...state,
+      };
+    case CONNECT_USER:
+      return {
+        ...state,
+        token: action.token,
+        refresh_token: action.refresh_token,
+        logged: true,
+      };
     default:
       return state;
   }
@@ -54,6 +76,16 @@ export const changeLoginFieldValue = (name, value) => ({
 
 export const checkForEmptyLoginFields = () => ({
   type: CHECK_EMPTY_LOGIN_FIELDS,
+});
+
+export const doLogin = () => ({
+  type: DO_LOGIN,
+});
+
+export const connectUser = (token, refresh_token) => ({
+  type: CONNECT_USER,
+  token,
+  refresh_token,
 });
 
 

@@ -49,6 +49,8 @@ const Login = ({
   onLoginFieldChange,
   emptyLoginFieldsCounter,
   onCheckForEmptyLoginFields,
+  loginStatus,
+  getLoggedIn,
 }) => {
   const classes = useStyles();
   // Fonction qui permet de récupérer les données saisies par le user
@@ -62,7 +64,10 @@ const Login = ({
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
     // console.log('login form submitted');
+    // On s'assure qu'il n'y a pas de champs vides
     onCheckForEmptyLoginFields();
+    // On connecte le user
+    getLoggedIn();
   };
   return (
     <div id="login">
@@ -157,6 +162,7 @@ Login.defaultProps = {
   emailValue: '',
   passwordValue: '',
   emptyLoginFieldsCounter: 0,
+  loginStatus: false,
 };
 
 // == Validation des props
@@ -166,6 +172,8 @@ Login.propTypes = {
   onLoginFieldChange: PropTypes.func.isRequired,
   emptyLoginFieldsCounter: PropTypes.number,
   onCheckForEmptyLoginFields: PropTypes.func.isRequired,
+  loginStatus: PropTypes.bool,
+  getLoggedIn: PropTypes.func.isRequired,
 };
 
 // == Export
