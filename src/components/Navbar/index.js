@@ -119,8 +119,8 @@ const Header = ({ logged }) => {
               </Typography>
             </Grid>
           </Hidden>
-          <Hidden only={['xs', 'sm']}>
             <Toolbar>
+            <Hidden only={['xs', 'sm']}>
               <Grid item>
                 <Link underline="none" className={classes.link} href="/">
                   Accueil
@@ -146,6 +146,7 @@ const Header = ({ logged }) => {
                   Partenaires
                 </Link>
               </Grid>
+              </Hidden>
               {!logged && (
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Grid item>
@@ -176,7 +177,6 @@ const Header = ({ logged }) => {
                   </IconButton>
                 </Grid>)}
             </Toolbar>
-          </Hidden>
         </Grid>
       </Toolbar>
     </AppBar>

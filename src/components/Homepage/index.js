@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import PropTypes from 'prop-types';
-
+import { makeStyles } from '@material-ui/core/styles';
 // == Import : local
 import './homepage.scss';
 
@@ -17,11 +17,19 @@ import Cardweb from './Cardweb';
 import Cardmob from './Cardmob';
 import SearchBarMaps from './SearchBarMaps';
 
+const useStyles = makeStyles(() => ({
+
+  container: {
+    'max-width': '1080px',
+  },
+}));
+
 const Homepage = ({ search }) => {
+  const classes = useStyles();
   return (
     <div>
       {!search && <Banner />}
-      <Container maxWidth="md" id="app">
+      <Container className={classes.container} id="app">
         <Grid>
           {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
           <Grid container spacing={3}>
