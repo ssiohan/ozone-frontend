@@ -1,9 +1,10 @@
 /* eslint-disable linebreak-style */
 // reducer pour gérer les données relatives à l'utilisateur
-
+import eventlist from 'src/data/eventlist';
 // --- initial state
 const initialState = {
   search: false,
+  events: eventlist,
 };
 
 // --- action types

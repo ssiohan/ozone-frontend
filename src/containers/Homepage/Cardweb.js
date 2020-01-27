@@ -1,16 +1,15 @@
 // Ici le container du composant homepage à compléter
 import { connect } from 'react-redux';
 
-import Homepage from 'src/components/Homepage';
+import Cardweb from 'src/components/Homepage/Cardweb';
+
 
 // == Import d'action creators
 // à compléter
 
 // == Préparation: data
 const mapStateToProps = (state) => {
-  // console.log(state);
   return {
-    search: state.homepage.search,
     events: state.homepage.events,
   };
 };
@@ -19,10 +18,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {};
 
 // == Container
-const HomepageContainer = connect(
+const CardwebContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Homepage);
+)(Cardweb);
 
 // == Export
-export default HomepageContainer;
+export default CardwebContainer;

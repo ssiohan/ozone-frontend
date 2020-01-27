@@ -90,8 +90,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthGrid() {
+const Cardweb = (event) => {
   const classes = useStyles();
+  // const { events } = state.events;
+  console.log(event.title);
+
 
   return (
     <Card className={classes.root}>
@@ -106,12 +109,12 @@ export default function FullWidthGrid() {
         </Grid>
         <Grid className={classes.right} container spacing={0} item xs={12} sm={8}>
           <Grid container spacing={0} item xs={12} sm={12}>
-            <div className={classes.title}>Titre de l'évenement</div>
+            <div className={classes.title}>{event.title}</div>
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
               <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
-              <Typography className="date">16/22/2020</Typography>
+              <Typography className="date">{event.dateEvent}</Typography>
               <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
             </Grid>
           </Grid>
@@ -126,25 +129,25 @@ export default function FullWidthGrid() {
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <GoGraph /> Penibilité
-                    <Rating name="read-only" value={4} size="small" />
+                    <Rating name="read-only" value={event.painfulness} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <MdAccessTime /> Durée
-                    <Rating name="read-only" value={4} size="small" />
+                    <Rating name="read-only" value={event.duration} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <FaPeopleCarry /> Impact societé
-                    <Rating name="read-only" value={4} size="small" />
+                    <Rating name="read-only" value={event.impactSocietal} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <GiRecycle /> Impact environnement
-                    <Rating name="read-only" value={4} size="small" />
+                    <Rating name="read-only" value={event.impactEnvironmental} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
@@ -159,4 +162,5 @@ export default function FullWidthGrid() {
       </Grid>
     </Card>
   );
-}
+};
+export default Cardweb;

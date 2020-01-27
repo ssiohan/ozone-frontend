@@ -119,7 +119,7 @@ const Header = ({ logged }) => {
               </Typography>
             </Grid>
           </Hidden>
-            <Toolbar>
+          <Toolbar>
             <Hidden only={['xs', 'sm']}>
               <Grid item>
                 <Link underline="none" className={classes.link} href="/">
@@ -146,37 +146,37 @@ const Header = ({ logged }) => {
                   Partenaires
                 </Link>
               </Grid>
-              </Hidden>
-              {!logged && (
+            </Hidden>
+            {!logged && (
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <Grid item>
+              <Button className={classes.button} color="inherit" size="small">
+                <Link underline="none" className={classes.linkButton} href="/login">
+                Se connecter
+                </Link>
+              </Button>
+            </Grid>)}
+            {!logged && (
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Grid item>
-                <Button className={classes.button} color="inherit" size="small">
-                  <Link underline="none" className={classes.linkButton} href="/login">
-                  Se connecter
+                <Button className={classes.button} variant="outlined" color="inherit" size="small">
+                  <Link
+                    underline="none"
+                    className={classes.linkButton}
+                    href="/signup"
+                  >
+                  S'inscrire
                   </Link>
                 </Button>
               </Grid>)}
-              {!logged && (
-                // eslint-disable-next-line react/jsx-wrap-multilines
-                <Grid item>
-                  <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                    <Link
-                      underline="none"
-                      className={classes.linkButton}
-                      href="/signup"
-                    >
-                    S'inscrire
-                    </Link>
-                  </Button>
-                </Grid>)}
-              {logged && (
-                // eslint-disable-next-line react/jsx-wrap-multilines
-                <Grid item>
-                  <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                    <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-                  </IconButton>
-                </Grid>)}
-            </Toolbar>
+            {logged && (
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Grid item>
+                <IconButton color="inherit" className={classes.iconButtonAvatar}>
+                  <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                </IconButton>
+              </Grid>)}
+          </Toolbar>
         </Grid>
       </Toolbar>
     </AppBar>
