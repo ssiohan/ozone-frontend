@@ -71,15 +71,13 @@ const Login = ({
   };
   return (
     <div id="login">
+      <Banner />
       <Grid
         container
         direction="column"
         className={classes.root}
         justify="center"
       >
-        <Grid item xs={12}>
-          <Banner />
-        </Grid>
         <Grid item xs={12}>
           <Typography variant="h1" gutterBottom xs={12}>
              Connexion
