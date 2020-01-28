@@ -1,6 +1,8 @@
+/* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './app.scss';
@@ -19,7 +21,7 @@ import About from 'src/components/About';
 
 
 // == Composant
-const App = () => (
+const App = ({ logged }) => (
   <div id="app">
     <Navbar />
     <Switch>
@@ -48,8 +50,18 @@ const App = () => (
         <About />
       </Route>
     </Switch>
+    {/* Si le user est connecté: redirection de login vers homepage */}
+    {logged && <Redirect from="login" to="/" />}
   </div>
 );
+// == Props par défaut
+App.defaultProps = {
+  logged: false,
+};
 
+// == Validation des props
+App.propTypes = {
+  logged: PropTypes.bool,
+};
 // == Export
 export default App;
