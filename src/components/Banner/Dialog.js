@@ -46,6 +46,13 @@ export default function FormDialog({ searchOk, changeInputValue }) {
       },
 
     },
+    dialogContent: {
+      width: '800px',
+    },
+    dialogbg: {
+      opacity: '.9',
+
+    },
   }));
   const classes = useStyles();
   return (
@@ -53,10 +60,10 @@ export default function FormDialog({ searchOk, changeInputValue }) {
       <Button className={classes.dialogButton} variant="outlined" onClick={handleClickOpen}>
         Les événements près de chez moi <KeyboardArrowDown />
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog className={classes.dialogbg} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form action="">
-          <DialogTitle id="form-dialog-title">Recherche</DialogTitle>
-          <DialogContent>
+          <DialogTitle className={classes.dialogContent} id="form-dialog-title">Recherche</DialogTitle>
+          <DialogContent className={classes.dialogContent}>
             <DialogContentText>
               Les événements près de chez moi
             </DialogContentText>
@@ -70,7 +77,7 @@ export default function FormDialog({ searchOk, changeInputValue }) {
               fullWidth
             />
           </DialogContent>
-          <DialogActions>
+          <DialogActions className={classes.dialogContent}>
             <Button onClick={handleClose} color="primary">
               Retour
             </Button>

@@ -38,11 +38,15 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: '#078171',
+    backgroundColor: '#526DDB',
   },
   cardButton: {
     'margin-bottom': '1em',
-    backgroundColor: '#078171',
+    backgroundColor: '#526DDB',
+    '&:hover': {
+      backgroundColor: '#626DDB',
+      color: '#fff',
+    },
   },
   action: {
     margin: '1em',
