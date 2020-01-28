@@ -9,14 +9,15 @@ import { DO_LOGIN } from 'src/store/reducer/login';
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DO_LOGIN:
-      axios.post('http://api.geekoz.fr/api/login_check', {
+      axios.post('https://api.geekoz.fr/api/login_check', {
         username: `${store.getState().login.email}`,
         password: `${store.getState().login.password}`,
       })
         .then((response) => {
           console.log(response);
-          // console.log(store.getState().login.email);
-          // console.log(store.getState().login.password);
+          // En cas de succès, je stocke les tokens dans le LocalStorage
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('refresh_token', response.data.refresh_token);
         })
         .catch((error) => {
           console.log(error);
