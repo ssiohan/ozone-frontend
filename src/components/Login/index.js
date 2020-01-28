@@ -36,13 +36,21 @@ const useStyles = makeStyles((theme) => ({
     color: '#F2F2F2',
     fontWeight: 'bold',
   },
+  emptyFieldsMessage: {
+    color: '#EA282A',
+    fontSize: 'x-small',
+  },
 }));
 
 // == Composant
 const Login = ({
   emailValue,
   passwordValue,
-  onFieldChange,
+  onLoginFieldChange,
+  emptyLoginFieldsCounter,
+  onCheckForEmptyLoginFields,
+  loginStatus,
+  getLoggedIn,
 }) => {
   const classes = useStyles();
   // Fonction qui permet de récupérer les données saisies par le user
@@ -50,24 +58,26 @@ const Login = ({
     const fieldValue = evt.target.value;
     const fieldName = evt.target.name;
     // console.log(fieldValue, fieldName);
-    onFieldChange(fieldName, fieldValue);
+    onLoginFieldChange(fieldName, fieldValue);
   };
   // Fonction qui permet de gérer la soumission du formulaire
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
-    console.log('login form submitted');
+    // console.log('login form submitted');
+    // On s'assure qu'il n'y a pas de champs vides
+    onCheckForEmptyLoginFields();
+    // On connecte le user
+    getLoggedIn();
   };
   return (
     <div id="login">
+      <Banner />
       <Grid
         container
         direction="column"
         className={classes.root}
         justify="center"
       >
-        <Grid item xs={12}>
-          <Banner />
-        </Grid>
         <Grid item xs={12}>
           <Typography variant="h1" gutterBottom xs={12}>
              Connexion
@@ -91,6 +101,19 @@ const Login = ({
               justify="center"
               xs={12}
             >
+              {/* Message d'erreur en cas de champs non remplis à la soumission */}
+              {emptyLoginFieldsCounter > 0 && (
+              <Grid item>
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  xs={12}
+                  className={classes.emptyFieldsMessage}
+                >
+             Tous les champs doivent être remplis.
+                </Typography>
+              </Grid>
+              )}
               <Grid item xs={12}>
                 <TextField
                   id="field-email"
@@ -136,13 +159,19 @@ const Login = ({
 Login.defaultProps = {
   emailValue: '',
   passwordValue: '',
+  emptyLoginFieldsCounter: 0,
+  loginStatus: false,
 };
 
 // == Validation des props
 Login.propTypes = {
   emailValue: PropTypes.string,
   passwordValue: PropTypes.string,
-  onFieldChange: PropTypes.func.isRequired,
+  onLoginFieldChange: PropTypes.func.isRequired,
+  emptyLoginFieldsCounter: PropTypes.number,
+  onCheckForEmptyLoginFields: PropTypes.func.isRequired,
+  loginStatus: PropTypes.bool,
+  getLoggedIn: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 // Styles de base
 import 'src/styles/index.scss';
 // Composant racine
-import App from 'src/components/App';
+import App from 'src/containers/App';
 import store from 'src/store';
 
 
