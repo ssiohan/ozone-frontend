@@ -9,6 +9,7 @@ import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
+import PropTypes from 'prop-types';
 
 //  == Import Icons
 import { GiRecycle } from 'react-icons/gi';
@@ -97,7 +98,7 @@ const Cardweb = ({
   painfulness,
   duration,
   impactSocietal,
-  impactEnvironmental
+  impactEnvironmental,
 }) => {
   const classes = useStyles();
 
@@ -172,5 +173,13 @@ const Cardweb = ({
       </Grid>
     </Card>
   );
+};
+Cardweb.propTypes = {
+  title: PropTypes.string.isRequired,
+  dateEvent: PropTypes.string.isRequired,
+  painfulness: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  impactSocietal: PropTypes.number.isRequired,
+  impactEnvironmental: PropTypes.number.isRequired,
 };
 export default Cardweb;
