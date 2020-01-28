@@ -89,11 +89,21 @@ const useStyles = makeStyles((theme) => ({
     'background-color': 'rgba(255, 255, 255, 0.892)',
   },
 }));
+const score = (a, b, c, d) => (a + b + c + d);
 
-const Cardweb = (event) => {
+const Cardweb = ({
+  title,
+  dateEvent,
+  painfulness,
+  duration,
+  impactSocietal,
+  impactEnvironmental
+}) => {
   const classes = useStyles();
-  // const { events } = state.events;
-  console.log(event.title);
+
+  const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+
+  console.log(result);
 
 
   return (
@@ -109,12 +119,12 @@ const Cardweb = (event) => {
         </Grid>
         <Grid className={classes.right} container spacing={0} item xs={12} sm={8}>
           <Grid container spacing={0} item xs={12} sm={12}>
-            <div className={classes.title}>{event.title}</div>
+            <div className={classes.title}>{title}</div>
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
               <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
-              <Typography className="date">{event.dateEvent}</Typography>
+              <Typography className="date">{dateEvent}</Typography>
               <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
             </Grid>
           </Grid>
@@ -129,30 +139,30 @@ const Cardweb = (event) => {
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <GoGraph /> Penibilité
-                    <Rating name="read-only" value={event.painfulness} size="small" />
+                    <Rating name="read-only" value={painfulness} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <MdAccessTime /> Durée
-                    <Rating name="read-only" value={event.duration} size="small" />
+                    <Rating name="read-only" value={duration} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <FaPeopleCarry /> Impact societé
-                    <Rating name="read-only" value={event.impactSocietal} size="small" />
+                    <Rating name="read-only" value={impactSocietal} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentText}>
                     <GiRecycle /> Impact environnement
-                    <Rating name="read-only" value={event.impactEnvironmental} size="small" />
+                    <Rating name="read-only" value={impactEnvironmental} size="small" />
                   </Typography>
                 </Grid>
                 <Grid>
                   <Typography className={classes.rightContentScore}>
-                    <FaCoins /> Score 16/20
+                    <FaCoins /> Score {result} /20
                   </Typography>
                 </Grid>
               </CardContent>
