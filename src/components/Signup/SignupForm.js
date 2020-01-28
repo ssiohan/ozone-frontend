@@ -42,6 +42,7 @@ const SignupForm = (
     onCheckPasswordConfirmation,
     emptyFieldsCounter,
     onCheckForEmptyFields,
+    getSignedUp,
   },
 ) => {
   const classes = useStyles();
@@ -64,6 +65,7 @@ const SignupForm = (
     evt.preventDefault();
     // console.log('sign up form submitted');
     onCheckForEmptyFields();
+    getSignedUp();
   };
   return (
     <form
@@ -176,6 +178,7 @@ SignupForm.propTypes = {
   passwordNotConfirmed: PropTypes.bool,
   emptyFieldsCounter: PropTypes.number,
   onCheckForEmptyFields: PropTypes.func.isRequired,
+  getSignedUp: PropTypes.func.isRequired,
 
 };
 

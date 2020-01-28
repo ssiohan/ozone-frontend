@@ -5,7 +5,12 @@ import { connect } from 'react-redux';
 import Signup from 'src/components/Signup';
 
 // == Import d'action creators
-import { changeFieldValue, checkPasswordConfirmation, checkForEmptyFields } from 'src/store/reducer/signup';
+import {
+  changeFieldValue,
+  checkPasswordConfirmation,
+  checkForEmptyFields,
+  doSignup,
+} from 'src/store/reducer/signup';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
@@ -30,6 +35,10 @@ const mapDispatchToProps = (dispatch) => ({
   onCheckForEmptyFields: () => {
     // console.log('hello depuis mDtP, je check les champs vides');
     dispatch(checkForEmptyFields());
+  },
+  getSignedUp: () => {
+    console.log('Hello depuis mDtP, je vais inscrire le user');
+    dispatch((doSignup()));
   },
 });
 
