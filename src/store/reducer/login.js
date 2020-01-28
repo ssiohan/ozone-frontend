@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 /* eslint-disable linebreak-style */
 // == Action types
 const CHANGE_LOGIN_FIELD_VALUE = 'CHANGE_LOGIN_FIELD_VALUE';
 const CHECK_EMPTY_LOGIN_FIELDS = 'CHECK_EMPTY_LOGIN_FIELDS';
-// Action qui va lancer la requête axios
-export const GET_TOKENS = 'GET_TOKENS';
+// Action qui va lancer la requête axios permettant de récupérer les tokens
+export const DO_LOGIN = 'DO_LOGIN';
 /** Action qui va permettre de :
  *  a) changer le statut logged: false en logged: true en cas de succès
  *  b) récupérer le token
@@ -51,7 +52,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         emptyLoginFields: 0,
       };
-    case GET_TOKENS:
+    case DO_LOGIN:
       return {
         ...state,
       };
@@ -78,8 +79,8 @@ export const checkForEmptyLoginFields = () => ({
   type: CHECK_EMPTY_LOGIN_FIELDS,
 });
 
-export const getTokens = () => ({
-  type: GET_TOKENS,
+export const doLogin = () => ({
+  type: DO_LOGIN,
 });
 
 export const connectUser = (token, refresh_token) => ({
