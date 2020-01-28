@@ -3,7 +3,7 @@
 const CHANGE_LOGIN_FIELD_VALUE = 'CHANGE_LOGIN_FIELD_VALUE';
 const CHECK_EMPTY_LOGIN_FIELDS = 'CHECK_EMPTY_LOGIN_FIELDS';
 // Action qui va lancer la requête axios
-export const DO_LOGIN = 'DO_LOGIN';
+export const GET_TOKENS = 'GET_TOKENS';
 /** Action qui va permettre de :
  *  a) changer le statut logged: false en logged: true en cas de succès
  *  b) récupérer le token
@@ -51,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         emptyLoginFields: 0,
       };
-    case DO_LOGIN:
+    case GET_TOKENS:
       return {
         ...state,
       };
@@ -78,8 +78,8 @@ export const checkForEmptyLoginFields = () => ({
   type: CHECK_EMPTY_LOGIN_FIELDS,
 });
 
-export const doLogin = () => ({
-  type: DO_LOGIN,
+export const getTokens = () => ({
+  type: GET_TOKENS,
 });
 
 export const connectUser = (token, refresh_token) => ({

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Login from 'src/components/Login';
 
 // == Import d'action creators
-import { changeLoginFieldValue, checkForEmptyLoginFields, doLogin } from 'src/store/reducer/login';
+import { changeLoginFieldValue, checkForEmptyLoginFields, getTokens } from 'src/store/reducer/login';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getLoggedIn: () => {
     console.log('hello depuis mDtp, je vais connecter le user');
-    dispatch(doLogin());
+    dispatch(getTokens());
   },
 });
 
