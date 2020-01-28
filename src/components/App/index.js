@@ -21,7 +21,7 @@ import About from 'src/components/About';
 
 
 // == Composant
-const App = ({ logged }) => (
+const App = ({ logged, registered }) => (
   <div id="app">
     <Navbar />
     <Switch>
@@ -52,16 +52,20 @@ const App = ({ logged }) => (
     </Switch>
     {/* Si le user est connecté: redirection de login vers homepage */}
     {logged && <Redirect from="login" to="/" />}
+    {/* Si le user est inscrit avec succès redirection de signup vers login */}
+    {registered && <Redirect from="signup" to="login" />}
   </div>
 );
 // == Props par défaut
 App.defaultProps = {
   logged: false,
+  registered: false,
 };
 
 // == Validation des props
 App.propTypes = {
   logged: PropTypes.bool,
+  registered: PropTypes.bool,
 };
 // == Export
 export default App;

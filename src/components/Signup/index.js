@@ -39,6 +39,7 @@ const Signup = (
     onCheckPasswordConfirmation,
     emptyFieldsCounter,
     onCheckForEmptyFields,
+    getSignedUp,
   },
 ) => {
   const classes = useStyles();
@@ -70,6 +71,7 @@ const Signup = (
             passwordNotConfirmed={passwordNotConfirmed}
             emptyFieldsCounter={emptyFieldsCounter}
             onCheckForEmptyFields={onCheckForEmptyFields}
+            getSignedUp={getSignedUp}
           />
         </Grid>
       </Grid>
@@ -96,6 +98,7 @@ Signup.propTypes = {
   passwordNotConfirmed: PropTypes.bool,
   emptyFieldsCounter: PropTypes.number,
   onCheckForEmptyFields: PropTypes.func.isRequired,
+  getSignedUp: PropTypes.func.isRequired,
 };
 
 // == Export

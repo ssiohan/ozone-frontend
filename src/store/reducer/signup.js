@@ -3,6 +3,10 @@
 const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
 const CHECK_PASSWORD_CONFIRMATION = 'CHECK_PASSWORD_CONFIRMATION';
 const CHECK_EMPTY_FIELDS = 'CHECK_EMPTY_FIELDS';
+// Action qui va lancer la requête axios
+export const DO_SIGNUP = 'DO_SIGNUP';
+// Action qui va changer le register: false en register: true
+const REGISTER_USER = 'REGISTER_USER';
 
 // == initialState
 const initialState = {
@@ -96,6 +100,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         emptyFields: 0,
       };
+    case DO_SIGNUP:
+      return {
+        ...state,
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
+        registered: true,
+      };
     default:
       return state;
   }
@@ -114,6 +127,14 @@ export const checkPasswordConfirmation = () => ({
 
 export const checkForEmptyFields = () => ({
   type: CHECK_EMPTY_FIELDS,
+});
+
+export const doSignup = () => ({
+  type: DO_SIGNUP,
+});
+
+export const registerUser = () => ({
+  type: REGISTER_USER,
 });
 
 
