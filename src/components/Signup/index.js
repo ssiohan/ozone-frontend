@@ -44,15 +44,13 @@ const Signup = (
   const classes = useStyles();
   return (
     <div id="signup">
+      <Banner />
       <Grid
         container
         direction="column"
         justify="center"
         className={classes.root}
       >
-        <Grid item>
-          <Banner />
-        </Grid>
         <Grid item>
           <Typography variant="h1" gutterBottom xs={12}>
              Inscription
