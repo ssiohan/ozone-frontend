@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   changeCategory: (category) => {
-    console.log('mDTP', 'category');
+    // console.log('mDTP', 'category');
     dispatch(ateliercategory(category));
   },
 });

@@ -24,8 +24,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Homepage = ({ search, events}) => {
+const Homepage = ({ search, events, category }) => {
+
+  // -- add upper stylesheet
   const classes = useStyles();
+
+  // -- state => homepage: category
+
+  const currentCategory = category;
+
+  // if category is "all": display all the events. else: use filter
+
+  const filteredEvents = currentCategory === 'all'
+    ? events
+    : events.filter((event) => event.typeEvent === currentCategory);
+
+  // console.log(currentCategory);
   return (
     <div>
       {!search && <Banner />}
@@ -39,7 +53,7 @@ const Homepage = ({ search, events}) => {
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
               <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
-              {events.map((event) => (
+              {filteredEvents.map((event) => (
                 <Cardweb key={event.id} {...event} />))}
 
               <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
@@ -55,5 +69,11 @@ const Homepage = ({ search, events}) => {
 
 Homepage.propTypes = {
   search: PropTypes.bool.isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  category: PropTypes.string.isRequired,
 };
 export default Homepage;
