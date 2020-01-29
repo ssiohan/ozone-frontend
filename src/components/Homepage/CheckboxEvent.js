@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // == Import : local
 import './homepage.scss';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
@@ -26,7 +26,7 @@ export default function CheckboxesGroup() {
     reunion: false,
   });
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setState({ ...state, [name]: event.target.checked });
   };
 

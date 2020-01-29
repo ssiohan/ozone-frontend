@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(3),
   },
+  formControlLabel: {
+    'white-space': 'nowrap',
+  },
 }));
 
 export default function CheckboxesGroup() {
@@ -44,18 +47,22 @@ export default function CheckboxesGroup() {
           <FormControlLabel
             control={<Checkbox checked={penibilite} color="primary" onChange={handleChange('penibilite')} value="penibilite" />}
             label="Penibilité"
+            className={classes.formControlLabel}
           />
           <FormControlLabel
             control={<Checkbox checked={duree} color="primary" onChange={handleChange('duree')} value="duree" />}
             label="Durée"
+            className={classes.formControlLabel}
           />
           <FormControlLabel
             control={<Checkbox color="primary" checked={societe} onChange={handleChange('societe')} value="societe" />}
             label="Impact Société"
+            className={classes.formControlLabel}
           />
           <FormControlLabel
             control={<Checkbox color="primary" checked={environnement} onChange={handleChange('environnement')} value="environnement" />}
             label="Environnement"
+            className={classes.formControlLabel}
           />
         </FormGroup>
       </FormControl>
