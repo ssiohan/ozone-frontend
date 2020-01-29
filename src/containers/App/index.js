@@ -11,6 +11,7 @@ import { fetchData } from 'src/store/reducer/homepage';
 // == Préparation: data
 const mapStateToProps = (state) => ({
   logged: state.login.logged,
+  registered: state.signup.registered,
 });
 
 // == Préparation - actions

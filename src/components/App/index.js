@@ -21,57 +21,51 @@ import About from 'src/components/About';
 
 
 // == Composant
-class App extends React.Component {
-  componentDidMount() {
-    // appel à l'API pour initialiser les données
-    const { fetchEvents } = this.props;
-    fetchEvents();
-  }
-
-  render(logged) {
-    return (
-      <div id="app">
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/event">
-            <Event />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/create-event">
-            <CreateEvent />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/sponsors">
-            <Sponsors />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-        </Switch>
-        {/* Si le user est connecté: redirection de login vers homepage */}
-        {logged && <Redirect from="login" to="/" />}
-      </div>
-    );
-  }
-}
+const App = ({ logged, registered }) => (
+  <div id="app">
+    <Navbar />
+    <Switch>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
+      <Route path="/event">
+        <Event />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/signup">
+        <Signup />
+      </Route>
+      <Route path="/create-event">
+        <CreateEvent />
+      </Route>
+      <Route path="/profile">
+        <Profile />
+      </Route>
+      <Route path="/sponsors">
+        <Sponsors />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+    </Switch>
+    {/* Si le user est connecté: redirection de login vers homepage */}
+    {logged && <Redirect from="login" to="/" />}
+    {/* Si le user est inscrit avec succès redirection de signup vers login */}
+    {registered && <Redirect from="signup" to="login" />}
+  </div>
+);
 // == Props par défaut
 App.defaultProps = {
   logged: false,
+  registered: false,
 };
 
 // == Validation des props
 App.propTypes = {
-  fetchEvents: PropTypes.func.isRequired,
+  logged: PropTypes.bool,
+  registered: PropTypes.bool,
 };
 // == Export
 export default App;

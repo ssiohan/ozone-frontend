@@ -39,20 +39,19 @@ const Signup = (
     onCheckPasswordConfirmation,
     emptyFieldsCounter,
     onCheckForEmptyFields,
+    getSignedUp,
   },
 ) => {
   const classes = useStyles();
   return (
     <div id="signup">
+      <Banner />
       <Grid
         container
         direction="column"
         justify="center"
         className={classes.root}
       >
-        <Grid item>
-          <Banner />
-        </Grid>
         <Grid item>
           <Typography variant="h1" gutterBottom xs={12}>
              Inscription
@@ -72,6 +71,7 @@ const Signup = (
             passwordNotConfirmed={passwordNotConfirmed}
             emptyFieldsCounter={emptyFieldsCounter}
             onCheckForEmptyFields={onCheckForEmptyFields}
+            getSignedUp={getSignedUp}
           />
         </Grid>
       </Grid>
@@ -98,6 +98,7 @@ Signup.propTypes = {
   passwordNotConfirmed: PropTypes.bool,
   emptyFieldsCounter: PropTypes.number,
   onCheckForEmptyFields: PropTypes.func.isRequired,
+  getSignedUp: PropTypes.func.isRequired,
 };
 
 // == Export
