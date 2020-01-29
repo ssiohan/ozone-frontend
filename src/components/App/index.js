@@ -21,39 +21,49 @@ import About from 'src/components/About';
 
 
 // == Composant
-const App = ({ logged }) => (
-  <div id="app">
-    <Navbar />
-    <Switch>
-      <Route exact path="/">
-        <Homepage />
-      </Route>
-      <Route path="/event">
-        <Event />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
-      <Route path="/create-event">
-        <CreateEvent />
-      </Route>
-      <Route path="/profile">
-        <Profile />
-      </Route>
-      <Route path="/sponsors">
-        <Sponsors />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-    </Switch>
-    {/* Si le user est connecté: redirection de login vers homepage */}
-    {logged && <Redirect from="login" to="/" />}
-  </div>
-);
+class App extends React.Component {
+  componentDidMount() {
+    // appel à l'API pour initialiser les données
+    const { fetchEvents } = this.props;
+    fetchEvents();
+  }
+
+  render(logged) {
+    return (
+      <div id="app">
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route path="/event">
+            <Event />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/create-event">
+            <CreateEvent />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/sponsors">
+            <Sponsors />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
+        {/* Si le user est connecté: redirection de login vers homepage */}
+        {logged && <Redirect from="login" to="/" />}
+      </div>
+    );
+  }
+}
 // == Props par défaut
 App.defaultProps = {
   logged: false,
@@ -61,7 +71,7 @@ App.defaultProps = {
 
 // == Validation des props
 App.propTypes = {
-  logged: PropTypes.bool,
+  fetchEvents: PropTypes.func.isRequired,
 };
 // == Export
 export default App;
