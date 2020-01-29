@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   fetchToken: () => {
-    console.log('hello depuis mDtp, je cherche un token');
+    // console.log('hello depuis mDtp, je cherche un token');
     dispatch(isUserLogged());
   },
 });

@@ -71,7 +71,7 @@ const reducer = (state = initialState, action = {}) => {
     case IS_USER_LOGGED: {
       const token = localStorage.getItem('token');
       const refresh_token = localStorage.getItem('refresh_token');
-      console.log(token, refresh_token);
+      // console.log(token, refresh_token);
       if (token.length > 0) {
         return {
           ...state,
