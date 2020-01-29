@@ -18,19 +18,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CheckboxesGroup() {
+export default function CheckboxesGroup({ changeCategory }) {
+
   const classes = useStyles();
   const [state, setState] = React.useState({
-    atelier: true,
+    atelier: false,
     acte: false,
     reunion: false,
   });
 
   const handleChange = (name) => (event) => {
     setState({ ...state, [name]: event.target.checked });
+
+    changeCategory(name);
+
   };
 
-  const { ateliercreatif, acte, reunion } = state;
+  const { atelier, acte, reunion } = state;
 
 
   return (
@@ -39,7 +43,7 @@ export default function CheckboxesGroup() {
         <FormLabel component="legend">Type d'événement:</FormLabel>
         <FormGroup>
           <FormControlLabel
-            control={<Checkbox checked={ateliercreatif} color="primary" onChange={handleChange('ateliercreatif')} value="ateliercreatif" />}
+            control={<Checkbox checked={atelier} color="primary" onChange={handleChange('atelier')} value="atelier" />}
             label="Atelier Créatif"
           />
           <FormControlLabel

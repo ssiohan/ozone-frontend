@@ -24,8 +24,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Homepage = ({ search, events, }) => {
-
+const Homepage = ({ search, events}) => {
   const classes = useStyles();
   return (
     <div>

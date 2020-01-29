@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 // import Button from '@material-ui/core/Button';
 import Slider from 'src/components/Homepage/Slider';
 import Divider from '@material-ui/core/Divider';
-import CheckboxEvent from 'src/components/Homepage/CheckboxEvent';
+import CheckboxEvent from 'src/containers/CheckboxEvent';
 import CheckboxLevel from 'src/components/Homepage/CheckboxLevel';
 
 // == Import : local
