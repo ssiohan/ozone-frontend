@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Homepage from 'src/components/Homepage';
 
+import { fetchData } from 'src/store/reducer/homepage';
+
 // == Import d'action creators
 // à compléter
 
@@ -16,7 +18,12 @@ const mapStateToProps = (state) => {
 };
 
 // == Préparation - actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  fetchEvents: () => {
+    const action = fetchData();
+    dispatch(action);
+  },
+});
 
 // == Container
 const HomepageContainer = connect(

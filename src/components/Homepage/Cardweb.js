@@ -104,9 +104,6 @@ const Cardweb = ({
 
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
 
-  console.log(result);
-
-
   return (
     <Card className={classes.root}>
       <Grid className={classes.card} container spacing={0}>

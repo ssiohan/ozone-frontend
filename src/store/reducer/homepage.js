@@ -1,15 +1,18 @@
-/* eslint-disable linebreak-style */
+
 // reducer pour gérer les données relatives à l'utilisateur
-import eventlist from 'src/data/eventlist';
+//import eventlist from 'src/data/eventlist';
 // --- initial state
 const initialState = {
   search: false,
-  events: eventlist,
+  events: [],
 };
 
 // --- action types
 const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 const AFTER_SEARCH = 'AFTER_SEARCH';
+export const FETCH_DATA = 'FETCH_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
+export const STOP_LOADING = 'STOP_LOADING';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -25,6 +28,18 @@ const reducer = (state = initialState, action = {}) => {
         search: true,
       };
 
+    case RECEIVE_DATA:
+      return {
+        ...state,
+        events: action.events,
+      };
+
+    case STOP_LOADING:
+      return {
+        ...state,
+        loading: false,
+      };
+
     default: return state;
   }
 };
@@ -36,6 +51,19 @@ export const changeInput = (value) => ({
 });
 export const afterSearch = () => ({
   type: AFTER_SEARCH,
+});
+export const fetchData = () => ({
+  type: FETCH_DATA,
+});
+
+export const receiveData = (events) => ({
+  type: RECEIVE_DATA,
+  // events: events,
+  events,
+});
+
+export const stopLoading = () => ({
+  type: STOP_LOADING,
 });
 
 // --- export
