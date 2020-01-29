@@ -5,6 +5,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 // == Import : middlewares
 import authMiddleware from 'src/store/middleware/authMiddleware';
 import registerMiddleware from 'src/store/middleware/registerMiddleware';
+import eventsMiddleware from 'src/store/middleware/eventsMiddleware';
 
 // == Import : local
 import reducer from './reducer';
@@ -16,6 +17,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     authMiddleware,
     registerMiddleware,
+    eventsMiddleware,
   ),
 );
 

@@ -3,6 +3,7 @@
 import { connect } from 'react-redux';
 
 import App from 'src/components/App';
+import { fetchData } from 'src/store/reducer/homepage';
 
 // == Import d'action creators
 
@@ -14,7 +15,12 @@ const mapStateToProps = (state) => ({
 });
 
 // == Préparation - actions
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  fetchEvents: () => {
+    const action = fetchData();
+    dispatch(action);
+  },
+});
 
 // == Container
 const AppContainer = connect(

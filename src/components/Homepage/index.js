@@ -11,7 +11,7 @@ import './homepage.scss';
 // == import Composants
 import Banner from 'src/components/Banner';
 import BannerAfter from 'src/components/Homepage/BannerAfter';
-import Cardweb from 'src/containers/Homepage/Cardweb';
+import Cardweb from 'src/components/Homepage/Cardweb';
 import Description from './Description';
 import LeftBar from './LeftBar';
 import Cardmob from './Cardmob';
@@ -24,9 +24,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Homepage = ({ search, events }) => {
+const Homepage = ({ search, events, }) => {
+
   const classes = useStyles();
-  console.log(events);
   return (
     <div>
       {!search && <Banner />}
@@ -42,6 +42,7 @@ const Homepage = ({ search, events }) => {
               <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
               {events.map((event) => (
                 <Cardweb key={event.id} {...event} />))}
+
               <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
               <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
               <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
@@ -55,5 +56,6 @@ const Homepage = ({ search, events }) => {
 
 Homepage.propTypes = {
   search: PropTypes.bool.isRequired,
+
 };
 export default Homepage;
