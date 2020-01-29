@@ -11,6 +11,11 @@ export const DO_LOGIN = 'DO_LOGIN';
  *  c) récupérer le refresh_token
  */
 const CONNECT_USER = 'CONNECT_USER';
+/** Action qui va permettre de vérifier à l'initialisation d'App si le user est connecté:
+ * a) afin de ne pas perdre le state logged: true au moment du refresh
+ * b) il faut donc vérifier la présence d'un token dans le localStorage
+ */
+const IS_USER_LOGGED = 'IS_USER_LOGGED';
 
 // == initialState
 const initialState = {
@@ -63,6 +68,20 @@ const reducer = (state = initialState, action = {}) => {
         refresh_token: action.refresh_token,
         logged: true,
       };
+    case IS_USER_LOGGED: {
+      const token = localStorage.getItem('token');
+      const refresh_token = localStorage.getItem('refresh_token');
+      console.log(token, refresh_token);
+      if (token.length > 0) {
+        return {
+          ...state,
+          logged: true,
+          token,
+          refresh_token,
+        };
+      }
+    }
+      break;
     default:
       return state;
   }
@@ -87,6 +106,10 @@ export const connectUser = (token, refresh_token) => ({
   type: CONNECT_USER,
   token,
   refresh_token,
+});
+
+export const isUserLogged = () => ({
+  type: IS_USER_LOGGED,
 });
 
 

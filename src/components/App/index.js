@@ -24,7 +24,11 @@ import About from 'src/components/About';
 class App extends React.Component {
   componentDidMount() {
     // appel à l'API pour initialiser les données
-    const { fetchEvents } = this.props;
+    const { fetchEvents, fetchToken } = this.props;
+    // App vérifie la présence d'un token dans localStorage
+    // En cas de présence d'un token => logged: true
+    fetchToken();
+    // Récupération des events dans l'API
     fetchEvents();
   }
 
@@ -78,6 +82,7 @@ App.propTypes = {
   logged: PropTypes.bool,
   registered: PropTypes.bool,
   fetchEvents: PropTypes.func.isRequired,
+  fetchToken: PropTypes.func.isRequired,
 };
 // == Export
 export default App;
