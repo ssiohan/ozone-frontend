@@ -29,6 +29,13 @@ const initialState = {
   // Infos à récupérer (par défault elles sont vides)
   token: '',
   refresh_token: '',
+  /** Par défaut, un visiteur est USER. Mais il existe les rôles suivants
+   * a) ROLE_ORGANIZER
+   * b) ROLE_PARTNER
+   * c) ROLE_ADMIN
+   * d) ROLE_USER
+   */
+  role: 'ROLE_USER',
 };
 
 // == Reducer
@@ -72,6 +79,11 @@ const reducer = (state = initialState, action = {}) => {
       const token = localStorage.getItem('token');
       const refresh_token = localStorage.getItem('refresh_token');
       // console.log(token, refresh_token);
+      if (localStorage.token === undefined) {
+        return {
+          ...state,
+        };
+      }
       if (token.length > 0) {
         return {
           ...state,

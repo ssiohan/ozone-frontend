@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -33,7 +33,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { logged, registered } = this.props;
+    const { logged } = this.props;
     return (
       <div id="app">
         <Navbar />
@@ -53,9 +53,12 @@ class App extends React.Component {
           <Route path="/create-event">
             <CreateEvent />
           </Route>
+          {/* L'utilisateur n'a accès au profil que s'il est connecté */}
+          { logged && (
           <Route path="/profile">
             <Profile />
           </Route>
+          )}
           <Route path="/sponsors">
             <Sponsors />
           </Route>
@@ -63,10 +66,6 @@ class App extends React.Component {
             <About />
           </Route>
         </Switch>
-        {/* Si le user est connecté: redirection de login vers homepage */}
-        {logged && <Redirect from="login" to="/" />}
-        {/* Si le user est inscrit avec succès redirection de signup vers login */}
-        {registered && <Redirect from="signup" to="login" />}
       </div>
     );
   }
@@ -74,13 +73,11 @@ class App extends React.Component {
 // == Props par défaut
 App.defaultProps = {
   logged: false,
-  registered: false,
 };
 
 // == Validation des props
 App.propTypes = {
   logged: PropTypes.bool,
-  registered: PropTypes.bool,
   fetchEvents: PropTypes.func.isRequired,
   fetchToken: PropTypes.func.isRequired,
 };

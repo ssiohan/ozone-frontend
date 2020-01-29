@@ -20,6 +20,7 @@ const mapStateToProps = (state) => ({
   signupConfirmPasswordValue: state.signup.signupConfirmPassword,
   passwordNotConfirmed: state.signup.passwordNotConfirmed,
   emptyFieldsCounter: state.signup.emptyFields,
+  registered: state.signup.registered,
 });
 
 // == Préparation - actions

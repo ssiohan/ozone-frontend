@@ -12,7 +12,6 @@ import { isUserLogged } from 'src/store/reducer/login';
 // == Préparation: data
 const mapStateToProps = (state) => ({
   logged: state.login.logged,
-  registered: state.signup.registered,
 });
 
 // == Préparation - actions

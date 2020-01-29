@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { FaRegUserCircle } from 'react-icons/fa';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
 import PropTypes from 'prop-types';
 
 
@@ -24,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginBottom: theme.spacing(1),
   },
+  link: {
+    marginLeft: theme.spacing(1),
+  },
 }));
 
 
@@ -40,6 +44,7 @@ const Signup = (
     emptyFieldsCounter,
     onCheckForEmptyFields,
     getSignedUp,
+    registered,
   },
 ) => {
   const classes = useStyles();
@@ -60,7 +65,9 @@ const Signup = (
         <Grid item className={classes.icon}>
           <FaRegUserCircle size={70} xs={12} />
         </Grid>
-        <Grid item>
+        {/* Si l'utilisateur n'est pas inscrit, il voit le form */}
+        {!registered && (
+        <Grid item xs={12}>
           <SignupForm
             onSignupFieldChange={onSignupFieldChange}
             signupEmailValue={signupEmailValue}
@@ -74,6 +81,22 @@ const Signup = (
             getSignedUp={getSignedUp}
           />
         </Grid>
+        )}
+        {/* S'il est inscrit, lien vers page de connexion */}
+        {registered && (
+        <Grid item xs={12}>
+          <Typography variant="body2" gutterBottom xs={12}>
+             Inscription réussie !
+             Veuillez cliquer sur ce lien pour vous rendre vers la
+            <Link
+              href="/login"
+              className={classes.link}
+            >
+              page de connexion
+            </Link>
+          </Typography>
+        </Grid>
+        )}
       </Grid>
     </div>
   );
@@ -86,6 +109,7 @@ Signup.defaultProps = {
   signupConfirmPasswordValue: '',
   passwordNotConfirmed: false,
   emptyFieldsCounter: 0,
+  registered: false,
 };
 //= = Validation des props
 Signup.propTypes = {
@@ -99,6 +123,7 @@ Signup.propTypes = {
   emptyFieldsCounter: PropTypes.number,
   onCheckForEmptyFields: PropTypes.func.isRequired,
   getSignedUp: PropTypes.func.isRequired,
+  registered: PropTypes.bool,
 };
 
 // == Export
