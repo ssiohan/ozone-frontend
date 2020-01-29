@@ -28,7 +28,8 @@ class App extends React.Component {
     fetchEvents();
   }
 
-  render(logged, registered) {
+  render() {
+    const { logged, registered } = this.props;
     return (
       <div id="app">
         <Navbar />
