@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
 import PropTypes from 'prop-types';
 
 
@@ -39,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
   emptyFieldsMessage: {
     color: '#EA282A',
     fontSize: 'x-small',
+  },
+  link: {
+    marginLeft: theme.spacing(1),
   },
 }));
 
@@ -86,6 +90,7 @@ const Login = ({
         <Grid item xs={12}>
           <FaRegUserCircle size={70} xs={12} />
         </Grid>
+        {!loginStatus && (
         <Grid item xs={12}>
           { /** Début du formulaire */}
           <form
@@ -150,6 +155,22 @@ const Login = ({
             </Grid>
           </form>
         </Grid>
+        )}
+        {/* S'il est connecté, lien vers page de connexion */}
+        {loginStatus && (
+        <Grid item xs={12}>
+          <Typography variant="body2" gutterBottom xs={12}>
+             Connexion réussie !
+             Veuillez cliquer sur ce lien pour vous rendre vers la
+            <Link
+              href="/"
+              className={classes.link}
+            >
+              page d'accueil
+            </Link>
+          </Typography>
+        </Grid>
+        )}
       </Grid>
     </div>
   );

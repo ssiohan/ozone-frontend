@@ -64,7 +64,13 @@ const EventFooter = () => {
       className={classes.event_footer}
     >
       {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
-      <Grid container item xs={12} md={4}>
+      <Grid
+        container
+        item
+        xs={12}
+        md={4}
+        className={classes.address}
+      >
         <Grid item>
           <ButtonBase className={classes.image}>
             <img
@@ -79,7 +85,6 @@ const EventFooter = () => {
           container
           item
           direction="column"
-          className={classes.address}
         >
           <Grid item>
             <MapLink />
