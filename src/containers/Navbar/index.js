@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 
   return {
     logged: state.login.logged,
+    emailValue: state.login.email,
   };
 };
 

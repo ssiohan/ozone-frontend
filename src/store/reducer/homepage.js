@@ -1,15 +1,19 @@
 
 // reducer pour gérer les données relatives à l'utilisateur
-//import eventlist from 'src/data/eventlist';
+
 // --- initial state
 const initialState = {
   search: false,
   events: [],
+  category: 'all',
+  inputValue: '',
 };
 
 // --- action types
 const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 const AFTER_SEARCH = 'AFTER_SEARCH';
+const FILTER_CATEGORY = 'FILTER_CATEGORY';
+
 export const FETCH_DATA = 'FETCH_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const STOP_LOADING = 'STOP_LOADING';
@@ -39,7 +43,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loading: false,
       };
-
+    case FILTER_CATEGORY:
+      return {
+        ...state,
+        category: action.category,
+      };
     default: return state;
   }
 };
@@ -65,6 +73,11 @@ export const receiveData = (events) => ({
 export const stopLoading = () => ({
   type: STOP_LOADING,
 });
+export const ateliercategory = (category) => ({
+  type: FILTER_CATEGORY,
+  category,
+});
+
 
 // --- export
 export default reducer;

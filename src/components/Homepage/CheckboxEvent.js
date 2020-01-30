@@ -2,9 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import PropTypes from 'prop-types';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
 
 // == Import : local
 import './homepage.scss';
@@ -18,40 +19,53 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CheckboxesGroup() {
+export default function CheckboxesGroup({ changeCategory }) {
+
   const classes = useStyles();
   const [state, setState] = React.useState({
-    atelier: true,
-    acte: false,
-    reunion: false,
+
+    Atelier: false,
+    'Acte Citoyen': false,
+    'Réunion d\'information': false,
   });
 
   const handleChange = (name) => (event) => {
     setState({ ...state, [name]: event.target.checked });
+
+    changeCategory(name);
   };
 
-  const { ateliercreatif, acte, reunion } = state;
+  const { atelier, acte, reunion } = state;
 
 
   return (
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">Type d'événement:</FormLabel>
-        <FormGroup>
+        <RadioGroup>
           <FormControlLabel
-            control={<Checkbox checked={ateliercreatif} color="primary" onChange={handleChange('ateliercreatif')} value="ateliercreatif" />}
+            control={<Radio color="primary" onChange={handleChange('all')} value="all" />}
+            label="Tous"
+          />
+
+          <FormControlLabel
+            control={<Radio checked={atelier} color="primary" onChange={handleChange('Atelier')} value="atelier" />}
             label="Atelier Créatif"
           />
           <FormControlLabel
-            control={<Checkbox checked={acte} color="primary" onChange={handleChange('acte')} value="acte" />}
+            control={<Radio checked={acte} color="primary" onChange={handleChange('Acte Citoyen')} value="acte" />}
             label="Acte citoyen"
           />
           <FormControlLabel
-            control={<Checkbox color="primary" checked={reunion} onChange={handleChange('reunion')} value="reunion" />}
+            control={<Radio color="primary" checked={reunion} onChange={handleChange('Réunion d\'information')} value="reunion" />}
             label="Réunion"
           />
-        </FormGroup>
+
+        </RadioGroup>
       </FormControl>
     </div>
   );
 }
+CheckboxesGroup.propTypes = {
+  changeCategory: PropTypes.func.isRequired,
+};

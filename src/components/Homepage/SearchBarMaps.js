@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import throttle from 'lodash/throttle';
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 function loadScript(src, position, id) {
   if (!position) {
@@ -22,7 +24,7 @@ function loadScript(src, position, id) {
 
 const autocompleteService = { current: null };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     color: theme.palette.text.secondary,
     marginRight: theme.spacing(2),
@@ -30,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function GoogleMaps() {
+const GoogleMaps = ({ searchOk, changeInputValue }) => {
   const classes = useStyles();
   const [inputValue, setInputValue] = React.useState('');
   const [options, setOptions] = React.useState([]);
@@ -39,7 +41,7 @@ export default function GoogleMaps() {
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyBwRp1e12ec1vOTtGiA4fcCt2sCUS78UYc&libraries=places',
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAg7rKy-D8rSELNyocmRGzKp8mEPLLoMiA&libraries=places',
         document.querySelector('head'),
         'google-maps',
       );
@@ -48,10 +50,20 @@ export default function GoogleMaps() {
     loaded.current = true;
   }
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setInputValue(event.target.value);
+    changeInputValue(event.target.value);
   };
+  // const handleChange = (event) => {
+  //   setInputValue(event.target.value);
+  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
+    searchOk();
+    changeInputValue(event.target.value);
+
+  };
   const fetch = React.useMemo(
     () =>
       throttle((input, callback) => {
@@ -75,7 +87,7 @@ export default function GoogleMaps() {
       return undefined;
     }
 
-    fetch({ input: inputValue }, results => {
+    fetch({ input: inputValue }, (results) => {
       if (active) {
         setOptions(results || []);
       }
@@ -87,35 +99,43 @@ export default function GoogleMaps() {
   }, [inputValue, fetch]);
 
   return (
+
     <Autocomplete
       id="google-map-demo"
-      style={{ width: '100%',
-        maxWidth: 345,
-        margin: 'auto',
-      }}
-      getOptionLabel={option => (typeof option === 'string' ? option : option.description)}
+      style={{ width: '100%' }}
+      getOptionLabel={(option) => (typeof option === 'string' ? option : option.description)}
       filterOptions={x => x}
       options={options}
       autoComplete
       includeInputInList
       freeSolo
       disableOpenOnFocus
-      renderInput={params => (
-        <TextField
-          {...params}
-          label="Autour de moi"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
+      renderInput={(params) => (
+        <div>
+          <TextField
+            {...params}
+            autoFocus
+            label="choisir une ville"
+            margin="dense"
+            fullWidth
+            type="text"
+            onChange={handleChange}
+            value={handleChange}
+
+          />
+          <Button type="submit" onClick={handleSubmit} color="primary">
+          Ok
+          </Button>
+        </div>
       )}
-      renderOption={option => {
+
+      renderOption={(option) => {
         const matches = option.structured_formatting.main_text_matched_substrings;
         const parts = parse(
           option.structured_formatting.main_text,
-          matches.map(match => [match.offset, match.offset + match.length]),
+          matches.map((match) => [match.offset, match.offset + match.length]),
         );
-
+        console.log();
         return (
           <Grid container alignItems="center">
             <Grid item>
@@ -137,4 +157,12 @@ export default function GoogleMaps() {
       }}
     />
   );
-}
+};
+GoogleMaps.defaultProps = {
+  changeInputValue: null,
+};
+GoogleMaps.propTypes = {
+
+  changeInputValue: PropTypes.func,
+};
+export default GoogleMaps;

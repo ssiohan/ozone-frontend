@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 const PrettoSlider = withStyles({
   root: {
-    color: '#078171',
+    color: '#526DDB',
     height: 8,
   },
   thumb: {

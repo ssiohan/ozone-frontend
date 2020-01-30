@@ -3,10 +3,9 @@ import React from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-// import Button from '@material-ui/core/Button';
 import Slider from 'src/components/Homepage/Slider';
 import Divider from '@material-ui/core/Divider';
-import CheckboxEvent from 'src/components/Homepage/CheckboxEvent';
+import CheckboxEvent from 'src/containers/CheckboxEvent';
 import CheckboxLevel from 'src/components/Homepage/CheckboxLevel';
 
 // == Import : local
@@ -64,7 +63,7 @@ export default function FullWidthGrid() {
             </Grid>
             <Grid item xs={12} sm={12}>
               <Typography variant="h5" align="left">
-              Trier par:
+              Filtrer par:
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12}>

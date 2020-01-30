@@ -10,7 +10,8 @@ import './homepage.scss';
 
 
 // == Import : Components
-import SearchBarMaps from 'src/components/Homepage/SearchBarMaps';
+import Dialog from 'src/containers/Homepage/Dialog';
+
 
 // == Add Css style with Material UI
 const useStyles = makeStyles(() => ({
@@ -44,21 +45,23 @@ const useStyles = makeStyles(() => ({
   },
 }));
 // == Component
-export default function BannerAfter() {
+export default function BannerAfter({inputValue}) {
   const classes = useStyles();
-
+// console.log(inputValue);
   return (
     <Grid className={classes.banner} container spacing={0} direction="row" wrap="nowrap">
-      <Grid className={classes.mapcontainer} container sm={3}>
+      <Grid className={classes.mapcontainer} item sm={3}>
         <img className={classes.map} src="src/assets/img/map.png" alt="" />
       </Grid>
-      <Grid className={classes.title} container direction="column" sm={9} alignContent="left" justify="space-between">
-        <Grid>
-          <Typography className={classes.typo} variant="h4" align="left">Les Evénements près de: </Typography>
-          <Typography className={classes.typo} variant="h4" align="left">VILLE </Typography>
-        </Grid>
-        <Grid className={classes.searchBar}>
-          <SearchBarMaps />
+      <Grid className={classes.title} item sm={9}>
+        <Grid container direction="column" justify="space-between">
+          <Grid>
+            <Typography className={classes.typo} variant="h4" align="left">Les Evénements près de: </Typography>
+            <Typography className={classes.typo} variant="h4" align="left">{inputValue} </Typography>
+          </Grid>
+          <Grid className={classes.searchBar}>
+            <Dialog />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

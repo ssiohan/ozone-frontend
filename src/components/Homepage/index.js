@@ -10,12 +10,12 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
-import BannerAfter from 'src/components/Homepage/BannerAfter';
+import BannerAfter from 'src/containers/Homepage/BannerAfter';
 import Cardweb from 'src/components/Homepage/Cardweb';
+import Dialog from 'src/components/Banner/Dialog';
 import Description from './Description';
 import LeftBar from './LeftBar';
 import Cardmob from './Cardmob';
-import SearchBarMaps from './SearchBarMaps';
 
 const useStyles = makeStyles(() => ({
 
@@ -24,9 +24,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Homepage = ({ search, events, }) => {
+const Homepage = ({ search, events, category }) => {
 
+  // -- add upper stylesheet
   const classes = useStyles();
+
+  // -- state => homepage: category
+
+  const currentCategory = category;
+
+  // if category is "all": display all the events. else: use filter
+
+  const filteredEvents = currentCategory === 'all'
+    ? events
+    : events.filter((event) => event.typeEvent === currentCategory);
+
+  console.log(currentCategory);
   return (
     <div>
       {!search && <Banner />}
@@ -39,13 +52,15 @@ const Homepage = ({ search, events, }) => {
               {search && <LeftBar />}
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
-              {events.map((event) => (
-                <Cardweb key={event.id} {...event} />))}
-
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><Dialog /></Hidden>
+              <Hidden only={['xs']}>
+                {filteredEvents.map((event) => (
+                  <Cardweb key={event.id} {...event} />))}
+              </Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                {filteredEvents.map((event) => (
+                  <Cardmob key={event.id} {...event} />))}
+              </Hidden>
             </Grid>
           </Grid>
         </Grid>
@@ -56,5 +71,11 @@ const Homepage = ({ search, events, }) => {
 
 Homepage.propTypes = {
   search: PropTypes.bool.isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  category: PropTypes.string.isRequired,
 };
 export default Homepage;

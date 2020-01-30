@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
 import Drawer from './Drawer';
+import DrawerProfile from './DrawerProfile';
 
 // == Import : local
 import './navbar.scss';
@@ -79,8 +78,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ logged }) => {
-
+const Header = ({ logged, emailValue }) => {
+// console.log(logged);
   // logged: value in the state: if logged is false "s'inscrire" and "se connecter" buttons appears
   // if logged is true and <Avatar /> appear
 
@@ -91,7 +90,7 @@ const Header = ({ logged }) => {
 
     <AppBar className={classes.appBar} position="sticky" elevation={0}>
       <Toolbar>
-        <Grid container spacing={1}>
+        <Grid container wrap="nowrap" spacing={1}>
           <Hidden mdUp>
             <Grid item>
               <Drawer className={classes.appBar} />
@@ -116,6 +115,11 @@ const Header = ({ logged }) => {
                 <Link underline="none" className={classes.ozonetext} href="/">
                   zone
                 </Link>
+                {logged && (
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <Grid item>
+                  <Typography color="inherit" variant="body2">{emailValue} </Typography>
+                </Grid>)}
               </Typography>
             </Grid>
           </Hidden>
@@ -170,12 +174,10 @@ const Header = ({ logged }) => {
                 </Button>
               </Grid>)}
             {logged && (
-              // eslint-disable-next-line react/jsx-wrap-multilines
-              <Grid item>
-                <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                  <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-                </IconButton>
-              </Grid>)}
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <Grid item>
+              <DrawerProfile />
+            </Grid>)}
           </Toolbar>
         </Grid>
       </Toolbar>
