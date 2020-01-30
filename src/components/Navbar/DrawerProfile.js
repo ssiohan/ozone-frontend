@@ -36,8 +36,8 @@ function SimpleDialog(props) {
             Mon profil
           </Typography>
         </ListItem>
-        <ListItem button component="a" href="/profile">
-          <Typography underline="none" className={classes.Typography} href="/profile">
+        <ListItem button component="a" href="/logout">
+          <Typography underline="none" className={classes.Typography} href="/logout">
             Se deconnecter
           </Typography>
         </ListItem>

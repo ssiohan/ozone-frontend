@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -81,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = ({ logged, emailValue }) => {
-
+console.log(logged);
   // logged: value in the state: if logged is false "s'inscrire" and "se connecter" buttons appears
   // if logged is true and <Avatar /> appear
 
