@@ -56,6 +56,5 @@ const Homepage = ({ search, events, }) => {
 
 Homepage.propTypes = {
   search: PropTypes.bool.isRequired,
-
 };
 export default Homepage;

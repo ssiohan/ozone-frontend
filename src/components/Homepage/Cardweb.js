@@ -24,11 +24,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'margin-bottom': '1em',
-    height: '230px',
+    // height: '20px',
+    maxHeight: '280px',
   },
   right: {
     'padding-left': '.5em',
     background: 'no-repeat url("src/assets/img/banner2.png")',
+    'background-size': '700px 280px',
   },
   img: {
     padding: theme.spacing(2),
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: 'left',
     color: 'black',
-    'font-size': '1.2em',
+    'font-size': '1em',
   },
   leftContent: {
     textAlign: 'center',
