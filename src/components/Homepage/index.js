@@ -10,12 +10,12 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
-import BannerAfter from 'src/components/Homepage/BannerAfter';
+import BannerAfter from 'src/containers/Homepage/BannerAfter';
 import Cardweb from 'src/components/Homepage/Cardweb';
+import Dialog from 'src/components/Banner/Dialog';
 import Description from './Description';
 import LeftBar from './LeftBar';
 import Cardmob from './Cardmob';
-import SearchBarMaps from './SearchBarMaps';
 
 const useStyles = makeStyles(() => ({
 
@@ -39,7 +39,7 @@ const Homepage = ({ search, events, category }) => {
     ? events
     : events.filter((event) => event.typeEvent === currentCategory);
 
-  // console.log(currentCategory);
+  console.log(currentCategory);
   return (
     <div>
       {!search && <Banner />}
@@ -52,7 +52,7 @@ const Homepage = ({ search, events, category }) => {
               {search && <LeftBar />}
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}><Dialog /></Hidden>
               <Hidden only={['xs']}>
                 {filteredEvents.map((event) => (
                   <Cardweb key={event.id} {...event} />))}

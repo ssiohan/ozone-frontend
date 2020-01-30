@@ -118,7 +118,6 @@ const Cardweb = ({
     return formatDate;
   };
 
-  
   const date = treatDate(dateEvent);
   return (
     <Card className={classes.root}>

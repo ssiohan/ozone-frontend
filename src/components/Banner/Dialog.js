@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -9,6 +8,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+
 
 const FormDialog = ({ searchOk, changeInputValue }) => {
   const [open, setOpen] = React.useState(false);
@@ -27,13 +28,9 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
     // console.log('Je veux envoyer le message');
     searchOk();
   };
-  const handleChange = (evt) => {
-    // const fieldValue = evt.target.value;
-    // Equivalent à :
-    const { value: fieldValue } = evt.target;
+  const handleChange = (event) => {
 
-    // console.log('Je change la valeur du champ', fieldValue);
-    changeInputValue(fieldValue);
+    changeInputValue(event.target.value);
   };
 
   const useStyles = makeStyles(() => ({
@@ -46,9 +43,6 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
       },
 
     },
-    dialogContent: {
-      width: '800px',
-    },
     dialogbg: {
       opacity: '.9',
 
@@ -60,7 +54,7 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
       <Button className={classes.dialogButton} variant="outlined" onClick={handleClickOpen}>
         Les événements près de chez moi <KeyboardArrowDown />
       </Button>
-      <Dialog className={classes.dialogbg} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog fullWidth maxWidth="sm" className={classes.dialogbg} open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form action="">
           <DialogTitle className={classes.dialogContent} id="form-dialog-title">Recherche</DialogTitle>
           <DialogContent className={classes.dialogContent}>
@@ -68,13 +62,12 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
               Les événements près de chez moi
             </DialogContentText>
             <TextField
-              onChange={handleChange}
               autoFocus
+              label="choisir une ville"
               margin="dense"
-              id="city"
-              label="Votre ville"
-              type="text"
               fullWidth
+              type="text"
+              onChange={handleChange}
             />
           </DialogContent>
           <DialogActions className={classes.dialogContent}>
@@ -89,10 +82,14 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
       </Dialog>
     </div>
   );
-}
+};
+FormDialog.defaultProps = {
+
+  changeInputValue: null,
+};
 FormDialog.propTypes = {
 
-  changeInputValue: PropTypes.func.isRequired,
   searchOk: PropTypes.func.isRequired,
+  changeInputValue: PropTypes.func,
 };
 export default FormDialog;

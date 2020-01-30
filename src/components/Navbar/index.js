@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = ({ logged, emailValue }) => {
-console.log(logged);
+// console.log(logged);
   // logged: value in the state: if logged is false "s'inscrire" and "se connecter" buttons appears
   // if logged is true and <Avatar /> appear
 

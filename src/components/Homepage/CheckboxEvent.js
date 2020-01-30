@@ -6,7 +6,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import PropTypes from 'prop-types';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 // == Import : local
 import './homepage.scss';
@@ -24,6 +23,7 @@ export default function CheckboxesGroup({ changeCategory }) {
 
   const classes = useStyles();
   const [state, setState] = React.useState({
+
     Atelier: false,
     'Acte Citoyen': false,
     'Réunion d\'information': false,
@@ -44,6 +44,11 @@ export default function CheckboxesGroup({ changeCategory }) {
         <FormLabel component="legend">Type d'événement:</FormLabel>
         <RadioGroup>
           <FormControlLabel
+            control={<Radio color="primary" onChange={handleChange('all')} value="all" />}
+            label="Tous"
+          />
+
+          <FormControlLabel
             control={<Radio checked={atelier} color="primary" onChange={handleChange('Atelier')} value="atelier" />}
             label="Atelier Créatif"
           />
@@ -55,6 +60,7 @@ export default function CheckboxesGroup({ changeCategory }) {
             control={<Radio color="primary" checked={reunion} onChange={handleChange('Réunion d\'information')} value="reunion" />}
             label="Réunion"
           />
+
         </RadioGroup>
       </FormControl>
     </div>

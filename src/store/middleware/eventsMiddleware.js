@@ -8,7 +8,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       // appel axios
       axios.get('https://api.geekoz.fr/api/v1/events')
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           const receiveDataAction = receiveData(response.data);
           store.dispatch(receiveDataAction);
         })
