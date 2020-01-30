@@ -94,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
+  userMax,
   author,
   title,
   dateEvent,
@@ -115,19 +116,9 @@ const Cardweb = ({
     const formatDate = `${day}/${month}/${year}`;
 
     return formatDate;
-    // var d = new Date();
-
-
-    // remplacer demo par le nom du bloc qui affichera la date
-    // document.getElementById("demo").innerHTML = formatDate;
-
-    // const hour = dateEvent.slice(11, 13);
-    // const minute = dateEvent.slice(14, 16);
-    // const second = dateEvent.slice(17, 19);
-    // const formatHour = hour +"";
   };
 
-  // const date = treatDate(dateEvent);
+  
   const date = treatDate(dateEvent);
   return (
     <Card className={classes.root}>
@@ -157,7 +148,7 @@ const Cardweb = ({
               <CardContent>
                 <Grid>
                   <Typography className={classes.rightContentText}>
-                    <MdPeople /> 14/20 participants
+                    <MdPeople /> 14/{userMax} participants
                   </Typography>
                 </Grid>
                 <Grid>
@@ -198,6 +189,7 @@ const Cardweb = ({
   );
 };
 Cardweb.propTypes = {
+  userMax: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   dateEvent: PropTypes.string.isRequired,
   painfulness: PropTypes.number.isRequired,

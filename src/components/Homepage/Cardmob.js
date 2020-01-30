@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { MdPeople } from 'react-icons/md';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaCoins } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   action: {
-    margin: '1em',
+    margin: '.8em',
   },
   text: {
     'margin-top': '.5em',
@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardmob = ({
+  userMax,
   description,
   city,
   author,
@@ -71,8 +72,17 @@ const Cardmob = ({
   impactEnvironmental,
 }) => {
   const classes = useStyles();
+  const treatDate = (apiDate) => {
+    const date = apiDate;
+    // retourne la date au format jour/mois/année
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const formatDate = `${day}/${month}/${year}`;
 
-
+    return formatDate;
+  };
+  const date = treatDate(dateEvent);
   // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
   return (
@@ -106,17 +116,26 @@ const Cardmob = ({
         <Grid container spacing={0} item xs={12} sm={12}>
           <Typography className={classes.text} align="left" variant="h5">{title}</Typography>
         </Grid>
-        <Typography className={classes.text} align="left">{dateEvent}</Typography>
+        <Typography className={classes.text} align="left">{date}</Typography>
         <Typography className={classes.text} variant="body2" color="textSecondary" component="p">
           {description}
         </Typography>
       </CardContent>
       <CardActions className={classes.action} disableSpacing>
-        <Grid container justify="space-between" spacing={2} item xs={12}>
-          <Button variant="contained" size="small">{typeEvent}</Button>
-          <Typography className={classes.rightContentText}>
-            <MdPeople /> {result}/20
-          </Typography>
+        <Grid container justify="space-between">
+          <Grid item xs={3}>
+            <Button variant="contained" size="small">{typeEvent}</Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Grid container direction="column" justify="space-between" spacing={2} wrap="nowrap" item xs={12}>
+              <Typography className={classes.rightContentText}>
+                <MdPeople /> .../{userMax}
+              </Typography>
+              <Typography className={classes.rightContentText}>
+                <FaCoins /> {result} /20
+              </Typography>
+            </Grid>
+          </Grid>
         </Grid>
       </CardActions>
       <Grid>
@@ -126,6 +145,7 @@ const Cardmob = ({
   );
 };
 Cardmob.propTypes = {
+  userMax: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   dateEvent: PropTypes.string.isRequired,
   painfulness: PropTypes.number.isRequired,
