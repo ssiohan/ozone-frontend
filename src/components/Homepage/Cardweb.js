@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'margin-bottom': '1em',
-    // height: '20px',
     maxHeight: '280px',
   },
   right: {
@@ -95,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
+  author,
   title,
   dateEvent,
   painfulness,
@@ -103,9 +103,32 @@ const Cardweb = ({
   impactEnvironmental,
 }) => {
   const classes = useStyles();
-
+  // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
 
+  const treatDate = (apiDate) => {
+    const date = apiDate;
+    // retourne la date au format jour/mois/année
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const formatDate = `${day}/${month}/${year}`;
+
+    return formatDate;
+    // var d = new Date();
+
+
+    // remplacer demo par le nom du bloc qui affichera la date
+    // document.getElementById("demo").innerHTML = formatDate;
+
+    // const hour = dateEvent.slice(11, 13);
+    // const minute = dateEvent.slice(14, 16);
+    // const second = dateEvent.slice(17, 19);
+    // const formatHour = hour +"";
+  };
+
+  // const date = treatDate(dateEvent);
+  const date = treatDate(dateEvent);
   return (
     <Card className={classes.root}>
       <Grid className={classes.card} container spacing={0}>
@@ -124,7 +147,8 @@ const Cardweb = ({
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
               <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
-              <Typography className="date">{dateEvent}</Typography>
+              <Typography>{author.pseudo}</Typography>
+              <Typography className="date">{date}</Typography>
               <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
             </Grid>
           </Grid>
@@ -180,5 +204,6 @@ Cardweb.propTypes = {
   duration: PropTypes.number.isRequired,
   impactSocietal: PropTypes.number.isRequired,
   impactEnvironmental: PropTypes.number.isRequired,
+  author: PropTypes.object.isRequired,
 };
 export default Cardweb;

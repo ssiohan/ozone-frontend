@@ -6,6 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import PropTypes from 'prop-types';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 // == Import : local
 import './homepage.scss';

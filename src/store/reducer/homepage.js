@@ -3,7 +3,7 @@
 
 // --- initial state
 const initialState = {
-  search: true,
+  search: false,
   events: [],
   category: 'all',
 };

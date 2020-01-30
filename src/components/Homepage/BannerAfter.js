@@ -11,6 +11,7 @@ import './homepage.scss';
 
 // == Import : Components
 import SearchBarMaps from 'src/components/Homepage/SearchBarMaps';
+import Dialog from 'src/components/Banner/Dialog';
 
 // == Add Css style with Material UI
 const useStyles = makeStyles(() => ({
@@ -59,6 +60,7 @@ export default function BannerAfter() {
             <Typography className={classes.typo} variant="h4" align="left">VILLE </Typography>
           </Grid>
           <Grid className={classes.searchBar}>
+            <Dialog />
             <SearchBarMaps />
           </Grid>
         </Grid>

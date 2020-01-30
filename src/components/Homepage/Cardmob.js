@@ -12,8 +12,9 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { MdPeople } from 'react-icons/md';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
     'margin-top': '1em',
@@ -55,10 +56,25 @@ const useStyles = makeStyles(theme => ({
     'margin-top': '.5em',
   },
 }));
+const score = (a, b, c, d) => (a + b + c + d);
 
-export default function RecipeReviewCard() {
+const Cardmob = ({
+  description,
+  city,
+  author,
+  typeEvent,
+  title,
+  dateEvent,
+  painfulness,
+  duration,
+  impactSocietal,
+  impactEnvironmental,
+}) => {
   const classes = useStyles();
 
+
+  // function result return a /20 score
+  const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -68,7 +84,7 @@ export default function RecipeReviewCard() {
               <Avatar aria-label="recipe" className={classes.avatar}>
                 R
               </Avatar>
-              <Typography className={classes.user}>Username</Typography>
+              <Typography className={classes.user}>{author.pseudo}</Typography>
             </Grid>
            )
            }
@@ -76,7 +92,7 @@ export default function RecipeReviewCard() {
           (
             <IconButton aria-label="settings">
               <FaMapMarkerAlt />
-              <Typography>localisation</Typography>
+              <Typography>{city}</Typography>
             </IconButton>
           )
           }
@@ -88,21 +104,18 @@ export default function RecipeReviewCard() {
       />
       <CardContent>
         <Grid container spacing={0} item xs={12} sm={12}>
-          <Typography className={classes.text} align="left" variant="h4">Titre de l'évenement</Typography>
+          <Typography className={classes.text} align="left" variant="h5">{title}</Typography>
         </Grid>
-        <Typography className={classes.text} align="left">16/22/2020</Typography>
+        <Typography className={classes.text} align="left">{dateEvent}</Typography>
         <Typography className={classes.text} variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions className={classes.action} disableSpacing>
         <Grid container justify="space-between" spacing={2} item xs={12}>
-          <Button variant="contained" size="small">atelier créatif</Button>
-          <Typography>
-            <Typography className={classes.rightContentText}>
-              <MdPeople /> 14/20
-            </Typography>
+          <Button variant="contained" size="small">{typeEvent}</Button>
+          <Typography className={classes.rightContentText}>
+            <MdPeople /> {result}/20
           </Typography>
         </Grid>
       </CardActions>
@@ -111,4 +124,17 @@ export default function RecipeReviewCard() {
       </Grid>
     </Card>
   );
-}
+};
+Cardmob.propTypes = {
+  title: PropTypes.string.isRequired,
+  dateEvent: PropTypes.string.isRequired,
+  painfulness: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  impactSocietal: PropTypes.number.isRequired,
+  impactEnvironmental: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
+  typeEvent: PropTypes.string.isRequired,
+};
+export default Cardmob;

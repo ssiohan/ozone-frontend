@@ -91,7 +91,7 @@ const Header = ({ logged }) => {
 
     <AppBar className={classes.appBar} position="sticky" elevation={0}>
       <Toolbar>
-        <Grid container spacing={1}>
+        <Grid container wrap="nowrap" spacing={1}>
           <Hidden mdUp>
             <Grid item>
               <Drawer className={classes.appBar} />

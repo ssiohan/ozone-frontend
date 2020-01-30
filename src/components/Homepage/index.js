@@ -53,12 +53,14 @@ const Homepage = ({ search, events, category }) => {
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
               <Hidden only={['sm', 'md', 'lg', 'xl']}><SearchBarMaps /></Hidden>
-              {filteredEvents.map((event) => (
-                <Cardweb key={event.id} {...event} />))}
-
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
-              <Hidden only={['sm', 'md', 'lg', 'xl']}><Cardmob /></Hidden>
+              <Hidden only={['xs']}>
+                {filteredEvents.map((event) => (
+                  <Cardweb key={event.id} {...event} />))}
+              </Hidden>
+              <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                {filteredEvents.map((event) => (
+                  <Cardmob key={event.id} {...event} />))}
+              </Hidden>
             </Grid>
           </Grid>
         </Grid>
