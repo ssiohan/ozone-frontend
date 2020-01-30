@@ -1,15 +1,15 @@
 // Ici le container du composant homepage à compléter
 import { connect } from 'react-redux';
 
-import Dialog from 'src/components/Banner/Dialog';
-import { changeInput, afterSearch } from 'src/store/reducer/homepage';
+import { changeInput } from 'src/store/reducer/homepage';
+import BannerAfter from 'src/components/Homepage/BannerAfter';
 
 // == Import d'action creators
-// à compléter
+
 
 // == Préparation: data
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
 
   return {
     search: state.homepage.search,
@@ -21,18 +21,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   changeInputValue: (value) => {
     dispatch(changeInput(value));
-  },
-
-  searchOk: () => {
-    dispatch(afterSearch());
+    console.log(value);
   },
 });
 
 // == Container
-const DialogContainer = connect(
+const BannerAfterContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Dialog);
+)(BannerAfter);
 
 // == Export
-export default DialogContainer;
+export default BannerAfterContainer;

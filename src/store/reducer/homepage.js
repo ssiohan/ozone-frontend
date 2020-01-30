@@ -6,6 +6,7 @@ const initialState = {
   search: false,
   events: [],
   category: 'all',
+  inputValue: '',
 };
 
 // --- action types
@@ -47,7 +48,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         category: action.category,
       };
-
     default: return state;
   }
 };
@@ -77,6 +77,7 @@ export const ateliercategory = (category) => ({
   type: FILTER_CATEGORY,
   category,
 });
+
 
 // --- export
 export default reducer;

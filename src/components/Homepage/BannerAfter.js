@@ -10,8 +10,8 @@ import './homepage.scss';
 
 
 // == Import : Components
-import SearchBarMaps from 'src/components/Homepage/SearchBarMaps';
-import Dialog from 'src/components/Banner/Dialog';
+import Dialog from 'src/containers/Homepage/Dialog';
+
 
 // == Add Css style with Material UI
 const useStyles = makeStyles(() => ({
@@ -45,9 +45,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 // == Component
-export default function BannerAfter() {
+export default function BannerAfter({inputValue}) {
   const classes = useStyles();
-
+// console.log(inputValue);
   return (
     <Grid className={classes.banner} container spacing={0} direction="row" wrap="nowrap">
       <Grid className={classes.mapcontainer} item sm={3}>
@@ -57,11 +57,10 @@ export default function BannerAfter() {
         <Grid container direction="column" justify="space-between">
           <Grid>
             <Typography className={classes.typo} variant="h4" align="left">Les Evénements près de: </Typography>
-            <Typography className={classes.typo} variant="h4" align="left">VILLE </Typography>
+            <Typography className={classes.typo} variant="h4" align="left">{inputValue} </Typography>
           </Grid>
           <Grid className={classes.searchBar}>
             <Dialog />
-            <SearchBarMaps />
           </Grid>
         </Grid>
       </Grid>
