@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
   return {
     search: state.homepage.search,
     events: state.homepage.events,
+    category: state.homepage.category,
   };
 };
 

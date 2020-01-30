@@ -10,7 +10,7 @@ import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-export default function FormDialog({ searchOk, changeInputValue }) {
+const FormDialog = ({ searchOk, changeInputValue }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -95,3 +95,4 @@ FormDialog.propTypes = {
   changeInputValue: PropTypes.func.isRequired,
   searchOk: PropTypes.func.isRequired,
 };
+export default FormDialog;

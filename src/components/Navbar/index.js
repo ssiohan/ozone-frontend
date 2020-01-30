@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
 import Drawer from './Drawer';
+import DrawerProfile from './DrawerProfile';
 
 // == Import : local
 import './navbar.scss';
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ logged }) => {
+const Header = ({ logged, emailValue }) => {
 
   // logged: value in the state: if logged is false "s'inscrire" and "se connecter" buttons appears
   // if logged is true and <Avatar /> appear
@@ -91,7 +92,7 @@ const Header = ({ logged }) => {
 
     <AppBar className={classes.appBar} position="sticky" elevation={0}>
       <Toolbar>
-        <Grid container spacing={1}>
+        <Grid container wrap="nowrap" spacing={1}>
           <Hidden mdUp>
             <Grid item>
               <Drawer className={classes.appBar} />
@@ -116,6 +117,11 @@ const Header = ({ logged }) => {
                 <Link underline="none" className={classes.ozonetext} href="/">
                   zone
                 </Link>
+                {logged && (
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <Grid item>
+                  <Typography color="inherit" variant="body2">{emailValue} </Typography>
+                </Grid>)}
               </Typography>
             </Grid>
           </Hidden>
@@ -170,12 +176,10 @@ const Header = ({ logged }) => {
                 </Button>
               </Grid>)}
             {logged && (
-              // eslint-disable-next-line react/jsx-wrap-multilines
-              <Grid item>
-                <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                  <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-                </IconButton>
-              </Grid>)}
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <Grid item>
+              <DrawerProfile />
+            </Grid>)}
           </Toolbar>
         </Grid>
       </Toolbar>
