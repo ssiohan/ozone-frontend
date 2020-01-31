@@ -14,12 +14,17 @@ import './profile.scss';
 
 // == Import de sous-composants
 import Banner from 'src/components/Banner';
+import CardProfile from './CardProfile';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
     flexGrow: 1,
+  },
+  leftPart: {
+    position: 'sticky',
+    top: theme.spacing(15),
   },
   upperLeft: {
     marginBottom: theme.spacing(3),
@@ -40,10 +45,20 @@ const useStyles = makeStyles((theme) => ({
   description: {
     textAlign: 'left',
   },
+  rightPart: {
+    // position: 'absolute',
+  },
+  // score: {
+  //   position: 'sticky',
+  //   top: theme.spacing(15),
+  // },
   scorePaper: {
     height: theme.spacing(20),
     paddingTop: theme.spacing(8),
     marginBottom: theme.spacing(3),
+  },
+  eventsHistory: {
+    // overflowY: 'auto',
   },
 }));
 
@@ -65,6 +80,7 @@ const Profile = () => {
             container
             direction="column"
             justify="center"
+            className={classes.leftPart}
           >
             <Grid
               item
@@ -128,19 +144,21 @@ const Profile = () => {
           </Grid>
         </Grid>
         {/* Partie de droite avec solde de points et événements */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} className={classes.rightPart}>
           <Grid
             container
             direction="column"
             justify="center"
           >
-            <Grid item>
+            <Grid item className={classes.score}>
               <Paper className={classes.scorePaper}>
               Solde de points
               </Paper>
             </Grid>
-            <Grid item>
-              Cards des events
+            <Grid item className={classes.eventsHistory}>
+              <CardProfile />
+              <CardProfile />
+              <CardProfile />
             </Grid>
           </Grid>
         </Grid>
