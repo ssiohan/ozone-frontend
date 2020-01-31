@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
+import Typography from '@material-ui/core/Typography';
 
 // == Import : local
 import './profile.scss';
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   modifyButton: {
     color: '#526DDB',
     marginBottom: theme.spacing(3),
+  },
+  description: {
+    textAlign: 'left',
   },
 }));
 
@@ -95,7 +99,25 @@ const Profile = () => {
               </Button>
             </Grid>
             <Grid item>
-              Description
+              <Typography variant="h5"> Description</Typography>
+              <Typography variant="caption" gutterBottom className={classes.description}>
+                   Je m'présente, je m'appelle Henri
+                   J'voudrais bien réussir ma vie, être aimé
+                   Etre beau gagner de l'argent
+                   Puis surtout être intelligent
+                   Mais pour tout ça il faudrait que j'bosse à plein temps
+                   J'suis chanteur, je chante pour mes copains
+                   J'veux faire des tubes et que ça tourne bien, tourne bien
+                   J'veux écrire une chanson dans le vent
+                   Un air gai, chic et entraînant
+                   Pour faire danser dans les soirées de Monsieur Durand
+                   Et partout dans la rue
+                   J'veux qu'on parle de moi
+                   Que les filles soient nues
+                   Qu'elles se jettent sur moi
+                   Qu'elles m'admirent, qu'elles me tuent
+                   Qu'elles s'arrachent ma vertu
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
