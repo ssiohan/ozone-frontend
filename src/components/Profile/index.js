@@ -7,6 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 // == Import : local
 import './profile.scss';
@@ -38,6 +39,11 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     textAlign: 'left',
+  },
+  scorePaper: {
+    height: theme.spacing(20),
+    paddingTop: theme.spacing(8),
+    marginBottom: theme.spacing(3),
   },
 }));
 
@@ -129,7 +135,9 @@ const Profile = () => {
             justify="center"
           >
             <Grid item>
+              <Paper className={classes.scorePaper}>
               Solde de points
+              </Paper>
             </Grid>
             <Grid item>
               Cards des events
