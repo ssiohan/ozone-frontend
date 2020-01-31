@@ -1,15 +1,123 @@
+/* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CreateIcon from '@material-ui/icons/Create';
 
 // == Import : local
 import './profile.scss';
 
+// == Import de sous-composants
+import Banner from 'src/components/Banner';
+
+// == Style du composant
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(1),
+    flexGrow: 1,
+  },
+  upperLeft: {
+    marginBottom: theme.spacing(3),
+  },
+  avatar: {
+    width: theme.spacing(12),
+    height: theme.spacing(12),
+  },
+  userInfo: {
+    fontWeight: 'lighter',
+    fontSize: 'medium',
+    paddingLeft: theme.spacing(1),
+  },
+  modifyButton: {
+    color: '#526DDB',
+    marginBottom: theme.spacing(3),
+  },
+}));
+
+
 // == Composant
-const Profile = () => (
-  <div id="profile">
-    Page de profil utilisateur
-  </div>
-);
+const Profile = () => {
+  const classes = useStyles();
+  return (
+    <div id="profile">
+      <Banner />
+      <Grid
+        container
+        justify="center"
+        className={classes.root}
+      >
+        {/* Partie de gauche avec avatar, nom etc.. et Description */}
+        <Grid item xs={12} md={7}>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+          >
+            <Grid
+              item
+              container
+              justify="center"
+              alignContent="flex-start"
+              className={classes.upperLeft}
+            >
+              <Grid item>
+                <Avatar alt="user name" src="/static/images/avatar/1.jpg" className={classes.avatar} />
+              </Grid>
+              <Grid
+                item
+                className={classes.userInfo}
+              >
+                <Grid item>
+                  Username
+                </Grid>
+                <Grid item>
+                  Prénom et Nom
+                </Grid>
+                <Grid item>
+                  Rang
+                </Grid>
+                <Grid item>
+                  Date d'inscription
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Button
+                // href="#page-modifier-profil"
+                color="primary"
+                className={classes.modifyButton}
+              >
+                <CreateIcon />
+                Modifier le profil
+              </Button>
+            </Grid>
+            <Grid item>
+              Description
+            </Grid>
+          </Grid>
+        </Grid>
+        {/* Partie de droite avec solde de points et événements */}
+        <Grid item xs={12} md={4}>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+          >
+            <Grid item>
+              Solde de points
+            </Grid>
+            <Grid item>
+              Cards des events
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
 // == Export
 export default Profile;
