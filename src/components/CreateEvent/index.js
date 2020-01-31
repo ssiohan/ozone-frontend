@@ -4,17 +4,19 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 // == Import : local
 import './createEvent.scss';
 
 // == Import : sous-composants
 import Banner from 'src/components/Banner';
-import CreateForm from './CreateForm';
+import AddForm from './AddForm';
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
     flexGrow: 1,
+    // width: "auto",
   },
   preview: {
     marginTop: theme.spacing(1),
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 // == Composant
-const CreateEvent = () => {
+const CreateEvent = ({onCreateEventFieldChange}) => {
   const classes = useStyles();
   return (
     <div id="createEvent">
@@ -35,7 +37,7 @@ const CreateEvent = () => {
         className={classes.root}
       >
         <Grid item>
-          <CreateForm />
+          <AddForm onCreateEventFieldChange={onCreateEventFieldChange} />
         </Grid>
         <Grid item>
         Preview en live

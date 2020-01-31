@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 4,
   },
   link: {
-    'font-size': '.8em',
+    'font-size': '1em',
     textDecoration: 'none',
     margin: '.5em',
-    color: lightColor,
+    color: '#fff',
     // margin: '1em',
     '&:hover': {
-      color: theme.palette.common.white,
+      color: lightColor,
     },
 
   },
@@ -71,10 +71,12 @@ const useStyles = makeStyles((theme) => ({
   },
   ozonetext: {
     color: lightColor,
-    'margin-top': '9px',
+    'margin-top': '1em',
+    'font-size': '3rem',
   },
   ozoneimg: {
     'margin-top': '9px',
+    'font-size': '3rem',
   },
 }));
 

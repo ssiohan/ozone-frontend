@@ -94,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
+  eventUsers,
   userMax,
   author,
   title,
@@ -106,6 +107,7 @@ const Cardweb = ({
   const classes = useStyles();
   // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+  // const nbEventUsers = eventUsers.length();
 
   const treatDate = (apiDate) => {
     const date = apiDate;

@@ -14,7 +14,7 @@ import Homepage from 'src/containers/Homepage';
 import Event from 'src/components/Event';
 import Login from 'src/containers/Login';
 import Signup from 'src/containers/Signup';
-import CreateEvent from 'src/components/CreateEvent';
+import CreateEvent from 'src/containers/CreateEvent';
 import Profile from 'src/components/Profile';
 import Sponsors from 'src/components/Sponsors';
 import About from 'src/components/About';
