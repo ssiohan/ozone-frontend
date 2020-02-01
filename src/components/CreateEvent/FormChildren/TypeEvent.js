@@ -39,10 +39,9 @@ export default function TypeEvent({ onCreateEventFieldChange }) {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl required className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Type d'événement</InputLabel>
         <Select
-          variant="outlined"
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
@@ -51,7 +50,6 @@ export default function TypeEvent({ onCreateEventFieldChange }) {
           value={typeEvent}
           name="typeEvent"
           onChange={handleCreateEventInputChange}
-          required
         >
           <MenuItem value="Atelier">Atelier</MenuItem>
           <MenuItem value="Acte Citoyen">Acte Citoyen</MenuItem>

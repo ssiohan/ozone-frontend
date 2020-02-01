@@ -7,20 +7,26 @@ import CreateEvent from 'src/components/CreateEvent';
 // == Import d'action creators
 import {
   changeFieldValue,
-  // checkPasswordConfirmation,
-  // checkForEmptyFields,
-  // doSignup,
+  goCreateEvent,
+
 } from 'src/store/reducer/createEvent';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
-  // signupEmailValue: state.signup.signupEmail,
-  // signupUsernameValue: state.signup.signupUsername,
-  // signupPasswordValue: state.signup.signupPassword,
-  // signupConfirmPasswordValue: state.signup.signupConfirmPassword,
-  // passwordNotConfirmed: state.signup.passwordNotConfirmed,
-  // emptyFieldsCounter: state.signup.emptyFields,
-  // registered: state.signup.registered,
+  title: state.createEvent.title,
+  typeEvent: state.createEvent.typeEvent,
+  description: state.createEvent.description,
+  dateEvent: state.createEvent.dateEvent,
+  painfulness: state.createEvent.painfulness,
+  duration: state.createEvent.duration,
+  impactSocietal: state.createEvent.impactSocietal,
+  impactEnvironmental: state.createEvent.impactEnvironmental,
+  userMin: state.createEvent.userMin,
+  userMax: state.createEvent.userMax,
+  city: state.createEvent.city,
+  latitude: state.createEvent.latitude,
+  longitude: state.createEvent.longitude,
+  author: state.createEvent.author,
 });
 
 // == Préparation - actions
@@ -29,18 +35,11 @@ const mapDispatchToProps = (dispatch) => ({
     // console.log('hello depuis mDTP', name, value);
     dispatch(changeFieldValue(name, value));
   },
-  // onCheckPasswordConfirmation: () => {
-  //   // console.log('hello, je checke la confirmation du mdp');
-  //   dispatch(checkPasswordConfirmation());
-  // },
-  // onCheckForEmptyFields: () => {
-  //   // console.log('hello depuis mDtP, je check les champs vides');
-  //   dispatch(checkForEmptyFields());
-  // },
-  // getSignedUp: () => {
-  //   console.log('Hello depuis mDtP, je vais inscrire le user');
-  //   dispatch((doSignup()));
-  // },
+
+  getCreateEvent: () => {
+    console.log('Hello depuis mDtP, je vais ajouter un event');
+    dispatch((goCreateEvent()));
+  },
 });
 
 // == Container

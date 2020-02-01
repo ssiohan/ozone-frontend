@@ -39,7 +39,7 @@ export default function Author({ onCreateEventFieldChange }) {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl required className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Id Author (test only)</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -52,7 +52,7 @@ export default function Author({ onCreateEventFieldChange }) {
           onChange={handleCreateEventInputChange}
           required
         >
-          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={17}>17</MenuItem>
         </Select>
       </FormControl>
     </div>

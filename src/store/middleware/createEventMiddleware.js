@@ -4,26 +4,43 @@
 import axios from 'axios';
 
 // Import d'actions
-import { DO_SIGNUP, registerUser } from 'src/store/reducer/signup';
+import { CREATE_EVENT } from 'src/store/reducer/createEvent';
 
 // == Le middleware
 const createEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case DO_SIGNUP:
-      axios.post('https://api.geekoz.fr/api/v1/users', {
-        email: `${store.getState().signup.signupEmail}`,
-        pseudo: `${store.getState().signup.signupUsername}`,
-        password: `${store.getState().signup.signupPassword}`,
+    case CREATE_EVENT:
+    // parsInt: transform a string to number (10 in second param is require)
+      axios({
+        method: 'POST',
+        url: 'https://api.geekoz.fr/api/v1/events',
+        headers: { Authorization: `Bearer ${store.getState().login.token}` },
+        data: {
+          title: `${store.getState().createEvent.title}`,
+          typeEvent: `${store.getState().createEvent.typeEvent}`,
+          description: `${store.getState().createEvent.description}`,
+          dateEvent: `${store.getState().createEvent.dateEvent}`,
+          painfulness: parseInt(store.getState().createEvent.painfulness, 10),
+          duration: parseInt(store.getState().createEvent.duration, 10),
+          impactSocietal: parseInt(store.getState().createEvent.impactSocietal, 10),
+          impactEnvironmental: parseInt(store.getState().createEvent.impactEnvironmental, 10),
+          userMin: parseInt(store.getState().createEvent.userMin, 10),
+          userMax: parseInt(store.getState().createEvent.userMax, 10),
+          city: `${store.getState().createEvent.city}`,
+          latitude: `${store.getState().createEvent.latitude}`,
+          longitude: `${store.getState().createEvent.longitude}`,
+          author: parseInt(store.getState().createEvent.author, 10),
+        },
       })
         .then((response) => {
           console.log(response);
-          store.dispatch(registerUser());
+          // store.dispatch(registerUser());
         })
         .catch((error) => {
           console.log(error);
         })
         .then(() => {
-        // always executed
+        //  always executed
           next(action);
         });
       break;

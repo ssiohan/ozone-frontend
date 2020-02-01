@@ -42,6 +42,7 @@ export default function Painfulness({ onCreateEventFieldChange }) {
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Pénibilité</InputLabel>
         <Select
+          required
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
@@ -50,7 +51,6 @@ export default function Painfulness({ onCreateEventFieldChange }) {
           value={difficulty}
           name="painfulness"
           onChange={handleCreateEventInputChange}
-          required
         >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>

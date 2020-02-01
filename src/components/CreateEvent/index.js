@@ -3,14 +3,14 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './createEvent.scss';
 
 // == Import : sous-composants
-import Banner from 'src/components/Banner';
-import AddForm from './AddForm';
+import BannerCreateEvent from './BannerCreateEvent';
+import CreateForm from './CreateForm';
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 // == Composant
-const CreateEvent = ({onCreateEventFieldChange}) => {
+const CreateEvent = ({ onCreateEventFieldChange, getCreateEvent }) => {
   const classes = useStyles();
   return (
     <div id="createEvent">
-      <Banner />
+      <BannerCreateEvent />
       <Grid
         container
         direction="column"
@@ -37,7 +37,7 @@ const CreateEvent = ({onCreateEventFieldChange}) => {
         className={classes.root}
       >
         <Grid item>
-          <AddForm onCreateEventFieldChange={onCreateEventFieldChange} />
+          <CreateForm getCreateEvent={getCreateEvent} onCreateEventFieldChange={onCreateEventFieldChange} />
         </Grid>
         <Grid item>
         Preview en live
@@ -46,6 +46,16 @@ const CreateEvent = ({onCreateEventFieldChange}) => {
     </div>
   );
 };
+// == Props par défault
+CreateEvent.defaultProps = {
+  onCreateEventFieldChange: null,
+  getCreateEvent: null,
+};
 
+// == Validation des props
+CreateEvent.propTypes = {
+  onCreateEventFieldChange: PropTypes.func,
+  getCreateEvent: PropTypes.func,
+};
 // == Export
 export default CreateEvent;
