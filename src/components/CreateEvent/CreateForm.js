@@ -241,7 +241,7 @@ const CreateForm = () => {
             <Grid item>
               <Typography>
                 <GiRecycle /> Impact environnement
-                <Rating name="impactEnvironnemental" size="small" />
+                <Rating name="impactEnvironmental" size="small" />
               </Typography>
             </Grid>
           </Grid>
