@@ -1,10 +1,13 @@
 /* eslint-disable linebreak-style */
 // == Action types
+export const FETCH_USER_ID = 'FETCH_USER_ID';
+const STORE_USER_ID = 'STORE_USER_ID';
 const FETCH_USER_DATA = 'FETCH_USER_DATA';
 
 // == initialState
 const initialState = {
   // Valeur de départ
+  userId: '',
   userData: [],
   profilePseudo: '',
   profileLastname: '',
@@ -18,6 +21,16 @@ const initialState = {
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case FETCH_USER_ID:
+      // console.log(action.name, action.value);
+      return {
+        ...state,
+      };
+    case STORE_USER_ID:
+      return {
+        ...state,
+        userId: action.userId,
+      };
     case FETCH_USER_DATA:
       // console.log(action.name, action.value);
       return {
@@ -29,6 +42,15 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action creators
+export const fetchUserId = () => ({
+  type: FETCH_USER_ID,
+});
+
+export const storeUserId = (userId) => ({
+  type: STORE_USER_ID,
+  userId,
+});
+
 export const fetchUserData = () => ({
   type: FETCH_USER_DATA,
 });
