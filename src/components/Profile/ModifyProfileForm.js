@@ -50,9 +50,19 @@ const ModifyProfileForm = () => {
     setOpen(true);
   };
 
+  // Fonction qui gère la soumission du formulaire
   const handleClose = () => {
     setOpen(false);
+    // evt.preventDefault();
+    console.log('form soumis');
   };
+  // Fonction qui gère la saisie d'infos dans le form
+  const handleProfileInputChange = (evt) => {
+    const inputFieldValue = evt.target.value;
+    const inputFieldName = evt.target.name;
+    console.log(inputFieldName, inputFieldValue);
+  };
+
   return (
     <div>
       <Button className={classes.modifyButton} onClick={handleClickOpen}>
@@ -83,6 +93,7 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   type="text"
                   name="profilePseudo"
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -97,6 +108,7 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   type="text"
                   name="profileLastname"
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -111,6 +123,7 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   type="text"
                   name="profileFirstname"
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -125,6 +138,7 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   type="email"
                   name="profileEmail"
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -145,6 +159,7 @@ const ModifyProfileForm = () => {
                   SelectProps={{
                     native: true,
                   }}
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -165,6 +180,7 @@ const ModifyProfileForm = () => {
                   SelectProps={{
                     native: true,
                   }}
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
@@ -181,6 +197,7 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   rowsMin={10}
                   name="profileDescription"
+                  onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
