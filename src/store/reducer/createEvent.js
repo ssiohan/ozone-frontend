@@ -12,15 +12,15 @@ export const CREATE_EVENT = 'CREATE_EVENT';
 const initialState = {
   // Valeur de départ
   title: '',
-  typeEvent: '',
+  typeEvent: 'Atelier',
   description: '',
   dateEvent: '',
   painfulness: '',
   duration: '',
   impactSocietal: '',
   impactEnvironmental: '',
-  userMin: '',
-  userMax: '',
+  userMin: 1,
+  userMax: 10,
   city: '',
   latitude: '',
   longitude: '',
@@ -31,6 +31,7 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD_VALUE:
+      console.log(state);
       return {
         ...state,
         [action.name]: action.value,

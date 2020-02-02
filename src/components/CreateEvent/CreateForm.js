@@ -5,14 +5,11 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import { InputLabel } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
-import Input from '@material-ui/core/Input';
 // == Import Form children
 
 import Duration from './FormChildren/Duration';
@@ -25,32 +22,45 @@ import TypeEvent from './FormChildren/TypeEvent';
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
   root: {
-
-    margin: theme.spacing(1),
+    flexGrow: 1,
+    'max-width': '900px',
+  },
+  form: {
+    margin: 'auto',
   },
   event: {
     margin: theme.spacing(1),
-    minWidth: 220,
+    //minWidth: 220,
   },
-  fields: {
-    width: 500,
-    minWidth: 300,
-  },
-  description: {
-    width: 500,
-    minWidth: 300,
-  },
+
   dateAndTime: {
-    width: 200,
+   // width: 500,
+  },
+  users: {
+   // width: 230,
+  },
+  city: {
+    //width: 500,
   },
   button: {
-    margin: theme.spacing(1),
-    backgroundColor: '#078171',
-    color: '#F2F2F2',
-    fontWeight: 'bold',
+
+    'background-color': '#526DDB',
+    color: '#fff',
+    'white-space': 'nowrap',
+    margin: '4em 0',
+    '&:hover': {
+      backgroundColor: '#626DDB',
+      color: '#fff',
+    },
   },
   title: {
     background: '#fff',
+    padding: '1em',
+    margin: '.3em',
+  },
+  titletxt: {
+    margin: '1em',
+
   },
 }));
 // Fonction qui crée la liste d'options pour le nb de participants
@@ -87,175 +97,218 @@ const CreateForm = ({
   };
 
   return (
-    <form
-      className={classes.root}
-      noValidate
-      autoComplete="on"
-      onSubmit={handleCreateEventFormSubmit}
-    >
-      <Grid
-        container
-        direction="row"
-        justify="space-around"
-      >
-        <Grid item>
-          <Grid
-            item
-            container
-            direction="column"
-            justify="center"
-          >
-            <Grid className={classes.title} container direction="row" justify="space-between">
-              <Typography>Titre</Typography>
-              <FormControl variant="outlined" className={classes.event}>
-                <TextField
-                  required
-                  id="event-title"
-                  label="Titre de l'événement"
-                  type="text"
-                  name="title"
-                  className={classes.fields}
-                  onChange={handleCreateEventInputChange}
-                />
-              </FormControl>
-            </Grid>
-            <Grid item>
-              <FormControl variant="outlined" className={classes.event}>
-                <TypeEvent onCreateEventFieldChange={onCreateEventFieldChange} />
-              </FormControl>
-            </Grid>
-            <Grid item>
-              <Typography align="left" variant="h4">
-              Description de l'événement
-              </Typography>
-              <TextareaAutosize
+    <form className={classes.form} onSubmit={handleCreateEventFormSubmit}>
+      <Grid className={classes.root} container justify="center">
+        <Typography variant="h6">Créer un événement</Typography>
+
+        {/* title Form */}
+
+        <Grid className={classes.title} alignItems="space-between" container direction="row">
+          <Grid item xs={12} sm={3}>
+            <Typography variant="h6" className={classes.titletxt}>Titre</Typography>
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <FormControl className={classes.event}>
+              <TextField
+                fullWidth
+                required
+                id="event-title"
+                label="Titre de l'événement"
+                type="text"
+                name="title"
+                className={classes.fields}
+                onChange={handleCreateEventInputChange}
+                placeholder="ex: Apprendre la permaculture"
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {/* description Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={3}>
+            <Typography className={classes.titletxt} variant="h6">Description</Typography>
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <FormControl className={classes.event}>
+              <TextField
+                className={classes.description}
+                multiline
                 required
                 id="event-description"
-                label="Taper votre texte ici"
+                label="Description de l'événement"
                 aria-label="Description de l'événement"
-                placeholder="Décrivez votre événement en quelques lignes"
-                variant="outlined"
-                rowsMin={12}
+                placeholder="ex: Venez découvrir comment cultiver en permaculture et produire plus avec moins d'efforts..."
+                rows={4}
                 name="description"
-                className={classes.description}
                 onChange={handleCreateEventInputChange}
               />
-            </Grid>
+            </FormControl>
           </Grid>
-          <Grid
-            item
-            container
-            direction="column"
-            justify="center"
-          >
-            <Grid
-              container
-              item
-              alignContent="center"
-              justify="center"
-            >
-              <Grid item>
-                <FormControl>
-                  <TextField
-                    required
-                    id="datetime-local"
-                    label="Date et heure"
-                    type="datetime-local"
-                    defaultValue="2017-05-24T10:30"
-                    name="dateEvent"
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    onChange={handleCreateEventInputChange}
-                  />
-                </FormControl>
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              item
-              alignContent="center"
-              justify="center"
-            >
-              <Grid item>
-                <FormControl required>
-                  <TextField
-                    select
-                    id="min-participants"
-                    label="Nombre minimum de participants"
-                    name="userMin"
-                    defaultValue={1}
-                    className={classes.dateAndTime}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    onChange={handleCreateEventInputChange}
-                  >
-                    {optionsList()}
-                  </TextField>
-                </FormControl>
-              </Grid>
-              <Grid item>
-                <FormControl>
-                  <TextField
-                    required
-                    select
-                    id="max-participants"
-                    variant="outlined"
-                    label="Nombre maximum de participants"
-                    name="userMax"
-                    defaultValue={50}
-                    className={classes.dateAndTime}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    onChange={handleCreateEventInputChange}
-                  >
-                    {optionsList()}
-                  </TextField>
-                </FormControl>
-              </Grid>
-            </Grid>
-            <Typography variant="h4">
-              Ville ou se déroulera l'événement
-            </Typography>
-            <Grid container>
-              <Grid item>
-                <FormControl>
-                  <TextField
-                    id="city"
-                    label="Ville"
-                    type="text"
-                    name="city"
-                    onChange={handleCreateEventInputChange}
-                    required
-                  />
-                </FormControl>
-              </Grid>
-              <Grid item>
-                <TextField
-                  id="latitude"
-                  label="Latitude"
-                  type="text"
-                  name="latitude"
-                  onChange={handleCreateEventInputChange}
-                  required
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  id="longitude"
-                  label="Longitude"
-                  type="text"
-                  name="longitude"
-                  onChange={handleCreateEventInputChange}
-                  required
-                />
-              </Grid>
-            </Grid>
+        </Grid>
+
+        {/* typeEvent Form */}
+
+        <Grid className={classes.title} container direction="row">
+          <Grid item xs={12} sm={3}>
+            <Typography className={classes.titletxt} variant="h6">Type</Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm={9}>
+            <TypeEvent onCreateEventFieldChange={onCreateEventFieldChange} />
+          </Grid>
+        </Grid>
+
+        {/* dateEvent Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={3}>
+            <Typography className={classes.titletxt} variant="h6">Date</Typography>
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <FormControl>
+              <TextField
+                fullWidth
+                required
+                id="datetime-local"
+                label="Préciser heure (obligatoire)"
+                type="datetime-local"
+                // defaultValue={Date.now()}
+                name="dateEvent"
+                className={classes.dateAndTime}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                onChange={handleCreateEventInputChange}
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {/* Users Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={12} md={3}>
+            <Typography className={classes.titletxt} variant="h6">Participants</Typography>
+          </Grid>
+
+          {/* minUser Form */}
+
+          <Grid item xs={12} sm={12} md={3}>
+            <FormControl required>
+              <TextField
+                select
+                id="min-participants"
+                label="min"
+                name="userMin"
+                className={classes.users}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                onChange={handleCreateEventInputChange}
+              >
+                {optionsList()}
+              </TextField>
+            </FormControl>
+          </Grid>
+
+          {/* maxUser Form */}
+
+          <Grid item xs={12} sm={12} md={3}>
+            <FormControl>
+              <TextField
+                required
+                select
+                id="max-participants"
+                label="max"
+                name="userMax"
+                className={classes.users}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                onChange={handleCreateEventInputChange}
+              >
+                {optionsList()}
+              </TextField>
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {/* city Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={3}>
+            <Typography className={classes.titletxt} variant="h6">Ville</Typography>
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <FormControl>
+              <TextField
+                className={classes.city}
+                id="city"
+                label="Ville"
+                type="text"
+                name="city"
+                onChange={handleCreateEventInputChange}
+                required
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {/* Lat/long Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={3} md={3}>
+            <Typography className={classes.titletxt} variant="h6">Provisoire</Typography>
+          </Grid>
+          <Grid item xs={12} sm={3} md={3}>
+            <FormControl>
+              <TextField
+                id="latitude"
+                label="Latitude"
+                type="text"
+                name="latitude"
+                onChange={handleCreateEventInputChange}
+                required
+                placeholder="'string'"
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={3} md={3}>
+            <FormControl>
+              <TextField
+                id="longitude"
+                label="Longitude"
+                type="text"
+                name="longitude"
+                onChange={handleCreateEventInputChange}
+                required
+                placeholder="'string'"
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {/* critair Form */}
+
+        <Grid container className={classes.title}>
+          <Typography align="left" className={classes.titletxt} variant="h6">Critères</Typography>
+          <Grid container direction="row" justify="space-between">
+            <Duration onCreateEventFieldChange={onCreateEventFieldChange} />
+            <ImpactEnv onCreateEventFieldChange={onCreateEventFieldChange} />
+            <ImpactSociety onCreateEventFieldChange={onCreateEventFieldChange} />
+            <Difficulty onCreateEventFieldChange={onCreateEventFieldChange} />
+            <Author onCreateEventFieldChange={onCreateEventFieldChange} />
+          </Grid>
+        </Grid>
+
+        {/* image Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid item xs={12} sm={3}>
+            <Typography className={classes.titletxt} variant="h6">Photo</Typography>
+          </Grid>
+          <Grid item xs={12} sm={9}>
             <TextField
               type="file"
               id="event-picture"
@@ -266,34 +319,25 @@ const CreateForm = ({
                 shrink: true,
               }}
               onChange={handleCreateEventInputChange}
-              required
             />
           </Grid>
-          <Typography variant="h4">
-            Choisir les critères
-          </Typography>
-          <Grid container direction="row">
-            <Duration onCreateEventFieldChange={onCreateEventFieldChange} />
-            <ImpactEnv onCreateEventFieldChange={onCreateEventFieldChange} />
-            <ImpactSociety onCreateEventFieldChange={onCreateEventFieldChange} />
-            <Difficulty onCreateEventFieldChange={onCreateEventFieldChange} />
-            <Author onCreateEventFieldChange={onCreateEventFieldChange} />
-          </Grid>
         </Grid>
-      </Grid>
-      {/* En-dessous, le bouton */}
-      <Grid item xs={12}>
-        <Button
-          variant="contained"
-          type="submit"
-          color="default"
-          size="large"
-          className={classes.button}
-        >
-        Créer Evénément
-        </Button>
-      </Grid>
 
+        {/* Form Submit Button */}
+
+        <Grid align="right" item xs={12}>
+          <Button
+            variant="contained"
+            type="submit"
+            color="default"
+            size="large"
+            className={classes.button}
+          >
+          Créer Evénément
+          </Button>
+        </Grid>
+
+      </Grid>
     </form>
   );
 };

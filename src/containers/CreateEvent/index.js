@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   getCreateEvent: () => {
-    console.log('Hello depuis mDtP, je vais ajouter un event');
+    // console.log('Hello depuis mDtP, je vais ajouter un event');
     dispatch((goCreateEvent()));
   },
 });

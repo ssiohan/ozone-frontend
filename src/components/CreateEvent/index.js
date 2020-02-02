@@ -13,10 +13,8 @@ import BannerCreateEvent from './BannerCreateEvent';
 import CreateForm from './CreateForm';
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: theme.spacing(1),
+  createForm: {
     flexGrow: 1,
-    // width: "auto",
   },
   preview: {
     marginTop: theme.spacing(1),
@@ -28,22 +26,16 @@ const useStyles = makeStyles((theme) => ({
 const CreateEvent = ({ onCreateEventFieldChange, getCreateEvent }) => {
   const classes = useStyles();
   return (
-    <div id="createEvent">
+    <Grid container>
       <BannerCreateEvent />
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        className={classes.root}
-      >
-        <Grid item>
-          <CreateForm getCreateEvent={getCreateEvent} onCreateEventFieldChange={onCreateEventFieldChange} />
-        </Grid>
-        <Grid item>
-        Preview en live
-        </Grid>
-      </Grid>
-    </div>
+     
+        <CreateForm
+          className={classes.createForm}
+          getCreateEvent={getCreateEvent}
+          onCreateEventFieldChange={onCreateEventFieldChange}
+        />
+     
+    </Grid>
   );
 };
 // == Props par défault

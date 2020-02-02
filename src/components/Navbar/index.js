@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 4,
   },
   link: {
-    'font-size': '1em',
+    'font-size': '.8em',
     textDecoration: 'none',
     margin: '.5em',
     color: '#fff',
@@ -66,17 +66,22 @@ const useStyles = makeStyles((theme) => ({
     'margin-top': '.5em',
   },
   ozonelogo: {
-    'margin-top': '9px',
+    'margin-top': '5px',
     'margin-left': '7px',
   },
   ozonetext: {
     color: lightColor,
-    'margin-top': '1em',
+    // 'margin-top': '1em',
     'font-size': '3rem',
+    fontFamily: 'system-ui',
   },
   ozoneimg: {
-    'margin-top': '9px',
+    'margin-top': '1px',
     'font-size': '3rem',
+  },
+  earth: {
+    width: '50px',
+    'margin-top': '2px',
   },
 }));
 
@@ -92,95 +97,98 @@ const Header = ({ logged, emailValue }) => {
 
     <AppBar className={classes.appBar} position="sticky" elevation={0}>
       <Toolbar>
-        <Grid container wrap="nowrap" spacing={1}>
-          <Hidden mdUp>
-            <Grid item>
-              <Drawer className={classes.appBar} />
-            </Grid>
-          </Hidden>
-          <Hidden mdUp>
-            <Grid className={classes.ozonelogo} item xs>
-              <Typography align="left" color="inherit" variant="h5" component="h1"> </Typography>
-            </Grid>
-          </Hidden>
-          <Hidden only={['xs', 'sm']}>
-            <Grid className={classes.ozonelogo} item xs>
-              {/* <img
-                className={classes.ozoneimg}
-                src="src/assets/img/logo_sans_fond.png"
-                alt=""
-              /> */}
-              <Typography align="left" color="inherit" variant="h4" component="h1">
-                <Link underline="none" className={classes.linkearth} href="/">
-                  <GiEarthAmerica className={classes.ozoneimg} />
-                </Link>
-                <Link underline="none" className={classes.ozonetext} href="/">
-                  zone
-                </Link>
-                {logged && (
-                // eslint-disable-next-line react/jsx-wrap-multilines
-                <Grid item>
-                  <Typography color="inherit" variant="body2">{emailValue} </Typography>
-                </Grid>)}
-              </Typography>
-            </Grid>
-          </Hidden>
-          <Toolbar>
-            <Hidden only={['xs', 'sm']}>
+        <Grid container justify="space-between" wrap="nowrap" spacing={1}>
+          <Grid>
+            <Hidden mdUp>
               <Grid item>
-                <Link underline="none" className={classes.link} href="/">
-                  Accueil
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/event">
-                  Les events
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/create-event">
-                  Ajouter un event
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/about">
-                  À propos
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/sponsors">
-                  Partenaires
-                </Link>
+                <Drawer className={classes.appBar} />
               </Grid>
             </Hidden>
-            {!logged && (
-            // eslint-disable-next-line react/jsx-wrap-multilines
-            <Grid item>
-              <Button className={classes.button} color="inherit" size="small">
-                <Link underline="none" className={classes.linkButton} href="/login">
-                Se connecter
-                </Link>
-              </Button>
-            </Grid>)}
-            {!logged && (
+            {/* <Hidden mdUp>
+              <Grid className={classes.ozonelogo} item xs>
+                <Typography align="left" color="inherit" variant="h5" component="h1"> </Typography>
+              </Grid>
+            </Hidden> */}
+            <Hidden only={['xs', 'sm']}>
+              <Grid className={classes.ozonelogo}>
+                <Grid container direction="row">
+                  <Grid>
+                    <Link underline="none" className={classes.linkearth} href="/">
+                      <img className={classes.earth} src="src/assets/img/earth.png" alt="" />
+                    </Link>
+                  </Grid>
+                  <Grid>
+                    <Link underline="none" className={classes.ozonetext} href="/">
+                      zone
+                    </Link>
+                  </Grid>
+                  {logged && (
+                  // eslint-disable-next-line react/jsx-wrap-multilines
+                  <Grid item>
+                    <Typography color="inherit" variant="body2">{emailValue} </Typography>
+                  </Grid>)}
+                </Grid>
+              </Grid>
+            </Hidden>
+          </Grid>
+          <Grid >
+            <Toolbar>
+              <Hidden only={['xs', 'sm']}>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/">
+                    Accueil
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/event">
+                    Les events
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/create-event">
+                    Ajouter un event
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/about">
+                    À propos
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link underline="none" className={classes.link} href="/sponsors">
+                    Partenaires
+                  </Link>
+                </Grid>
+              </Hidden>
+              {!logged && (
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Grid item>
-                <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                  <Link
-                    underline="none"
-                    className={classes.linkButton}
-                    href="/signup"
-                  >
-                  S'inscrire
+                <Button className={classes.button} color="inherit" size="small">
+                  <Link underline="none" className={classes.linkButton} href="/login">
+                  Se connecter
                   </Link>
                 </Button>
               </Grid>)}
-            {logged && (
-            // eslint-disable-next-line react/jsx-wrap-multilines
-            <Grid item>
-              <DrawerProfile />
-            </Grid>)}
-          </Toolbar>
+              {!logged && (
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <Grid item>
+                  <Button className={classes.button} variant="outlined" color="inherit" size="small">
+                    <Link
+                      underline="none"
+                      className={classes.linkButton}
+                      href="/signup"
+                    >
+                    S'inscrire
+                    </Link>
+                  </Button>
+                </Grid>)}
+              {logged && (
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Grid item>
+                <DrawerProfile />
+              </Grid>)}
+            </Toolbar>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
@@ -189,6 +197,7 @@ const Header = ({ logged, emailValue }) => {
 Header.propTypes = {
 
   logged: PropTypes.bool.isRequired,
+  emailValue: PropTypes.string,
 };
 
 export default Header;
