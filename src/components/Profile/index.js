@@ -4,8 +4,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 
@@ -15,6 +13,7 @@ import './profile.scss';
 // == Import de sous-composants
 import Banner from 'src/components/Banner';
 import CardProfile from './CardProfile';
+import ModifyProfileForm from './ModifyProfileForm';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -38,27 +37,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 'medium',
     paddingLeft: theme.spacing(1),
   },
-  modifyButton: {
-    color: '#526DDB',
-    marginBottom: theme.spacing(3),
-  },
   description: {
     textAlign: 'left',
   },
-  rightPart: {
-    // position: 'absolute',
-  },
-  // score: {
-  //   position: 'sticky',
-  //   top: theme.spacing(15),
-  // },
   scorePaper: {
     height: theme.spacing(20),
     paddingTop: theme.spacing(8),
     marginBottom: theme.spacing(3),
-  },
-  eventsHistory: {
-    // overflowY: 'auto',
   },
 }));
 
@@ -111,14 +96,7 @@ const Profile = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Button
-                // href="#page-modifier-profil"
-                color="primary"
-                className={classes.modifyButton}
-              >
-                <CreateIcon />
-                Modifier le profil
-              </Button>
+              <ModifyProfileForm />
             </Grid>
             <Grid item>
               <Typography variant="h5"> Description</Typography>
