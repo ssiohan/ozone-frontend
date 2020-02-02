@@ -13,6 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Container from '@material-ui/core/Container';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 
 // == Style du composant
@@ -68,7 +69,7 @@ const ModifyProfileForm = () => {
         <DialogTitle id="form-dialog-title">Modifier mon profil</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Veuillez modifier les informations que vous souhaitez mettre à jour
+            Veuillez modifier les informations que vous souhaitez mettre à jour.
           </DialogContentText>
           <Container justify="flex-start">
             <Grid container justify="flex-start" alignItems="center">
@@ -96,6 +97,90 @@ const ModifyProfileForm = () => {
                   variant="outlined"
                   type="text"
                   name="profileLastname"
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-start" alignItems="center">
+              <Grid item>
+                <InputLabel htmlFor="profile-firstname" className={classes.labels}>Prénom</InputLabel>
+              </Grid>
+              <Grid item className={classes.profileFields}>
+                <TextField
+                  id="profile-firstname"
+                  label="Prénom"
+                  variant="outlined"
+                  type="text"
+                  name="profileFirstname"
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-start" alignItems="center">
+              <Grid item>
+                <InputLabel htmlFor="profile-email" className={classes.labels}>Email</InputLabel>
+              </Grid>
+              <Grid item className={classes.profileFields}>
+                <TextField
+                  id="profile-email"
+                  label="Email"
+                  variant="outlined"
+                  type="email"
+                  name="profileEmail"
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-start" alignItems="center">
+              <Grid item>
+                <InputLabel htmlFor="profile-birthdate" className={classes.labels}>Date de naissance</InputLabel>
+              </Grid>
+              <Grid item className={classes.profileFields}>
+                <TextField
+                  id="profile-birthdate"
+                  label="Date de naissance"
+                  variant="outlined"
+                  type="date"
+                  name="profileBirthdate"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  SelectProps={{
+                    native: true,
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-start" alignItems="center">
+              <Grid item>
+                <InputLabel htmlFor="profile-avatar" className={classes.labels}>Avatar</InputLabel>
+              </Grid>
+              <Grid item className={classes.profileFields}>
+                <TextField
+                  id="profile-avatar"
+                  label="Avatar"
+                  variant="outlined"
+                  type="file"
+                  name="profileAvatar"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  SelectProps={{
+                    native: true,
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-start" alignItems="center">
+              <Grid item>
+                <InputLabel htmlFor="profile-description" className={classes.labels}>Description</InputLabel>
+              </Grid>
+              <Grid item className={classes.profileFields}>
+                <TextareaAutosize
+                  id="profile-description"
+                  label="Votre description"
+                  aria-label="Description"
+                  placeholder="Description"
+                  variant="outlined"
+                  rowsMin={10}
+                  name="profileDescription"
                 />
               </Grid>
             </Grid>
