@@ -39,10 +39,9 @@ export default function TypeEvent({ onCreateEventFieldChange }) {
 
   return (
     <div>
-      <FormControl autoWidth="true" required className={classes.formControl}>
+      <FormControl required className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Type d'événement</InputLabel>
         <Select
-          autoWidth="true"
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}

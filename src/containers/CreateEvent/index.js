@@ -8,6 +8,7 @@ import CreateEvent from 'src/components/CreateEvent';
 import {
   changeFieldValue,
   goCreateEvent,
+  checkForEmptyFields,
 
 } from 'src/store/reducer/createEvent';
 
@@ -27,6 +28,8 @@ const mapStateToProps = (state) => ({
   latitude: state.createEvent.latitude,
   longitude: state.createEvent.longitude,
   author: state.createEvent.author,
+  statusText: state.createEvent.statusText,
+  emptyFieldsCounter: state.signup.emptyFields,
 });
 
 // == Préparation - actions
@@ -39,6 +42,10 @@ const mapDispatchToProps = (dispatch) => ({
   getCreateEvent: () => {
     // console.log('Hello depuis mDtP, je vais ajouter un event');
     dispatch((goCreateEvent()));
+  },
+  onCheckForEmptyFields: () => {
+    // console.log('hello depuis mDtP, je check les champs vides');
+    dispatch(checkForEmptyFields());
   },
 });
 
