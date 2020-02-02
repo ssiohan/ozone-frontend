@@ -33,6 +33,7 @@ const CreateEvent = ({
   title,
   onCheckForEmptyFields,
   emptyFieldsCounter,
+  logged,
 }) => {
   const classes = useStyles();
   return (
@@ -46,6 +47,7 @@ const CreateEvent = ({
           onCreateEventFieldChange={onCreateEventFieldChange}
           onCheckForEmptyFields={onCheckForEmptyFields}
           emptyFieldsCounter={emptyFieldsCounter}
+          logged={logged}
         />
       )}
     </Grid>
@@ -64,6 +66,7 @@ CreateEvent.propTypes = {
   getCreateEvent: PropTypes.func,
   statusText: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
+  logged: PropTypes.bool.isRequired,
   onCheckForEmptyFields: PropTypes.func.isRequired,
   emptyFieldsCounter: PropTypes.number,
 };

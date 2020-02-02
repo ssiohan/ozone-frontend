@@ -64,6 +64,7 @@ const CreateForm = ({
   getCreateEvent,
   onCheckForEmptyFields,
   emptyFieldsCounter,
+  logged,
 
 }) => {
   const classes = useStyles();
@@ -89,6 +90,15 @@ const CreateForm = ({
       <Grid className={classes.root} container justify="center">
         <Typography className={classes.titletxt} variant="h4">Créer un événement</Typography>
 
+        {/* Message d'erreur en cas de champs non remplis à la soumission */}
+        {!logged && (
+          <Grid container justify="center" className={classes.alert}>
+            <Alert severity="error">
+              <AlertTitle>ATTENTION!</AlertTitle>
+              Vous devez être connecté ET être organisateur pour pouvoir créer un événement
+            </Alert>
+          </Grid>
+        )}
         {/* title Form */}
 
         <Grid className={classes.title} container direction="row">
@@ -374,6 +384,7 @@ CreateForm.propTypes = {
   getCreateEvent: PropTypes.func,
   onCheckForEmptyFields: PropTypes.func.isRequired,
   emptyFieldsCounter: PropTypes.number,
+  logged: PropTypes.bool.isRequired,
 };
 // == Export
 export default CreateForm;

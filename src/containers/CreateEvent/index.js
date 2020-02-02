@@ -30,6 +30,7 @@ const mapStateToProps = (state) => ({
   author: state.createEvent.author,
   statusText: state.createEvent.statusText,
   emptyFieldsCounter: state.signup.emptyFields,
+  logged: state.login.logged,
 });
 
 // == Préparation - actions
