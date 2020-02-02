@@ -23,25 +23,12 @@ import TypeEvent from './FormChildren/TypeEvent';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    'max-width': '900px',
+    'max-width': '980px',
   },
   form: {
     margin: 'auto',
   },
-  event: {
-    margin: theme.spacing(1),
-    //minWidth: 220,
-  },
 
-  dateAndTime: {
-   // width: 500,
-  },
-  users: {
-   // width: 230,
-  },
-  city: {
-    //width: 500,
-  },
   button: {
 
     'background-color': '#526DDB',
@@ -104,13 +91,12 @@ const CreateForm = ({
         {/* title Form */}
 
         <Grid className={classes.title} alignItems="space-between" container direction="row">
-          <Grid item xs={12} sm={3}>
+          <Grid align="left" item xs={12} sm={5}>
             <Typography variant="h6" className={classes.titletxt}>Titre</Typography>
           </Grid>
-          <Grid item xs={12} sm={9}>
-            <FormControl className={classes.event}>
+          <Grid item xs={12} sm={7}>
+            <FormControl fullWidth className={classes.event}>
               <TextField
-                fullWidth
                 required
                 id="event-title"
                 label="Titre de l'événement"
@@ -127,11 +113,11 @@ const CreateForm = ({
         {/* description Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={3}>
+          <Grid align="left" item xs={12} sm={5}>
             <Typography className={classes.titletxt} variant="h6">Description</Typography>
           </Grid>
-          <Grid item xs={12} sm={9}>
-            <FormControl className={classes.event}>
+          <Grid item xs={12} sm={7}>
+            <FormControl fullWidth className={classes.event}>
               <TextField
                 className={classes.description}
                 multiline
@@ -148,27 +134,37 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
-        {/* typeEvent Form */}
+        {/* city Form */}
 
-        <Grid className={classes.title} container direction="row">
-          <Grid item xs={12} sm={3}>
-            <Typography className={classes.titletxt} variant="h6">Type</Typography>
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid align="left" item xs={12} sm={5}>
+            <Typography className={classes.titletxt} variant="h6">Ville</Typography>
           </Grid>
-          <Grid item xs={12} sm={9}>
-            <TypeEvent onCreateEventFieldChange={onCreateEventFieldChange} />
+          <Grid item xs={12} sm={7}>
+            <FormControl fullWidth>
+              <TextField
+                className={classes.city}
+                id="city"
+                label="Ville ou se déroulera l'événement"
+                type="text"
+                name="city"
+                onChange={handleCreateEventInputChange}
+                required
+              />
+            </FormControl>
           </Grid>
         </Grid>
+
 
         {/* dateEvent Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={3}>
+          <Grid align="left" item xs={12} sm={5}>
             <Typography className={classes.titletxt} variant="h6">Date</Typography>
           </Grid>
-          <Grid item xs={12} sm={9}>
-            <FormControl>
+          <Grid item xs={12} sm={7}>
+            <FormControl fullWidth>
               <TextField
-                fullWidth
                 required
                 id="datetime-local"
                 label="Préciser heure (obligatoire)"
@@ -185,21 +181,32 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
+        {/* typeEvent Form */}
+
+        <Grid className={classes.title} container direction="row">
+          <Grid align="left" item xs={12} sm={5}>
+            <Typography className={classes.titletxt} variant="h6">Type</Typography>
+          </Grid>
+          <Grid align="left" item xs={12} sm={7}>
+            <TypeEvent onCreateEventFieldChange={onCreateEventFieldChange} />
+          </Grid>
+        </Grid>
+
         {/* Users Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={12} md={3}>
+          <Grid align="left" item xs={12} sm={3} md={3}>
             <Typography className={classes.titletxt} variant="h6">Participants</Typography>
           </Grid>
 
           {/* minUser Form */}
 
-          <Grid item xs={12} sm={12} md={3}>
-            <FormControl required>
+          <Grid item xs={12} sm={3} md={3}>
+            <FormControl fullWidth required>
               <TextField
                 select
                 id="min-participants"
-                label="min"
+                label="Participants min"
                 name="userMin"
                 className={classes.users}
                 InputLabelProps={{
@@ -214,13 +221,13 @@ const CreateForm = ({
 
           {/* maxUser Form */}
 
-          <Grid item xs={12} sm={12} md={3}>
-            <FormControl>
+          <Grid item xs={12} sm={3} md={3}>
+            <FormControl fullWidth>
               <TextField
                 required
                 select
                 id="max-participants"
-                label="max"
+                label="Participants max"
                 name="userMax"
                 className={classes.users}
                 InputLabelProps={{
@@ -234,35 +241,14 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
-        {/* city Form */}
-
-        <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={3}>
-            <Typography className={classes.titletxt} variant="h6">Ville</Typography>
-          </Grid>
-          <Grid item xs={12} sm={9}>
-            <FormControl>
-              <TextField
-                className={classes.city}
-                id="city"
-                label="Ville"
-                type="text"
-                name="city"
-                onChange={handleCreateEventInputChange}
-                required
-              />
-            </FormControl>
-          </Grid>
-        </Grid>
-
         {/* Lat/long Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
           <Grid item xs={12} sm={3} md={3}>
-            <Typography className={classes.titletxt} variant="h6">Provisoire</Typography>
+            <Typography align="left" className={classes.titletxt} variant="h6">Provisoire</Typography>
           </Grid>
           <Grid item xs={12} sm={3} md={3}>
-            <FormControl>
+            <FormControl fullWidth>
               <TextField
                 id="latitude"
                 label="Latitude"
@@ -275,7 +261,7 @@ const CreateForm = ({
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={3} md={3}>
-            <FormControl>
+            <FormControl fullWidth>
               <TextField
                 id="longitude"
                 label="Longitude"
@@ -291,7 +277,7 @@ const CreateForm = ({
 
         {/* critair Form */}
 
-        <Grid container className={classes.title}>
+        <Grid container className={classes.title} justify="space-between">
           <Typography align="left" className={classes.titletxt} variant="h6">Critères</Typography>
           <Grid container direction="row" justify="space-between">
             <Duration onCreateEventFieldChange={onCreateEventFieldChange} />
@@ -305,7 +291,7 @@ const CreateForm = ({
         {/* image Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={3}>
+          <Grid align="left" item xs={12} sm={3}>
             <Typography className={classes.titletxt} variant="h6">Photo</Typography>
           </Grid>
           <Grid item xs={12} sm={9}>
