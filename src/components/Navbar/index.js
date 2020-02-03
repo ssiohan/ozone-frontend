@@ -131,7 +131,7 @@ const Header = ({ logged, emailValue }) => {
               </Grid>
             </Hidden>
           </Grid>
-          <Grid >
+          <Grid>
             <Toolbar>
               <Hidden only={['xs', 'sm']}>
                 <Grid item>
