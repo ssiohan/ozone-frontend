@@ -3,8 +3,8 @@ import './map.scss';
 // leaflet
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 
-const position = [48.638099, -1.995478];
-const position2 = [48.638325, -2.003374];
+const position = [44.837789, -0.57918];
+// const position2 = [48.638325, -2.003374];
 
 const Map = () => {
   return (
@@ -16,9 +16,9 @@ const Map = () => {
       <Marker position={position}>
         <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
       </Marker>
-      <Marker position={position2}>
+      {/* <Marker position={position2}>
         <Popup>henri.<br />Easily customizable.</Popup>
-      </Marker>
+      </Marker> */}
 
     </LeafletMap>
   );

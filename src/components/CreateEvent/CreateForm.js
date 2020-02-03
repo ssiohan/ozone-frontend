@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Alert from '@material-ui/lab/Alert';
 import AlertTitle from '@material-ui/lab/AlertTitle';
+import Autocomplete from './Autocomplete';
 // == Import Form children
 
 import Duration from './FormChildren/Duration';
@@ -65,6 +66,7 @@ const CreateForm = ({
   onCheckForEmptyFields,
   emptyFieldsCounter,
   logged,
+  onGetCoordinates,
 
 }) => {
   const classes = useStyles();
@@ -145,7 +147,7 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
-        {/* city Form */}
+        {/* city Form
 
         <Grid className={classes.title} container direction="row" justify="space-between">
           <Grid align="left" item xs={12} sm={5}>
@@ -164,8 +166,21 @@ const CreateForm = ({
               />
             </FormControl>
           </Grid>
-        </Grid>
+        </Grid> */}
 
+        {/* city Form */}
+
+        <Grid className={classes.title} container direction="row" justify="space-between">
+          <Grid align="left" item xs={12} sm={5}>
+            <Typography className={classes.titletxt} variant="h6">Ville</Typography>
+          </Grid>
+          <Grid item xs={12} sm={7}>
+            <Autocomplete
+              onCreateEventFieldChange={onCreateEventFieldChange}
+              onGetCoordinates={onGetCoordinates}
+            />
+          </Grid>
+        </Grid>
 
         {/* dateEvent Form */}
 

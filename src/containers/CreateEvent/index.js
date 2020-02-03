@@ -9,6 +9,8 @@ import {
   changeFieldValue,
   goCreateEvent,
   checkForEmptyFields,
+  getCoordinates,
+  getLongitude,
 
 } from 'src/store/reducer/createEvent';
 
@@ -31,12 +33,13 @@ const mapStateToProps = (state) => ({
   statusText: state.createEvent.statusText,
   emptyFieldsCounter: state.signup.emptyFields,
   logged: state.login.logged,
+  address: state.createEvent.address,
 });
 
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   onCreateEventFieldChange: (name, value) => {
-    // console.log('hello depuis mDTP', name, value);
+    console.log('hello depuis mDTP', name, value);
     dispatch(changeFieldValue(name, value));
   },
 
@@ -47,6 +50,9 @@ const mapDispatchToProps = (dispatch) => ({
   onCheckForEmptyFields: () => {
     // console.log('hello depuis mDtP, je check les champs vides');
     dispatch(checkForEmptyFields());
+  },
+  onGetCoordinates: (lat, lng) => {
+    dispatch(getCoordinates(lat, lng));
   },
 });
 

@@ -2,7 +2,8 @@
 // == Action types
 const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
 const CHECK_EMPTY_FIELDS = 'CHECK_EMPTY_FIELDS';
-
+const GET_COORDONATES = 'GET_COORDONATES';
+const GET_LONGITUDE = 'GET_LONGITUDE';
 //  Action qui va lancer la requête axios
 export const CREATE_EVENT = 'CREATE_EVENT';
 // Action qui va changer le register: false en register: true
@@ -28,6 +29,7 @@ const initialState = {
   longitude: '',
   author: '',
   statusText: false,
+  address: '',
   // Par défaut, le compteur de champs vides est à zéro
   emptyFields: 0,
 };
@@ -51,6 +53,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         statusText: true,
+      };
+    case GET_COORDONATES:
+      console.log(state);
+      return {
+        ...state,
+        latitude: action.lat,
+        longitude: action.lng,
+      };
+    case GET_LONGITUDE:
+      return {
+        ...state,
+        longitude: action.latLng,
       };
     case CHECK_EMPTY_FIELDS:
       // Si le champs title n'est pas rempli
@@ -108,6 +122,15 @@ export const eventCreated = () => ({
 });
 export const checkForEmptyFields = () => ({
   type: CHECK_EMPTY_FIELDS,
+});
+export const getCoordinates = (lat, lng) => ({
+  type: GET_COORDONATES,
+  lat,
+  lng,
+});
+export const getLongitude = (latLng) => ({
+  type: GET_LONGITUDE,
+  latLng,
 });
 
 // == Export

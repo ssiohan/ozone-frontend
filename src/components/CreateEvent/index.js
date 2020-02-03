@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
+
 // == Import : local
 import './createEvent.scss';
 
@@ -34,6 +35,7 @@ const CreateEvent = ({
   onCheckForEmptyFields,
   emptyFieldsCounter,
   logged,
+  onGetCoordinates
 }) => {
   const classes = useStyles();
   return (
@@ -48,6 +50,7 @@ const CreateEvent = ({
           onCheckForEmptyFields={onCheckForEmptyFields}
           emptyFieldsCounter={emptyFieldsCounter}
           logged={logged}
+          onGetCoordinates={onGetCoordinates}
         />
       )}
     </Grid>

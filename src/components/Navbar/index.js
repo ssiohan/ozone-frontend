@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     'font-size': '3rem',
   },
   earth: {
-    width: '50px',
+    fontSize: '3em',
     'margin-top': '2px',
   },
 }));
@@ -114,7 +114,7 @@ const Header = ({ logged, emailValue }) => {
                 <Grid container direction="row">
                   <Grid>
                     <Link underline="none" className={classes.linkearth} href="/">
-                      <img className={classes.earth} src="src/assets/img/earth.png" alt="" />
+                      <GiEarthAmerica className={classes.earth} />
                     </Link>
                   </Grid>
                   <Grid>
