@@ -10,6 +10,7 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
+import Map from 'src/components/Map';
 import BannerAfter from 'src/containers/Homepage/BannerAfter';
 import Cardweb from 'src/components/Homepage/Cardweb';
 import Dialog from 'src/components/Banner/Dialog';
@@ -44,6 +45,9 @@ const Homepage = ({ search, events, category }) => {
     <div>
       {!search && <Banner />}
       <Container className={classes.container} id="app">
+        <Grid>
+          <Map />
+        </Grid>
         <Grid>
           {search && <Hidden only={['xs']}><BannerAfter /></Hidden>}
           <Grid container spacing={3}>
