@@ -2,10 +2,11 @@
 // == Import : npm
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './profile.scss';
@@ -16,7 +17,9 @@ import CardProfile from './CardProfile';
 import ModifyProfileForm from './ModifyProfileForm';
 
 // == Style du composant
-const useStyles = makeStyles((theme) => ({
+// Attention, forme un peu différente car Profile est une class
+// source: https://stackoverflow.com/questions/56554586/how-to-use-usestyle-to-style-class-component-in-material-ui
+const useStyles = (theme) => ({
   root: {
     margin: theme.spacing(1),
     flexGrow: 1,
@@ -45,105 +48,146 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(8),
     marginBottom: theme.spacing(3),
   },
-}));
+});
 
 
 // == Composant
-const Profile = () => {
-  const classes = useStyles();
-  return (
-    <div id="profile">
-      <Banner />
-      <Grid
-        container
-        justify="center"
-        className={classes.root}
-      >
-        {/* Partie de gauche avec avatar, nom etc.. et Description */}
-        <Grid item xs={12} md={7}>
+class Profile extends React.Component {
+  /** Au moment du montage du composant:
+   *  Je récupère les données du user pour qu'elles ne se perdent pas au refresh
+   *  Pas besoin de vérifier si l'utilisateur est connecté car la route profile n'est
+   *  accessible que si logged = true dans le state.
+   */
+  componentDidMount() {
+    const {
+      keepUserData,
+    } = this.props;
+
+    keepUserData();
+  }
+
+  render() {
+    // Pour pouvoir utiliser le useStyles
+    const { classes } = this.props;
+    return (
+      <div id="profile">
+        <Banner />
+        <Grid
+          container
+          justify="center"
+          className={classes.root}
+        >
+          {/* Partie de gauche avec avatar, nom etc.. et Description */}
+          <Grid item xs={12} md={7}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              className={classes.leftPart}
+            >
+              <Grid
+                item
+                container
+                justify="center"
+                alignContent="flex-start"
+                className={classes.upperLeft}
+              >
+                <Grid item>
+                  <Avatar
+                    alt="user name"
+                    src="/static/images/avatar/1.jpg"
+                    className={classes.avatar}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  className={classes.userInfo}
+                >
+                  <Grid item>
+                    Username
+                  </Grid>
+                  <Grid item>
+                    Prénom et Nom
+                  </Grid>
+                  <Grid item>
+                    Rang
+                  </Grid>
+                  <Grid item>
+                    Date d'inscription
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <ModifyProfileForm />
+              </Grid>
+              <Grid item>
+                <Typography variant="h5"> Description</Typography>
+                <Typography
+                  variant="caption"
+                  gutterBottom
+                  className={classes.description}
+                >
+                     Je m'présente, je m'appelle Henri
+                     J'voudrais bien réussir ma vie, être aimé
+                     Etre beau gagner de l'argent
+                     Puis surtout être intelligent
+                     Mais pour tout ça il faudrait que j'bosse à plein temps
+                     J'suis chanteur, je chante pour mes copains
+                     J'veux faire des tubes et que ça tourne bien, tourne bien
+                     J'veux écrire une chanson dans le vent
+                     Un air gai, chic et entraînant
+                     Pour faire danser dans les soirées de Monsieur Durand
+                     Et partout dans la rue
+                     J'veux qu'on parle de moi
+                     Que les filles soient nues
+                     Qu'elles se jettent sur moi
+                     Qu'elles m'admirent, qu'elles me tuent
+                     Qu'elles s'arrachent ma vertu
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          {/* Partie de droite avec solde de points et événements */}
           <Grid
-            container
-            direction="column"
-            justify="center"
-            className={classes.leftPart}
+            item
+            xs={12}
+            md={4}
+            className={classes.rightPart}
           >
             <Grid
-              item
               container
+              direction="column"
               justify="center"
-              alignContent="flex-start"
-              className={classes.upperLeft}
             >
-              <Grid item>
-                <Avatar alt="user name" src="/static/images/avatar/1.jpg" className={classes.avatar} />
+              <Grid
+                item
+                className={classes.score}
+              >
+                <Paper className={classes.scorePaper}>
+                Solde de points
+                </Paper>
               </Grid>
               <Grid
                 item
-                className={classes.userInfo}
+                className={classes.eventsHistory}
               >
-                <Grid item>
-                  Username
-                </Grid>
-                <Grid item>
-                  Prénom et Nom
-                </Grid>
-                <Grid item>
-                  Rang
-                </Grid>
-                <Grid item>
-                  Date d'inscription
-                </Grid>
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
               </Grid>
             </Grid>
-            <Grid item>
-              <ModifyProfileForm />
-            </Grid>
-            <Grid item>
-              <Typography variant="h5"> Description</Typography>
-              <Typography variant="caption" gutterBottom className={classes.description}>
-                   Je m'présente, je m'appelle Henri
-                   J'voudrais bien réussir ma vie, être aimé
-                   Etre beau gagner de l'argent
-                   Puis surtout être intelligent
-                   Mais pour tout ça il faudrait que j'bosse à plein temps
-                   J'suis chanteur, je chante pour mes copains
-                   J'veux faire des tubes et que ça tourne bien, tourne bien
-                   J'veux écrire une chanson dans le vent
-                   Un air gai, chic et entraînant
-                   Pour faire danser dans les soirées de Monsieur Durand
-                   Et partout dans la rue
-                   J'veux qu'on parle de moi
-                   Que les filles soient nues
-                   Qu'elles se jettent sur moi
-                   Qu'elles m'admirent, qu'elles me tuent
-                   Qu'elles s'arrachent ma vertu
-              </Typography>
-            </Grid>
           </Grid>
         </Grid>
-        {/* Partie de droite avec solde de points et événements */}
-        <Grid item xs={12} md={4} className={classes.rightPart}>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-          >
-            <Grid item className={classes.score}>
-              <Paper className={classes.scorePaper}>
-              Solde de points
-              </Paper>
-            </Grid>
-            <Grid item className={classes.eventsHistory}>
-              <CardProfile />
-              <CardProfile />
-              <CardProfile />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  }
+}
+// == Validation des props
+Profile.propTypes = {
+  keepUserData: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 // == Export
-export default Profile;
+// (export qui permet de conserver le style)
+export default withStyles(useStyles, { withTheme: true })(Profile);

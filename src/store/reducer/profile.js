@@ -4,6 +4,7 @@ export const FETCH_USER_ID = 'FETCH_USER_ID';
 const STORE_USER_ID = 'STORE_USER_ID';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
 const STORE_USER_DATA = 'STORE_USER_DATA';
+export const PRESERVE_USER_DATA = 'PRESERVE_USER_DATA';
 
 // == initialState
 const initialState = {
@@ -42,6 +43,22 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userData: action.userData,
       };
+    case PRESERVE_USER_DATA: {
+      const userId = localStorage.getItem('id');
+      // console.log(token, refresh_token);
+      if (localStorage.id === undefined) {
+        return {
+          ...state,
+        };
+      }
+      if (userId.length > 0) {
+        return {
+          ...state,
+          userId,
+        };
+      }
+    }
+      break;
     default:
       return state;
   }
@@ -64,6 +81,10 @@ export const fetchUserData = () => ({
 export const storeUserData = (userData) => ({
   type: STORE_USER_DATA,
   userData,
+});
+
+export const preserveUserData = () => ({
+  type: PRESERVE_USER_DATA,
 });
 
 // == Export
