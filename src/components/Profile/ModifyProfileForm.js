@@ -14,6 +14,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Container from '@material-ui/core/Container';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import PropTypes from 'prop-types';
 
 
 // == Style du composant
@@ -212,6 +213,11 @@ const ModifyProfileForm = () => {
     </div>
   );
 };
+
+// == Validation des props
+// ModifyProfileForm.propTypes = {
+//   userData: PropTypes.object,
+// };
 
 // == Export
 export default ModifyProfileForm;

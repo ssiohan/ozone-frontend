@@ -10,7 +10,7 @@ export const PRESERVE_USER_DATA = 'PRESERVE_USER_DATA';
 const initialState = {
   // Valeur de départ
   userId: '',
-  userData: [],
+  userData: null,
   profilePseudo: '',
   profileLastname: '',
   profileFirstname: '',

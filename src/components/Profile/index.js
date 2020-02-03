@@ -48,6 +48,10 @@ const useStyles = (theme) => ({
     paddingTop: theme.spacing(8),
     marginBottom: theme.spacing(3),
   },
+  pseudo: {
+    fontWeight: 'bold',
+    fontSize: 'large',
+  },
 });
 
 
@@ -67,8 +71,27 @@ class Profile extends React.Component {
   }
 
   render() {
-    // Pour pouvoir utiliser le useStyles
-    const { classes } = this.props;
+    // Pour pouvoir utiliser le useStyles et les données user reçues de l'API
+    const { classes, userData } = this.props;
+
+    // Nécessaire pour pouvoir traiter les userData
+    // source: https://stackoverflow.com/questions/54734480/undefined-props-in-componentdidmount
+    if (userData === null) {
+      return null;
+    }
+    // Formattage de la date reçue de l'api
+    const treatDate = (apiDate) => {
+      const date = apiDate;
+      // retourne la date au format jour/mois/année
+      const year = date.slice(0, 4);
+      const month = date.slice(5, 7);
+      const day = date.slice(8, 10);
+      const formatDate = `${day}/${month}/${year}`;
+      return formatDate;
+    };
+    // Date d'inscription reformattée
+    const signupDate = treatDate(userData.createdAt);
+
     return (
       <div id="profile">
         <Banner />
@@ -95,7 +118,7 @@ class Profile extends React.Component {
                 <Grid item>
                   <Avatar
                     alt="user name"
-                    src="/static/images/avatar/1.jpg"
+                    src={userData.avatar}
                     className={classes.avatar}
                   />
                 </Grid>
@@ -103,22 +126,25 @@ class Profile extends React.Component {
                   item
                   className={classes.userInfo}
                 >
-                  <Grid item>
-                    Username
+                  <Grid item className={classes.pseudo}>
+                    {userData.pseudo}
                   </Grid>
                   <Grid item>
-                    Prénom et Nom
+                    <span>{userData.firstname}</span> <span>{userData.lastname}</span>
                   </Grid>
                   <Grid item>
-                    Rang
+                    {/* Map sur les rôles à rajouter */}
+                    {userData.userRoles.map((role) => (
+                      <p key={role.role.label}>{role.role.label}</p>
+                    ))}
                   </Grid>
                   <Grid item>
-                    Date d'inscription
+                    Inscrit(e) depuis le {signupDate}
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item>
-                <ModifyProfileForm />
+                <ModifyProfileForm {...userData} />
               </Grid>
               <Grid item>
                 <Typography variant="h5"> Description</Typography>
@@ -127,22 +153,7 @@ class Profile extends React.Component {
                   gutterBottom
                   className={classes.description}
                 >
-                     Je m'présente, je m'appelle Henri
-                     J'voudrais bien réussir ma vie, être aimé
-                     Etre beau gagner de l'argent
-                     Puis surtout être intelligent
-                     Mais pour tout ça il faudrait que j'bosse à plein temps
-                     J'suis chanteur, je chante pour mes copains
-                     J'veux faire des tubes et que ça tourne bien, tourne bien
-                     J'veux écrire une chanson dans le vent
-                     Un air gai, chic et entraînant
-                     Pour faire danser dans les soirées de Monsieur Durand
-                     Et partout dans la rue
-                     J'veux qu'on parle de moi
-                     Que les filles soient nues
-                     Qu'elles se jettent sur moi
-                     Qu'elles m'admirent, qu'elles me tuent
-                     Qu'elles s'arrachent ma vertu
+                  {userData.description}
                 </Typography>
               </Grid>
             </Grid>
@@ -164,16 +175,17 @@ class Profile extends React.Component {
                 className={classes.score}
               >
                 <Paper className={classes.scorePaper}>
-                Solde de points
+                  <span>{userData.credit}</span> points
                 </Paper>
               </Grid>
               <Grid
                 item
                 className={classes.eventsHistory}
               >
-                <CardProfile />
-                <CardProfile />
-                <CardProfile />
+                {/* Map pour récupérer les événements du user */}
+                {userData.userEvents.map((event) => (
+                  <CardProfile key={event.event.id} {...event.event} />
+                ))}
               </Grid>
             </Grid>
           </Grid>
@@ -182,10 +194,15 @@ class Profile extends React.Component {
     );
   }
 }
+// == Props par défault
+Profile.defaultProps = {
+  userData: null,
+};
 // == Validation des props
 Profile.propTypes = {
   keepUserData: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
+  userData: PropTypes.object,
 };
 
 // == Export

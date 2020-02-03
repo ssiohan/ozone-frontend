@@ -58,69 +58,83 @@ const useStyles = makeStyles((theme) => ({
 }));
 const score = (a, b, c, d) => (a + b + c + d);
 
-const CardProfile = () => {
+const CardProfile = ({
+  title,
+  typeEvent,
+  description,
+  dateEvent,
+  painfulness,
+  duration,
+  impactSocietal,
+  impactEnvironmental,
+  userMin,
+  userMax,
+  city,
+}) => {
   const classes = useStyles();
-  // const treatDate = (apiDate) => {
-  //   const date = apiDate;
-  //   // retourne la date au format jour/mois/année
-  //   const year = date.slice(0, 4);
-  //   const month = date.slice(5, 7);
-  //   const day = date.slice(8, 10);
-  //   const formatDate = `${day}/${month}/${year}`;
+  const treatDate = (apiDate) => {
+    const date = apiDate;
+    // retourne la date au format jour/mois/année
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const formatDate = `${day}/${month}/${year}`;
 
-  //   return formatDate;
-  // };
-  // const date = treatDate(dateEvent);
-  // // function result return a /20 score
-  // const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+    return formatDate;
+  };
+  const date = treatDate(dateEvent);
+  // function result return a /20 score
+  const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={
-          (
-            <Grid container>
-              <Avatar aria-label="recipe" className={classes.avatar}>
-                R
-              </Avatar>
-              <Typography className={classes.user}>author.pseudo</Typography>
-            </Grid>
-           )
-           }
+        // avatar={
+        //   (
+        //     <Grid container>
+        //       <Avatar aria-label="recipe" className={classes.avatar}>
+        //         R
+        //       </Avatar>
+        //       <Typography className={classes.user}>author.pseudo</Typography>
+        //     </Grid>
+        //    )
+        //    }
         action={
           (
             <IconButton aria-label="settings">
               <FaMapMarkerAlt />
-              <Typography>city</Typography>
+              <Typography>{city}</Typography>
             </IconButton>
           )
           }
       />
       <CardMedia
         className={classes.media}
+        // à dynamiser: récupérer les images de la bdd
         image="/src/assets/img/IMG_1155.JPG"
-        title="Paella dish"
+        title="image de l'événement"
       />
       <CardContent>
         <Grid container spacing={0} item xs={12} sm={12}>
-          <Typography className={classes.text} align="left" variant="h5">title</Typography>
+          <Typography className={classes.text} align="left" variant="h5">{title}</Typography>
         </Grid>
-        <Typography className={classes.text} align="left">date</Typography>
+        <Typography className={classes.text} align="left">{date}</Typography>
         <Typography className={classes.text} variant="body2" color="textSecondary" component="p">
-          description
+          {description}
         </Typography>
       </CardContent>
       <CardActions className={classes.action} disableSpacing>
         <Grid container justify="space-between">
           <Grid item xs={3}>
-            <Button variant="contained" size="small">typeEvent</Button>
+            <Button variant="contained" size="small">{typeEvent}</Button>
           </Grid>
           <Grid item xs={3}>
             <Grid container direction="column" justify="space-between" spacing={2} wrap="nowrap" item xs={12}>
               <Typography className={classes.rightContentText}>
-                <MdPeople /> .../userMax
+                {/* Ajouter le nombre d'inscrits dynamiquement */}
+                <MdPeople /> 14/{userMax}
               </Typography>
               <Typography className={classes.rightContentText}>
-                <FaCoins /> result /20
+                <FaCoins /> {result} /20
               </Typography>
             </Grid>
           </Grid>
@@ -132,17 +146,16 @@ const CardProfile = () => {
     </Card>
   );
 };
-// CardProfile.propTypes = {
-//   userMax: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   dateEvent: PropTypes.string.isRequired,
-//   painfulness: PropTypes.number.isRequired,
-//   duration: PropTypes.number.isRequired,
-//   impactSocietal: PropTypes.number.isRequired,
-//   impactEnvironmental: PropTypes.number.isRequired,
-//   description: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   author: PropTypes.object.isRequired,
-//   typeEvent: PropTypes.string.isRequired,
-// };
+CardProfile.propTypes = {
+  userMax: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  dateEvent: PropTypes.string.isRequired,
+  painfulness: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  impactSocietal: PropTypes.number.isRequired,
+  impactEnvironmental: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  typeEvent: PropTypes.string.isRequired,
+};
 export default CardProfile;
