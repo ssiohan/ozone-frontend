@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // == Import d'actions
-import { FETCH_USER_ID, storeUserId } from 'src/store/reducer/profile';
+import { FETCH_USER_ID, storeUserId, fetchUserData } from 'src/store/reducer/profile';
 
 // == Le middleware
 
@@ -23,6 +23,7 @@ const userIdMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('id', response.data['User ID']);
           const userId = localStorage.getItem('id');
           store.dispatch(storeUserId(userId));
+          store.dispatch(fetchUserData());
         })
         .catch((error) => {
           console.log(error);

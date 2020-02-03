@@ -2,7 +2,8 @@
 // == Action types
 export const FETCH_USER_ID = 'FETCH_USER_ID';
 const STORE_USER_ID = 'STORE_USER_ID';
-const FETCH_USER_DATA = 'FETCH_USER_DATA';
+export const FETCH_USER_DATA = 'FETCH_USER_DATA';
+const STORE_USER_DATA = 'STORE_USER_DATA';
 
 // == initialState
 const initialState = {
@@ -36,6 +37,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
       };
+    case STORE_USER_DATA:
+      return {
+        ...state,
+        userData: action.userData,
+      };
     default:
       return state;
   }
@@ -53,6 +59,11 @@ export const storeUserId = (userId) => ({
 
 export const fetchUserData = () => ({
   type: FETCH_USER_DATA,
+});
+
+export const storeUserData = (userData) => ({
+  type: STORE_USER_DATA,
+  userData,
 });
 
 // == Export
