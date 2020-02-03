@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     margin: '.3em',
   },
 }));
-const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates}) => {
+const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates }) => {
   const [address, setAddress] = React.useState('');
   const classes = useStyles();
 
@@ -39,13 +39,18 @@ const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates}) => {
         onChange={setAddress}
         onSelect={handleSelect}
       >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+        {({
+          getInputProps,
+          suggestions,
+          getSuggestionItemProps,
+          loading,
+        }) => (
           <div>
             <TextField
               {...getInputProps()}
               className={classes.title}
               id="adress"
-              label="Ville ou se déroulera l'événement"
+              label="Adresse exacte de l'événement"
               type="text"
               name="adress"
               required
@@ -71,9 +76,11 @@ const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates}) => {
 };
 Autocomplete.defaultProps = {
   onCreateEventFieldChange: null,
+  onGetCoordinates: null,
 
 };
 Autocomplete.propTypes = {
   onCreateEventFieldChange: PropTypes.func,
+  onGetCoordinates: PropTypes.func,
 };
 export default Autocomplete;

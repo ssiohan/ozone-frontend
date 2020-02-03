@@ -1,5 +1,5 @@
 import React from 'react';
-import './map.scss';
+import './mapHomepage.scss';
 // leaflet
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 

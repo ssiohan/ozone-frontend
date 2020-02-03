@@ -147,7 +147,7 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
-        {/* city Form
+        {/* city Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
           <Grid align="left" item xs={12} sm={5}>
@@ -166,13 +166,13 @@ const CreateForm = ({
               />
             </FormControl>
           </Grid>
-        </Grid> */}
+        </Grid>
 
-        {/* city Form */}
+        {/* adress Form */}
 
         <Grid className={classes.title} container direction="row" justify="space-between">
           <Grid align="left" item xs={12} sm={5}>
-            <Typography className={classes.titletxt} variant="h6">Ville</Typography>
+            <Typography className={classes.titletxt} variant="h6">Adresse</Typography>
           </Grid>
           <Grid item xs={12} sm={7}>
             <Autocomplete
@@ -289,39 +289,6 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
-        {/* Lat/long Form */}
-
-        <Grid className={classes.title} container direction="row" justify="space-between">
-          <Grid item xs={12} sm={3} md={3}>
-            <Typography align="left" className={classes.titletxt} variant="h6">Provisoire</Typography>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3}>
-            <FormControl fullWidth>
-              <TextField
-                id="latitude"
-                label="Latitude"
-                type="text"
-                name="latitude"
-                onChange={handleCreateEventInputChange}
-                required
-                placeholder="'string'"
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3}>
-            <FormControl fullWidth>
-              <TextField
-                id="longitude"
-                label="Longitude"
-                type="text"
-                name="longitude"
-                onChange={handleCreateEventInputChange}
-                required
-                placeholder="'string'"
-              />
-            </FormControl>
-          </Grid>
-        </Grid>
 
         {/* critair Form */}
 
@@ -391,6 +358,7 @@ CreateForm.defaultProps = {
   onCreateEventFieldChange: null,
   getCreateEvent: null,
   emptyFieldsCounter: 0,
+  onGetCoordinates: null,
 };
 
 // == Validation des props
@@ -400,6 +368,7 @@ CreateForm.propTypes = {
   onCheckForEmptyFields: PropTypes.func.isRequired,
   emptyFieldsCounter: PropTypes.number,
   logged: PropTypes.bool.isRequired,
+  onGetCoordinates: PropTypes.func,
 };
 // == Export
 export default CreateForm;

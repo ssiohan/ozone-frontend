@@ -104,11 +104,6 @@ const Header = ({ logged, emailValue }) => {
                 <Drawer className={classes.appBar} />
               </Grid>
             </Hidden>
-            {/* <Hidden mdUp>
-              <Grid className={classes.ozonelogo} item xs>
-                <Typography align="left" color="inherit" variant="h5" component="h1"> </Typography>
-              </Grid>
-            </Hidden> */}
             <Hidden only={['xs', 'sm']}>
               <Grid className={classes.ozonelogo}>
                 <Grid container direction="row">

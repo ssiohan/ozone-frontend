@@ -35,7 +35,7 @@ const CreateEvent = ({
   onCheckForEmptyFields,
   emptyFieldsCounter,
   logged,
-  onGetCoordinates
+  onGetCoordinates,
 }) => {
   const classes = useStyles();
   return (
@@ -61,6 +61,7 @@ CreateEvent.defaultProps = {
   onCreateEventFieldChange: null,
   getCreateEvent: null,
   emptyFieldsCounter: 0,
+  onGetCoordinates: null,
 };
 
 // == Validation des props
@@ -72,6 +73,7 @@ CreateEvent.propTypes = {
   logged: PropTypes.bool.isRequired,
   onCheckForEmptyFields: PropTypes.func.isRequired,
   emptyFieldsCounter: PropTypes.number,
+  onGetCoordinates: PropTypes.func,
 };
 // == Export
 export default CreateEvent;
