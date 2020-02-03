@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +8,8 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
+import Alert from '@material-ui/lab/Alert';
+import AlertTitle from '@material-ui/lab/AlertTitle';
 // == Import Form children
 
 import Duration from './FormChildren/Duration';
@@ -18,6 +18,7 @@ import ImpactSociety from './FormChildren/ImpactSociety';
 import Difficulty from './FormChildren/Difficulty';
 import Author from './FormChildren/Author';
 import TypeEvent from './FormChildren/TypeEvent';
+
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -49,21 +50,21 @@ const useStyles = makeStyles((theme) => ({
     margin: '1em',
 
   },
+  alert: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
-// Fonction qui crée la liste d'options pour le nb de participants
-const optionsList = () => {
-  const options = [];
-  for (let i = 1; i < 500; i++) {
-    options.push(<MenuItem value={i} key={i}>{i}</MenuItem>);
-  }
-  // console.log(options);
-  return options;
-};
 
 // == Composant
 const CreateForm = ({
   onCreateEventFieldChange,
   getCreateEvent,
+  onCheckForEmptyFields,
+  emptyFieldsCounter,
+  logged,
 
 }) => {
   const classes = useStyles();
@@ -81,16 +82,26 @@ const CreateForm = ({
   const handleCreateEventFormSubmit = (evt) => {
     evt.preventDefault();
     getCreateEvent();
+    onCheckForEmptyFields();
   };
 
   return (
     <form className={classes.form} onSubmit={handleCreateEventFormSubmit}>
       <Grid className={classes.root} container justify="center">
-        <Typography variant="h6">Créer un événement</Typography>
+        <Typography className={classes.titletxt} variant="h4">Créer un événement</Typography>
 
+        {/* Message d'erreur en cas de champs non remplis à la soumission */}
+        {!logged && (
+          <Grid container justify="center" className={classes.alert}>
+            <Alert severity="error">
+              <AlertTitle>ATTENTION!</AlertTitle>
+              Vous devez être connecté ET être organisateur pour pouvoir créer un événement
+            </Alert>
+          </Grid>
+        )}
         {/* title Form */}
 
-        <Grid className={classes.title} alignItems="space-between" container direction="row">
+        <Grid className={classes.title} container direction="row">
           <Grid align="left" item xs={12} sm={5}>
             <Typography variant="h6" className={classes.titletxt}>Titre</Typography>
           </Grid>
@@ -212,9 +223,19 @@ const CreateForm = ({
                 InputLabelProps={{
                   shrink: true,
                 }}
+                defaultValue="5"
                 onChange={handleCreateEventInputChange}
               >
-                {optionsList()}
+                <MenuItem value={5} key={5}>5</MenuItem>
+                <MenuItem value={10} key={10}>10</MenuItem>
+                <MenuItem value={20} key={20}>20</MenuItem>
+                <MenuItem value={30} key={30}>30</MenuItem>
+                <MenuItem value={40} key={40}>40</MenuItem>
+                <MenuItem value={50} key={50}>50</MenuItem>
+                <MenuItem value={75} key={75}>75</MenuItem>
+                <MenuItem value={100} key={100}>100</MenuItem>
+                <MenuItem value={125} key={125}>125</MenuItem>
+                <MenuItem value={150} key={150}>150</MenuItem>
               </TextField>
             </FormControl>
           </Grid>
@@ -233,9 +254,21 @@ const CreateForm = ({
                 InputLabelProps={{
                   shrink: true,
                 }}
+                defaultValue="5"
                 onChange={handleCreateEventInputChange}
               >
-                {optionsList()}
+                <MenuItem value={5} key={5}>5</MenuItem>
+                <MenuItem value={10} key={10}>10</MenuItem>
+                <MenuItem value={20} key={20}>20</MenuItem>
+                <MenuItem value={30} key={30}>30</MenuItem>
+                <MenuItem value={40} key={40}>40</MenuItem>
+                <MenuItem value={50} key={50}>50</MenuItem>
+                <MenuItem value={75} key={75}>75</MenuItem>
+                <MenuItem value={100} key={100}>100</MenuItem>
+                <MenuItem value={125} key={125}>125</MenuItem>
+                <MenuItem value={150} key={150}>150</MenuItem>
+                <MenuItem value={200} key={200}>200</MenuItem>
+                <MenuItem value={300} key={300}>300</MenuItem>
               </TextField>
             </FormControl>
           </Grid>
@@ -309,6 +342,16 @@ const CreateForm = ({
           </Grid>
         </Grid>
 
+        {/* Message d'erreur en cas de champs non remplis à la soumission */}
+        {emptyFieldsCounter > 0 && (
+          <Grid className={classes.alert}>
+            <Alert severity="error">
+              <AlertTitle>ATTENTION!</AlertTitle>
+              Tous les champs doivent être remplis pour enregistrer votre événement!
+            </Alert>
+          </Grid>
+        )}
+
         {/* Form Submit Button */}
 
         <Grid align="right" item xs={12}>
@@ -323,6 +366,7 @@ const CreateForm = ({
           </Button>
         </Grid>
 
+
       </Grid>
     </form>
   );
@@ -331,12 +375,16 @@ const CreateForm = ({
 CreateForm.defaultProps = {
   onCreateEventFieldChange: null,
   getCreateEvent: null,
+  emptyFieldsCounter: 0,
 };
 
 // == Validation des props
 CreateForm.propTypes = {
   onCreateEventFieldChange: PropTypes.func,
   getCreateEvent: PropTypes.func,
+  onCheckForEmptyFields: PropTypes.func.isRequired,
+  emptyFieldsCounter: PropTypes.number,
+  logged: PropTypes.bool.isRequired,
 };
 // == Export
 export default CreateForm;

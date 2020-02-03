@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // Import d'actions
-import { CREATE_EVENT } from 'src/store/reducer/createEvent';
+import { CREATE_EVENT, eventCreated } from 'src/store/reducer/createEvent';
 
 // == Le middleware
 const createEventMiddleware = (store) => (next) => (action) => {
@@ -33,8 +33,14 @@ const createEventMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
-          // store.dispatch(registerUser());
+          console.log(response.statusText);
+
+
+          // condition pour le message de validation et la redirection aprés l'envoi du formulaire
+          // store.dispatch(eventCreated());
+          if (response.statusText === 'Created') {
+            store.dispatch(eventCreated());
+          }
         })
         .catch((error) => {
           console.log(error);
