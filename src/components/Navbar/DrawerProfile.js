@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,10 +22,21 @@ const useStyles = makeStyles({
 
 function SimpleDialog(props) {
   const classes = useStyles();
-  const { onClose, selectedValue, open } = props;
+  const {
+    onClose,
+    selectedValue,
+    open,
+    // Props transmise par le parent SimpleDialogDemo qui l'a lui même obtenue du container DrawerProfile
+    onClickOnLogout,
+  } = props;
 
   const handleClose = () => {
     onClose(selectedValue);
+  };
+
+  const handleLougout = () => {
+    // console.log('click on logout');
+    onClickOnLogout();
   };
 
 
@@ -36,8 +48,17 @@ function SimpleDialog(props) {
             Mon profil
           </Typography>
         </ListItem>
-        <ListItem button component="a" href="/logout">
-          <Typography underline="none" className={classes.Typography} href="/logout">
+        <ListItem
+          button
+          component="a"
+          // href="/logout"
+          onClick={handleLougout}
+        >
+          <Typography
+            underline="none"
+            className={classes.Typography}
+            // href="/logout"
+          >
             Se deconnecter
           </Typography>
         </ListItem>
@@ -50,9 +71,12 @@ SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   selectedValue: PropTypes.string.isRequired,
+  onClickOnLogout: PropTypes.func.isRequired,
 };
 
-export default function SimpleDialogDemo() {
+export default function SimpleDialogDemo({ onClickOnLogout }) {
+  // La props onClickonLogout vient du container DrawerProfile
+
   const [open, setOpen] = React.useState(false);
   // const [selectedValue, setSelectedValue] = React.useState(email[1]);
 
@@ -71,7 +95,17 @@ export default function SimpleDialogDemo() {
           <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
         </IconButton>
       </Grid>
-      <SimpleDialog selectedValue="" open={open} onClose={handleClose} />
+      <SimpleDialog
+        selectedValue=""
+        open={open}
+        onClose={handleClose}
+        // Props qui vient du container et passée à SimpleDialog qui contient le bouton déconnexion
+        onClickOnLogout={onClickOnLogout}
+      />
     </div>
   );
 }
+// == Validation des props
+SimpleDialogDemo.propTypes = {
+  onClickOnLogout: PropTypes.func.isRequired,
+};
