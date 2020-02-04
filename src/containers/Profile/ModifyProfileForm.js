@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ModifyProfileForm from 'src/components/Profile/ModifyProfileForm';
 
 // == Import d'action creators
-import { changeProfileFieldValue } from 'src/store/reducer/profile';
+import { changeProfileFieldValue, sendModifiedData } from 'src/store/reducer/profile';
 
 // == Préparation: data
 const mapStateToProps = (state) => ({
@@ -23,6 +23,10 @@ const mapDispatchToProps = (dispatch) => ({
   onProfileFieldChange: (name, value) => {
     // console.log('hello depuis mDtp', name, value);
     dispatch(changeProfileFieldValue(name, value));
+  },
+  onSendModifiedData: () => {
+    console.log('hello depuis mDtp, je vais envoyer les nouvelles données user à l API');
+    dispatch(sendModifiedData());
   },
 });
 

@@ -8,6 +8,7 @@ import registerMiddleware from 'src/store/middleware/registerMiddleware';
 import eventsMiddleware from 'src/store/middleware/eventsMiddleware';
 import userIdMiddleware from 'src/store/middleware/userIdMiddleware';
 import userDataMiddleware from 'src/store/middleware/userDataMiddleware';
+import modifyProfileMiddleware from 'src/store/middleware/modifyProfileMiddleware';
 
 // == Import : local
 import reducer from './reducer';
@@ -22,6 +23,7 @@ const enhancers = composeEnhancers(
     eventsMiddleware,
     userIdMiddleware,
     userDataMiddleware,
+    modifyProfileMiddleware,
   ),
 );
 

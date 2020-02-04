@@ -1,11 +1,14 @@
 /* eslint-disable linebreak-style */
 // == Action types
+// Actions qui récupèrent les données de l'API
 export const FETCH_USER_ID = 'FETCH_USER_ID';
 const STORE_USER_ID = 'STORE_USER_ID';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
 const STORE_USER_DATA = 'STORE_USER_DATA';
 export const PRESERVE_USER_DATA = 'PRESERVE_USER_DATA';
+// Actions liées au formulaire de modification
 const CHANGE_PROFILE_FIELD_VALUE = 'CHANGE_PROFILE_FIELD_VALUE';
+export const SEND_MODIFIED_DATA = 'SEND_MODIFIED_DATA';
 
 // == initialState
 const initialState = {
@@ -29,6 +32,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    case SEND_MODIFIED_DATA:
+      return {
+        ...state,
       };
     // Actions de récupération et conservation des données
     case FETCH_USER_ID:
@@ -77,6 +84,9 @@ export const changeProfileFieldValue = (name, value) => ({
   type: CHANGE_PROFILE_FIELD_VALUE,
   name,
   value,
+});
+export const sendModifiedData = () => ({
+  type: SEND_MODIFIED_DATA,
 });
 export const fetchUserId = () => ({
   type: FETCH_USER_ID,

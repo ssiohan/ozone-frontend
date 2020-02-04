@@ -54,6 +54,7 @@ const ModifyProfileForm = ({
   profileBirthdateValue,
   profileAvatarValue,
   profileDescriptionValue,
+  onSendModifiedData,
 }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -65,7 +66,8 @@ const ModifyProfileForm = ({
   const handleClose = () => {
     setOpen(false);
     // evt.preventDefault();
-    console.log('form soumis');
+    // console.log('form soumis');
+    onSendModifiedData();
   };
   // Fonction qui gère la saisie d'infos dans le form
   const handleProfileInputChange = (evt) => {
@@ -260,6 +262,7 @@ ModifyProfileForm.propTypes = {
   profileBirthdateValue: PropTypes.string,
   profileAvatarValue: PropTypes.string,
   profileDescriptionValue: PropTypes.string,
+  onSendModifiedData: PropTypes.func.isRequired,
 };
 
 // == Export
