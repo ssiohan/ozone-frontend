@@ -6,17 +6,11 @@ import Grid from '@material-ui/core/Grid';
 // Source: https://material-ui.com/components/material-icons/
 
 // == Composant
-const EventAddress = () => (
+const EventAddress = ({address}) => (
   <div id="event_footer_address">
     <Grid container>
       <Grid item>
-        <RoomIcon /> 3 route de la Plage
-      </Grid>
-      <Grid item>
-        50770, Armanville
-      </Grid>
-      <Grid item>
-        France
+        <RoomIcon /> {address}
       </Grid>
     </Grid>
 

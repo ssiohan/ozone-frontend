@@ -40,7 +40,6 @@ const useStyles = makeStyles(() => ({
   },
   mapcontainer: {
     'padding-right': '18px',
-    
   },
   searchBar: {
     bottom: 0,

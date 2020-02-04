@@ -86,10 +86,11 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
 FormDialog.defaultProps = {
 
   changeInputValue: null,
+  searchOk: null,
 };
 FormDialog.propTypes = {
 
-  searchOk: PropTypes.func.isRequired,
+  searchOk: PropTypes.func,
   changeInputValue: PropTypes.func,
 };
 export default FormDialog;
