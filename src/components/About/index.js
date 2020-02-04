@@ -59,17 +59,17 @@ export default function About() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textSecondary" gutterBottom>
-              La team oZone
+              Team oZone
             </Typography>
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               La team oZone est composé de 4 membres:
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            {/* <Typography variant="h6" align="center" color="textSecondary" paragraph>
               -2 développeurs Backend
             </Typography>
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               -2 développeurs Frontend
-            </Typography>
+            </Typography> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
