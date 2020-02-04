@@ -5,6 +5,7 @@ const STORE_USER_ID = 'STORE_USER_ID';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
 const STORE_USER_DATA = 'STORE_USER_DATA';
 export const PRESERVE_USER_DATA = 'PRESERVE_USER_DATA';
+const CHANGE_PROFILE_FIELD_VALUE = 'CHANGE_PROFILE_FIELD_VALUE';
 
 // == initialState
 const initialState = {
@@ -23,6 +24,13 @@ const initialState = {
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // Actions en lien avec le formulaire de modification
+    case CHANGE_PROFILE_FIELD_VALUE:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+    // Actions de récupération et conservation des données
     case FETCH_USER_ID:
       // console.log(action.name, action.value);
       return {
@@ -65,6 +73,11 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action creators
+export const changeProfileFieldValue = (name, value) => ({
+  type: CHANGE_PROFILE_FIELD_VALUE,
+  name,
+  value,
+});
 export const fetchUserId = () => ({
   type: FETCH_USER_ID,
 });

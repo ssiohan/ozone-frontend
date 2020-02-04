@@ -13,8 +13,8 @@ import './profile.scss';
 
 // == Import de sous-composants
 import Banner from 'src/components/Banner';
+import ModifyProfileForm from 'src/containers/Profile/ModifyProfileForm';
 import CardProfile from './CardProfile';
-import ModifyProfileForm from './ModifyProfileForm';
 
 // == Style du composant
 // Attention, forme un peu différente car Profile est une class

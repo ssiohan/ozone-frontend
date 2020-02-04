@@ -44,7 +44,17 @@ const useStyles = makeStyles((theme) => ({
 
 // == Composant
 
-const ModifyProfileForm = ({ userData }) => {
+const ModifyProfileForm = ({
+  userData,
+  onProfileFieldChange,
+  profilePseudoValue,
+  profileLastnameValue,
+  profileFirstnameValue,
+  profileEmailValue,
+  profileBirthdateValue,
+  profileAvatarValue,
+  profileDescriptionValue,
+}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -61,7 +71,8 @@ const ModifyProfileForm = ({ userData }) => {
   const handleProfileInputChange = (evt) => {
     const inputFieldValue = evt.target.value;
     const inputFieldName = evt.target.name;
-    console.log(inputFieldName, inputFieldValue);
+    // console.log(inputFieldName, inputFieldValue);
+    onProfileFieldChange(inputFieldName, inputFieldValue);
   };
 
   return (
@@ -90,8 +101,9 @@ const ModifyProfileForm = ({ userData }) => {
               <Grid item className={classes.profileFields}>
                 <TextField
                   id="profile-pseudo"
-                  label="Pseudo"
-                  defaultValue={userData.pseudo}
+                  label={userData.pseudo}
+                  // defaultValue={userData.pseudo}
+                  value={profilePseudoValue}
                   variant="outlined"
                   type="text"
                   name="profilePseudo"
@@ -106,8 +118,9 @@ const ModifyProfileForm = ({ userData }) => {
               <Grid item className={classes.profileFields}>
                 <TextField
                   id="profile-lastname"
-                  label="Nom"
-                  defaultValue={userData.lastname}
+                  label={userData.lastname}
+                  // defaultValue={userData.lastname}
+                  value={profileLastnameValue}
                   variant="outlined"
                   type="text"
                   name="profileLastname"
@@ -122,8 +135,9 @@ const ModifyProfileForm = ({ userData }) => {
               <Grid item className={classes.profileFields}>
                 <TextField
                   id="profile-firstname"
-                  label="Prénom"
-                  defaultValue={userData.firstname}
+                  label={userData.firstname}
+                  // defaultValue={userData.firstname}
+                  value={profileFirstnameValue}
                   variant="outlined"
                   type="text"
                   name="profileFirstname"
@@ -138,8 +152,9 @@ const ModifyProfileForm = ({ userData }) => {
               <Grid item className={classes.profileFields}>
                 <TextField
                   id="profile-email"
-                  label="Email"
-                  defaultValue={userData.email}
+                  label={userData.email}
+                  // defaultValue={userData.email}
+                  value={profileEmailValue}
                   variant="outlined"
                   type="email"
                   name="profileEmail"
@@ -157,7 +172,8 @@ const ModifyProfileForm = ({ userData }) => {
                   label="Date de naissance"
                   variant="outlined"
                   type="date"
-                  defaultValue={userData.birthdate}
+                  // defaultValue={userData.birthdate}
+                  value={profileBirthdateValue}
                   name="profileBirthdate"
                   InputLabelProps={{
                     shrink: true,
@@ -177,6 +193,7 @@ const ModifyProfileForm = ({ userData }) => {
                 <TextField
                   id="profile-avatar"
                   label="Avatar"
+                  value={profileAvatarValue}
                   variant="outlined"
                   type="file"
                   name="profileAvatar"
@@ -199,8 +216,9 @@ const ModifyProfileForm = ({ userData }) => {
                   id="profile-description"
                   label="Votre description"
                   aria-label="Description"
-                  placeholder="Votre description"
-                  defaultValue={userData.description}
+                  placeholder={userData.description}
+                  // defaultValue={userData.description}
+                  value={profileDescriptionValue}
                   variant="outlined"
                   rowsMin={10}
                   name="profileDescription"
@@ -222,11 +240,26 @@ const ModifyProfileForm = ({ userData }) => {
 // == Props par défault
 ModifyProfileForm.defaultProps = {
   userData: null,
+  profilePseudoValue: '',
+  profileLastnameValue: '',
+  profileFirstnameValue: '',
+  profileEmailValue: '',
+  profileBirthdateValue: '',
+  profileAvatarValue: '',
+  profileDescriptionValue: '',
 };
 
 // == Validation des props
 ModifyProfileForm.propTypes = {
   userData: PropTypes.object,
+  onProfileFieldChange: PropTypes.func.isRequired,
+  profilePseudoValue: PropTypes.string,
+  profileLastnameValue: PropTypes.string,
+  profileFirstnameValue: PropTypes.string,
+  profileEmailValue: PropTypes.string,
+  profileBirthdateValue: PropTypes.string,
+  profileAvatarValue: PropTypes.string,
+  profileDescriptionValue: PropTypes.string,
 };
 
 // == Export
