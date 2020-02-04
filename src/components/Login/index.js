@@ -166,7 +166,7 @@ const Login = ({
               href="/events"
               className={classes.link}
             >
-              page d'accueil
+              page events
             </Link>
           </Typography>
         </Grid>

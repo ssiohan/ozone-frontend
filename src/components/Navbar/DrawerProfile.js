@@ -22,14 +22,19 @@ const useStyles = makeStyles({
 
 function SimpleDialog(props) {
   const classes = useStyles();
-  const { onClose, selectedValue, open } = props;
+  const {
+    onClose,
+    selectedValue,
+    open,
+  } = props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
   const handleLougout = () => {
-    console.log('click on logout');
+    // console.log('click on logout');
+    onClickOnLogout();
   };
 
 
@@ -64,6 +69,7 @@ SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   selectedValue: PropTypes.string.isRequired,
+  onClickOnLogout: PropTypes.func.isRequired,
 };
 
 export default function SimpleDialogDemo() {

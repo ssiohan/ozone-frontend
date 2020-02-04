@@ -16,6 +16,8 @@ const CONNECT_USER = 'CONNECT_USER';
  * b) il faut donc vérifier la présence d'un token dans le localStorage
  */
 const IS_USER_LOGGED = 'IS_USER_LOGGED';
+// Action qui va déconnecter le user
+const LOGOUT_USER = 'LOGOUT_USER';
 
 // == initialState
 const initialState = {
@@ -94,6 +96,11 @@ const reducer = (state = initialState, action = {}) => {
       }
     }
       break;
+    case LOGOUT_USER:
+      return {
+        ...state,
+        logged: false,
+      };
     default:
       return state;
   }
@@ -124,6 +131,9 @@ export const isUserLogged = () => ({
   type: IS_USER_LOGGED,
 });
 
+export const logoutUser = () => ({
+  type: LOGOUT_USER,
+});
 
 // == Export
 export default reducer;
