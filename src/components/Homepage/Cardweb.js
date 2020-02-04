@@ -152,7 +152,7 @@ const Cardweb = ({
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
-              <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
+              <Avatar aria-label="recipe" src={`https://api.geekoz.fr/uploads/images/${author.avatar}`} sizes="small" className={classes.avatar}> </Avatar>
               <Typography>{author.pseudo}</Typography>
               <Typography className="date">{date}</Typography>
               <Link to={`/event/${slugify(title)}`}>
