@@ -8,12 +8,18 @@ const initialState = {
   category: 'all',
   inputValue: '',
   loading: true,
+  latitude: '',
+  longitude: '',
+  address: '',
 };
 
 // --- action types
 const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 const AFTER_SEARCH = 'AFTER_SEARCH';
 const FILTER_CATEGORY = 'FILTER_CATEGORY';
+const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
+const GET_COORDONATES = 'GET_COORDONATES';
+
 
 export const FETCH_DATA = 'FETCH_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
@@ -49,6 +55,19 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         category: action.category,
       };
+    case CHANGE_FIELD_VALUE:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+    case GET_COORDONATES:
+      // console.log(state);
+      return {
+        ...state,
+        latitude: action.lat,
+        longitude: action.lng,
+      };
+
     default: return state;
   }
 };
@@ -78,7 +97,16 @@ export const ateliercategory = (category) => ({
   type: FILTER_CATEGORY,
   category,
 });
-
+export const changeFieldValue = (name, value) => ({
+  type: CHANGE_FIELD_VALUE,
+  name,
+  value,
+});
+export const getCoordinates = (lat, lng) => ({
+  type: GET_COORDONATES,
+  lat,
+  lng,
+});
 
 // --- export
 export default reducer;

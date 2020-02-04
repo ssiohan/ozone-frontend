@@ -10,6 +10,7 @@ import './app.scss';
 // == import composants
 import Navbar from 'src/containers/Navbar';
 // import Banner from 'src/components/Banner';
+import Welcome from 'src/components/Welcome';
 import Homepage from 'src/containers/Homepage';
 import Event from 'src/containers/Event';
 import Login from 'src/containers/Login';
@@ -42,8 +43,9 @@ class App extends React.Component {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Homepage />
+            <Welcome />
           </Route>
+          <Route path="/events" component={Homepage} />
           <Route path="/event/:slug" component={Event} />
           <Route path="/login">
             <Login />

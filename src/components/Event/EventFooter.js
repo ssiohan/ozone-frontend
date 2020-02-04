@@ -95,30 +95,24 @@ const EventFooter = ({
 
   const date = treatDate(dateEvent);
   return (
-    <Grid
-      container
-      justify="space-evenly"
-      className={classes.event_footer}
-    >
+    <Grid container justify="space-between" spacing={3} className={classes.event_footer}>
       {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
-      <Grid container item xs={12} md={4} className={classes.address}>
-        <Grid item>
-          <MapEvent
-            latitude={latitude}
-            longitude={longitude}
-            address={address}
-          />
-        </Grid>
-        <Grid
-          container
-          item
-          direction="column"
-        >
+      <Grid item xs={12} md={4}>
+        <Grid container className={classes.address}>
           <Grid item>
-            <MapLink address={address} />
+            <MapEvent
+              latitude={latitude}
+              longitude={longitude}
+              address={address}
+            />
           </Grid>
-          <Grid item>
-            <EventAddress address={address} />
+          <Grid container item direction="column">
+            <Grid item>
+              <MapLink address={address} />
+            </Grid>
+            <Grid item>
+              <EventAddress address={address} />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -132,20 +126,8 @@ const EventFooter = ({
         />
       </Grid>
       {/* Partie de droite avec infos de contact de l'organisateur, date, score */}
-      <Grid
-        container
-        item
-        xs={12}
-        md={4}
-        direction="column"
-        className={classes.table}
-      >
-        <Grid
-          container
-          item
-          className={classes.tableRow}
-          justify="space-around"
-        >
+      <Grid item xs={12} md={4} className={classes.table}>
+        <Grid container className={classes.tableRow} justify="space-around">
           <Grid item className={classes.TableCell}>
             <EventIcon fontSize="large" />
           </Grid>
@@ -154,12 +136,7 @@ const EventFooter = ({
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <Grid
-          container
-          item
-          className={classes.tableRow}
-          justify="space-around"
-        >
+        <Grid container className={classes.tableRow} justify="space-around">
           <Grid item className={classes.TableCell}>
             <AccessTimeIcon fontSize="large" />
           </Grid>
@@ -168,12 +145,7 @@ const EventFooter = ({
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <Grid
-          container
-          item
-          className={classes.tableRow}
-          justify="space-around"
-        >
+        <Grid container className={classes.tableRow} justify="space-around">
           <Grid item className={classes.TableCell}>
             <PhoneIcon fontSize="large" />
           </Grid>
@@ -183,12 +155,7 @@ const EventFooter = ({
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <Grid
-          container
-          item
-          className={classes.tableRow}
-          justify="space-around"
-        >
+        <Grid container className={classes.tableRow} justify="space-around">
           <Grid item className={classes.TableCell}>
             <FaCoins fontSize="large" />
           </Grid>

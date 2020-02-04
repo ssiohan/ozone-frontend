@@ -14,6 +14,9 @@ const mapStateToProps = (state) => {
   return {
     search: state.homepage.search,
     inputValue: state.homepage.inputValue,
+    address: state.homepage.address,
+    latitude: state.homepage.latitude,
+    longitude: state.homepage.longitude,
   };
 };
 
@@ -21,7 +24,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   changeInputValue: (value) => {
     dispatch(changeInput(value));
-    console.log(value);
+    // console.log(value);
   },
 });
 

@@ -144,7 +144,7 @@ const Header = ({ logged, emailValue }) => {
                   </NavLink>
                 </Grid>
                 <Grid item>
-                  <NavLink underline="none" className={classes.link} to="/event" exact activeClassName={classes.linkActive}>
+                  <NavLink underline="none" className={classes.link} to="/events" exact activeClassName={classes.linkActive}>
                     Les events
                   </NavLink>
                 </Grid>
