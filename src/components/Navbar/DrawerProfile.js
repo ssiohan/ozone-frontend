@@ -26,6 +26,7 @@ function SimpleDialog(props) {
     onClose,
     selectedValue,
     open,
+    onClickOnLogout,
   } = props;
 
   const handleClose = () => {
@@ -72,7 +73,7 @@ SimpleDialog.propTypes = {
   onClickOnLogout: PropTypes.func.isRequired,
 };
 
-export default function SimpleDialogDemo() {
+export default function SimpleDialogDemo({ onClickOnLogout }) {
   const [open, setOpen] = React.useState(false);
   // const [selectedValue, setSelectedValue] = React.useState(email[1]);
 
@@ -91,7 +92,10 @@ export default function SimpleDialogDemo() {
           <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
         </IconButton>
       </Grid>
-      <SimpleDialog selectedValue="" open={open} onClose={handleClose} />
+      <SimpleDialog selectedValue="" open={open} onClose={handleClose} onClickOnLogout={onClickOnLogout} />
     </div>
   );
 }
+SimpleDialogDemo.propTypes = {
+  onClickOnLogout: PropTypes.func.isRequired,
+};
