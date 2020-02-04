@@ -26,6 +26,7 @@ function SimpleDialog(props) {
     onClose,
     selectedValue,
     open,
+    // Props transmise par le parent SimpleDialogDemo qui l'a lui même obtenue du container DrawerProfile
     onClickOnLogout,
   } = props;
 
@@ -74,6 +75,8 @@ SimpleDialog.propTypes = {
 };
 
 export default function SimpleDialogDemo({ onClickOnLogout }) {
+  // La props onClickonLogout vient du container DrawerProfile
+
   const [open, setOpen] = React.useState(false);
   // const [selectedValue, setSelectedValue] = React.useState(email[1]);
 
@@ -92,10 +95,17 @@ export default function SimpleDialogDemo({ onClickOnLogout }) {
           <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
         </IconButton>
       </Grid>
-      <SimpleDialog selectedValue="" open={open} onClose={handleClose} onClickOnLogout={onClickOnLogout} />
+      <SimpleDialog
+        selectedValue=""
+        open={open}
+        onClose={handleClose}
+        // Props qui vient du container et passée à SimpleDialog qui contient le bouton déconnexion
+        onClickOnLogout={onClickOnLogout}
+      />
     </div>
   );
 }
+// == Validation des props
 SimpleDialogDemo.propTypes = {
   onClickOnLogout: PropTypes.func.isRequired,
 };
