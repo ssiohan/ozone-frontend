@@ -40,7 +40,7 @@ const Homepage = ({ search, events, category }) => {
     ? events
     : events.filter((event) => event.typeEvent === currentCategory);
 
-  console.log(currentCategory);
+  // console.log(currentCategory);
   return (
     <div>
       {!search && <Banner />}

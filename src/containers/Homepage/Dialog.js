@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 import Dialog from 'src/components/Banner/Dialog';
-import { changeInput, afterSearch } from 'src/store/reducer/homepage';
+import { changeInput, afterSearch, changeFieldValue, getCoordinates, } from 'src/store/reducer/homepage';
 
 // == Import d'action creators
 // à compléter
@@ -14,6 +14,9 @@ const mapStateToProps = (state) => {
   return {
     search: state.homepage.search,
     inputValue: state.homepage.inputValue,
+    latitude: state.homepage.latitude,
+    longitude: state.homepage.longitude,
+    address: state.homepage.address,
   };
 };
 
@@ -26,7 +29,16 @@ const mapDispatchToProps = (dispatch) => ({
   searchOk: () => {
     dispatch(afterSearch());
   },
+  onSearchFieldChange: (name, value) => {
+    // console.log('hello depuis mDTP', name, value);
+    dispatch(changeFieldValue(name, value));
+  },
+  onGetCoordinates: (lat, lng) => {
+    dispatch(getCoordinates(lat, lng));
+  },
+
 });
+
 
 // == Container
 const DialogContainer = connect(

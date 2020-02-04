@@ -8,10 +8,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
+import AutocompleteField from './AutocompleteField';
 
 
-const FormDialog = ({ searchOk, changeInputValue }) => {
+const FormDialog = ({ searchOk, onSearchFieldChange, onGetCoordinates}) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -27,11 +27,11 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
     setOpen(false);
     // console.log('Je veux envoyer le message');
     searchOk();
+    // onSearchFieldChange('address', evt.adress);
   };
-  const handleChange = (event) => {
+  // const handleChange = (event) => {
 
-    changeInputValue(event.target.value);
-  };
+  // };
 
   const useStyles = makeStyles(() => ({
     dialogButton: {
@@ -61,13 +61,9 @@ const FormDialog = ({ searchOk, changeInputValue }) => {
             <DialogContentText>
               Les événements près de chez moi
             </DialogContentText>
-            <TextField
-              autoFocus
-              label="choisir une ville"
-              margin="dense"
-              fullWidth
-              type="text"
-              onChange={handleChange}
+            <AutocompleteField
+              onSearchFieldChange={onSearchFieldChange}
+              onGetCoordinates={onGetCoordinates}
             />
           </DialogContent>
           <DialogActions className={classes.dialogContent}>

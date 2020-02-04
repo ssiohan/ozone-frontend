@@ -9,7 +9,7 @@ import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 const Map = ({latitude, longitude, address}) => {
   const position = [latitude, longitude];
   return (
-    <LeafletMap center={position} zoom={14} id="map">
+    <LeafletMap center={position} zoom={14} id="mapEvent">
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
