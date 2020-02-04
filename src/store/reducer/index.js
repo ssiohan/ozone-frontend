@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import login from './login';
 import homepage from './homepage';
 import signup from './signup';
+import profile from './profile';
 import createEvent from './createEvent';
 
 
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   login,
   homepage,
   signup,
+  profile,
   createEvent,
 });
 

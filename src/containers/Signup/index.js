@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(checkForEmptyFields());
   },
   getSignedUp: () => {
-    console.log('Hello depuis mDtP, je vais inscrire le user');
+    // console.log('Hello depuis mDtP, je vais inscrire le user');
     dispatch((doSignup()));
   },
 });

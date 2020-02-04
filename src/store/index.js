@@ -6,7 +6,11 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import authMiddleware from 'src/store/middleware/authMiddleware';
 import registerMiddleware from 'src/store/middleware/registerMiddleware';
 import eventsMiddleware from 'src/store/middleware/eventsMiddleware';
+import userIdMiddleware from 'src/store/middleware/userIdMiddleware';
+import userDataMiddleware from 'src/store/middleware/userDataMiddleware';
+import modifyProfileMiddleware from 'src/store/middleware/modifyProfileMiddleware';
 import createEventMiddleware from 'src/store/middleware/createEventMiddleware';
+
 
 // == Import : local
 import reducer from './reducer';
@@ -20,6 +24,9 @@ const enhancers = composeEnhancers(
     authMiddleware,
     registerMiddleware,
     eventsMiddleware,
+    userIdMiddleware,
+    userDataMiddleware,
+    modifyProfileMiddleware,
     createEventMiddleware,
   ),
 );

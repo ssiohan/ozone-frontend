@@ -15,7 +15,7 @@ import Event from 'src/containers/Event';
 import Login from 'src/containers/Login';
 import Signup from 'src/containers/Signup';
 import CreateEvent from 'src/containers/CreateEvent';
-import Profile from 'src/components/Profile';
+import Profile from 'src/containers/Profile';
 import Sponsors from 'src/components/Sponsors';
 import About from 'src/components/About';
 
@@ -24,13 +24,16 @@ import About from 'src/components/About';
 class App extends React.Component {
   componentDidMount() {
     // appel à l'API pour initialiser les données
-    const { fetchEvents, fetchToken } = this.props;
+    const {
+      fetchEvents, fetchToken,
+    } = this.props;
     // App vérifie la présence d'un token dans localStorage
     // En cas de présence d'un token => logged: true
     fetchToken();
     // Récupération des events dans l'API
     fetchEvents();
   }
+
 
   render() {
     const { logged } = this.props;

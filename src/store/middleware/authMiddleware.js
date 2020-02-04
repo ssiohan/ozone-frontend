@@ -5,6 +5,7 @@ import axios from 'axios';
 
 // Import d'actions
 import { DO_LOGIN, connectUser } from 'src/store/reducer/login';
+import { fetchUserId } from 'src/store/reducer/profile';
 
 // == Le middleware
 const authMiddleware = (store) => (next) => (action) => {
@@ -24,6 +25,7 @@ const authMiddleware = (store) => (next) => (action) => {
           const refresh_token = localStorage.getItem('refresh_token');
           // On lance la fonction qui stocker les tokens dans le state et rendre le user logged
           store.dispatch(connectUser(token, refresh_token));
+          store.dispatch(fetchUserId());
         })
         .catch((error) => {
           console.log(error);

@@ -9,7 +9,7 @@ import { changeInput, afterSearch } from 'src/store/reducer/homepage';
 
 // == Préparation: data
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
 
   return {
     search: state.homepage.search,
