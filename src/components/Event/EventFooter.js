@@ -2,12 +2,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Divider from '@material-ui/core/Divider';
 import EventIcon from '@material-ui/icons/Event';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PhoneIcon from '@material-ui/icons/Phone';
-import EuroIcon from '@material-ui/icons/Euro';
+import { FaCoins } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 
 // == Import : local
@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
   },
 }));
+const score = (a, b, c, d) => (a + b + c + d);
 
 // == Composant
 const EventFooter = ({
@@ -64,9 +65,35 @@ const EventFooter = ({
   impactEnvironmental,
   impactSocietal,
   address,
+  dateEvent,
 
 }) => {
   const classes = useStyles();
+  const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+  const treatDate = (apiDate) => {
+    const date = apiDate;
+    // retourne la date au format jour/mois/année
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    const formatDate = `${day}/${month}/${year}`;
+
+    return formatDate;
+  };
+  const treatHour = (apiDate) => {
+    const date = apiDate;
+    // retourne l'heure au format jour/mois/année
+    const hour = date.slice(11, 13);
+    const minute = date.slice(14, 16);
+    const formatHour = `${hour}:${minute}`;
+
+
+    return formatHour;
+  };
+
+  const time = treatHour(dateEvent);
+
+  const date = treatDate(dateEvent);
   return (
     <Grid
       container
@@ -88,7 +115,7 @@ const EventFooter = ({
           direction="column"
         >
           <Grid item>
-            <MapLink />
+            <MapLink address={address} />
           </Grid>
           <Grid item>
             <EventAddress address={address} />
@@ -97,7 +124,12 @@ const EventFooter = ({
       </Grid>
       {/* Partie du milieu avec infos sur l'event: participants, pénibilité, durée etc.. */}
       <Grid item xs={12} md={4}>
-        <EventCharacteristics />
+        <EventCharacteristics
+          painfulness={painfulness}
+          duration={duration}
+          impactEnvironmental={impactEnvironmental}
+          impactSocietal={impactSocietal}
+        />
       </Grid>
       {/* Partie de droite avec infos de contact de l'organisateur, date, score */}
       <Grid
@@ -118,8 +150,7 @@ const EventFooter = ({
             <EventIcon fontSize="large" />
           </Grid>
           <Grid item className={classes.TableCell}>
-            {/* Sera dynamisé */}
-           Le 06.02.2020
+            {date}
           </Grid>
         </Grid>
         <Divider variant="middle" />
@@ -133,8 +164,7 @@ const EventFooter = ({
             <AccessTimeIcon fontSize="large" />
           </Grid>
           <Grid item className={classes.TableCell}>
-            {/* Sera dynamisé */}
-           16h30 à 18h15
+            {time}h
           </Grid>
         </Grid>
         <Divider variant="middle" />
@@ -160,17 +190,26 @@ const EventFooter = ({
           justify="space-around"
         >
           <Grid item className={classes.TableCell}>
-            <EuroIcon fontSize="large" />
+            <FaCoins fontSize="large" />
           </Grid>
           <Grid item className={classes.TableCell}>
             {/* Sera dynamisé */}
-          Score: <span className="event_score">16/20</span>
+          Score: <span className="event_score">{result}/20</span>
           </Grid>
         </Grid>
       </Grid>
     </Grid>
   );
 };
-
+EventFooter.propTypes = {
+  dateEvent: PropTypes.string.isRequired,
+  painfulness: PropTypes.number.isRequired,
+  latitude: PropTypes.string.isRequired,
+  longitude: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  address: PropTypes.string.isRequired,
+  impactSocietal: PropTypes.number.isRequired,
+  impactEnvironmental: PropTypes.number.isRequired,
+};
 // == Export
 export default EventFooter;

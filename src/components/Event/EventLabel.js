@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles((theme) => ({
   chip: {
     margin: theme.spacing(1),
-    backgroundColor: '#078171',
+    backgroundColor: '#526DDB',
     color: '#F2F2F2',
     fontWeight: 'bold',
   },

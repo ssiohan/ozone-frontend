@@ -122,8 +122,18 @@ const Cardweb = ({
 
     return formatDate;
   };
+  // const treatHour = (apiDate) => {
+  //   const date = apiDate;
+  //   // retourne l'heure au format jour/mois/année
+  //   const hour = date.slice(11, 13);
+  //   const minute = date.slice(14, 16);
+  //   const formatHour = `${hour}:${minute}`;
 
+
+  //   return formatHour;
+  // };
   const date = treatDate(dateEvent);
+  // const time = treatHour(dateEvent);
   return (
     <Card className={classes.root}>
       <Grid className={classes.card} container spacing={0}>

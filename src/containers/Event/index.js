@@ -9,7 +9,7 @@ import Event from 'src/components/Event';
 const mapStateToProps = (state, ownProps) => {
   const event = getEventBySlug(ownProps.match.params.slug, state.homepage.events);
 
-   console.log(event);
+   // console.log(event);
   // si pas d'event' trouvé (mauvaise URL), event vaut undefined
 
   return ({
