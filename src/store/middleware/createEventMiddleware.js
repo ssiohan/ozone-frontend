@@ -30,6 +30,7 @@ const createEventMiddleware = (store) => (next) => (action) => {
           latitude: `${store.getState().createEvent.latitude}`,
           longitude: `${store.getState().createEvent.longitude}`,
           author: parseInt(store.getState().createEvent.author, 10),
+          adress: `${store.getState().createEvent.address}`,
         },
       })
         .then((response) => {

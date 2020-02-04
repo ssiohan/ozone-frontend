@@ -7,6 +7,7 @@ const initialState = {
   events: [],
   category: 'all',
   inputValue: '',
+  loading: true,
 };
 
 // --- action types

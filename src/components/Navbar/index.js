@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
 import Drawer from './Drawer';
 import DrawerProfile from './DrawerProfile';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './navbar.scss';
@@ -41,6 +42,14 @@ const useStyles = makeStyles((theme) => ({
     },
 
   },
+  linkActive: {
+    'font-size': '1em',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    color: '#fff',
+
+  },
+
   linkButton: {
     textDecoration: 'none',
     margin: '.5em',
@@ -108,14 +117,14 @@ const Header = ({ logged, emailValue }) => {
               <Grid className={classes.ozonelogo}>
                 <Grid container direction="row">
                   <Grid>
-                    <Link underline="none" className={classes.linkearth} href="/">
+                    <NavLink underline="none" className={classes.linkearth} to="/" exact>
                       <GiEarthAmerica className={classes.earth} />
-                    </Link>
+                    </NavLink>
                   </Grid>
                   <Grid>
-                    <Link underline="none" className={classes.ozonetext} href="/">
+                    <NavLink underline="none" className={classes.ozonetext} to="/" exact>
                       zone
-                    </Link>
+                    </NavLink>
                   </Grid>
                   {logged && (
                   // eslint-disable-next-line react/jsx-wrap-multilines
@@ -130,51 +139,52 @@ const Header = ({ logged, emailValue }) => {
             <Toolbar>
               <Hidden only={['xs', 'sm']}>
                 <Grid item>
-                  <Link underline="none" className={classes.link} href="/">
+                  <NavLink underline="none" className={classes.link} to="/" exact activeClassName={classes.linkActive}>
                     Accueil
-                  </Link>
+                  </NavLink>
                 </Grid>
                 <Grid item>
-                  <Link underline="none" className={classes.link} href="/event">
+                  <NavLink underline="none" className={classes.link} to="/event" exact activeClassName={classes.linkActive}>
                     Les events
-                  </Link>
+                  </NavLink>
                 </Grid>
                 <Grid item>
-                  <Link underline="none" className={classes.link} href="/create-event">
+                  <NavLink underline="none" className={classes.link} to="/create-event" exact activeClassName={classes.linkActive}>
                     Ajouter un event
-                  </Link>
+                  </NavLink>
                 </Grid>
                 <Grid item>
-                  <Link underline="none" className={classes.link} href="/about">
+                  <NavLink underline="none" className={classes.link} to="/about" exact activeClassName={classes.linkActive}>
                     À propos
-                  </Link>
+                  </NavLink>
                 </Grid>
                 <Grid item>
-                  <Link underline="none" className={classes.link} href="/sponsors">
+                  <NavLink underline="none" className={classes.link} to="/sponsors" exact activeClassName={classes.linkActive}>
                     Partenaires
-                  </Link>
+                  </NavLink>
                 </Grid>
               </Hidden>
               {!logged && (
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Grid item>
                 <Button className={classes.button} color="inherit" size="small">
-                  <Link underline="none" className={classes.linkButton} href="/login">
+                  <NavLink underline="none" className={classes.linkButton} to="/login" exact>
                   Se connecter
-                  </Link>
+                  </NavLink>
                 </Button>
               </Grid>)}
               {!logged && (
                 // eslint-disable-next-line react/jsx-wrap-multilines
                 <Grid item>
                   <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                    <Link
+                    <NavLink
                       underline="none"
                       className={classes.linkButton}
-                      href="/signup"
+                      to="/signup"
+                      exact
                     >
                     S'inscrire
-                    </Link>
+                    </NavLink>
                   </Button>
                 </Grid>)}
               {logged && (

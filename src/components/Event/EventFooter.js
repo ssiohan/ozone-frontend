@@ -15,6 +15,7 @@ import './event.scss';
 
 // == Import : sous-composants
 import MapLink from './MapLink';
+import MapEvent from './MapEvent';
 import EventAddress from './EventAddress';
 import EventCharacteristics from './EventCharacteristics';
 
@@ -55,7 +56,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const EventFooter = () => {
+const EventFooter = ({
+  latitude,
+  longitude,
+  painfulness,
+  duration,
+  impactEnvironmental,
+  impactSocietal,
+  address,
+
+}) => {
   const classes = useStyles();
   return (
     <Grid
@@ -64,22 +74,13 @@ const EventFooter = () => {
       className={classes.event_footer}
     >
       {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
-      <Grid
-        container
-        item
-        xs={12}
-        md={4}
-        className={classes.address}
-      >
+      <Grid container item xs={12} md={4} className={classes.address}>
         <Grid item>
-          <ButtonBase className={classes.image}>
-            <img
-              className={classes.img}
-                // Sera dynamisé ?
-              alt="carte plage d'armanville"
-              src="https://www.plages.tv/gallery/cms/images/carte-plage-armaville-pirou.jpg"
-            />
-          </ButtonBase>
+          <MapEvent
+            latitude={latitude}
+            longitude={longitude}
+            address={address}
+          />
         </Grid>
         <Grid
           container
@@ -90,7 +91,7 @@ const EventFooter = () => {
             <MapLink />
           </Grid>
           <Grid item>
-            <EventAddress />
+            <EventAddress address={address} />
           </Grid>
         </Grid>
       </Grid>
