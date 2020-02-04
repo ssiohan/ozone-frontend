@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeProfileFieldValue(name, value));
   },
   onSendModifiedData: () => {
-    console.log('hello depuis mDtp, je vais envoyer les nouvelles données user à l API');
+    // console.log('hello depuis mDtp, je vais envoyer les nouvelles données user à l API');
     dispatch(sendModifiedData());
   },
 });

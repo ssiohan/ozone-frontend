@@ -44,6 +44,13 @@ const userDataMiddleware = (store) => (next) => (action) => {
             // console.log(response.data);
             // Je stocke les infos du user dans le state
             store.dispatch(storeUserData(response.data));
+            // Manip pour donner en valeur de départ aux champs du form les data de l'api
+            store.getState().profile.profilePseudo = response.data.pseudo;
+            store.getState().profile.profileEmail = response.data.email;
+            store.getState().profile.profileLastname = response.data.lastname;
+            store.getState().profile.profileFirstname = response.data.firstname;
+            store.getState().profile.profileDescription = response.data.description;
+            store.getState().profile.profileBirthdate = response.data.birthdate;
           })
           .catch((error) => {
             console.log(error);

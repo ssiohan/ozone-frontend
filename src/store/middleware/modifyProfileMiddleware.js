@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // == Import d'actions
-import { SEND_MODIFIED_DATA } from 'src/store/reducer/profile';
+import { SEND_MODIFIED_DATA, storeUserData } from 'src/store/reducer/profile';
 
 // == Le middleware
 
@@ -13,42 +13,6 @@ const modifyProfileMiddleware = (store) => (next) => (action) => {
     case SEND_MODIFIED_DATA: {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('id');
-      // const email = () => {
-      //   if (!store.getState().profile.profileEmail.length === '') {
-      //     return store.getState().profile.profileEmail;
-      //   }
-      //   return store.getState().profile.userData.email;
-      // };
-      // const pseudo = () => {
-      //   if (!store.getState().profile.profilePseudo.length === '') {
-      //     return store.getState().profile.profilePseudo;
-      //   }
-      //   return store.getState().profile.userData.pseudo;
-      // };
-      // const firstname = () => {
-      //   if (!store.getState().profile.profileFirstname.length === '') {
-      //     return store.getState().profile.profileFirstname;
-      //   }
-      //   return store.getState().profile.userData.firstname;
-      // };
-      // const lastname = () => {
-      //   if (!store.getState().profile.profileLastname.length === '') {
-      //     return store.getState().profile.profileLastname;
-      //   }
-      //   return store.getState().profile.userData.lastname;
-      // };
-      // const description = () => {
-      //   if (!store.getState().profile.profileDescription.length === '') {
-      //     return store.getState().profile.profileDescription;
-      //   }
-      //   return store.getState().profile.userData.description;
-      // };
-      // const birthdate = () => {
-      //   if (!store.getState().profile.profileBirthdate.length === '') {
-      //     return store.getState().profile.profileBirthdate;
-      //   }
-      //   return store.getState().profile.userData.birthdate;
-      // };
       const email = store.getState().profile.profileEmail;
       const pseudo = store.getState().profile.profilePseudo;
       const firstname = store.getState().profile.profileFirstname;
@@ -71,7 +35,8 @@ const modifyProfileMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          store.dispatch(storeUserData(response.data));
         })
         .catch((error) => {
           console.log(error);
