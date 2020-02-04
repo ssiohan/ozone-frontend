@@ -48,8 +48,7 @@ const EventDescription = ({ description, image }) => {
             <ButtonBase className={classes.image}>
               <img
                 className={classes.img}
-                // Sera dynamisé ?
-                alt="plage d'armanville"
+                alt={image}
                 src={`${baseUrl}` + `${image}`}
               />
             </ButtonBase>
@@ -72,6 +71,10 @@ const EventDescription = ({ description, image }) => {
 EventDescription.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
+};
+EventDescription.defaultProps = {
+  image: null,
+
 };
 // == Export
 export default EventDescription;

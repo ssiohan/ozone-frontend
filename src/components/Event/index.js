@@ -7,22 +7,23 @@ import Grid from '@material-ui/core/Grid';
 import './event.scss';
 
 // == Import : sous-composants
-import MapHomepage from 'src/components/MapHomepage';
 import EventHeader from './EventHeader';
 import EventDescription from './EventDescription';
 import EventFooter from './EventFooter';
-import MapEvent from './MapEvent';
+
 
 // == Composant
 const Event = ({ eventData, loading, found }) => {
   // console.log(eventData);
   return (
     <Grid container id="event">
-      {/* Le found est OBLIGATOIRE car tant que les données 'eventData' ne sont pas chargées depuis l'api,
-       elles sont en undifined, ce qui fait planter la page, grace au found on empeche l'affichage tant que les data ne sont pas reçues */}
+      {/* Le found est OBLIGATOIRE car tant que les données 'eventData'
+       ne sont pas chargées depuis l'api, elles sont en undifined, ce qui fait planter la page,
+       grace au found on empeche l'affichage tant que les data ne sont pas reçues */}
       {!loading && found && (
         <>
-          {/** Header de la page avec titre,label,auteur,infos participants, bouton modifier & partage.
+          {/** Header de la page avec titre,label,auteur,infos participants,
+          bouton modifier & partage.
           Inclue les sous-composants: ProgressBar, ModifyButton, ShareButton et EventLabel. */}
           <Grid item xs={12} id="event_header">
             <EventHeader
@@ -52,6 +53,7 @@ const Event = ({ eventData, loading, found }) => {
               latitude={eventData.latitude}
               longitude={eventData.longitude}
               address={eventData.adress}
+              dateEvent={eventData.dateEvent}
             />
 
           </Grid>

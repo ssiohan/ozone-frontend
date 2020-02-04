@@ -21,7 +21,6 @@ const EventHeader = ({
   typeEvent,
   userMax,
 }) => {
-  const participants = eventUsers.length;
   return (
     <Grid container justify="space-between">
       {/* Partie gauche du header */}
@@ -34,8 +33,8 @@ const EventHeader = ({
             <EventLabel typeEvent={typeEvent} />
           </Grid>
           <Grid item>
-            <p id="event_participants_progress">30/{userMax} participants</p>
-            <ProgressBar />
+            <p id="event_participants_progress">{eventUsers.length}/{userMax} participants</p>
+            <ProgressBar participants={eventUsers.length} userMax={userMax} />
           </Grid>
         </Grid>
         <Grid item>
@@ -46,7 +45,8 @@ const EventHeader = ({
       </Grid>
       {/* Partie droite header */}
       <Grid item xs={12} md={3}>
-        {/* Le bouton modifier n'apparaît que pour les orgas connectés se trouvant sur leur event */}
+        {/* Le bouton modifier n'apparaît que pour
+        les orgas connectés se trouvant sur leur event */}
         <ModifyButton />
         <ShareButton />
       </Grid>

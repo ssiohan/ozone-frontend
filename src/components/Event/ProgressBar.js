@@ -11,11 +11,11 @@ import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
 const BorderLinearProgress = withStyles({
   root: {
     height: 15,
-    backgroundColor: lighten('#078171', 0.5),
+    backgroundColor: lighten('#526DDB', 0.5),
   },
   bar: {
     borderRadius: 20,
-    backgroundColor: '#078171',
+    backgroundColor: '#526DDB',
   },
 })(LinearProgress);
 
@@ -31,9 +31,10 @@ const useStyles = makeStyles((theme) => ({
 
 // == Composant
 
-const ProgressBar = () => {
+const ProgressBar = ({userMax, participants}) => {
   const classes = useStyles();
-
+  const percent = Math.trunc((participants / userMax) * 100);
+console.log(percent);
   return (
     <div className={classes.root}>
       <BorderLinearProgress
@@ -41,7 +42,7 @@ const ProgressBar = () => {
         variant="determinate"
         color="primary"
         // Pour l'instant, valeur en dur, mais elle sera dynamisée par la suite
-        value={60}
+        value={percent}
       />
 
     </div>

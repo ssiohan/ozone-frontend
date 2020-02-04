@@ -2,11 +2,10 @@
 import React from 'react';
 import RoomIcon from '@material-ui/icons/Room';
 import Grid from '@material-ui/core/Grid';
-
-// Source: https://material-ui.com/components/material-icons/
+import PropTypes from 'prop-types';
 
 // == Composant
-const EventAddress = ({address}) => (
+const EventAddress = ({ address }) => (
   <div id="event_footer_address">
     <Grid container>
       <Grid item>
@@ -16,6 +15,9 @@ const EventAddress = ({address}) => (
 
   </div>
 );
+EventAddress.propTypes = {
+  address: PropTypes.string.isRequired,
 
+};
 // == Export
 export default EventAddress;
