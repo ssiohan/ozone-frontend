@@ -180,14 +180,14 @@ const ModifyProfileForm = ({
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  SelectProps={{
-                    native: true,
-                  }}
+                  // SelectProps={{
+                  //   native: true,
+                  // }}
                   onChange={handleProfileInputChange}
                 />
               </Grid>
             </Grid>
-            <Grid container justify="flex-start" alignItems="center">
+            {/* <Grid container justify="flex-start" alignItems="center">
               <Grid item>
                 <InputLabel htmlFor="profile-avatar" className={classes.labels}>Avatar</InputLabel>
               </Grid>
@@ -208,7 +208,7 @@ const ModifyProfileForm = ({
                   onChange={handleProfileInputChange}
                 />
               </Grid>
-            </Grid>
+            </Grid> */}
             <Grid container justify="flex-start" alignItems="center">
               <Grid item>
                 <InputLabel htmlFor="profile-description" className={classes.labels}>Description</InputLabel>

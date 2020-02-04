@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
 import Drawer from './Drawer';
-import DrawerProfile from './DrawerProfile';
+import DrawerProfile from 'src/containers/Navbar/DrawerProfile';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local

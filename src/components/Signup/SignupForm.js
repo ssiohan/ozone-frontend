@@ -13,14 +13,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: 500,
+      width: 350,
       minWidth: 300,
       border: 'solid 1px #E0E0E0',
+      borderRadius: '5px',
     },
   },
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#078171',
+    backgroundColor: '#526DDB',
     color: '#F2F2F2',
     fontWeight: 'bold',
   },
