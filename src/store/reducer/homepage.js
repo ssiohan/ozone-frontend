@@ -56,7 +56,6 @@ const reducer = (state = initialState, action = {}) => {
         category: action.category,
       };
     case CHANGE_FIELD_VALUE:
-      console.log(state);
       return {
         ...state,
         [action.name]: action.value,

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 1400,
+    maxWidth: 1080,
   },
   image: {
     maxWidth: 400,
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     textAlign: 'left',
+    maxHeight: '100%',
   },
 }));
 
@@ -56,7 +57,7 @@ const EventDescription = ({ description, image }) => {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography variant="body2" gutterBottom className={classes.description}>{description}</Typography>
+                <Typography variant="body1" gutterBottom className={classes.description}>{description}</Typography>
               </Grid>
               <Grid item>
                 <ParticipateButton />

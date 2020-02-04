@@ -47,6 +47,7 @@ const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates }) => {
         }) => (
           <div>
             <TextField
+              autoComplete="off"
               {...getInputProps()}
               className={classes.title}
               id="adress"
