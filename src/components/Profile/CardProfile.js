@@ -67,11 +67,12 @@ const CardProfile = ({
   duration,
   impactSocietal,
   impactEnvironmental,
-  userMin,
+  image,
   userMax,
   city,
 }) => {
   const classes = useStyles();
+  // Fonction qui formate la date
   const treatDate = (apiDate) => {
     const date = apiDate;
     // retourne la date au format jour/mois/année
@@ -82,9 +83,12 @@ const CardProfile = ({
 
     return formatDate;
   };
+  // Date de l'event formatée
   const date = treatDate(dateEvent);
   // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+  // Chemin pour récupérer les images de l'API
+  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -109,8 +113,7 @@ const CardProfile = ({
       />
       <CardMedia
         className={classes.media}
-        // à dynamiser: récupérer les images de la bdd
-        image="/src/assets/img/IMG_1155.JPG"
+        image={`${baseUrl}` + `${image}`}
         title="image de l'événement"
       />
       <CardContent>
@@ -157,5 +160,6 @@ CardProfile.propTypes = {
   description: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   typeEvent: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 export default CardProfile;
