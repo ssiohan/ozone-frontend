@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -27,6 +28,10 @@ function SimpleDialog(props) {
     onClose(selectedValue);
   };
 
+  const handleLougout = () => {
+    console.log('click on logout');
+  };
+
 
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
@@ -36,8 +41,17 @@ function SimpleDialog(props) {
             Mon profil
           </Typography>
         </ListItem>
-        <ListItem button component="a" href="/logout">
-          <Typography underline="none" className={classes.Typography} href="/logout">
+        <ListItem
+          button
+          component="a"
+          // href="/logout"
+          onClick={handleLougout}
+        >
+          <Typography
+            underline="none"
+            className={classes.Typography}
+            // href="/logout"
+          >
             Se deconnecter
           </Typography>
         </ListItem>

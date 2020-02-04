@@ -163,7 +163,7 @@ const Login = ({
              Connexion réussie !
              Veuillez cliquer sur ce lien pour vous rendre vers la
             <Link
-              href="/"
+              href="/events"
               className={classes.link}
             >
               page d'accueil
