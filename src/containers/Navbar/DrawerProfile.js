@@ -13,13 +13,12 @@ const mapStateToProps = null;
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   onClickOnLogout: () => {
-    console.log('hello depuis mDtp, je vais déconnecter le user');
-    // Les éléments ci-dessous seront à décommenter une fois que onClickOnLogout
-    // sera passé dans le composant DrawerProfile et que le console.log fonctionnera au clic sur le bouton
-    // localStorage.removeItem('token');
-    // localStorage.removeItem('refresh_token');
-    // localStorage.removeItem('id');
-    // dispatch(logoutUser());
+    // console.log('hello depuis mDtp, je vais déconnecter le user');
+    // On vide le local storage puis on passe le state logged de true à false
+    localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('id');
+    dispatch(logoutUser());
   },
 });
 
