@@ -100,6 +100,7 @@ const Cardweb = ({
   eventUsers,
   userMax,
   author,
+  image,
   title,
   dateEvent,
   painfulness,
@@ -141,7 +142,7 @@ const Cardweb = ({
           <CardMedia
             component="img"
             className={classes.media}
-            image="src/assets/img/bio.jpg"
+            image={`https://api.geekoz.fr/uploads/images/${image}`}
             title="image test"
           />
         </Grid>
@@ -208,10 +209,11 @@ Cardweb.propTypes = {
   userMax: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   dateEvent: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
+  image: PropTypes.string.isRequired,
   painfulness: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   impactSocietal: PropTypes.number.isRequired,
   impactEnvironmental: PropTypes.number.isRequired,
-  author: PropTypes.object.isRequired,
 };
 export default Cardweb;
