@@ -144,7 +144,7 @@ class Profile extends React.Component {
                 </Grid>
               </Grid>
               <Grid item>
-                <ModifyProfileForm {...userData} />
+                <ModifyProfileForm userData={userData} />
               </Grid>
               <Grid item>
                 <Typography variant="h5"> Description</Typography>

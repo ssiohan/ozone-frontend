@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 // == Composant
 
-const ModifyProfileForm = () => {
+const ModifyProfileForm = ({ userData }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -91,6 +91,7 @@ const ModifyProfileForm = () => {
                 <TextField
                   id="profile-pseudo"
                   label="Pseudo"
+                  defaultValue={userData.pseudo}
                   variant="outlined"
                   type="text"
                   name="profilePseudo"
@@ -106,6 +107,7 @@ const ModifyProfileForm = () => {
                 <TextField
                   id="profile-lastname"
                   label="Nom"
+                  defaultValue={userData.lastname}
                   variant="outlined"
                   type="text"
                   name="profileLastname"
@@ -121,6 +123,7 @@ const ModifyProfileForm = () => {
                 <TextField
                   id="profile-firstname"
                   label="Prénom"
+                  defaultValue={userData.firstname}
                   variant="outlined"
                   type="text"
                   name="profileFirstname"
@@ -136,6 +139,7 @@ const ModifyProfileForm = () => {
                 <TextField
                   id="profile-email"
                   label="Email"
+                  defaultValue={userData.email}
                   variant="outlined"
                   type="email"
                   name="profileEmail"
@@ -153,6 +157,7 @@ const ModifyProfileForm = () => {
                   label="Date de naissance"
                   variant="outlined"
                   type="date"
+                  defaultValue={userData.birthdate}
                   name="profileBirthdate"
                   InputLabelProps={{
                     shrink: true,
@@ -194,7 +199,8 @@ const ModifyProfileForm = () => {
                   id="profile-description"
                   label="Votre description"
                   aria-label="Description"
-                  placeholder="Description"
+                  placeholder="Votre description"
+                  defaultValue={userData.description}
                   variant="outlined"
                   rowsMin={10}
                   name="profileDescription"
@@ -213,11 +219,15 @@ const ModifyProfileForm = () => {
     </div>
   );
 };
+// == Props par défault
+ModifyProfileForm.defaultProps = {
+  userData: null,
+};
 
 // == Validation des props
-// ModifyProfileForm.propTypes = {
-//   userData: PropTypes.object,
-// };
+ModifyProfileForm.propTypes = {
+  userData: PropTypes.object,
+};
 
 // == Export
 export default ModifyProfileForm;
