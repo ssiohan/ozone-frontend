@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable linebreak-style */
 // == Import : npm
 import React from 'react';
@@ -92,6 +93,9 @@ class Profile extends React.Component {
     // Date d'inscription reformattée
     const signupDate = treatDate(userData.createdAt);
 
+    // Chemin pour récupérer les images de l'api
+    const baseUrl = 'https://api.geekoz.fr/uploads/images/';
+
     return (
       <div id="profile">
         <Banner />
@@ -118,7 +122,7 @@ class Profile extends React.Component {
                 <Grid item>
                   <Avatar
                     alt="user name"
-                    src={userData.avatar}
+                    src={`${baseUrl}` + `${userData.avatar}`}
                     className={classes.avatar}
                   />
                 </Grid>
