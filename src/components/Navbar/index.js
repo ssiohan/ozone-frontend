@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
 import Drawer from './Drawer';
 import DrawerProfile from './DrawerProfile';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './navbar.scss';
@@ -34,13 +35,21 @@ const useStyles = makeStyles((theme) => ({
     'font-size': '.8em',
     textDecoration: 'none',
     margin: '.5em',
-    color: lightColor,
+    color: '#fff',
     // margin: '1em',
     '&:hover': {
-      color: theme.palette.common.white,
+      color: lightColor,
     },
 
   },
+  linkActive: {
+    'font-size': '1em',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    color: '#fff',
+
+  },
+
   linkButton: {
     textDecoration: 'none',
     margin: '.5em',
@@ -66,15 +75,22 @@ const useStyles = makeStyles((theme) => ({
     'margin-top': '.5em',
   },
   ozonelogo: {
-    'margin-top': '9px',
+    'margin-top': '5px',
     'margin-left': '7px',
   },
   ozonetext: {
     color: lightColor,
-    'margin-top': '9px',
+    // 'margin-top': '1em',
+    'font-size': '3rem',
+    fontFamily: 'system-ui',
   },
   ozoneimg: {
-    'margin-top': '9px',
+    'margin-top': '1px',
+    'font-size': '3rem',
+  },
+  earth: {
+    fontSize: '3em',
+    'margin-top': '2px',
   },
 }));
 
@@ -90,95 +106,94 @@ const Header = ({ logged, emailValue }) => {
 
     <AppBar className={classes.appBar} position="sticky" elevation={0}>
       <Toolbar>
-        <Grid container wrap="nowrap" spacing={1}>
-          <Hidden mdUp>
-            <Grid item>
-              <Drawer className={classes.appBar} />
-            </Grid>
-          </Hidden>
-          <Hidden mdUp>
-            <Grid className={classes.ozonelogo} item xs>
-              <Typography align="left" color="inherit" variant="h5" component="h1"> </Typography>
-            </Grid>
-          </Hidden>
-          <Hidden only={['xs', 'sm']}>
-            <Grid className={classes.ozonelogo} item xs>
-              {/* <img
-                className={classes.ozoneimg}
-                src="src/assets/img/logo_sans_fond.png"
-                alt=""
-              /> */}
-              <Typography align="left" color="inherit" variant="h4" component="h1">
-                <Link underline="none" className={classes.linkearth} href="/">
-                  <GiEarthAmerica className={classes.ozoneimg} />
-                </Link>
-                <Link underline="none" className={classes.ozonetext} href="/">
-                  zone
-                </Link>
-                {logged && (
-                // eslint-disable-next-line react/jsx-wrap-multilines
-                <Grid item>
-                  <Typography color="inherit" variant="body2">{emailValue} </Typography>
-                </Grid>)}
-              </Typography>
-            </Grid>
-          </Hidden>
-          <Toolbar>
-            <Hidden only={['xs', 'sm']}>
+        <Grid container justify="space-between" wrap="nowrap" spacing={1}>
+          <Grid>
+            <Hidden mdUp>
               <Grid item>
-                <Link underline="none" className={classes.link} href="/">
-                  Accueil
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/event">
-                  Les events
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/create-event">
-                  Ajouter un event
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/about">
-                  À propos
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link underline="none" className={classes.link} href="/sponsors">
-                  Partenaires
-                </Link>
+                <Drawer className={classes.appBar} />
               </Grid>
             </Hidden>
-            {!logged && (
-            // eslint-disable-next-line react/jsx-wrap-multilines
-            <Grid item>
-              <Button className={classes.button} color="inherit" size="small">
-                <Link underline="none" className={classes.linkButton} href="/login">
-                Se connecter
-                </Link>
-              </Button>
-            </Grid>)}
-            {!logged && (
+            <Hidden only={['xs', 'sm']}>
+              <Grid className={classes.ozonelogo}>
+                <Grid container direction="row">
+                  <Grid>
+                    <NavLink underline="none" className={classes.linkearth} to="/" exact>
+                      <GiEarthAmerica className={classes.earth} />
+                    </NavLink>
+                  </Grid>
+                  <Grid>
+                    <NavLink underline="none" className={classes.ozonetext} to="/" exact>
+                      zone
+                    </NavLink>
+                  </Grid>
+                  {logged && (
+                  // eslint-disable-next-line react/jsx-wrap-multilines
+                  <Grid item>
+                    <Typography color="inherit" variant="body2">{emailValue} </Typography>
+                  </Grid>)}
+                </Grid>
+              </Grid>
+            </Hidden>
+          </Grid>
+          <Grid>
+            <Toolbar>
+              <Hidden only={['xs', 'sm']}>
+                <Grid item>
+                  <NavLink underline="none" className={classes.link} to="/" exact activeClassName={classes.linkActive}>
+                    Accueil
+                  </NavLink>
+                </Grid>
+                <Grid item>
+                  <NavLink underline="none" className={classes.link} to="/event" exact activeClassName={classes.linkActive}>
+                    Les events
+                  </NavLink>
+                </Grid>
+                <Grid item>
+                  <NavLink underline="none" className={classes.link} to="/create-event" exact activeClassName={classes.linkActive}>
+                    Ajouter un event
+                  </NavLink>
+                </Grid>
+                <Grid item>
+                  <NavLink underline="none" className={classes.link} to="/about" exact activeClassName={classes.linkActive}>
+                    À propos
+                  </NavLink>
+                </Grid>
+                <Grid item>
+                  <NavLink underline="none" className={classes.link} to="/sponsors" exact activeClassName={classes.linkActive}>
+                    Partenaires
+                  </NavLink>
+                </Grid>
+              </Hidden>
+              {!logged && (
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Grid item>
-                <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                  <Link
-                    underline="none"
-                    className={classes.linkButton}
-                    href="/signup"
-                  >
-                  S'inscrire
-                  </Link>
+                <Button className={classes.button} color="inherit" size="small">
+                  <NavLink underline="none" className={classes.linkButton} to="/login" exact>
+                  Se connecter
+                  </NavLink>
                 </Button>
               </Grid>)}
-            {logged && (
-            // eslint-disable-next-line react/jsx-wrap-multilines
-            <Grid item>
-              <DrawerProfile />
-            </Grid>)}
-          </Toolbar>
+              {!logged && (
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <Grid item>
+                  <Button className={classes.button} variant="outlined" color="inherit" size="small">
+                    <NavLink
+                      underline="none"
+                      className={classes.linkButton}
+                      to="/signup"
+                      exact
+                    >
+                    S'inscrire
+                    </NavLink>
+                  </Button>
+                </Grid>)}
+              {logged && (
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Grid item>
+                <DrawerProfile />
+              </Grid>)}
+            </Toolbar>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
@@ -187,6 +202,7 @@ const Header = ({ logged, emailValue }) => {
 Header.propTypes = {
 
   logged: PropTypes.bool.isRequired,
+  emailValue: PropTypes.string,
 };
 
 export default Header;

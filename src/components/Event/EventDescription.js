@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import PropTypes from 'prop-types';
 
 // == Import d'un sous-composant
 import ParticipateButton from './ParticipateButton';
@@ -35,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const EventDescription = () => {
+const EventDescription = ({ description, image }) => {
   const classes = useStyles();
+  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
 
   return (
     <div className={classes.root}>
@@ -48,37 +50,14 @@ const EventDescription = () => {
                 className={classes.img}
                 // Sera dynamisé ?
                 alt="plage d'armanville"
-                src="https://docplayer.fr/docs-images/81/84162906/images/5-0.jpg"
+                src={`${baseUrl}` + `${image}`}
               />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography variant="body2" gutterBottom className={classes.description}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem saepe repellendus atque
-                perspiciatis quos architecto ipsa at ut illo obcaecati, ad cupiditate,
-                eligendi maiores facere, molestias voluptate.Veniam, qui repudiandae?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa inventore ullam,
-                asperiores eaque dicta tenetur.Culpa, fugit! Expedita ad natus non
-                necessitatibus neque delectus assumenda adipisci qui corrupti sed.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quia aspernatur, earum at dolor fugit molestiae necessitatibus
-                minus cum deleniti impedit soluta animi facilis consequuntur recusandae
-                sed omnis iure asperiores nihil! Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Rem saepe repellendus atque
-                perspiciatis quos architecto ipsa at ut illo obcaecati, ad cupiditate,
-                eligendi maiores facere, molestias voluptate.
-                Veniam, qui repudiandae?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Esse culpa inventore ullam, asperiores eaque dicta tenetur.
-                Culpa, fugit! Expedita ad natus non necessitatibus neque
-                delectus assumenda adipisci qui corrupti sed.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quia aspernatur, earum at dolor fugit molestiae necessitatibus
-                minus cum deleniti impedit soluta animi facilis consequuntur
-                recusandae sed omnis iure asperiores nihil!
-                </Typography>
+                <Typography variant="body2" gutterBottom className={classes.description}>{description}</Typography>
               </Grid>
               <Grid item>
                 <ParticipateButton />
@@ -90,6 +69,9 @@ const EventDescription = () => {
     </div>
   );
 };
-
+EventDescription.propTypes = {
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string,
+};
 // == Export
 export default EventDescription;

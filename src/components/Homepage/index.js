@@ -10,6 +10,7 @@ import './homepage.scss';
 
 // == import Composants
 import Banner from 'src/components/Banner';
+
 import BannerAfter from 'src/containers/Homepage/BannerAfter';
 import Cardweb from 'src/components/Homepage/Cardweb';
 import Dialog from 'src/components/Banner/Dialog';

@@ -11,10 +11,10 @@ import './app.scss';
 import Navbar from 'src/containers/Navbar';
 // import Banner from 'src/components/Banner';
 import Homepage from 'src/containers/Homepage';
-import Event from 'src/components/Event';
+import Event from 'src/containers/Event';
 import Login from 'src/containers/Login';
 import Signup from 'src/containers/Signup';
-import CreateEvent from 'src/components/CreateEvent';
+import CreateEvent from 'src/containers/CreateEvent';
 import Profile from 'src/containers/Profile';
 import Sponsors from 'src/components/Sponsors';
 import About from 'src/components/About';
@@ -44,9 +44,7 @@ class App extends React.Component {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route path="/event">
-            <Event />
-          </Route>
+          <Route path="/event/:slug" component={Event} />
           <Route path="/login">
             <Login />
           </Route>

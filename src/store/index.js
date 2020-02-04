@@ -9,9 +9,12 @@ import eventsMiddleware from 'src/store/middleware/eventsMiddleware';
 import userIdMiddleware from 'src/store/middleware/userIdMiddleware';
 import userDataMiddleware from 'src/store/middleware/userDataMiddleware';
 import modifyProfileMiddleware from 'src/store/middleware/modifyProfileMiddleware';
+import createEventMiddleware from 'src/store/middleware/createEventMiddleware';
+
 
 // == Import : local
 import reducer from './reducer';
+
 
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -24,6 +27,7 @@ const enhancers = composeEnhancers(
     userIdMiddleware,
     userDataMiddleware,
     modifyProfileMiddleware,
+    createEventMiddleware,
   ),
 );
 

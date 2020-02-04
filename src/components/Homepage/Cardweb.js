@@ -10,6 +10,9 @@ import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
+import { Link } from 'react-router-dom';
+
 
 //  == Import Icons
 import { GiRecycle } from 'react-icons/gi';
@@ -94,6 +97,7 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
+  eventUsers,
   userMax,
   author,
   title,
@@ -106,6 +110,7 @@ const Cardweb = ({
   const classes = useStyles();
   // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
+  // const nbEventUsers = eventUsers.length();
 
   const treatDate = (apiDate) => {
     const date = apiDate;
@@ -139,7 +144,9 @@ const Cardweb = ({
               <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
               <Typography>{author.pseudo}</Typography>
               <Typography className="date">{date}</Typography>
-              <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+              <Link to={`/event/${slugify(title)}`}>
+                <Button href="" className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+              </Link>
             </Grid>
           </Grid>
           <Grid container wrap="nowrap" item xs={12} sm={9}>
