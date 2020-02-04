@@ -29,7 +29,7 @@ const mapStateToProps = (state) => ({
   city: state.createEvent.city,
   latitude: state.createEvent.latitude,
   longitude: state.createEvent.longitude,
-  author: state.createEvent.author,
+  author: state.profile.userData,
   statusText: state.createEvent.statusText,
   emptyFieldsCounter: state.signup.emptyFields,
   logged: state.login.logged,

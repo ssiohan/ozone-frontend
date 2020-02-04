@@ -299,7 +299,7 @@ const CreateForm = ({
             <ImpactEnv onCreateEventFieldChange={onCreateEventFieldChange} />
             <ImpactSociety onCreateEventFieldChange={onCreateEventFieldChange} />
             <Difficulty onCreateEventFieldChange={onCreateEventFieldChange} />
-            <Author onCreateEventFieldChange={onCreateEventFieldChange} />
+            {/* <Author onCreateEventFieldChange={onCreateEventFieldChange} /> */}
           </Grid>
         </Grid>
 
