@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   onCreateEventFieldChange: (name, value) => {
-    console.log('hello depuis mDTP', name, value);
+    // console.log('hello depuis mDTP', name, value);
     dispatch(changeFieldValue(name, value));
   },
 

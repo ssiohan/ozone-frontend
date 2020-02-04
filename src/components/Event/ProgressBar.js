@@ -2,6 +2,7 @@
 import React from 'react';
 import { LinearProgress } from '@material-ui/core';
 import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 // Source : https://material-ui.com/components/progress/
 // La LinearProgress de base n'est pas assez épaisse: utilisation des éléments de style de Material
@@ -34,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 const ProgressBar = ({userMax, participants}) => {
   const classes = useStyles();
   const percent = Math.trunc((participants / userMax) * 100);
-console.log(percent);
   return (
     <div className={classes.root}>
       <BorderLinearProgress
@@ -48,6 +48,9 @@ console.log(percent);
     </div>
   );
 };
-
+ProgressBar.propTypes = {
+  userMax: PropTypes.number.isRequired,
+  participants: PropTypes.number.isRequired,
+};
 // == Export
 export default ProgressBar;
