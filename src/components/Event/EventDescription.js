@@ -19,16 +19,19 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 1080,
+    borderRadius: '10px',
+    background: '#ffffffcd',
+
   },
-  image: {
-    maxWidth: 400,
-    maxHeight: 400,
-  },
+  // image: {
+  //   maxWidth: 400,
+  //   maxHeight: 250,
+  // },
   img: {
     margin: 'auto',
     display: 'block',
     maxWidth: '100%',
-    maxHeight: '100%',
+    maxHeight: '250px',
   },
   description: {
     textAlign: 'left',

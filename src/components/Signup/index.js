@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 
 // == Import : local
@@ -38,6 +39,16 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     padding: '1em 0',
     opacity: '0.9',
+  },
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: '#526DDB',
+    color: '#F2F2F2',
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#626DDB',
+      color: '#fff',
+    },
   },
 }));
 
@@ -93,15 +104,14 @@ const Signup = (
             {registered && (
             <Grid item xs={12}>
               <Typography variant="body2" gutterBottom xs={12}>
-                Inscription réussie !
-                Veuillez cliquer sur ce lien pour vous rendre vers la
-                <Link
-                  href="/login"
-                  className={classes.link}
-                >
-                  page de connexion
-                </Link>
+                Inscription réussie!
               </Typography>
+              <Typography variant="body2" gutterBottom xs={12}>
+                Veuillez cliquer sur ce lien pour vous rendre vers la page de connexion
+              </Typography>
+              <Link to="/login" className={classes.link}>
+                <Button className={classes.button} variant="contained">Login</Button>
+              </Link>
             </Grid>
             )}
           </Grid>

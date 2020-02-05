@@ -18,13 +18,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const EventLabel = ({typeEvent}) => {
+const EventLabel = ({ typeEvent }) => {
   const classes = useStyles();
 
   return (
     <div>
       <Chip
-        // Le label sera dynamisé
         label={typeEvent}
         className={classes.chip}
       />
