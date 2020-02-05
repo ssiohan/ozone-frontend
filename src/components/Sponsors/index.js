@@ -8,6 +8,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import { FaCoins } from 'react-icons/fa';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 
 
 // == Import : local
@@ -15,7 +17,7 @@ import './sponsors.scss';
 
 // == Import de sous-composants
 import BannerFree from 'src/components/Banner/BannerFree';
-import tileData from './tileData';
+import robinsons from './robinsons';
 import natureEtD from './natureEtD';
 
 
@@ -36,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
     'background-size': 'cover',
     height: '100%',
+  },
+  avatar: {
+    marginRight: theme.spacing(1),
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -68,11 +73,26 @@ const Sponsors = () => {
       </Typography>
       {/* Sponsor 1 */}
       <div id="robinsons" className={classes.root}>
-        <Typography variant="h5" gutterBottom>
-         Les Nouveaux Robinsons
-        </Typography>
+        <Grid
+          container
+          justify="center"
+          alignContent="center"
+        >
+          <Grid item>
+            <Avatar
+              alt="Les Nouveaux Robinsons"
+              src="src/assets/img/robinsons.png"
+              className={classes.avatar}
+            />
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" gutterBottom>
+          Les Nouveaux Robinsons
+            </Typography>
+          </Grid>
+        </Grid>
         <GridList className={classes.gridList} cols={2.5}>
-          {tileData.map((tile) => (
+          {robinsons.map((tile) => (
             <GridListTile key={tile.img}>
               <img src={tile.img} alt={tile.title} />
               <GridListTileBar
@@ -92,11 +112,27 @@ const Sponsors = () => {
           ))}
         </GridList>
       </div>
+
       {/* Sponsor 2 */}
       <div id="natureEtD" className={classes.root}>
-        <Typography variant="h5" gutterBottom>
-         Nature et Découvertes
-        </Typography>
+        <Grid
+          container
+          justify="center"
+          alignContent="center"
+        >
+          <Grid item>
+            <Avatar
+              alt="Nature et Découvertes"
+              src="src/assets/img/NED.png"
+              className={classes.avatar}
+            />
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" gutterBottom>
+          Nature et Découvertes
+            </Typography>
+          </Grid>
+        </Grid>
         <GridList className={classes.gridList} cols={2.5}>
           {natureEtD.map((tile) => (
             <GridListTile key={tile.title}>

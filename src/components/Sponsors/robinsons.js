@@ -5,7 +5,7 @@ import Encens from 'src/assets/img/Encens.jpg';
 // import giftcard from 'src/assets/img/giftcard.jpg';
 
 // == Sources de données
-const tileData = [
+const robinsons = [
   {
     img: savon,
     title: 'Savon de Marseille Bio',
@@ -24,4 +24,4 @@ const tileData = [
 ];
 
 // == Export
-export default tileData;
+export default robinsons;
