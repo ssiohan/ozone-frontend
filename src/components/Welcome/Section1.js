@@ -1,18 +1,37 @@
 // == Import : npm
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-
-
+import Typography from '@material-ui/core/Typography';
+import { GiEarthAmerica } from 'react-icons/gi';
+import { makeStyles } from '@material-ui/core/styles';
 // == Import : local
 import './welcome.scss';
 
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(1),
+    flexGrow: 1,
+  },
+  logoozone: {
+    width: '18em',
+  },
+}));
 // == Composant
-const BannerFree = () => (
-  <Grid container alignContent="center" justify="center" id="section1"> This is the Welcome Page</Grid>
-
-);
+const Section1 = () => {
+  const classes = useStyles();
+  return (
+    <Grid container direction="column" id="section1" justify="center">
+      <Grid item xs={12}>
+        <img className={classes.logoozone} src="src/assets/img/logoz.png" alt="logo-ozone" />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h2">
+          Bienvenue sur oZone
+        </Typography>
+      </Grid>
+    </Grid>
+  )
+};
 
 // == Export
-export default BannerFree;
+export default Section1;

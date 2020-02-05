@@ -41,7 +41,7 @@ const EventCharacteritics = ({
         <MdPeople /> 14/20 participants
       </Typography> */}
       <Typography className={classes.characteristic}>
-        <GoGraph /> painfulness
+        <GoGraph /> pénibilité
         <Rating name="read-only" value={painfulness} size="small" />
       </Typography>
       <Typography className={classes.characteristic}>

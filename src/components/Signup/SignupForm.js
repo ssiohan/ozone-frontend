@@ -86,18 +86,17 @@ const SignupForm = (
       >
         {/* Message d'erreur en cas de champs non remplis à la soumission */}
         {emptyFieldsCounter > 0 && (
-        <Grid item>
+        <Grid itemxs={12} >
           <Typography
             variant="h5"
             gutterBottom
-            xs={12}
             className={classes.emptyFieldsMessage}
           >
              Tous les champs doivent être remplis.
           </Typography>
         </Grid>
         )}
-        <Grid item>
+        <Grid item xs={12}>
           <TextField
             id="signup-email"
             label="Email"

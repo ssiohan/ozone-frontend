@@ -38,7 +38,6 @@ const Welcome = () => {
       <Section2 />
       <Section3 />
       {/* <Section4 /> */}
-      This is the Welcome Page
     </div>
   );
 };
