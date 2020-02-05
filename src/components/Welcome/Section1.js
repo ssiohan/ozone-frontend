@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logoozone: {
     width: '18em',
+    opacity: '.8',
   },
 }));
 // == Composant

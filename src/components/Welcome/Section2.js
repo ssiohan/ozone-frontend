@@ -53,16 +53,13 @@ const Section2 = () => {
       {/* Right */}
       <Grid item xs={12} sm={6}>
         <Typography variant="body1" align="left">
+        oZone est un site à but communautaire sur le thème de l’écologie, visant à rassembler des âmes soucieuses de l’état de santé de notre belle planète, de ses habitants…
+        </Typography>
+        <Typography variant="body1" align="left">
+        Changer les mentalités et les comportements de notre espèce vers quelque chose de plus respectueux et social, fait partie des objectifs principaux d’oZone.
+        </Typography>
+        <Typography variant="body1" align="left">
         Vous trouverez donc ici toutes sortes d’événements à but écologique et non-lucratifs autour de chez vous ou ailleurs, çà c’est vous qui choisissez !
-        </Typography>
-        <Typography variant="body1" align="left">
-        Pour participer à un événement, il vous suffit de créer un compte en vous enregistrant sur le site, choisir un événement qui vous intéresse et de vous y inscrire !
-        </Typography>
-        <Typography variant="body1" align="left">
-        Vous participez à l’événement et une fois celui-ci terminé, votre compte se voit crédité du nombre de points fixé pour cet événement selon les 4 critères prédéfinis.
-        </Typography>
-        <Typography variant="body1" align="left">
-        Ces points pourront ensuite être utilisés pour acquérir divers articles ou avantages fournis par nos partenaires souhaitant récompenser les participants pour leurs bonnes oeuvres.
         </Typography>
       </Grid>
     </Grid>

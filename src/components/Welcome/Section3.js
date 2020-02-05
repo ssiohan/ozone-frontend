@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 // == Import : local
 import './welcome.scss';
@@ -30,9 +30,6 @@ const Section3 = () => {
     <Grid container alignContent="center" justify="center" id="section3">
       {/* Left */}
       <Grid className={classes.left} item xs={12} sm={6}>
-        <Typography variant="body1" align="left">
-        Vous trouverez donc ici toutes sortes d’événements à but écologique et non-lucratifs autour de chez vous ou ailleurs, çà c’est vous qui choisissez !
-        </Typography>
         <Typography variant="body1" align="left">
         Pour participer à un événement, il vous suffit de créer un compte en vous enregistrant sur le site, choisir un événement qui vous intéresse et de vous y inscrire !
         </Typography>
