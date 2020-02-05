@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import './profile.scss';
 
 // == Import de sous-composants
-import Banner from 'src/components/Banner';
+import BannerFree from 'src/components/Banner/BannerFree';
 import ModifyProfileForm from 'src/containers/Profile/ModifyProfileForm';
 import CardProfile from './CardProfile';
 
@@ -98,7 +98,7 @@ class Profile extends React.Component {
 
     return (
       <div id="profile">
-        <Banner />
+        <BannerFree />
         <Grid
           container
           justify="center"
