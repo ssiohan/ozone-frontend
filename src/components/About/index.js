@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   content: {
-    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0, 0, 0, 0.5)), url("src/assets/img/grass.jpg")',
     'background-size': 'cover',
   },
   whitetext: {
@@ -67,7 +67,7 @@ export default function About() {
               Team oZone
             </Typography>
             <Typography className={classes.whitetext} variant="h6" align="center" paragraph>
-              La team oZone est composé de 4 membres:
+              La team oZone est composée de 4 membres:
             </Typography>
           </Container>
         </div>

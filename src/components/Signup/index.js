@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
     background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.3)), url("src/assets/img/field.jpg")',
     'background-size': 'cover',
-    'min-height': '700px',
+    'min-height': '1000px',
   },
   icon: {
     marginBottom: theme.spacing(1),
@@ -75,7 +75,7 @@ const Signup = (
   return (
     <div id="signup">
       <Grid container direction="column" alignItems="center" className={classes.root}>
-        <Grid className={classes.box} item xs={4}>
+        <Grid className={classes.box} item xs={12}>
           <Grid container direction="column" alignItems="center">
             <Grid item className={classes.icon}>
               <Avatar align="center" className={classes.avatar}>

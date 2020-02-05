@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   root: {
-    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0, 0, 0, 0.6)), url("src/assets/img/grass.jpg")',
     'background-size': 'cover',
   },
 }));

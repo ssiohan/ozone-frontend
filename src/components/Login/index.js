@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     'min-height': '700px',
     // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
-    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.8)), url("src/assets/img/plant.jpg")',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0, 0, 0, 0.6)), url("src/assets/img/plant.jpg")',
     'background-size': 'cover',
   },
   root2: {
