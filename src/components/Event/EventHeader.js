@@ -47,8 +47,10 @@ const EventHeader = ({
       <Grid item xs={12} md={3}>
         {/* Le bouton modifier n'apparaît que pour
         les orgas connectés se trouvant sur leur event */}
-        <ModifyButton />
-        <ShareButton />
+        <Grid container alignItems="flex-end">
+          <ModifyButton />
+          <ShareButton />
+        </Grid>
       </Grid>
     </Grid>
   )

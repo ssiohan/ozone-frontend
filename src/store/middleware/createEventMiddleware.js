@@ -10,7 +10,9 @@ import { CREATE_EVENT, eventCreated } from 'src/store/reducer/createEvent';
 const createEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_EVENT:
-    // parsInt: transform a string to number (10 in second param is require)
+      //const userId = localStorage.getItem('id');
+      // parsInt: transform a string to number (10 in second param is require)
+
       axios({
         method: 'POST',
         url: 'https://api.geekoz.fr/api/v1/events',
@@ -29,7 +31,7 @@ const createEventMiddleware = (store) => (next) => (action) => {
           city: `${store.getState().createEvent.city}`,
           latitude: `${store.getState().createEvent.latitude}`,
           longitude: `${store.getState().createEvent.longitude}`,
-          author: parseInt(store.getState().createEvent.author, 10),
+          author: parseInt(localStorage.getItem('id'), 10),
           adress: `${store.getState().createEvent.address}`,
         },
       })
