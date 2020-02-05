@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#526DDB',
     color: '#F2F2F2',
     fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#626DDB',
+      color: '#fff',
+    },
   },
   emptyFieldsMessage: {
     color: '#EA282A',

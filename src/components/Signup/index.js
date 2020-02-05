@@ -14,7 +14,6 @@ import Avatar from '@material-ui/core/Avatar';
 import './signup.scss';
 
 // == Import : sous-composants
-import BannerFree from 'src/components/Banner/BannerFree';
 import SignupForm from './SignupForm';
 
 // == Style du composant
@@ -32,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: '#526DDB',
-    textAlign: 'center',
   },
   box: {
     margin: '2em',
@@ -63,7 +61,6 @@ const Signup = (
   const classes = useStyles();
   return (
     <div id="signup">
-      {/* <BannerFree /> */}
       <Grid container direction="column" alignItems="center" className={classes.root}>
         <Grid className={classes.box} item xs={4}>
           <Grid container direction="column" alignItems="center">

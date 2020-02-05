@@ -64,12 +64,6 @@ export default function About() {
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               La team oZone est composé de 4 membres:
             </Typography>
-            {/* <Typography variant="h6" align="center" color="textSecondary" paragraph>
-              -2 développeurs Backend
-            </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
-              -2 développeurs Frontend
-            </Typography> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
@@ -82,7 +76,7 @@ export default function About() {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="src/assets/img/hoody.jpg"
+                  image="src/assets/img/steeve.jpg"
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -100,8 +94,11 @@ export default function About() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button href="https://www.linkedin.com/in/steeve-siohan-4183a538/" size="small" color="primary">
                     LinkedIn
+                  </Button>
+                  <Button href="https://github.com/ssiohan" size="small" color="primary">
+                    GitHub
                   </Button>
                 </CardActions>
               </Card>
@@ -110,7 +107,7 @@ export default function About() {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="src/assets/img/hoody.jpg"
+                  image="src/assets/img/bertrand.jpg"
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -143,7 +140,7 @@ export default function About() {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="src/assets/img/hoody.jpg"
+                  image="src/assets/img/grace.jpg"
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -168,7 +165,7 @@ export default function About() {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="src/assets/img/hoody.jpg"
+                  image="src/assets/img/baptiste.jpg"
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -185,6 +182,9 @@ export default function About() {
                 <CardActions>
                   <Button size="small" color="primary">
                     LinkedIn
+                  </Button>
+                  <Button href="https://github.com/baptiste-caral" size="small" color="primary">
+                    GitHub
                   </Button>
                 </CardActions>
               </Card>
