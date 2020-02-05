@@ -6,14 +6,18 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { FaCoins } from 'react-icons/fa';
 import Typography from '@material-ui/core/Typography';
-import tileData from './tileData';
 
 
 // == Import : local
 import './sponsors.scss';
+
+// == Import de sous-composants
+import BannerFree from 'src/components/Banner/BannerFree';
+import tileData from './tileData';
+import natureEtD from './natureEtD';
+
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
+    marginBottom: theme.spacing(4),
+  },
+  container: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
+    'background-size': 'cover',
+    height: '100%',
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -51,31 +61,63 @@ const useStyles = makeStyles((theme) => ({
 const Sponsors = () => {
   const classes = useStyles();
   return (
-    <div id="sponsors" className={classes.root}>
-      <Typography variant="h5" gutterBottom>
-         Les Nouveaux Robinsons
+    <div id="sponsors" className={classes.container}>
+      <BannerFree />
+      <Typography variant="h4" gutterBottom className={classes.title}>
+         Lots mis à disposition par nos partenaires
       </Typography>
-      <GridList className={classes.gridList} cols={2.5}>
-        {tileData.map((tile) => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              actionIcon={(
-                <IconButton aria-label={`star ${tile.title}`}>
-                  <span className={classes.points}>{tile.points}</span>
-                  <FaCoins fontSize="large" className={classes.title} />
-                  {/* <StarBorderIcon className={classes.title} /> */}
-                </IconButton>
+      {/* Sponsor 1 */}
+      <div id="robinsons" className={classes.root}>
+        <Typography variant="h5" gutterBottom>
+         Les Nouveaux Robinsons
+        </Typography>
+        <GridList className={classes.gridList} cols={2.5}>
+          {tileData.map((tile) => (
+            <GridListTile key={tile.img}>
+              <img src={tile.img} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={(
+                  <IconButton aria-label={`star ${tile.title}`}>
+                    <span className={classes.points}>{tile.points}</span>
+                    <FaCoins fontSize="large" className={classes.title} />
+                  </IconButton>
               )}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+      {/* Sponsor 2 */}
+      <div id="natureEtD" className={classes.root}>
+        <Typography variant="h5" gutterBottom>
+         Nature et Découvertes
+        </Typography>
+        <GridList className={classes.gridList} cols={2.5}>
+          {natureEtD.map((tile) => (
+            <GridListTile key={tile.title}>
+              <img src={tile.img} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={(
+                  <IconButton aria-label={`star ${tile.title}`}>
+                    <span className={classes.points}>{tile.points}</span>
+                    <FaCoins fontSize="large" className={classes.title} />
+                  </IconButton>
+              )}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
     </div>
   );
 };
