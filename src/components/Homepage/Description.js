@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   cardButton: {
-    'background-color': '#526DDB',
+    'background-color': '#303944',
     color: '#fff',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },

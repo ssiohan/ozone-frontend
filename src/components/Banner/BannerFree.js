@@ -5,11 +5,11 @@ import Grid from '@material-ui/core/Grid';
 
 
 // == Import : local
-import './bannerfree.scss';
+import './banner.scss';
 
 // == Composant
 const BannerFree = () => (
-  <Grid container alignContent="center" justify="center" id="bannerfree"> </Grid>
+  <Grid container alignContent="center" justify="center" id="greybanner"> </Grid>
 
 );
 

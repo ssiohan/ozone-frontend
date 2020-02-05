@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 // import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
@@ -20,8 +22,8 @@ const useStyles = makeStyles(theme => ({
   },
   heroContent: {
     // backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    padding: theme.spacing(8, 0, 2),
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -41,10 +43,13 @@ const useStyles = makeStyles(theme => ({
   cardContent: {
     flexGrow: 1,
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+  content: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
+    'background-size': 'cover',
   },
+  whitetext: {
+    color: '#FFF',
+  }
 }));
 
 export default function About() {
@@ -58,17 +63,17 @@ export default function About() {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textSecondary" gutterBottom>
+            <Typography className={classes.whitetext} component="h1" variant="h2" align="center" gutterBottom>
               Team oZone
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            <Typography className={classes.whitetext} variant="h6" align="center" paragraph>
               La team oZone est composé de 4 membres:
             </Typography>
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <Typography component="h2" variant="h3" align="center" color="textSecondary" gutterBottom>
+          <Typography className={classes.whitetext} component="h2" variant="h3" align="center" color="textSecondary" gutterBottom>
               Les développeurs Back-End
           </Typography>
           <Grid className={classes.back} container justify="center" spacing={4}>
@@ -94,11 +99,11 @@ export default function About() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button href="https://www.linkedin.com/in/steeve-siohan-4183a538/" size="small" color="primary">
-                    LinkedIn
+                  <Button href="https://www.linkedin.com/in/steeve-siohan-4183a538/" size="small">
+                    <LinkedInIcon />
                   </Button>
-                  <Button href="https://github.com/ssiohan" size="small" color="primary">
-                    GitHub
+                  <Button href="https://github.com/ssiohan" size="small">
+                    <GitHubIcon />
                   </Button>
                 </CardActions>
               </Card>
@@ -125,14 +130,17 @@ export default function About() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
-                    LinkedIn
+                  <Button size="small">
+                    <LinkedInIcon />
+                  </Button>
+                  <Button href="https://github.com/kyliran" size="small">
+                    <GitHubIcon />
                   </Button>
                 </CardActions>
               </Card>
             </Grid>
           </Grid>
-          <Typography component="h1" variant="h3" align="center" color="textSecondary" gutterBottom>
+          <Typography className={classes.whitetext} component="h1" variant="h3" align="center" color="textSecondary" gutterBottom>
               Les developpeurs Front-End
           </Typography>
           <Grid className={classes.front} container justify="center" spacing={4}>
@@ -155,8 +163,11 @@ export default function About() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
-                    LinkedIn
+                  <Button size="small">
+                    <LinkedInIcon />
+                  </Button>
+                  <Button href="https://github.com/Grace-Bilali" size="small">
+                    <GitHubIcon />
                   </Button>
                 </CardActions>
               </Card>
@@ -180,11 +191,11 @@ export default function About() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
-                    LinkedIn
+                  <Button size="small">
+                    <LinkedInIcon />
                   </Button>
-                  <Button href="https://github.com/baptiste-caral" size="small" color="primary">
-                    GitHub
+                  <Button href="https://github.com/baptiste-caral" size="small">
+                    <GitHubIcon />
                   </Button>
                 </CardActions>
               </Card>

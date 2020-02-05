@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'min-height': '700px',
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.8)), url("src/assets/img/plant.jpg")',
+    'background-size': 'cover',
   },
   root2: {
     '& .MuiTextField-root': {
@@ -38,11 +40,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
     color: '#F2F2F2',
     fontWeight: 'bold',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
@@ -54,10 +56,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   avatar: {
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
   },
   box: {
-    margin: '2em',
+    marginTop: '8em',
     background: '#EDF0F2',
     borderRadius: '8px',
     padding: '1em .5em',
@@ -96,7 +98,7 @@ const Login = ({
     <div id="login">
       <Grid container direction="column" className={classes.root} alignItems="center">
         <Grid className={classes.box} item xs={12}>
-          <Grid container direction="column" alignItems="center">          
+          <Grid container direction="column" alignItems="center">
             <Grid item className={classes.icon}>
               <Avatar align="center" className={classes.avatar}>
                 <LockOutlinedIcon />

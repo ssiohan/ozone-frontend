@@ -21,7 +21,9 @@ import SignupForm from './SignupForm';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.3)), url("src/assets/img/field.jpg")',
+    'background-size': 'cover',
     'min-height': '700px',
   },
   icon: {
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   avatar: {
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
   },
   box: {
     margin: '2em',
@@ -42,11 +44,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
     color: '#F2F2F2',
     fontWeight: 'bold',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },

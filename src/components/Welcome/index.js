@@ -13,7 +13,11 @@ import PropTypes from 'prop-types';
 import './welcome.scss';
 
 // == Import : sous-composants
-import BannerFree from 'src/components/Banner/BannerFree';
+// import BannerFree from 'src/components/Banner/BannerFree';
+import Section1 from './Section1';
+import Section2 from './Section2';
+import Section3 from './Section3';
+import Section4 from './Section4';
 
 
 // == Style du composant
@@ -29,8 +33,11 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = () => {
   const classes = useStyles();
   return (
-    <div id="signup">
-      <BannerFree />
+    <div id="welcome">
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      {/* <Section4 /> */}
       This is the Welcome Page
     </div>
   );

@@ -19,7 +19,8 @@ const lightColor = 'rgba(255, 255, 255, 0.8)';
 const useStyles = makeStyles((theme) => ({
 
   appBar: {
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: '#303944',
     padding: '.5em',
   },
   menuButton: {

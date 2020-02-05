@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     background: '#F0F8FF',
   },
+  
 }));
 
 // == Composant
@@ -30,7 +31,7 @@ const Event = ({ eventData, loading, found }) => {
   const classes = useStyles();
   // console.log(eventData);
   return (
-    <Grid container id="event">
+    <Grid className={classes.root} container id="event">
       <Paper className={classes.paper}>
         {/* Le found est OBLIGATOIRE car tant que les données 'eventData'
         ne sont pas chargées depuis l'api, elles sont en undifined, ce qui fait planter la page,

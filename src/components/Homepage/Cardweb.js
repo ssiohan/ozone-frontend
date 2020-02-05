@@ -82,11 +82,11 @@ const useStyles = makeStyles((theme) => ({
   },
   cardButton: {
     position: 'relative',
-    'background-color': '#526DDB',
+    'background-color': '#303944',
     color: '#fff',
     'white-space': 'nowrap',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
