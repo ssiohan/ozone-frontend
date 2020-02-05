@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawer: {
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: '#303944',
     height: '100%',
     display: 'flex',
     flexDirection: 'column',

@@ -2,8 +2,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
 import EventIcon from '@material-ui/icons/Event';
+import Paper from '@material-ui/core/Paper';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PhoneIcon from '@material-ui/icons/Phone';
 import { FaCoins } from 'react-icons/fa';
@@ -27,30 +27,37 @@ const useStyles = makeStyles((theme) => ({
   event_footer: {
     padding: theme.spacing(1),
   },
-  image: {
-    maxWidth: 300,
-    maxHeight: 300,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
   address: {
     maxWidth: 300,
     borderRight: 'solid 1px #E0E0E0',
   },
   tableRow: {
-    minHeight: 100,
-    paddingTop: theme.spacing(5),
+    minHeight: 50,
+    // paddingTop: theme.spacing(3),
     paddingLeft: theme.spacing(3),
     textAlign: 'left',
   },
   table: {
-    border: 'solid 1px #E0E0E0',
+    // border: 'solid 1px #E0E0E0',
   },
   tableCell: {
+    // textAlign: 'left',
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 1080,
+    borderRadius: '10px',
+    background: 'F8F8F8',
+
+  },
+  addresslinks: {
+    padding: '1em 0',
+  },
+  score: {
+    marginTop: '5em',
+    minHeight: 50,
+    paddingLeft: theme.spacing(3),
     textAlign: 'left',
   },
 }));
@@ -95,77 +102,76 @@ const EventFooter = ({
 
   const date = treatDate(dateEvent);
   return (
-    <Grid container justify="space-between" spacing={3} className={classes.event_footer}>
-      {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
-      <Grid item xs={12} md={4}>
-        <Grid container className={classes.address}>
-          <Grid item>
-            <MapEvent
-              latitude={latitude}
-              longitude={longitude}
-              address={address}
-            />
-          </Grid>
-          <Grid container item direction="column">
+    <Paper className={classes.paper}>
+      <Grid container justify="space-between" spacing={3} className={classes.event_footer}>
+        {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
+        <Grid item xs={12} md={4}>
+          <Grid container className={classes.address}>
             <Grid item>
-              <MapLink address={address} />
+              <MapEvent
+                latitude={latitude}
+                longitude={longitude}
+                address={address}
+              />
+            </Grid>
+            {/*  */}
+          </Grid>
+        </Grid>
+        {/* Partie du milieu avec infos sur l'event: participants, pénibilité, durée etc.. */}
+        <Grid item xs={12} md={4}>
+          <Grid container direction="column" justify="space-between">
+            <Grid item>
+              <EventCharacteristics
+                painfulness={painfulness}
+                duration={duration}
+                impactEnvironmental={impactEnvironmental}
+                impactSocietal={impactSocietal}
+              />
+            </Grid>
+          </Grid>
+          <Grid item className={classes.addresslinks}>
+            <EventAddress address={address} />
+            <MapLink address={address} />
+          </Grid>
+        </Grid>
+        {/* Partie de droite avec infos de contact de l'organisateur, date, score */}
+        <Grid item xs={12} md={4} className={classes.table}>
+          <Grid container className={classes.tableRow} spacing={2}>
+            <Grid item className={classes.TableCell}>
+              <EventIcon fontSize="medium" />
+            </Grid>
+            <Grid item className={classes.TableCell}>
+              {date}
+            </Grid>
+          </Grid>
+          <Grid container className={classes.tableRow} spacing={2}>
+            <Grid item className={classes.TableCell}>
+              <AccessTimeIcon fontSize="medium" />
+            </Grid>
+            <Grid item className={classes.TableCell}>
+              {time}h
+            </Grid>
+          </Grid>
+          <Grid container className={classes.tableRow} spacing={2}>
+            <Grid item className={classes.TableCell}>
+              <PhoneIcon fontSize="medium" />
+            </Grid>
+            <Grid item className={classes.TableCell}>
+              {/* Sera dynamisé */}
+              06.06.06.06.06
+            </Grid>
+          </Grid>
+          <Grid container className={classes.score} spacing={2}>
+            <Grid item className={classes.TableCell}>
+              <FaCoins fontSize="large" />
             </Grid>
             <Grid item>
-              <EventAddress address={address} />
+            Score: <span className="event_score">{result}/20</span>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      {/* Partie du milieu avec infos sur l'event: participants, pénibilité, durée etc.. */}
-      <Grid item xs={12} md={4}>
-        <EventCharacteristics
-          painfulness={painfulness}
-          duration={duration}
-          impactEnvironmental={impactEnvironmental}
-          impactSocietal={impactSocietal}
-        />
-      </Grid>
-      {/* Partie de droite avec infos de contact de l'organisateur, date, score */}
-      <Grid item xs={12} md={4} className={classes.table}>
-        <Grid container className={classes.tableRow} justify="space-around">
-          <Grid item className={classes.TableCell}>
-            <EventIcon fontSize="large" />
-          </Grid>
-          <Grid item className={classes.TableCell}>
-            {date}
-          </Grid>
-        </Grid>
-        <Divider variant="middle" />
-        <Grid container className={classes.tableRow} justify="space-around">
-          <Grid item className={classes.TableCell}>
-            <AccessTimeIcon fontSize="large" />
-          </Grid>
-          <Grid item className={classes.TableCell}>
-            {time}h
-          </Grid>
-        </Grid>
-        <Divider variant="middle" />
-        <Grid container className={classes.tableRow} justify="space-around">
-          <Grid item className={classes.TableCell}>
-            <PhoneIcon fontSize="large" />
-          </Grid>
-          <Grid item className={classes.TableCell}>
-            {/* Sera dynamisé */}
-            06.06.06.06.06
-          </Grid>
-        </Grid>
-        <Divider variant="middle" />
-        <Grid container className={classes.tableRow} justify="space-around">
-          <Grid item className={classes.TableCell}>
-            <FaCoins fontSize="large" />
-          </Grid>
-          <Grid item className={classes.TableCell}>
-            {/* Sera dynamisé */}
-          Score: <span className="event_score">{result}/20</span>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+    </Paper>
   );
 };
 EventFooter.propTypes = {

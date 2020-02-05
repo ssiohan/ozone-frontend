@@ -33,19 +33,25 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
 
-    'background-color': '#526DDB',
+    'background-color': '#303944',
     color: '#fff',
     'white-space': 'nowrap',
     margin: '4em 0',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#403944',
       color: '#fff',
     },
   },
   title: {
     background: '#fff',
     padding: '1em',
-    margin: '.3em',
+    margin: '.5em',
+    borderRadius: '5px',
+  },
+  titletxthead: {
+    margin: '1em',
+    color: '#fff',
+
   },
   titletxt: {
     margin: '1em',
@@ -90,7 +96,7 @@ const CreateForm = ({
   return (
     <form className={classes.form} onSubmit={handleCreateEventFormSubmit}>
       <Grid className={classes.root} container justify="center">
-        <Typography className={classes.titletxt} variant="h4">Créer un événement</Typography>
+        <Typography className={classes.titletxthead} variant="h4">Créer un événement</Typography>
 
         {/* Message d'erreur en cas de champs non remplis à la soumission */}
         {!logged && (

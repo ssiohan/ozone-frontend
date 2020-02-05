@@ -39,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
   },
   cardButton: {
     'margin-bottom': '1em',
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
+    color: '#fff',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
@@ -62,6 +63,7 @@ const Cardmob = ({
   userMax,
   description,
   city,
+  image,
   author,
   typeEvent,
   title,
@@ -109,7 +111,7 @@ const Cardmob = ({
       />
       <CardMedia
         className={classes.media}
-        image="/src/assets/img/IMG_1155.JPG"
+        image={`https://api.geekoz.fr/uploads/images/${image}`}
         title="Paella dish"
       />
       <CardContent>
@@ -156,5 +158,6 @@ Cardmob.propTypes = {
   city: PropTypes.string.isRequired,
   author: PropTypes.object.isRequired,
   typeEvent: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 export default Cardmob;

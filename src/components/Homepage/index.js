@@ -42,7 +42,7 @@ const Homepage = ({ search, events, category }) => {
 
   // console.log(currentCategory);
   return (
-    <div>
+    <div className={classes.root}>
       {!search && <Banner />}
       <Container className={classes.container} id="app">
         <Grid>

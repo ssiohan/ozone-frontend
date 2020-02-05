@@ -7,7 +7,8 @@
  }
 #event_title {
   font-weight: bolder;
-  font-size: x-large;
+  font-size: 1.5em;
+  margin: .5em 0;
 }
 
 #event_participants_progress {
@@ -22,18 +23,17 @@
 }
 
 #event_header {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 #event_footer {
-  margin-top: 8em;
+  margin-top: 2em;
 }
 .event_characteristics {
   font-weight: bold;
   text-decoration: underline;
 }
 #event_footer_address {
-  margin-left: 2em;
   margin-bottom: 1em;
 }
 .event_score {

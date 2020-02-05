@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 
 // == Import : local
@@ -20,7 +21,9 @@ import SignupForm from './SignupForm';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.3)), url("src/assets/img/field.jpg")',
+    'background-size': 'cover',
     'min-height': '700px',
   },
   icon: {
@@ -30,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   avatar: {
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
   },
   box: {
     margin: '2em',
@@ -38,6 +41,16 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     padding: '1em 0',
     opacity: '0.9',
+  },
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: '#303944',
+    color: '#F2F2F2',
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#203944',
+      color: '#fff',
+    },
   },
 }));
 
@@ -93,15 +106,14 @@ const Signup = (
             {registered && (
             <Grid item xs={12}>
               <Typography variant="body2" gutterBottom xs={12}>
-                Inscription réussie !
-                Veuillez cliquer sur ce lien pour vous rendre vers la
-                <Link
-                  href="/login"
-                  className={classes.link}
-                >
-                  page de connexion
-                </Link>
+                Inscription réussie!
               </Typography>
+              <Typography variant="body2" gutterBottom xs={12}>
+                Veuillez cliquer sur ce lien pour vous rendre vers la page de connexion
+              </Typography>
+              <Link to="/login" className={classes.link}>
+                <Button className={classes.button} variant="contained">Login</Button>
+              </Link>
             </Grid>
             )}
           </Grid>
