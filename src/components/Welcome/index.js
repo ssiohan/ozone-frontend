@@ -17,7 +17,7 @@ import './welcome.scss';
 import Header from './Header';
 import Customers from './Customers';
 import Organizer from './Organizer';
-import Section3 from './Section3';
+import Partners from './Partners';
 
 
 
@@ -52,7 +52,7 @@ const Welcome = () => {
       <Header className={classes.header} />
       <Customers />
       <Organizer />
-      <Section3 />
+      <Partners />
     </div>
   );
 };

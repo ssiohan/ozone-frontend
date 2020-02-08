@@ -46,10 +46,13 @@ const Header = () => {
           <Typography className={classes.title} variant="h2" component="h1">Faites des actes écologiques et recevez des récompenses</Typography>
         </Hidden>
       </Grid>
-      <Grid className={classes.h1} item>
-        <Typography className={classes.subtitle} variant="h4" component="h2">Créez, Organisez, Participez...</Typography>
-        <Typography className={classes.subtitle} variant="h6" component="h3">Et cumulez des points que vous pouvez échanger contre les lots ou les avantages mis à disposition par nos partenaires.</Typography>
-      </Grid>
+      <Hidden only={['xs']}>
+        <Grid className={classes.h1} item xs>
+          <Typography className={classes.subtitle} variant="h4" component="h2">Créez, Organisez, Participez...</Typography>
+          <Typography className={classes.subtitle} variant="h6" component="h3">Et cumulez des points que vous pouvez échanger</Typography>
+          <Typography className={classes.subtitle} variant="h6" component="h3">contre les lots ou les avantages mis à disposition par nos partenaires.</Typography>
+        </Grid>
+      </Hidden>
     </Grid>
   )
 };

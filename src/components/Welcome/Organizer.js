@@ -5,11 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import Hidden from '@material-ui/core/Hidden';
 
 // == Import : local
 import './welcome.scss';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     margin: '2em auto',
     flexGrow: 1,
@@ -25,7 +26,17 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
     },
   },
-  div: {
+  buttonmob: {
+    margin: '1em 0',
+    'background-color': '#303944',
+    color: '#fff',
+    'white-space': 'nowrap',
+    '&:hover': {
+      backgroundColor: '#203944',
+      color: '#fff',
+    },
+  },
+  left: {
     minHeight: '100%',
 
   },
@@ -38,26 +49,28 @@ const Organizer = () => {
     <Grid className={classes.root} spacing={1} container alignContent="center" justify="center">
       {/* Left */}
       <Grid xs={12} sm={6}>
-      <Grid className={classes.div} container direction="column" justify="space-between">
-        <Grid container direction="column" justify="space-between">
-          <Grid item xs={12} sm={12}>
-            <Typography variant="h4" align="left">
-            Créez et Organiser un événement
-            </Typography>
+        <Grid className={classes.left} container direction="column" justify="space-between">
+          <Grid container direction="column" justify="space-between">
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h4" align="left">
+              Créez et Organiser un événement
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h4" align="left">
+              Recevez plus de points
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <Typography variant="h4" align="left">
-            Recevez plus de points
-            </Typography>
+          <Grid className={classes.eventbutton} item xs={12} sm={6}>
+            <Hidden only={['xs']}>
+              <Grid container>
+                <Link to="/signup">
+                  <Button className={classes.button} variant="contained">Je m'inscris</Button>
+                </Link>
+              </Grid>
+            </Hidden>
           </Grid>
-        </Grid>
-        <Grid className={classes.eventbutton} item xs={12} sm={6}>
-          <Grid container>
-            <Link to="/signup">
-              <Button className={classes.button} variant="contained">Je m'inscris</Button>
-            </Link>
-          </Grid>
-        </Grid>
         </Grid>
       </Grid>
       {/* Right */}
@@ -69,18 +82,16 @@ const Organizer = () => {
         Pour cela rien de plus simple! Créez un compte organisateur et contribuer à sauver la planète.
         </Typography>
         <Typography variant="body1" align="left">
-        Naturellement, organiser étant plus long et demandant plus d'implication qu'une simple participation vous serez récompensé en conséquances.
-        </Typography>
-        <Typography variant="body1" align="left">
-        oZone est un site à but communautaire sur le thème de l’écologie, visant à rassembler des âmes soucieuses de l’état de santé de notre belle planète, de ses habitants…
-        </Typography>
-        <Typography variant="body1" align="left">
-        Changer les mentalités et les comportements de notre espèce vers quelque chose de plus respectueux et social, fait partie des objectifs principaux d’oZone.
-        </Typography>
-        <Typography variant="body1" align="left">
-        Vous trouverez donc ici toutes sortes d’événements à but écologique et non-lucratifs autour de chez vous ou ailleurs, çà c’est vous qui choisissez !
+        Naturellement, organiser étant plus long et demandant plus d'implication qu'une simple participation vous serez récompensé en conséquences.
         </Typography>
       </Grid>
+      <Hidden only={['sm', 'md', 'lg', 'xl']}>
+        <Grid container>
+          <Link to="/signup">
+            <Button className={classes.buttonmob} variant="contained">Je m'inscris</Button>
+          </Link>
+        </Grid>
+      </Hidden>
     </Grid>
   )
 };
