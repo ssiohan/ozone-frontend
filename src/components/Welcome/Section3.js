@@ -11,11 +11,12 @@ import './welcome.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(1),
-    flexGrow: 1,
+    margin: '2em auto',
+    padding: '1em',
+    maxWidth: '1200px',
   },
   left: {
-    paddingRight: '5em',
+    // paddingRight: '5em',
   },
   eventbutton: {
     color: 'white',
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const Section3 = () => {
   const classes = useStyles();
   return (
-    <Grid container alignContent="center" justify="center" id="section3">
+    <Grid className={classes.root} container alignContent="center" justify="center" id="section3">
       {/* Left */}
       <Grid className={classes.left} item xs={12} sm={6}>
         <Typography variant="body1" align="left">

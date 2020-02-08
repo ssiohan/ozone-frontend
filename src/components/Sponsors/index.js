@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.7)), url("src/assets/img/grass.jpg")',
     'background-size': 'cover',
-    height: '100%',
+    height: '100vh',
   },
   avatar: {
     marginRight: theme.spacing(1),
@@ -46,9 +46,11 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'nowrap',
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
+    height: '400px',
   },
   title: {
     color: '#F2F2F2',
+    // height: '400px',
   },
   points: {
     color: '#F2F2F2',

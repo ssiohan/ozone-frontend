@@ -13,19 +13,34 @@ import PropTypes from 'prop-types';
 import './welcome.scss';
 
 // == Import : sous-composants
-// import BannerFree from 'src/components/Banner/BannerFree';
-import Section1 from './Section1';
-import Section2 from './Section2';
+
+import Header from './Header';
+import Customers from './Customers';
+import Organizer from './Organizer';
 import Section3 from './Section3';
-import Section4 from './Section4';
+
 
 
 // == Style du composant
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    margin: theme.spacing(1),
-    flexGrow: 1,
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
+    'background-size': 'cover',
+    height: '100%',
   },
+  header: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
+    'background-size': 'cover',
+  },
+  content: {
+
+    // margin: '0 auto',
+    flexGrow: 1,
+    // maxWidth: '1200px',
+    
+    color: '#fff',
+  },
+  
 }));
 
 
@@ -33,11 +48,11 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = () => {
   const classes = useStyles();
   return (
-    <div id="welcome">
-      <Section1 />
-      <Section2 />
+    <div>
+      <Header className={classes.header} />
+      <Customers />
+      <Organizer />
       <Section3 />
-      {/* <Section4 /> */}
     </div>
   );
 };
