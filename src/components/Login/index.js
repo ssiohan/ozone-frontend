@@ -23,20 +23,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     'min-height': '100vh',
-    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
     background: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0, 0, 0, 0.6)), url("src/assets/img/plant.jpg")',
     'background-size': 'cover',
   },
-  root2: {
+  form: {
+
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: 350,
-      minWidth: 300,
       border: 'solid 1px #E0E0E0',
+
     },
-  },
-  icon: {
-    marginBottom: theme.spacing(1),
   },
   button: {
     margin: theme.spacing(1),
@@ -57,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: '#303944',
+
   },
   box: {
     marginTop: '8em',
@@ -64,6 +61,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     padding: '1em .5em',
     opacity: '0.9',
+  },
+  field: {
+    margin: '.5em',
+  },
+  container: {
+    padding: '2em 0',
   },
 }));
 
@@ -98,8 +101,8 @@ const Login = ({
     <div id="login">
       <Grid container direction="column" className={classes.root} alignItems="center">
         <Grid className={classes.box} item xs={12}>
-          <Grid container direction="column" alignItems="center">
-            <Grid item className={classes.icon}>
+          <Grid className={classes.container} container direction="column" alignItems="center">
+            <Grid item>
               <Avatar align="center" className={classes.avatar}>
                 <LockOutlinedIcon />
               </Avatar>
@@ -111,32 +114,21 @@ const Login = ({
             <Grid item xs={12}>
               { /** Début du formulaire */}
               <form
-                className={classes.root2}
+                className={classes.form}
                 noValidate
                 autoComplete="off"
                 onSubmit={handleLoginFormSubmit}
               >
-                <Grid
-                  container
-                  item
-                  direction="column"
-                  justify="center"
-                  xs={12}
-                >
+                <Grid container direction="column" justify="center">
                   {/* Message d'erreur en cas de champs non remplis à la soumission */}
                   {emptyLoginFieldsCounter > 0 && (
                   <Grid item>
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      xs={12}
-                      className={classes.emptyFieldsMessage}
-                    >
+                    <Typography variant="h5" gutterBottom className={classes.emptyFieldsMessage}>
                 Tous les champs doivent être remplis.
                     </Typography>
                   </Grid>
                   )}
-                  <Grid item xs={12}>
+                  <Grid className={classes.field} item xs={12}>
                     <TextField
                       id="field-email"
                       label="Email"
@@ -147,7 +139,7 @@ const Login = ({
                       onChange={handleInputChange}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid className={classes.field} item xs={12}>
                     <TextField
                       id="field-password"
                       label="Mot de passe"
