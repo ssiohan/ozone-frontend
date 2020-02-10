@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 
 // == Import : local
 import './welcome.scss';
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles(() => ({
   root: {
     margin: '2em auto',
     padding: '1em',
@@ -27,7 +28,7 @@ const Customers = () => {
   return (
     <Grid className={classes.root} container alignContent="center" justify="center">
       {/* Left */}
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={12} md={6}>
         <Grid container direction="column" justify="space-between">
           <Grid className={classes.title} item>
             <Grid item xs={12} sm={12}>
@@ -54,7 +55,7 @@ const Customers = () => {
         </Grid>
       </Grid>
       {/* Right */}
-      <Grid className={classes.right} item xs={12} sm={6}>
+      <Grid className={classes.right} item xs={12} sm={12} md={6}>
         <Grid item xs={12}>
           <Grid container>
             <Link to="events">

@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
     background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
     'background-size': 'cover',
     height: '100%',
+   // width: '100%',
   },
   header: {
     background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',

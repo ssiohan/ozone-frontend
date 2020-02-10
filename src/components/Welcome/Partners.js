@@ -45,7 +45,7 @@ const Partners = () => {
     <Grid className={classes.root} container alignContent="center" justify="center" id="Partners">
 
       {/* Left */}
-      <Grid className={classes.left} item xs={12} sm={6}>
+      <Grid className={classes.left} item xs={12} sm={12} md={6}>
         <Hidden only={['sm', 'md', 'lg', 'xl']}>
           <Grid className={classes.title} item xs={12} sm={12}>
             <Typography variant="h4" align="left">
@@ -70,7 +70,7 @@ const Partners = () => {
         </Typography>
       </Grid>
       {/* Right */}
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={12} md={6}>
         <Grid className={classes.right} container direction="column" justify="space-between">
           <Grid container alignContent="center" justify="center">
             <Hidden only={['xs']}>
