@@ -74,6 +74,7 @@ const Cardmob = ({
   duration,
   impactSocietal,
   impactEnvironmental,
+  eventUsers,
 }) => {
   const classes = useStyles();
   const treatDate = (apiDate) => {
@@ -133,7 +134,7 @@ const Cardmob = ({
           <Grid item xs={3}>
             <Grid container direction="column" justify="space-between" spacing={2} wrap="nowrap" item xs={12}>
               <Typography className={classes.rightContentText}>
-                <MdPeople /> .../{userMax}
+                <MdPeople /> {eventUsers.length}/{userMax}
               </Typography>
               <Typography className={classes.rightContentText}>
                 <FaCoins /> {result} /20
@@ -163,5 +164,6 @@ Cardmob.propTypes = {
   author: PropTypes.object.isRequired,
   typeEvent: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  eventUsers: PropTypes.array.isRequired,
 };
 export default Cardmob;
