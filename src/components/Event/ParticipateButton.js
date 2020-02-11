@@ -10,11 +10,11 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
     color: '#F2F2F2',
     fontWeight: 'bold',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
