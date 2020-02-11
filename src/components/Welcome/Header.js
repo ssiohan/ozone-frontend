@@ -12,10 +12,9 @@ const useStyles = makeStyles(() => ({
   root: {
     background: ' top linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
     'background-size': 'cover',
-    height: '550px',
+    padding: '4em 0',
     'background-position-y': 'bottom',
     color: '#fff',
-    
   },
   logoozone: {
     width: '100%',
@@ -24,7 +23,6 @@ const useStyles = makeStyles(() => ({
   h1: {
     maxWidth: '980px',
     margin: '0 auto',
-  
   },
   title: {
     margin: '1em 0',
@@ -40,7 +38,7 @@ const Header = () => {
     <Grid className={classes.root} container direction="column" justify="center">
       <Grid className={classes.h1} item>
         <Hidden only={['sm', 'md', 'lg', 'xl']}>
-          <Typography className={classes.title} variant="h3" component="h1">Faites des actes écologiques et recevez des récompenses</Typography>
+          <Typography className={classes.title} variant="h5" component="h1">Faites des actes écologiques et recevez des récompenses</Typography>
         </Hidden>
         <Hidden only={['xs']}>
           <Typography className={classes.title} variant="h2" component="h1">Faites des actes écologiques et recevez des récompenses</Typography>
@@ -51,6 +49,13 @@ const Header = () => {
           <Typography className={classes.subtitle} variant="h4" component="h2">Créez, Organisez, Participez...</Typography>
           <Typography className={classes.subtitle} variant="h6" component="h3">Et cumulez des points que vous pouvez échanger</Typography>
           <Typography className={classes.subtitle} variant="h6" component="h3">contre les lots ou les avantages mis à disposition par nos partenaires.</Typography>
+        </Grid>
+      </Hidden>
+      <Hidden only={['sm', 'md', 'lg', 'xl']}>
+        <Grid className={classes.h1} item xs>
+          <Typography className={classes.subtitle} variant="subtitle1" component="h2">Créez, Organisez, Participez...</Typography>
+          <Typography className={classes.subtitle} variant="subtitle2" component="h3">Et cumulez des points que vous pouvez échanger</Typography>
+          <Typography className={classes.subtitle} variant="subtitle2" component="h3">contre les lots ou les avantages mis à disposition par nos partenaires.</Typography>
         </Grid>
       </Hidden>
     </Grid>
