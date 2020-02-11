@@ -13,6 +13,8 @@ import Button from '@material-ui/core/Button';
 import { MdPeople } from 'react-icons/md';
 import { FaMapMarkerAlt, FaCoins } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -141,7 +143,9 @@ const Cardmob = ({
         </Grid>
       </CardActions>
       <Grid>
-        <Button className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+        <Link to={`/event/${slugify(title)}`}>
+          <Button href="" className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+        </Link>
       </Grid>
     </Card>
   );

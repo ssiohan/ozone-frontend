@@ -79,7 +79,7 @@ const Customers = () => {
       </Grid>
       <Grid className={classes.eventbutton} item xs={12}>
         <Grid container>
-          <Link to="/event">
+          <Link to="/events">
             <Button className={classes.button} variant="contained">Voir les événements</Button>
           </Link>
         </Grid>
