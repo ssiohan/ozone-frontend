@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
   address: {
     maxWidth: 300,
     borderRight: 'solid 1px #E0E0E0',
+    height: '100%',
+    minHeight: 250,
   },
   tableRow: {
     minHeight: 50,
@@ -59,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 50,
     paddingLeft: theme.spacing(3),
     textAlign: 'left',
+  },
+  mapcontainer: {
+    height: '100%',
   },
 }));
 const score = (a, b, c, d) => (a + b + c + d);
@@ -107,7 +112,7 @@ const EventFooter = ({
         {/* Partie de gauche avec la map, l'adresse et le lien vers Maps */}
         <Grid item xs={12} md={4}>
           <Grid container className={classes.address}>
-            <Grid item>
+            <Grid item xs={12}>
               <MapEvent
                 latitude={latitude}
                 longitude={longitude}

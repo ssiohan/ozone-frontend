@@ -97,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
-  eventUsers,
   userMax,
   author,
   image,
@@ -215,5 +214,6 @@ Cardweb.propTypes = {
   duration: PropTypes.number.isRequired,
   impactSocietal: PropTypes.number.isRequired,
   impactEnvironmental: PropTypes.number.isRequired,
+
 };
 export default Cardweb;

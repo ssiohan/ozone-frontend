@@ -1,30 +1,32 @@
 
 // == Import : npm
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { FaRegUserCircle } from 'react-icons/fa';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import PropTypes from 'prop-types';
-
 
 // == Import : local
 import './welcome.scss';
 
 // == Import : sous-composants
-// import BannerFree from 'src/components/Banner/BannerFree';
-import Section1 from './Section1';
-import Section2 from './Section2';
-import Section3 from './Section3';
-import Section4 from './Section4';
 
+import Header from './Header';
+import Customers from './Customers';
+import Organizer from './Organizer';
+import Partners from './Partners';
 
 // == Style du composant
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    margin: theme.spacing(1),
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
+    'background-size': 'cover',
+    height: '100%',
+  },
+  header: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)), url("src/assets/img/eole.jpg")',
+    'background-size': 'cover',
+  },
+  content: {
     flexGrow: 1,
+    color: '#fff',
   },
 }));
 
@@ -33,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = () => {
   const classes = useStyles();
   return (
-    <div id="welcome">
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      {/* <Section4 /> */}
+    <div>
+      <Header className={classes.header} />
+      <Customers />
+      <Organizer />
+      <Partners />
     </div>
   );
 };

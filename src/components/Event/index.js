@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     background: '#F0F8FF',
   },
-  
+  root: {
+    margin: 'auto',
+  },
 }));
 
 // == Composant

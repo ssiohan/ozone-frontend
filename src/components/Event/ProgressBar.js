@@ -12,11 +12,11 @@ import PropTypes from 'prop-types';
 const BorderLinearProgress = withStyles({
   root: {
     height: 15,
-    backgroundColor: lighten('#526DDB', 0.5),
+    backgroundColor: lighten('#303944', 0.5),
   },
   bar: {
     borderRadius: 20,
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
   },
 })(LinearProgress);
 
