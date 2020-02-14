@@ -68,7 +68,7 @@ const Organizer = () => {
           <Grid className={classes.title} container direction="column" justify="space-between">
             <Grid item xs={12} sm={12}>
               <Typography variant="h4" align="left">
-              Créez et Organisez un événement
+              Créez et Organisez un événement:
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12}>
