@@ -143,7 +143,7 @@ const EventFooter = ({
         <Grid item xs={12} md={4} className={classes.table}>
           <Grid container className={classes.tableRow} spacing={2}>
             <Grid item className={classes.TableCell}>
-              <EventIcon fontSize="medium" />
+              <EventIcon />
             </Grid>
             <Grid item className={classes.TableCell}>
               {date}
@@ -151,7 +151,7 @@ const EventFooter = ({
           </Grid>
           <Grid container className={classes.tableRow} spacing={2}>
             <Grid item className={classes.TableCell}>
-              <AccessTimeIcon fontSize="medium" />
+              <AccessTimeIcon />
             </Grid>
             <Grid item className={classes.TableCell}>
               {time}h
@@ -159,7 +159,7 @@ const EventFooter = ({
           </Grid>
           <Grid container className={classes.tableRow} spacing={2}>
             <Grid item className={classes.TableCell}>
-              <PhoneIcon fontSize="medium" />
+              <PhoneIcon />
             </Grid>
             <Grid item className={classes.TableCell}>
               {/* Sera dynamisé */}

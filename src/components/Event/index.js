@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const Event = ({ eventData, loading, found }) => {
+const Event = ({ eventData, loading, found, onGetEventId, onSetUserEvent }) => {
   const classes = useStyles();
   // console.log(eventData);
   return (
@@ -58,6 +58,9 @@ const Event = ({ eventData, loading, found }) => {
               <EventDescription
                 description={eventData.description}
                 image={eventData.image}
+                id={eventData.id}
+                onGetEventId={onGetEventId}
+                onSetUserEvent={onSetUserEvent}
               />
             </Grid>
             {/* Footer page avec map & adresse, caractérisques de l'event, contact de l'organisateur
@@ -98,6 +101,7 @@ Event.propTypes = {
     impactSocietal: PropTypes.number.isRequired,
     impactEnvironmental: PropTypes.number.isRequired,
     author: PropTypes.object.isRequired,
+    id: PropTypes.number.isRequired,
   }),
   loading: PropTypes.bool,
   found: PropTypes.bool.isRequired,

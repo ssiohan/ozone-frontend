@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const EventDescription = ({ description, image }) => {
+const EventDescription = ({ description, image, id, onGetEventId, onSetUserEvent }) => {
   const classes = useStyles();
   const baseUrl = 'https://api.geekoz.fr/uploads/images/';
-
+  onGetEventId(id);
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -63,7 +63,7 @@ const EventDescription = ({ description, image }) => {
                 <Typography variant="body1" gutterBottom className={classes.description}>{description}</Typography>
               </Grid>
               <Grid item>
-                <ParticipateButton />
+                <ParticipateButton id={id} onSetUserEvent={onSetUserEvent} />
               </Grid>
             </Grid>
           </Grid>
@@ -75,6 +75,7 @@ const EventDescription = ({ description, image }) => {
 EventDescription.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
+  id: PropTypes.number.isRequired,
 };
 EventDescription.defaultProps = {
   image: null,
