@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
     background: 'linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0, 0, 0, 0.3)), url("src/assets/img/field.jpg")',
     'background-size': 'cover',
-    'min-height': '1000px',
+    'min-height': '100vh',
   },
   icon: {
     marginBottom: theme.spacing(1),
@@ -36,11 +36,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#303944',
   },
   box: {
-    margin: '2em',
+    marginTop: '3em',
     background: '#EDF0F2',
     borderRadius: '8px',
     padding: '1em 0',
     opacity: '0.9',
+    width: '100%',
+    maxWidth: '300px',
   },
   button: {
     margin: theme.spacing(1),

@@ -10,7 +10,7 @@ import { CREATE_EVENT, eventCreated } from 'src/store/reducer/createEvent';
 const createEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_EVENT:
-      //const userId = localStorage.getItem('id');
+      // const userId = localStorage.getItem('id');
       // parsInt: transform a string to number (10 in second param is require)
 
       axios({

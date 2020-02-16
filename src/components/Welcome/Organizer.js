@@ -108,17 +108,14 @@ const Organizer = () => {
               </Grid>
             </Grid>
           </Hidden>
-          {/* <Hidden only={['md', 'lg', 'xl']}> */}
-            
-          {/* </Hidden> */}
         </Grid>
         <Grid className={classes.eventbutton} item xs={12} sm={6}>
-              <Grid container>
-                <Link to="/signup">
-                  <Button className={classes.button} variant="contained">Je m'inscris</Button>
-                </Link>
-              </Grid>
-            </Grid>
+          <Grid container>
+            <Link to="/signup">
+              <Button className={classes.button} variant="contained">Je m'inscris</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   )

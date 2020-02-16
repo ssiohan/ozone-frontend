@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 // == Import : local
 import './event.scss';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import EventHeader from './EventHeader';
 import EventDescription from './EventDescription';
 import EventFooter from './EventFooter';
+
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +31,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const Event = ({ eventData, loading, found }) => {
+const Event = ({
+  eventData,
+  loading,
+  found,
+  resetStatus,
+  alreadySubscribe,
+  userSubscribed,
+  onGetEventId,
+  onSetUserEvent,
+}) => {
   const classes = useStyles();
-  // console.log(eventData);
   return (
     <Grid className={classes.root} container id="event">
       <Paper className={classes.paper}>
@@ -58,6 +68,12 @@ const Event = ({ eventData, loading, found }) => {
               <EventDescription
                 description={eventData.description}
                 image={eventData.image}
+                id={eventData.id}
+                onGetEventId={onGetEventId}
+                onSetUserEvent={onSetUserEvent}
+                alreadySubscribe={alreadySubscribe}
+                userSubscribed={userSubscribed}
+                resetStatus={resetStatus}
               />
             </Grid>
             {/* Footer page avec map & adresse, caractérisques de l'event, contact de l'organisateur
@@ -98,9 +114,15 @@ Event.propTypes = {
     impactSocietal: PropTypes.number.isRequired,
     impactEnvironmental: PropTypes.number.isRequired,
     author: PropTypes.object.isRequired,
+    id: PropTypes.number.isRequired,
   }),
   loading: PropTypes.bool,
   found: PropTypes.bool.isRequired,
+  resetStatus: PropTypes.func.isRequired,
+  alreadySubscribe: PropTypes.bool.isRequired,
+  userSubscribed: PropTypes.bool.isRequired,
+  onGetEventId: PropTypes.func.isRequired,
+  onSetUserEvent: PropTypes.func.isRequired,
 };
 Event.defaultProps = {
   // si on met "{}" (objet vide) on ne passe pas la validation, car chaque élement est obligatoire

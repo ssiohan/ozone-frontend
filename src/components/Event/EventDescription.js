@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 
 // == Import d'un sous-composant
 import ParticipateButton from './ParticipateButton';
+import Subscribed from './Subscribed';
+import AlertAlreadySub from './AlertAlreadySub';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -40,10 +42,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // == Composant
-const EventDescription = ({ description, image }) => {
+const EventDescription = ({
+  description,
+  image,
+  id,
+  onGetEventId,
+  onSetUserEvent,
+  alreadySubscribe,
+  userSubscribed,
+  resetStatus,
+}) => {
   const classes = useStyles();
   const baseUrl = 'https://api.geekoz.fr/uploads/images/';
-
+  onGetEventId(id);
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -63,7 +74,10 @@ const EventDescription = ({ description, image }) => {
                 <Typography variant="body1" gutterBottom className={classes.description}>{description}</Typography>
               </Grid>
               <Grid item>
-                <ParticipateButton />
+                <ParticipateButton id={id} onSetUserEvent={onSetUserEvent} />
+                {alreadySubscribe && <AlertAlreadySub resetStatus={resetStatus} />}
+                {userSubscribed && <Subscribed />}
+
               </Grid>
             </Grid>
           </Grid>
@@ -75,9 +89,16 @@ const EventDescription = ({ description, image }) => {
 EventDescription.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  onGetEventId: PropTypes.func.isRequired,
+  onSetUserEvent: PropTypes.func.isRequired,
+  resetStatus: PropTypes.func.isRequired,
+  alreadySubscribe: PropTypes.bool.isRequired,
+  userSubscribed: PropTypes.bool.isRequired,
 };
 EventDescription.defaultProps = {
   image: null,
+
 
 };
 // == Export

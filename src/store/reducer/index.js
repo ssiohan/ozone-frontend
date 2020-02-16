@@ -7,7 +7,7 @@ import homepage from './homepage';
 import signup from './signup';
 import profile from './profile';
 import createEvent from './createEvent';
-
+import event from './event';
 
 // l'intérêt d'avoir plusieurs reducers est de classer les informations par catégorie,
 // plus facile pour s'y retrouver
@@ -22,6 +22,7 @@ const reducer = combineReducers({
   signup,
   profile,
   createEvent,
+  event,
 });
 
 export default reducer;
