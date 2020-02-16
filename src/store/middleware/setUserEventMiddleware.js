@@ -1,12 +1,11 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable camelcase */
+// middleware pour participer à un event
 // == Imports: npm
 import axios from 'axios';
 
 // == Import d'actions
-import { SET_USER_EVENT } from 'src/store/reducer/event';
+import { SET_USER_EVENT, userSubscribed, userIsAlreadySubscribe } from 'src/store/reducer/event';
 
-// == Le middleware
+// == middleware
 
 const setUserEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -19,12 +18,25 @@ const setUserEventMiddleware = (store) => (next) => (action) => {
         method: 'post',
         url: `https://api.geekoz.fr/api/v1/users/${userId}/user_subscribe/${eventId}`,
         headers: { Authorization: `Bearer ${token}` },
+        //  route et methode qui verifie si user dèjà inscrit:
+        // url: `https://api.geekoz.fr/api/v1/users/${userId}/has_subscribed/${eventId}}`,
+        // method: 'get',
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response);
+
+          if (response.data === 'création nouveau participant') {
+            store.dispatch(userSubscribed());
+            // alert('bien inscrit');
+          }
+          if (response.data === 'utilisateur déja inscrit') {
+            store.dispatch(userIsAlreadySubscribe());
+            //  alert('dèjà inscrit');
+          }
         })
         .catch((error) => {
           console.log(error);
+          alert('token expiré');
         });
     }
       break;
@@ -35,3 +47,5 @@ const setUserEventMiddleware = (store) => (next) => (action) => {
 
 // == Export
 export default setUserEventMiddleware;
+// création nouveau participant
+// utilisateur déja inscrit

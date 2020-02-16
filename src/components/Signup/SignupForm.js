@@ -11,10 +11,11 @@ import Typography from '@material-ui/core/Typography';
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
   root: {
+   //  
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: 350,
-      minWidth: 300,
+      margin: '.5em 0',
+      // minWidth: 300,
+      width: '100%',
       border: 'solid 1px #E0E0E0',
       borderRadius: '5px',
     },
@@ -32,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   emptyFieldsMessage: {
     color: '#EA282A',
     fontSize: 'x-small',
+  },
+  field: {
+    width: '270px',
   },
 }));
 
@@ -73,91 +77,90 @@ const SignupForm = (
     getSignedUp();
   };
   return (
-    <form
-      className={classes.root}
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSignupFormSubmit}
-    >
-      <Grid
-        container
-        direction="column"
-        justify="center"
+    <Grid>
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSignupFormSubmit}
       >
-        {/* Message d'erreur en cas de champs non remplis à la soumission */}
-        {emptyFieldsCounter > 0 && (
-        <Grid itemxs={12} >
-          <Typography
-            variant="h5"
-            gutterBottom
-            className={classes.emptyFieldsMessage}
-          >
-             Tous les champs doivent être remplis.
-          </Typography>
+        <Grid container direction="column" justify="center">
+          {/* Message d'erreur en cas de champs non remplis à la soumission */}
+          {emptyFieldsCounter > 0 && (
+          <Grid item xs={12}>
+            <Typography
+              variant="h5"
+              gutterBottom
+              className={classes.emptyFieldsMessage}
+            >
+              Tous les champs doivent être remplis.
+            </Typography>
+          </Grid>
+          )}
+          <Grid item xs={12}>
+            <TextField
+              id="signup-email"
+              label="Email"
+              variant="outlined"
+              type="email"
+              name="signupEmail"
+              value={signupEmailValue}
+              onChange={handleSignupInputChange}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="signup-username"
+              label="Pseudo"
+              variant="outlined"
+              type="text"
+              name="signupUsername"
+              value={signupUsernameValue}
+              onChange={handleSignupInputChange}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="signup-password"
+              label="Mot de passe"
+              variant="outlined"
+              type="password"
+              name="signupPassword"
+              value={signupPasswordValue}
+              onChange={handleSignupInputChange}
+              onBlur={handlePasswordConfirmation}
+            />
+          </Grid>
+          <Grid className={classes.field} item>
+            <TextField
+              
+              id="signup-password-confirm"
+              label="Confirmez mot de passe"
+              variant="outlined"
+              type="password"
+              name="signupConfirmPassword"
+              value={signupConfirmPasswordValue}
+              onChange={handleSignupInputChange}
+              onBlur={handlePasswordConfirmation}
+              // Vérification de la confirmation du mot de passe
+              error={passwordNotConfirmed && true}
+              helperText={passwordNotConfirmed && 'Les mots de passe saisis ne sont pas identiques'}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              type="submit"
+              color="default"
+              size="large"
+              className={classes.button}
+            >
+          Inscription
+            </Button>
+          </Grid>
         </Grid>
-        )}
-        <Grid item xs={12}>
-          <TextField
-            id="signup-email"
-            label="Email"
-            variant="outlined"
-            type="email"
-            name="signupEmail"
-            value={signupEmailValue}
-            onChange={handleSignupInputChange}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            id="signup-username"
-            label="Pseudo"
-            variant="outlined"
-            type="text"
-            name="signupUsername"
-            value={signupUsernameValue}
-            onChange={handleSignupInputChange}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            id="signup-password"
-            label="Mot de passe"
-            variant="outlined"
-            type="password"
-            name="signupPassword"
-            value={signupPasswordValue}
-            onChange={handleSignupInputChange}
-            onBlur={handlePasswordConfirmation}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            id="signup-password-confirm"
-            label="Confirmez votre mot de passe"
-            variant="outlined"
-            type="password"
-            name="signupConfirmPassword"
-            value={signupConfirmPasswordValue}
-            onChange={handleSignupInputChange}
-            onBlur={handlePasswordConfirmation}
-            // Vérification de la confirmation du mot de passe
-            error={passwordNotConfirmed && true}
-            helperText={passwordNotConfirmed && 'Les mots de passe saisis ne sont pas identiques'}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button
-            variant="contained"
-            type="submit"
-            color="default"
-            size="large"
-            className={classes.button}
-          >
-        Inscription
-          </Button>
-        </Grid>
-      </Grid>
-    </form>
+      </form>
+    </Grid>
 
   );
 };
