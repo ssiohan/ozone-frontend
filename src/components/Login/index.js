@@ -171,10 +171,10 @@ const Login = ({
                 Connexion réussie!
               </Typography>
               <Typography variant="body2" gutterBottom xs={12}>
-                Veuillez cliquer sur ce lien pour vous rendre vers la page event
+                Veuillez cliquer sur ce lien pour vous rendre sur les évents
               </Typography>
               <Link to="/events" className={classes.link}>
-                <Button className={classes.button} variant="contained"> page events</Button>
+                <Button className={classes.button} variant="contained">Voir les événements</Button>
               </Link>
             </Grid>
             )}

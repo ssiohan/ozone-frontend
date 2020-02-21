@@ -10,7 +10,6 @@ import {
   goCreateEvent,
   checkForEmptyFields,
   getCoordinates,
-  getLongitude,
 
 } from 'src/store/reducer/createEvent';
 

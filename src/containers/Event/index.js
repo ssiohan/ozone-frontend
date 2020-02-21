@@ -11,7 +11,7 @@ import { getEventId, goSetUserEvent, goresetStatus } from 'src/store/reducer/eve
 const mapStateToProps = (state, ownProps) => {
   const event = getEventBySlug(ownProps.match.params.slug, state.homepage.events);
 
-  // console.log(event);
+   console.log(state);
   // si pas d'event trouvé (mauvaise URL), event vaut undefined
 
   return ({
