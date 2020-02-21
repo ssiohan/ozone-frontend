@@ -6,7 +6,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DATA:
       // appel axios
-      axios.get('https://api.geekoz.fr/api/v1/events')
+      axios.get('https://api.ozone.best/api/v1/events')
         .then((response) => {
           // console.log(response);
           const receiveDataAction = receiveData(response.data);

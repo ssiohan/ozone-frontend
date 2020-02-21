@@ -4,15 +4,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Link from '@material-ui/core/Link';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GiEarthAmerica } from 'react-icons/gi';
-import Drawer from './Drawer';
 import DrawerProfile from 'src/containers/Navbar/DrawerProfile';
 import { NavLink } from 'react-router-dom';
-
+import Drawer from './Drawer';
 // == Import : local
 import './navbar.scss';
 
@@ -22,7 +19,8 @@ const lightColor = 'rgba(255, 255, 255, 0.8)';
 const useStyles = makeStyles((theme) => ({
 
   appBar: {
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    // background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: '#303944',
     padding: '.5em',
   },
   menuButton: {
@@ -94,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ logged, emailValue }) => {
+const Header = ({ logged, userData }) => {
 // console.log(logged);
   // logged: value in the state: if logged is false "s'inscrire" and "se connecter" buttons appears
   // if logged is true and <Avatar /> appear
@@ -126,11 +124,6 @@ const Header = ({ logged, emailValue }) => {
                       zone
                     </NavLink>
                   </Grid>
-                  {logged && (
-                  // eslint-disable-next-line react/jsx-wrap-multilines
-                  <Grid item>
-                    <Typography color="inherit" variant="body2">{emailValue} </Typography>
-                  </Grid>)}
                 </Grid>
               </Grid>
             </Hidden>

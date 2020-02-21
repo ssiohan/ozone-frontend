@@ -31,7 +31,7 @@ const MapLink = ({ address }) => {
       target="_blank"
     >
       <MapIcon />
-      Voir sur Maps
+      Voir sur Google Maps
     </Link>
   );
 };

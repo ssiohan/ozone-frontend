@@ -3,6 +3,7 @@ import React from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 // == Import : local
 import './event.scss';
@@ -22,7 +23,7 @@ const EventHeader = ({
   userMax,
 }) => {
   return (
-    <Grid container justify="space-between">
+    <Grid container direction="row" justify="space-between">
       {/* Partie gauche du header */}
       <Grid item container xs={12} md={9}>
         <Grid item>
@@ -33,22 +34,24 @@ const EventHeader = ({
             <EventLabel typeEvent={typeEvent} />
           </Grid>
           <Grid item>
-            <p id="event_participants_progress">{eventUsers.length}/{userMax} participants</p>
+            <Typography id="event_participants_progress">{eventUsers.length}/{userMax} participants</Typography>
             <ProgressBar participants={eventUsers.length} userMax={userMax} />
           </Grid>
         </Grid>
         <Grid item>
-          <p>
+          <Typography>
             Proposé par : <span id="event_author_name">{author}</span>
-          </p>
+          </Typography>
         </Grid>
       </Grid>
       {/* Partie droite header */}
       <Grid item xs={12} md={3}>
         {/* Le bouton modifier n'apparaît que pour
         les orgas connectés se trouvant sur leur event */}
-        <ModifyButton />
-        <ShareButton />
+        <Grid container direction="column" alignItems="flex-end">
+          <ModifyButton />
+          <ShareButton />
+        </Grid>
       </Grid>
     </Grid>
   )

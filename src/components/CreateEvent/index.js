@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import './createEvent.scss';
 
 // == Import : sous-composants
-import BannerCreateEvent from './BannerCreateEvent';
+
 import CreateForm from './CreateForm';
 import CreateEventValid from './CreateEventValid';
 
@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   preview: {
     marginTop: theme.spacing(1),
+  },
+  root: {
+    background: 'linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0, 0, 0, 0.6)), url("src/assets/img/grass.jpg")',
+    'background-size': 'cover',
   },
 }));
 
@@ -39,8 +43,7 @@ const CreateEvent = ({
 }) => {
   const classes = useStyles();
   return (
-    <Grid container>
-      <BannerCreateEvent />
+    <Grid className={classes.root} container>
       {statusText && <CreateEventValid title={title} />}
       {!statusText && (
         <CreateForm

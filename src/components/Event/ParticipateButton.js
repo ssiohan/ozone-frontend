@@ -10,26 +10,38 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#526DDB',
+    backgroundColor: '#303944',
     color: '#F2F2F2',
     fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#203944',
+      color: '#fff',
+    },
   },
 }));
 
 // == Composant
-const ParticipateButton = () => {
+const ParticipateButton = ({ onSetUserEvent }) => {
   const classes = useStyles();
+  // Fonction qui gère la soumission du formulaire
 
+  const handleSetUserEventSubmit = (evt) => {
+    evt.preventDefault();
+    onSetUserEvent();
+  };
   return (
     <div>
-      <Button
-        variant="contained"
-        color="default"
-        size="large"
-        className={classes.button}
-      >
-        Participer
-      </Button>
+      <form onSubmit={handleSetUserEventSubmit}>
+        <Button
+          variant="contained"
+          color="default"
+          size="large"
+          className={classes.button}
+          type="submit"
+        >
+          Participer
+        </Button>
+      </form>
     </div>
   );
 };

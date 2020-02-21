@@ -30,6 +30,7 @@ const initialState = {
   author: '',
   statusText: false,
   address: '',
+  userData: '',
   // Par défaut, le compteur de champs vides est à zéro
   emptyFields: 0,
 };

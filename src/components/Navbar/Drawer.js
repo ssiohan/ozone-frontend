@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
+import { NavLink } from 'react-router-dom';
 
 const lightColor = 'rgba(255, 255, 255, 0.8)';
 
@@ -28,12 +28,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawer: {
-    background: '-webkit-gradient(linear, right top, left bottom, from(rgba(146,100,231,1)),to(rgba(54,204,212,1)))',
+    background: '#303944',
     height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+
   },
 }));
 
-const TemporaryDrawer = ({ logged }) => {
+const TemporaryDrawer = () => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false,
@@ -55,37 +58,31 @@ const TemporaryDrawer = ({ logged }) => {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List className={classes.drawer}>
-        <ListItem button component="a" href="/">
-          <Link underline="none" className={classes.link} href="/">
+        <ListItem>
+          <NavLink underline="none" className={classes.link} to="/" exact activeClassName={classes.linkActive}>
             Accueil
-          </Link>
+          </NavLink>
         </ListItem>
-        <ListItem button component="a" href="/event">
-          <Link underline="none" className={classes.link} href="/event">
+        <ListItem>
+          <NavLink underline="none" className={classes.link} to="/events" exact activeClassName={classes.linkActive}>
             Les events
-          </Link>
+          </NavLink>
         </ListItem>
-        <ListItem button component="a" href="/create-event">
-          <Link underline="none" className={classes.link} href="/create-event">
+        <ListItem>
+          <NavLink underline="none" className={classes.link} to="/create-event" exact activeClassName={classes.linkActive}>
             Ajouter un event
-          </Link>
+          </NavLink>
         </ListItem>
-        <ListItem button component="a" href="/about">
-          <Link underline="none" className={classes.link} href="/about">
+        <ListItem>
+          <NavLink underline="none" className={classes.link} to="/about" exact activeClassName={classes.linkActive}>
             À propos
-          </Link>
+          </NavLink>
         </ListItem>
-        <ListItem button component="a" href="/sponsors">
-          <Link underline="none" className={classes.link} href="/sponsors">
+        <ListItem>
+          <NavLink underline="none" className={classes.link} to="/sponsors" exact activeClassName={classes.linkActive}>
             Partenaires
-          </Link>
+          </NavLink>
         </ListItem>
-        {logged && (<ListItem button component="a" href="/sponsors">
-          <Link underline="none" className={classes.link} href="/sponsors">
-            test state
-          </Link>
-        </ListItem>)}
-        
       </List>
     </div>
   );

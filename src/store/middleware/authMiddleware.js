@@ -11,12 +11,12 @@ import { fetchUserId } from 'src/store/reducer/profile';
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DO_LOGIN:
-      axios.post('https://api.geekoz.fr/api/login_check', {
+      axios.post('https://api.ozone.best/api/login_check', {
         username: `${store.getState().login.email}`,
         password: `${store.getState().login.password}`,
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           // En cas de succès, je stocke les tokens dans le LocalStorage
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('refresh_token', response.data.refresh_token);

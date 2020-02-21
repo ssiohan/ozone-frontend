@@ -8,8 +8,11 @@ import DrawerProfile from 'src/components/Navbar/DrawerProfile';
 import { logoutUser } from 'src/store/reducer/login';
 
 // == Préparation: data
-const mapStateToProps = null;
-
+const mapStateToProps = (state) => {
+  return {
+    userData: state.profile.userData,
+  };
+};
 // == Préparation - actions
 const mapDispatchToProps = (dispatch) => ({
   onClickOnLogout: () => {

@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(checkForEmptyLoginFields());
   },
   getLoggedIn: () => {
-    console.log('hello depuis mDtp, je vais connecter le user');
+    // console.log('hello depuis mDtp, je vais connecter le user');
     dispatch(doLogin());
   },
 });

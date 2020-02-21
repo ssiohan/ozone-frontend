@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import './profile.scss';
 
 // == Import de sous-composants
-import Banner from 'src/components/Banner';
+import BannerFree from 'src/components/Banner/BannerFree';
 import ModifyProfileForm from 'src/containers/Profile/ModifyProfileForm';
 import CardProfile from './CardProfile';
 
@@ -94,11 +94,11 @@ class Profile extends React.Component {
     const signupDate = treatDate(userData.createdAt);
 
     // Chemin pour récupérer les images de l'api
-    const baseUrl = 'https://api.geekoz.fr/uploads/images/';
-
+    const baseUrl = 'https://api.ozone.best/uploads/images/';
+    console.log(userData.avatar);
     return (
       <div id="profile">
-        <Banner />
+        <BannerFree />
         <Grid
           container
           justify="center"

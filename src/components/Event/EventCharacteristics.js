@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   characteristic: {
-    textAlign: 'center',
+    textAlign: 'left',
     paddingLeft: theme.spacing(1),
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(1),
   },
 }));
 
@@ -37,11 +37,11 @@ const EventCharacteritics = ({
       <Typography className={classes.characteristic}>
         <span className="event_characteristics">Caractéristiques de l'événement</span>
       </Typography>
-      <Typography className={classes.characteristic}>
+      {/* <Typography className={classes.characteristic}>
         <MdPeople /> 14/20 participants
-      </Typography>
+      </Typography> */}
       <Typography className={classes.characteristic}>
-        <GoGraph /> painfulness
+        <GoGraph /> pénibilité
         <Rating name="read-only" value={painfulness} size="small" />
       </Typography>
       <Typography className={classes.characteristic}>

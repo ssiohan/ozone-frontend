@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 
 // == Import : local
@@ -24,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   cardButton: {
-    'background-color': '#526DDB',
+    'background-color': '#303944',
     color: '#fff',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
@@ -61,7 +62,9 @@ export default function FullWidthGrid() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <Button className={classes.cardButton} variant="contained">s'inscrire</Button>
+            <Link to="/signup">
+              <Button className={classes.cardButton} variant="contained">s'inscrire</Button>
+            </Link>
           </Grid>
         </Grid>
       </div>

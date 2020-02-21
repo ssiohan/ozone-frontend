@@ -82,11 +82,11 @@ const useStyles = makeStyles((theme) => ({
   },
   cardButton: {
     position: 'relative',
-    'background-color': '#526DDB',
+    'background-color': '#303944',
     color: '#fff',
     'white-space': 'nowrap',
     '&:hover': {
-      backgroundColor: '#626DDB',
+      backgroundColor: '#203944',
       color: '#fff',
     },
   },
@@ -97,9 +97,9 @@ const useStyles = makeStyles((theme) => ({
 const score = (a, b, c, d) => (a + b + c + d);
 
 const Cardweb = ({
-  eventUsers,
   userMax,
   author,
+  image,
   title,
   dateEvent,
   painfulness,
@@ -141,7 +141,7 @@ const Cardweb = ({
           <CardMedia
             component="img"
             className={classes.media}
-            image="src/assets/img/bio.jpg"
+            image={`https://api.ozone.best/uploads/images/${image}`}
             title="image test"
           />
         </Grid>
@@ -151,7 +151,7 @@ const Cardweb = ({
           </Grid>
           <Grid container spacing={0} item xs={12} sm={3}>
             <Grid container alignItems="center" justify="flex-start" direction="column" className={classes.leftContent}>
-              <Avatar aria-label="recipe" src="src/assets/img/matthew.png" sizes="small" className={classes.avatar}> </Avatar>
+              <Avatar aria-label="recipe" src={`https://api.ozone.best/uploads/images/${author.avatar}`} sizes="small" className={classes.avatar}> </Avatar>
               <Typography>{author.pseudo}</Typography>
               <Typography className="date">{date}</Typography>
               <Link to={`/event/${slugify(title)}`}>
@@ -208,10 +208,12 @@ Cardweb.propTypes = {
   userMax: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   dateEvent: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
+  image: PropTypes.string.isRequired,
   painfulness: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   impactSocietal: PropTypes.number.isRequired,
   impactEnvironmental: PropTypes.number.isRequired,
-  author: PropTypes.object.isRequired,
+
 };
 export default Cardweb;
