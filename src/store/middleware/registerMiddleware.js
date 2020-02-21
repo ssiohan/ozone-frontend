@@ -10,7 +10,7 @@ import { DO_SIGNUP, registerUser } from 'src/store/reducer/signup';
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DO_SIGNUP:
-      axios.post('https://api.geekoz.fr/api/v1/users', {
+      axios.post('https://api.ozone.best/api/v1/users', {
         email: `${store.getState().signup.signupEmail}`,
         pseudo: `${store.getState().signup.signupUsername}`,
         password: `${store.getState().signup.signupPassword}`,

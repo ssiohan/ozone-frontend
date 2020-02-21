@@ -53,7 +53,7 @@ const EventDescription = ({
   resetStatus,
 }) => {
   const classes = useStyles();
-  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
+  const baseUrl = 'https://api.ozone.best/uploads/images/';
   onGetEventId(id);
   return (
     <div className={classes.root}>

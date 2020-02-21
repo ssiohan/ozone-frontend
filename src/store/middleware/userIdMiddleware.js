@@ -14,7 +14,7 @@ const userIdMiddleware = (store) => (next) => (action) => {
       const token = localStorage.getItem('token');
       axios({
         method: 'get',
-        url: `https://api.geekoz.fr/api/v1/get_user_id/${store.getState().login.email}`,
+        url: `https://api.ozone.best/api/v1/get_user_id/${store.getState().login.email}`,
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {

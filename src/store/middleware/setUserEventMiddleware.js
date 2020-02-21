@@ -16,10 +16,10 @@ const setUserEventMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: `https://api.geekoz.fr/api/v1/users/${userId}/user_subscribe/${eventId}`,
+        url: `https://api.ozone.best/api/v1/users/${userId}/user_subscribe/${eventId}`,
         headers: { Authorization: `Bearer ${token}` },
         //  route et methode qui verifie si user dèjà inscrit:
-        // url: `https://api.geekoz.fr/api/v1/users/${userId}/has_subscribed/${eventId}}`,
+        // url: `https://api.ozone.best/api/v1/users/${userId}/has_subscribed/${eventId}}`,
         // method: 'get',
       })
         .then((response) => {

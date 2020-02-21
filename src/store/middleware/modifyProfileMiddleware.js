@@ -23,7 +23,7 @@ const modifyProfileMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'patch',
-        url: `https://api.geekoz.fr/api/v1/users/${userId}`,
+        url: `https://api.ozone.best/api/v1/users/${userId}`,
         headers: { Authorization: `Bearer ${token}` },
         data: {
           email,

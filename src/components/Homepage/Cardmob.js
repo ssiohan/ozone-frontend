@@ -114,7 +114,7 @@ const Cardmob = ({
       />
       <CardMedia
         className={classes.media}
-        image={`https://api.geekoz.fr/uploads/images/${image}`}
+        image={`https://api.ozone.best/uploads/images/${image}`}
         title="Paella dish"
       />
       <CardContent>

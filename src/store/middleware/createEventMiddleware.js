@@ -15,7 +15,7 @@ const createEventMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'POST',
-        url: 'https://api.geekoz.fr/api/v1/events',
+        url: 'https://api.ozone.best/api/v1/events',
         headers: { Authorization: `Bearer ${store.getState().login.token}` },
         data: {
           title: `${store.getState().createEvent.title}`,

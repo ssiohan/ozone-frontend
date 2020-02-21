@@ -90,7 +90,7 @@ const CardProfile = ({
   // function result return a /20 score
   const result = score(painfulness, duration, impactSocietal, impactEnvironmental);
   // Chemin pour récupérer les images de l'API
-  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
+  const baseUrl = 'https://api.ozone.best/uploads/images/';
   return (
     <Card className={classes.card}>
       <CardHeader

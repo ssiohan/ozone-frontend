@@ -16,7 +16,7 @@ const userDataMiddleware = (store) => (next) => (action) => {
       const token = localStorage.getItem('token');
       axios({
         method: 'get',
-        url: `https://api.geekoz.fr/api/v1/users/${store.getState().profile.userId}`,
+        url: `https://api.ozone.best/api/v1/users/${store.getState().profile.userId}`,
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
@@ -37,7 +37,7 @@ const userDataMiddleware = (store) => (next) => (action) => {
         const id = localStorage.getItem('id');
         axios({
           method: 'get',
-          url: `https://api.geekoz.fr/api/v1/users/${id}`,
+          url: `https://api.ozone.best/api/v1/users/${id}`,
           headers: { Authorization: `Bearer ${token}` },
         })
           .then((response) => {

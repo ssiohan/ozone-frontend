@@ -11,7 +11,7 @@ import { fetchUserId } from 'src/store/reducer/profile';
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case DO_LOGIN:
-      axios.post('https://api.geekoz.fr/api/login_check', {
+      axios.post('https://api.ozone.best/api/login_check', {
         username: `${store.getState().login.email}`,
         password: `${store.getState().login.password}`,
       })

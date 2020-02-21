@@ -87,7 +87,7 @@ export default function SimpleDialogDemo({ onClickOnLogout, userData }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
+  const baseUrl = 'https://api.ozone.best/uploads/images/';
   return (
     <div>
       <Grid item>
