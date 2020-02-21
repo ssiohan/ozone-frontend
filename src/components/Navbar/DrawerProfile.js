@@ -73,7 +73,7 @@ SimpleDialog.propTypes = {
   onClickOnLogout: PropTypes.func.isRequired,
 };
 
-export default function SimpleDialogDemo({ onClickOnLogout }) {
+export default function SimpleDialogDemo({ onClickOnLogout, userData }) {
   // La props onClickonLogout vient du container DrawerProfile
 
   const [open, setOpen] = React.useState(false);
@@ -87,11 +87,12 @@ export default function SimpleDialogDemo({ onClickOnLogout }) {
   const handleClose = () => {
     setOpen(false);
   };
+  const baseUrl = 'https://api.geekoz.fr/uploads/images/';
   return (
     <div>
       <Grid item>
         <IconButton color="inherit" onClick={handleClickOpen}>
-          <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+          <Avatar src={`${baseUrl}` + `${userData}`} alt="My Avatar" />
         </IconButton>
       </Grid>
       <SimpleDialog

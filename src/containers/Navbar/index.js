@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Navbar from 'src/components/Navbar';
 // import Drawer from 'src/components/Navbar/Drawer';
 
+
 // == Préparation: data
 const mapStateToProps = (state) => {
 

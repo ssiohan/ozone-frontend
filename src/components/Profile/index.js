@@ -95,7 +95,7 @@ class Profile extends React.Component {
 
     // Chemin pour récupérer les images de l'api
     const baseUrl = 'https://api.geekoz.fr/uploads/images/';
-
+    console.log(userData.avatar);
     return (
       <div id="profile">
         <BannerFree />

@@ -16,7 +16,7 @@ const authMiddleware = (store) => (next) => (action) => {
         password: `${store.getState().login.password}`,
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           // En cas de succès, je stocke les tokens dans le LocalStorage
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('refresh_token', response.data.refresh_token);

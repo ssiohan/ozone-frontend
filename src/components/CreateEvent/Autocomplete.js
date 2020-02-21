@@ -15,6 +15,11 @@ const useStyles = makeStyles(() => ({
 const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates }) => {
   const [address, setAddress] = React.useState('');
   const classes = useStyles();
+  const searchOptions = {
+    componentRestrictions: {
+      country: 'FR',
+    },
+  };
 
   // console.log(useState);
   const handleSelect = (value) => {
@@ -38,6 +43,7 @@ const Autocomplete = ({ onCreateEventFieldChange, onGetCoordinates }) => {
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
+        searchOptions={searchOptions}
       >
         {({
           getInputProps,
