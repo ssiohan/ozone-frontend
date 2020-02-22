@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { GiRecycle } from 'react-icons/gi';
 import { GoGraph } from 'react-icons/go';
 import { FaPeopleCarry } from 'react-icons/fa';
-import { MdPeople, MdAccessTime } from 'react-icons/md';
+import { MdAccessTime } from 'react-icons/md';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({

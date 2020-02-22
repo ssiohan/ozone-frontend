@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   whitetext: {
     color: '#FFF',
-  }
+  },
 }));
 
 export default function About() {

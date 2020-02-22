@@ -3,7 +3,15 @@
 import axios from 'axios';
 
 // == Import d'actions
-import { SET_USER_EVENT, userSubscribed, userIsAlreadySubscribe } from 'src/store/reducer/event';
+import {
+  SET_USER_EVENT,
+  userSubscribed,
+  userIsAlreadySubscribe,
+  userNotConnected,
+  userIsConnected,
+} from 'src/store/reducer/event';
+
+import { logoutUser } from 'src/store/reducer/login';
 
 // == middleware
 
@@ -26,17 +34,24 @@ const setUserEventMiddleware = (store) => (next) => (action) => {
           // console.log(response);
 
           if (response.data === 'création nouveau participant') {
+            // pop-up => vous etes Bien inscrit à l'event
             store.dispatch(userSubscribed());
-            // alert('bien inscrit');
           }
+
           if (response.data === 'utilisateur déja inscrit') {
+            // pop-up => vous etes deja inscrit
             store.dispatch(userIsAlreadySubscribe());
-            //  alert('dèjà inscrit');
           }
         })
         .catch((error) => {
           console.log(error);
-          alert('token expiré');
+
+          // Si le token est expiré: passe le state logout à false et permet de se reconnecter
+          store.dispatch(logoutUser());
+
+          // pop-up => veuillez vous inscrire
+          store.dispatch(userNotConnected());
+          // store.dispatch(userIsConnected());
         });
     }
       break;
@@ -47,5 +62,3 @@ const setUserEventMiddleware = (store) => (next) => (action) => {
 
 // == Export
 export default setUserEventMiddleware;
-// création nouveau participant
-// utilisateur déja inscrit

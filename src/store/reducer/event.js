@@ -3,6 +3,8 @@ const GET_EVENT_ID = 'GET_EVENT_ID';
 const USER_SUBSCRIBED = 'USER_SUBSCRIBED';
 const ALREADY_SUBSCRIBE = 'ALREADY_SUBSCRIBE';
 const RESET_STATUS = 'RESET_STATUS';
+const NOT_CONNECTED = 'NOT_CONNECTED';
+const IS_CONNECTED = 'IS_CONNECTED';
 //  Action qui va lancer la requête axios
 export const SET_USER_EVENT = 'SET_USER_EVENT';
 
@@ -12,7 +14,7 @@ const initialState = {
   eventId: '',
   userSubscribed: false,
   alreadySubscribe: false,
-  // userId: '',
+  userNotConnected: false,
 };
 
 // == Reducer
@@ -45,6 +47,16 @@ const reducer = (state = initialState, action = {}) => {
         alreadySubscribe: false,
         userSubscribed: false,
       };
+    case NOT_CONNECTED:
+      return {
+        ...state,
+        userNotConnected: true,
+      };
+    case IS_CONNECTED:
+      return {
+        ...state,
+        userNotConnected: false,
+      };
 
     default:
       return state;
@@ -68,6 +80,12 @@ export const userIsAlreadySubscribe = () => ({
 export const goresetStatus = () => ({
   type: RESET_STATUS,
 });
+export const userNotConnected = () => ({
+  type: NOT_CONNECTED,
+});
+export const userIsConnected = () => ({
+  type: IS_CONNECTED,
+});
+
 // == Export
 export default reducer;
-

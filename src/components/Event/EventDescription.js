@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import ParticipateButton from './ParticipateButton';
 import Subscribed from './Subscribed';
 import AlertAlreadySub from './AlertAlreadySub';
+import AlertNotConnected from './AlertNotConnected';
 
 // == Style du composant
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +52,8 @@ const EventDescription = ({
   alreadySubscribe,
   userSubscribed,
   resetStatus,
+  userNotConnected,
+  userIsConnected,
 }) => {
   const classes = useStyles();
   const baseUrl = 'https://api.ozone.best/uploads/images/';
@@ -77,6 +80,7 @@ const EventDescription = ({
                 <ParticipateButton id={id} onSetUserEvent={onSetUserEvent} />
                 {alreadySubscribe && <AlertAlreadySub resetStatus={resetStatus} />}
                 {userSubscribed && <Subscribed />}
+                {userNotConnected && <AlertNotConnected userIsConnected={userIsConnected} />}
 
               </Grid>
             </Grid>
@@ -95,6 +99,8 @@ EventDescription.propTypes = {
   resetStatus: PropTypes.func.isRequired,
   alreadySubscribe: PropTypes.bool.isRequired,
   userSubscribed: PropTypes.bool.isRequired,
+  userIsConnected: PropTypes.func.isRequired,
+  userNotConnected: PropTypes.func.isRequired,
 };
 EventDescription.defaultProps = {
   image: null,

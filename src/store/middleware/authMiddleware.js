@@ -28,7 +28,7 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(fetchUserId());
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         })
         .then(() => {
         // always executed

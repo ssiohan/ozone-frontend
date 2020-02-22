@@ -17,7 +17,7 @@ import Duration from './FormChildren/Duration';
 import ImpactEnv from './FormChildren/ImpactEnv';
 import ImpactSociety from './FormChildren/ImpactSociety';
 import Difficulty from './FormChildren/Difficulty';
-import Author from './FormChildren/Author';
+// import Author from './FormChildren/Author';
 import TypeEvent from './FormChildren/TypeEvent';
 
 
