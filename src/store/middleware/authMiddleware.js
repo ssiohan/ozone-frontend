@@ -26,6 +26,7 @@ const authMiddleware = (store) => (next) => (action) => {
           // On lance la fonction qui stocker les tokens dans le state et rendre le user logged
           store.dispatch(connectUser(token, refresh_token));
           store.dispatch(fetchUserId());
+          // setTimeout(store.dispatch(logoutUser()), 30000);
         })
         .catch((error) => {
           // console.log(error);
