@@ -155,7 +155,7 @@ const Cardweb = ({
               <Typography>{author.pseudo}</Typography>
               <Typography className="date">{date}</Typography>
               <Link to={`/event/${slugify(title)}`}>
-                <Button href="" className={classes.cardButton} variant="contained">En Savoir Plus</Button>
+                <Button href="" className={classes.cardButton} variant="contained">En savoir plus</Button>
               </Link>
             </Grid>
           </Grid>
@@ -214,6 +214,5 @@ Cardweb.propTypes = {
   duration: PropTypes.number.isRequired,
   impactSocietal: PropTypes.number.isRequired,
   impactEnvironmental: PropTypes.number.isRequired,
-
 };
 export default Cardweb;
