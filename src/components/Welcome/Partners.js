@@ -77,19 +77,14 @@ const Partners = () => {
               </Link>
             </Grid>
           </Grid>
-          
         </Grid>
         <Grid className={classes.eventbutton} item xs={12}>
-            <Grid container>
-              <Link to="/event">
-                <Button className={classes.button} variant="contained">Nous contacter</Button>
-              </Link>
-            </Grid>
+          <Grid container>
+            <Button href="mailto:contact@ozone.best" className={classes.button} variant="contained">Nous contacter</Button>
           </Grid>
+        </Grid>
       </Grid>
-      
     </Grid>
-    
   )
 };
 

@@ -49,5 +49,5 @@ export default function Subscribed({ resetStatus }) {
   );
 }
 Subscribed.propTypes = {
-  resetStatus: PropTypes.func.isRequired,
+  resetStatus: PropTypes.func,
 };

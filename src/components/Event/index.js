@@ -40,6 +40,8 @@ const Event = ({
   userSubscribed,
   onGetEventId,
   onSetUserEvent,
+  userNotConnected,
+  userIsConnected,
 }) => {
   const classes = useStyles();
   return (
@@ -74,6 +76,8 @@ const Event = ({
                 alreadySubscribe={alreadySubscribe}
                 userSubscribed={userSubscribed}
                 resetStatus={resetStatus}
+                userNotConnected={userNotConnected}
+                userIsConnected={userIsConnected}
               />
             </Grid>
             {/* Footer page avec map & adresse, caractérisques de l'event, contact de l'organisateur
@@ -123,6 +127,8 @@ Event.propTypes = {
   userSubscribed: PropTypes.bool.isRequired,
   onGetEventId: PropTypes.func.isRequired,
   onSetUserEvent: PropTypes.func.isRequired,
+  userIsConnected: PropTypes.func.isRequired,
+  userNotConnected: PropTypes.func.isRequired,
 };
 Event.defaultProps = {
   // si on met "{}" (objet vide) on ne passe pas la validation, car chaque élement est obligatoire

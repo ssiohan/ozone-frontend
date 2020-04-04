@@ -106,7 +106,7 @@ const Login = ({
                 <LockOutlinedIcon />
               </Avatar>
             </Grid>
-            <Typography variant="h6" gutterBottom xs={12}>
+            <Typography variant="h6" gutterBottom>
               Connexion
             </Typography>
             {!loginStatus && (
@@ -157,7 +157,7 @@ const Login = ({
                       size="large"
                       className={classes.button}
                     >
-            Me connecter
+                      Me connecter
                     </Button>
                   </Grid>
                 </Grid>
