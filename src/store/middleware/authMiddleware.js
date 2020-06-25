@@ -4,8 +4,9 @@
 import axios from 'axios';
 
 // Import d'actions
-import { DO_LOGIN, connectUser } from 'src/store/reducer/login';
+import { DO_LOGIN, connectUser, logoutUser } from 'src/store/reducer/login';
 import { fetchUserId } from 'src/store/reducer/profile';
+
 
 // == Le middleware
 const authMiddleware = (store) => (next) => (action) => {
@@ -29,7 +30,8 @@ const authMiddleware = (store) => (next) => (action) => {
           // setTimeout(store.dispatch(logoutUser()), 30000);
         })
         .catch((error) => {
-          // console.log(error);
+          // eslint-disable-next-line no-console
+          console.log(error);
         })
         .then(() => {
         // always executed
